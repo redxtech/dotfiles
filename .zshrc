@@ -1,7 +1,7 @@
 export ZSH=/home/redxtech/.oh-my-zsh
 ZSH_THEME="red-z"
-export ZSH_CUSTOM=/home/redxtech/.custom
-ENABLE_CORRECTION="true"
+export ZSH_CUSTOM=/home/redxtech/.custom-zsh
+# ENABLE_CORRECTION="true"
 
 plugins=(git)
 
