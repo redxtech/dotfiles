@@ -2,7 +2,6 @@ export ZSH=/home/redxtech/.oh-my-zsh
 ZSH_THEME="red-z"
 export ZSH_CUSTOM=/home/redxtech/.custom
 ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
 
 plugins=(git)
 
