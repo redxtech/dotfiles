@@ -1,0 +1,2 @@
+# thefuck
+eval $(thefuck --alias --enable-experimental-instant-mode)
