@@ -2,8 +2,9 @@
 
 # Run ssh agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent
+	ssh-agent > /dev/null
 fi
+
 if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(ssh-agent -s)"
+	eval "$(ssh-agent -s)" > /dev/null
 fi
