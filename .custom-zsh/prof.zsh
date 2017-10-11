@@ -1,13 +1,12 @@
 # Custom profile for redxtech
 
 # Add ssh keys
-ssh-add ~/.ssh/*.pem
-
-if [ -f "${HOME}/.ssh/id_rsa" ]; then
-	ssh-add $HOME/.ssh/id_rsa
+setopt extendedglob
+if [[ -n $HOME/.ssh/*.pem(#qN) ]]; then
+	ssh-add $HOME/.ssh/*.pem
 fi
-if [ -f "${HOME}/.ssh/aws_rsa" ]; then
-	ssh-add $HOME/.ssh/aws_rsa
+if [[ -n $HOME/.ssh/*_rsa(#qN) ]]; then
+        ssh-add $HOME/.ssh/*_rsa
 fi
 
 # Clear on startup
