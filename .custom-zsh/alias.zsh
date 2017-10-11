@@ -2,6 +2,8 @@
 
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias ls="ls --color=auto"
+
 alias zshcfg="nano $HOME/.zshrc"
 alias zconf="nano $HOME/.zshrc"
 alias profcfg="nano $HOME/.prof"
