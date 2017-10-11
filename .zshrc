@@ -7,9 +7,17 @@ plugins=(git, thefuck)
 
 source $ZSH/oh-my-zsh.sh
 
-source $ZSH_CUSTOM/env.zsh
-source $ZSH_CUSTOM/alias.zsh
-source $ZSH_CUSTOM/running.zsh
+# source custom files
+if [ -f "${ZSH_CUSTOM}/env.zsh" ]; then
+	source $ZSH_CUSTOM/env.zsh
+fi
+if [ -f "${ZSH_CUSTOM}/alias.zsh" ]; then
+        source $ZSH_CUSTOM/env.zsh
+fi
+
+if [ -f "${ZSH_CUSTOM}/running.zsh" ]; then
+        source $ZSH_CUSTOM/running.zsh
+fi
 
 # Custom profile
 source ~/.prof
