@@ -9,6 +9,6 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 # thefuck
-#if [ xhost >& /dev/null ]; then
-#       eval $(thefuck --alias --enable-experimental-insta$
-#fi
+if [ xhost >& /dev/null ]; then
+	#eval $(thefuck --alias --enable-experimental-instant-mode)
+fi
