@@ -11,18 +11,6 @@ plugins=(git, thefuck)
 
 source $ZSH/oh-my-zsh.sh
 
-# source custom files
-if [ -f "${ZSH_CUSTOM}/env.zsh" ]; then
-	source $ZSH_CUSTOM/env.zsh
-fi
-if [ -f "${ZSH_CUSTOM}/alias.zsh" ]; then
-        source $ZSH_CUSTOM/env.zsh
-fi
-
-if [ -f "${ZSH_CUSTOM}/running.zsh" ]; then
-        source $ZSH_CUSTOM/running.zsh
-fi
-
 # Custom profile
 if [ -f "${HOME}/.prof" ]; then
 	source $HOME/.prof
