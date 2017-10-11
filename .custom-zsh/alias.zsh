@@ -11,8 +11,8 @@ alias pconf="nano $ZSH_CUSTOM/prof.zsh"
 alias resrc="source $HOME/.zshrc"
 
 # alias pacman="sudo pacman"
-alias shit='sudo $(fc -ln -1)'
-alias please="shit"
+alias please='sudo $(fc -ln -1)'
+alias shit="please"
 
 # Reminders
 # alias inst="echo pacman -S package"
