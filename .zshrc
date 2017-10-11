@@ -24,4 +24,6 @@ if [ -f "${ZSH_CUSTOM}/running.zsh" ]; then
 fi
 
 # Custom profile
-source ~/.prof
+if [ -f "${HOME/.prof" ]; then
+	source $HOME/.prof
+fi
