@@ -1,8 +1,0 @@
-# Custom profile for redxtech
-
-# Add ssh keys
-ssh-add ~/.ssh/*.pem
-ssh-add ~/.ssh/id_rsa
-
-# Clear on startup
-clear

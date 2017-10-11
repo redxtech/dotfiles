@@ -10,8 +10,3 @@ plugins=(git, thefuck)
 # colourize, git-flow, git-extras, gitignore, 
 
 source $ZSH/oh-my-zsh.sh
-
-# Custom profile
-if [ -f "${HOME}/.prof" ]; then
-	source $HOME/.prof
-fi

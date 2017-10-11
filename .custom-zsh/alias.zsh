@@ -7,7 +7,7 @@ alias grep="grep --color"
 alias whence="type -a"
 
 alias zconf="nano $HOME/.zshrc"
-alias pconf="nano $HOME/.prof"
+alias pconf="nano $ZSH_CUSTOM/.prof"
 alias resrc="source $HOME/.zshrc"
 
 # alias pacman="sudo pacman"
