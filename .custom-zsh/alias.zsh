@@ -6,13 +6,13 @@ alias ls="ls --color=auto"
 alias grep="grep --color"
 alias whence="type -a"
 
-alias zshcfg="nano $HOME/.zshrc"
 alias zconf="nano $HOME/.zshrc"
-alias profcfg="nano $HOME/.prof"
+alias pconf="nano $HOME/.prof"
 alias resrc="source $HOME/.zshrc"
 
 # alias pacman="sudo pacman"
-alias shit="sudo !!"
+alias shit='sudo $(fc -ln -1)'
+alias please="shit"
 
 # Reminders
 # alias inst="echo pacman -S package"
@@ -23,4 +23,3 @@ alias shit="sudo !!"
 # alias search="echo pacman -Q searchterm"
 # alias searchd="echo pacman -Ss searchterm"
 # alias searchi="echo pacman -Qs searchterm"
-
