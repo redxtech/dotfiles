@@ -1,6 +1,6 @@
 # Simple, informative, and pleasant theme for zsh via oh-my-zsh.
 # Inspired by babun, ys, and 
-# Works well on light background.
+# Works well on both light & dark background.
 # Colours: red, blue, green, and cyan.
 #
 # Oct 2017 Gabe Dunn
