@@ -3,6 +3,8 @@
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias ls="ls --color=auto"
+alias grep="grep --color"
+alias whence="type -a"
 
 alias zshcfg="nano $HOME/.zshrc"
 alias zconf="nano $HOME/.zshrc"
