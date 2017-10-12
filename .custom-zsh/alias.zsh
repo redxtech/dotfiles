@@ -11,6 +11,7 @@ alias whence="type -a"
 alias zconf="nano $HOME/.zshrc"
 alias pconf="nano $ZSH_CUSTOM/prof.zsh"
 alias resrc="source $HOME/.zshrc"
+alias reload="source $HOME/.zshrc"
 
 # alias pacman="sudo pacman"
 alias please='sudo $(fc -ln -1)'
