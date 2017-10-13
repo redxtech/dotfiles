@@ -2,7 +2,7 @@
 
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-alias distro="cat /etc/os-release | grep ID= | tr -d 'ID='"
+alias distro="cat /etc/os-release | grep \"^ID=\" | tr -d 'ID='"
 
 alias ls="ls --color=auto"
 alias grep="grep --color"
