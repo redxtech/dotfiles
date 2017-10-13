@@ -10,6 +10,7 @@ alias whence="type -a"
 
 alias zconf="nano $HOME/.zshrc"
 alias pconf="nano $ZSH_CUSTOM/prof.zsh"
+alias aconf="nano $ZSH_CUSTOM/alias.zsh"
 alias resrc="source $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
 
