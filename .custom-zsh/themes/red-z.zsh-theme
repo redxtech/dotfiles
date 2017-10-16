@@ -83,7 +83,7 @@ function vim_bg_info() {
 
 # time function
 function time_info() {
-	if [ $RZ_TIME_24H ]; then
+	if $RZ_TIME_24H; then
 		echo "%T"
 	else
 		echo "%@"
