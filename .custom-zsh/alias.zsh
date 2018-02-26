@@ -14,6 +14,10 @@ alias aconf="nano $ZSH_CUSTOM/alias.zsh"
 alias resrc="source $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
 
+alias webup="sudo systemctl start nginx"
+alias webdn="sudo systemctl stop nginx"
+alias webrs="sudo systemctl restart nginx"
+
 # alias pacman="sudo pacman"
 alias please='sudo $(fc -ln -1)'
 alias shit="please"
