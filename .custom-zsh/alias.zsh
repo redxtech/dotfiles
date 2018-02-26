@@ -18,6 +18,10 @@ alias reload="source $HOME/.zshrc"
 alias please='sudo $(fc -ln -1)'
 alias shit="please"
 
+# nordvpn aliases
+alias nordvpn="sudo nordvpn"
+alias vordvpn-rank="sudo nordvpn best -r na"
+
 # Reminders
 # alias inst="echo pacman -S package"
 # alias uninst="echo pacman -Rs package"
