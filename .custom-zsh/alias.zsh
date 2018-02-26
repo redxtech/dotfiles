@@ -24,7 +24,7 @@ alias shit="please"
 
 # nordvpn aliases
 alias nordvpn="sudo nordvpn"
-alias vordvpn-rank="sudo nordvpn best -r na"
+alias nordvpn-rank="sudo nordvpn best -r na"
 
 # Reminders
 # alias inst="echo pacman -S package"
