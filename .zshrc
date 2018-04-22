@@ -3,11 +3,22 @@ ZSH_THEME="red-z"
 export ZSH_CUSTOM="$HOME/.custom-zsh"
 # ENABLE_CORRECTION="true"
 
-plugins=(git, thefuck)
-# plugins to add: archlinux, emoji, golang, npm, yarn, 
-#
-# plugins to look into:
-# colourize, git-flow, git-extras, gitignore, 
+plugins=(
+	archlinux,
+	git,
+	git-extras,
+	thefuck,
+	yarn,
+	golang,
+	git-flow,
+	ruby,
+	gem,
+	rvm,
+	rails,
+	jsontools,
+	systemd,
+	emoji
+)
 
 source $ZSH/oh-my-zsh.sh
 
