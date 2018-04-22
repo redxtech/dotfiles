@@ -24,3 +24,6 @@ if [[ -n $HOME/.ssh/*_rsa(#qN) ]]; then
     	echo "ssh-adding _rsa files failed. check manually."
 	fi
 fi
+
+# Add rust to path
+export PATH="$HOME/.cargo/bin:$PATH"
