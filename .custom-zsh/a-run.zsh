@@ -8,3 +8,8 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(ssh-agent -s)" > /dev/null
 fi
+
+# Run thefuck setup
+if type "thefuck" > /dev/null; then
+	eval $(thefuck --alias)
+fi
