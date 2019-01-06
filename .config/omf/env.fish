@@ -1,0 +1,1 @@
+set -xg fish_user_paths
