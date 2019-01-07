@@ -39,9 +39,4 @@ if test (count $rsa) -gt 0
   end
 end
 
-# init nvm
-if test -n "(nvm)"
-  nvm use default
-end
-
 ## TODO: add thefuck
