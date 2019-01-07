@@ -1,7 +1,7 @@
 # Aliases
 
-# dotfiles git alias
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# dotfiles git alias (deprecated in favour of yadm)
+# alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # run `distro` to see which distro is currently running
 alias distro="cat /etc/os-release | grep \"^ID=\" | tr -d 'ID='"
