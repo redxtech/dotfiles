@@ -1,4 +1,6 @@
 package fzf
+package pisces
 package z
 theme default
+theme git@github.com:redxtech/redfish.git
 theme robbyrussell
