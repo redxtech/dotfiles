@@ -6,7 +6,3 @@ if test -n "(nvm)"
   nvm use default
 end
 
-# init kitty
-if test -n "(kitty)"
-  kitty + complete setup fish | source
-end
