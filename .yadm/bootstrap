@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# New Computer Setup (Bootstrap) Script
+
+# Store distro as variable.
+DISTRO=$(cat /etc/os-release | grep \^ID= | tr -d ID=)
+
+echo $DISTRO
