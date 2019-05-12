@@ -13,3 +13,7 @@ end
 if test -e $OMF_CONFIG/prof.fish
   source $OMF_CONFIG/prof.fish
 end
+
+if test -e $HOME/.asdf/asdf.fish
+  source $HOME/.asdf/asdf.fish
+end

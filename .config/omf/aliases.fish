@@ -30,3 +30,11 @@ alias shit="please"
 # nordvpn aliases
 alias nordvpn="sudo nordvpn"
 alias nordvpn-rank="sudo nordvpn best -r na"
+
+# docker aliases
+alias docker="sudo docker"
+alias docker-compose="sudo docker-compose"
+alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
+
+# clipboard alias
+alias xclip="xclip -selection c"
