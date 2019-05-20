@@ -1,12 +1,9 @@
-call plug#begin('~/.local/share/nvim/plugged')
+exe 'source' stdpath('config').'/plugs.vim'
+exe 'source' stdpath('config').'/maps.vim'
 
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
+set number
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'editorconfig/editorconfig-vim'
+let g:molokai_original = 1
+let g:rehash256 = 1
+colorscheme molokai
 
-call plug#end()
