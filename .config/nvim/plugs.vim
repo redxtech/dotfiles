@@ -14,6 +14,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-signify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
