@@ -28,5 +28,5 @@ asdf install python 3.7.3
 asdf install dart 2.3.0
 
 # install cargo packages
-cargo install ripgrep fd-find skim exa bat ruplacer sd todo_r hyperfine
+cargo install ripgrep fd-find skim exa bat ruplacer sd hyperfine
 
