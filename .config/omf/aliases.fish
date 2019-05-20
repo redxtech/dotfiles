@@ -38,3 +38,7 @@ alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -
 
 # clipboard alias
 alias xclip="xclip -selection c"
+
+# ls -> exa
+alias ls="exa"
+
