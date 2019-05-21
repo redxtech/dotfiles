@@ -6,6 +6,7 @@ echo Running general post-install scripts...
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout '(git describe --abbrev=0 --tags)'
+set -xg PATH $PATH $HOME/.asdf/bin
 cd ~
 
 
