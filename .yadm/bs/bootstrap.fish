@@ -28,13 +28,13 @@ end
 
 # Install packages based on distro.
 if test $DISTRO = 'arch'
-  echo Running \'pacaur -S $PACKAGES\'
-  pacaur -Syu $PACKAGES --noconfirm
+  echo Running \'pacaur -S \$PACKAGES --noconfirm --quiet\'
+  pacaur -Syu $PACKAGES --noconfirm --quiet
 else if test $DISTRO = 'ubuntu'
   echo Updating sources...
-  sudo apt update
-  echo Running \'sudo apt install $PACKAGES\'
-  sudo apt install $PACKAGES -y
+  sudo apt -q update
+  echo Running \'sudo apt -q -y install \$PACKAGES\'
+  sudo apt install -q -y $PACKAGES
 end
 
 source $HOME/.yadm/bs/post-install.fish
