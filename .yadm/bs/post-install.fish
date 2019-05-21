@@ -3,8 +3,8 @@
 echo Running general post-install scripts...
 
 # install asdf-vm
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-cd ~/.asdf
+git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+cd $HOME/.asdf
 git checkout '(git describe --abbrev=0 --tags)'
 set -xg PATH $PATH $HOME/.asdf/bin
 cd ~
@@ -15,12 +15,12 @@ cd ~
 asdf plugin-add nodejs
 asdf plugin-add rust
 asdf plugin-add golang
-asdf plugin add ruby
+asdf plugin-add ruby
 asdf plugin-add python
 asdf plugin-add dart
 
 # add required keys
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+bash $HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 # install latest versions of all languages
 asdf install nodejs 12.2.0
