@@ -8,17 +8,17 @@ DISTRO=$(cat /etc/os-release | grep \^ID= | tr -d ID=)
 # Install fish to run rest of bootstrap process.
 echo Installing fish shell...
 if [ $DISTRO == arch ]; then
-  echo Running \'sudo pacman -S fish\'
-  echo sudo pacman -S fish --noconfirm | sh
+  echo Running \'sudo pacman -S fish --noconfirm --quiet\'
+  echo sudo pacman -S fish --noconfirm --quiet | sh
 fi
 
 if [ $DISTRO == ubuntu ]; then
   echo Adding fish-shell ppa...
   echo sudo apt-add-repository ppa:fish-shell/release-3 | sh
   echo Updating sources...
-  echo sudo apt update | sh
-  echo Running \'sudo apt install fish\'
-  echo sudo apt install fish -y | sh
+  echo sudo apt -q update | sh
+  echo Running \'sudo apt -q -y install fish\'
+  echo sudo apt -q -y install fish | sh
 fi
 
 echo Fish shell has been installed!
