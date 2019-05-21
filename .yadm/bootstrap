@@ -9,16 +9,16 @@ DISTRO=$(cat /etc/os-release | grep \^ID= | tr -d ID=)
 echo Installing fish shell...
 if [ $DISTRO == arch ]; then
   echo Running \'sudo pacman -S fish\'
-  sudo pacman -S fish
+  echo sudo pacman -S fish --noconfirm | sh
 fi
 
 if [ $DISTRO == ubuntu ]; then
   echo Adding fish-shell ppa...
-  sudo apt-add-repository ppa:fish-shell/release-3
+  echo sudo apt-add-repository ppa:fish-shell/release-3 | sh
   echo Updating sources...
-  sudo apt update
+  echo sudo apt update | sh
   echo Running \'sudo apt install fish\'
-  sudo apt install fish
+  echo sudo apt install fish -y | sh
 fi
 
 echo Fish shell has been installed!

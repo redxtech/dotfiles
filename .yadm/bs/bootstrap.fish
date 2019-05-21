@@ -19,23 +19,22 @@ set -l PACKAGES_MAIN handbrake jackett lutris plex-media-server radarr sonarr st
 
 # Choose proper package list.
 set -l PACKAGES $PACKAGES_BASE
-source $HOME/.yadm/bs/functions/read.fish
-if read_desktop
+if test -f $HOME/.bs-desktop
   set PACKAGES $PACKAGES $PACKAGES_DESKTOP
 end
-if read_main
-  set PACKAGES $PACKAGES $PACKAGES_MAIN
+if test -f $HOME/.bs-main
+  set PACKAGES $PACKAGES $PACKAGES_DESKTOP $PACKAGES_MAIN
 end
 
 # Install packages based on distro.
 if test $DISTRO = 'arch'
   echo Running \'pacaur -S $PACKAGES\'
-  pacaur -Syu $PACKAGES
+  pacaur -Syu $PACKAGES --noconfirm
 else if test $DISTRO = 'ubuntu'
   echo Updating sources...
   sudo apt update
   echo Running \'sudo apt install $PACKAGES\'
-  sudo apt install $PACKAGES
+  sudo apt install $PACKAGES -y
 end
 
 source $HOME/.yadm/bs/post-install.fish
