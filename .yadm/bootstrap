@@ -25,4 +25,3 @@ echo Fish shell has been installed!
 echo Switching shell...
 echo source $HOME/.yadm/bs/bootstrap.fish | fish
 
-echo screenfetch | fish

@@ -1,4 +1,4 @@
-# Pre install scripts for arch
+# Pre-install scripts for arch
 
 echo Running arch pre-install scripts...
 

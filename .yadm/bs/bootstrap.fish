@@ -19,7 +19,7 @@ set -l PACKAGES_MAIN handbrake jackett lutris plex-media-server radarr sonarr st
 
 # Choose proper package list.
 set -l PACKAGES $PACKAGES_BASE
-source $HOME/.yadm/bs/read.fish
+source $HOME/.yadm/bs/functions/read.fish
 if read_desktop
   set PACKAGES $PACKAGES $PACKAGES_DESKTOP
 end
