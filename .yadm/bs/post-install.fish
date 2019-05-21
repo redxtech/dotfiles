@@ -30,6 +30,9 @@ asdf install ruby 2.6.3
 asdf install python 3.7.3
 asdf install dart 2.3.0
 
+# add rust bin to path
+set -l _RUST_VERSION (asdf current rust | awk '{print $1}')
+set -gx PATH $PATH $HOME/.asdf/installs/rust/$_RUST_VERSION/bin
 # install cargo packages
 cargo install ripgrep fd-find skim exa bat ruplacer sd hyperfine
 
