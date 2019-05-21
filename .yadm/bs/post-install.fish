@@ -22,17 +22,28 @@ asdf plugin-add dart
 # add required keys
 bash $HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
+# grab language versions from file
+source $HOME/.yadm/bs/asdf-versions.fish
+
 # install latest versions of all languages
-asdf install nodejs 12.2.0
-asdf install rust 1.34.2
-asdf install golang 1.12.5
-asdf install ruby 2.6.3
-asdf install python 3.7.3
-asdf install dart 2.3.0
+asdf install nodejs $ASDF_NODE_VERSION
+asdf install rust $ASDF_RUST_VERSION
+asdf install golang $ASDF_GOLANG_VERSION
+asdf install ruby $ASDF_RUBY_VERSION
+asdf install python $ASDF_PYTHON_VERSION
+asdf install dart $ASDF_DART_VERSION
+
+# set global versions
+asdf global nodejs $ASDF_NODE_VERSION
+asdf global rust $ASDF_RUST_VERSION
+asdf global golang $ASDF_GOLANG_VERSION
+asdf global ruby $ASDF_RUBY_VERSION
+asdf global python $ASDF_PYTHON_VERSION
+asdf globall dart $ASDF_DART_VERSION
 
 # add rust bin to path
-set -l _RUST_VERSION (asdf current rust | awk '{print $1}')
-set -gx PATH $PATH $HOME/.asdf/installs/rust/$_RUST_VERSION/bin
+set -gx PATH $PATH $HOME/.asdf/installs/rust/$ASDF_RUST_VERSION/bin
+rustup default stable
 # install cargo packages
 cargo install ripgrep fd-find skim exa bat ruplacer sd hyperfine
 
