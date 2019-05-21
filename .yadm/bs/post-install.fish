@@ -5,7 +5,7 @@ echo Running general post-install scripts...
 # install asdf-vm
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
-git checkout "$(git describe --abbrev=0 --tags)"
+git checkout '(git describe --abbrev=0 --tags)'
 cd ~
 
 
