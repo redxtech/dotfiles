@@ -1,5 +1,7 @@
 # General post-install
 
+echo Running general post-install scripts...
+
 # install asdf-vm
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
@@ -29,4 +31,6 @@ asdf install dart 2.3.0
 
 # install cargo packages
 cargo install ripgrep fd-find skim exa bat ruplacer sd hyperfine
+
+echo Finished general post-install scripts.
 

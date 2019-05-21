@@ -1,3 +1,5 @@
+#! /usr/bin/fish
+
 # Run the setup from a fish shell.
 echo In the fish shell!
 
@@ -5,8 +7,6 @@ echo In the fish shell!
 set -l DISTRO (cat /etc/os-release | grep \^ID= | tr -d ID=)
 
 echo Current distribution: $DISTRO
-
-echo Running pre-install scripts...
 
 source $HOME/.yadm/bs/pre-install.fish
 source $HOME/.yadm/bs/$DISTRO/pre-install.fish
@@ -28,19 +28,23 @@ if read_main
 end
 
 # Install packages based on distro.
-if $DISTRO == arch
+if test $DISTRO = 'arch'
+  echo Running \'pacaur -S $PACKAGES\'
   pacaur -Syu $PACKAGES
-else if $DISTRO == ubuntu
+else if test $DISTRO = 'ubuntu'
+  echo Updating sources...
   sudo apt update
+  echo Running \'sudo apt install $PACKAGES\'
   sudo apt install $PACKAGES
-fi
-
-echo Running post-install scripts...
+end
 
 source $HOME/.yadm/bs/post-install.fish
 source $HOME/.yadm/bs/$DISTRO/post-install.fish
 
 echo Bootstrapping completed!
+
+echo The obligatory screenfetch:
+echo
 
 screenfetch
 
