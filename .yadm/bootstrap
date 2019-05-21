@@ -5,27 +5,24 @@
 # Store distro as variable.
 DISTRO=$(cat /etc/os-release | grep \^ID= | tr -d ID=)
 
-echo Currently running: $DISTRO
+# Install fish to run rest of bootstrap process.
+echo Installing fish shell...
+if [ $DISTRO == arch ]; then
+  echo Running \'sudo pacman -S fish\'
+  sudo pacman -S fish
+fi
 
-echo Running pre-install scripts...
+if [ $DISTRO == ubuntu ]; then
+  echo Adding fish-shell ppa...
+  sudo apt-add-repository ppa:fish-shell/release-3
+  echo Updating sources...
+  sudo apt update
+  echo Running \'sudo apt install fish\'
+  sudo apt install fish
+fi
 
-source $HOME/.yadm/bs/pre-install.sh
-source $HOME/.yadm/bs/$DISTRO/pre-install.sh
+echo Fish shell has been installed!
+echo Switching shell...
+echo source $HOME/.yadm/bs/bootstrap.fish | fish
 
-echo Installing packages from system package manager...
-
-$PACKAGES+="audacity bitwarden bzip2 chromium-widevine cowsay discord docker docker-compose firefox firefox-developer edition fish flameshot git gitflow-ahv gnome-terminal guake htop kitty megasync neovim octave plex-media-player rclone qdirstat rustup spotify steam thefuck wget yay"
-
-# if $DISTRO == arch
-#   pacaur -Syu $PACKAGES
-# else if $DISTRO == ubuntu
-#   sudo apt update
-#   sudo apt install $PACKAGES
-# fi
-
-echo Running post-install scripts...
-
-source $HOME/.yadm/bs/post-install.sh
-source $HOME/.yadm/bs/$DISTRO/post-install.sh
-
-echo Bootstrapping completed!
+echo screenfetch | fish

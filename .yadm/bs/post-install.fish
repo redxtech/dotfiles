@@ -1,4 +1,4 @@
-# general post install
+# General post-install
 
 # install asdf-vm
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
