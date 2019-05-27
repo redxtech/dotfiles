@@ -1,5 +1,9 @@
 # Run custom important things.
 
+# Set lang environment variables
+set -gx LANG "en_US.UTF-8"
+set -gx LC_ALL $LANG
+
 # Start up SHH agent.
 if test -n "(pgrep -u "$USER" ssh-agent)"
   ssh-agent > /dev/null
