@@ -51,5 +51,11 @@ rustup default stable
 # install cargo packages
 cargo install ripgrep fd-find skim exa bat ruplacer sd hyperfine
 
-echo Finished general post-install scripts.
+# install custom plex media server service
+if test -f $HOME/.bs-main
+    cp $HOME/.yadm/bs/resources/pms.service /etc/systemd/system
+    cp $HOME/.yadm/bs/resources/pms /etc/conf.d/
+    echo To enable plex media server use "systemctl enable pms" after editing mounts.
+end 
 
+echo Finished general post-install scripts.

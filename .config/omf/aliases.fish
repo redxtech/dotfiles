@@ -42,3 +42,7 @@ alias xclip="xclip -selection c"
 # ls -> exa
 alias ls="exa"
 
+# plex aliases
+alias plexup="sudo systemctl start plexmediaserver"
+alias plexdn="sudo systemctl stop plexmediaserver"
+
