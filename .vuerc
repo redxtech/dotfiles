@@ -19,6 +19,22 @@
       "routerHistoryMode": true,
       "vuex": true,
       "cssPreprocessor": "sass"
+    },
+    "standard": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "standard",
+          "lintOn": [
+            "save"
+          ]
+        }
+      },
+      "router": true,
+      "routerHistoryMode": true,
+      "vuex": true,
+      "cssPreprocessor": "stylus"
     }
   }
 }

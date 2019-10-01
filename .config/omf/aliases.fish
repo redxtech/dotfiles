@@ -32,9 +32,9 @@ alias nordvpn="sudo nordvpn"
 alias nordvpn-rank="sudo nordvpn best -r na"
 
 # docker aliases
-alias docker="sudo docker"
-alias docker-compose="sudo docker-compose"
-alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
+# alias docker="sudo docker"
+# alias docker-compose="sudo docker-compose"
+# alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
 
 # clipboard alias
 alias xclip="xclip -selection c"
@@ -45,4 +45,5 @@ alias ls="exa"
 # plex aliases
 alias plexup="sudo systemctl start pms"
 alias plexdn="sudo systemctl stop pms"
+alias plexst="sudo systemctl status pms"
 
