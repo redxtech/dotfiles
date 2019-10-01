@@ -42,3 +42,4 @@ if test (count $rsa) -gt 0
     echo "ssh-adding _rsa files failed. check manually."
   end
 end
+

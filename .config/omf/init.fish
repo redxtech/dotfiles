@@ -1,13 +1,13 @@
-if test -e $OMF_CONFIG/aliases.fish
-  source $OMF_CONFIG/aliases.fish
+if test -e $OMF_CONFIG/env.fish
+  source $OMF_CONFIG/env.fish
 end
 
 if test -e $OMF_CONFIG/path.fish
   source $OMF_CONFIG/path.fish
 end
 
-if test -e $OMF_CONFIG/env.fish
-  source $OMF_CONFIG/env.fish
+if test -e $OMF_CONFIG/aliases.fish
+  source $OMF_CONFIG/aliases.fish
 end
 
 if test -e $OMF_CONFIG/prof.fish
