@@ -22,7 +22,7 @@ alias webup="sudo systemctl start nginx"
 alias webdn="sudo systemctl stop nginx"
 alias webrs="sudo systemctl restart nginx"
 
-# redo last command as sud
+# redo last command as sudo
 alias please='sudo (fc -ln -1)'
 alias shit="please"
 
@@ -39,10 +39,13 @@ alias shit="please"
 alias xclip="xclip -selection c"
 
 # ls -> exa
-alias ls="exa"
+alias ls="exa --group-directories-first"
 
 # plex aliases
 alias plexup="sudo systemctl start pms"
 alias plexdn="sudo systemctl stop pms"
 alias plexst="sudo systemctl status pms"
+
+# for fun
+alias starwars="telnet towel.blinkenlights.nl"
 
