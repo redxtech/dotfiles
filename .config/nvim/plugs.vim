@@ -1,33 +1,27 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ervandew/supertab'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'godlygeek/tabular'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'metakirby5/codi.vim'
-Plug 'mhinz/vim-signify'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'terryma/vim-expand-region'
-Plug 'tomasr/molokai'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown', { 'for': 'md' }
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/nginx.vim', { 'for': 'conf' }
-Plug 'w0rp/ale'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'yegappan/mru'
+Plug 'editorconfig/editorconfig-vim' " editorconfig support
+Plug 'ervandew/supertab' " tab completion
+Plug 'itchyny/lightline.vim' " powerline
+Plug 'joshdick/onedark.vim' " colour scheme
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy-finder
+Plug 'junegunn/fzf.vim' " fuzzy-finder
+Plug 'metakirby5/codi.vim' " scratch-code playground
+Plug 'mhinz/vim-signify' " git change indicators
+Plug 'posva/vim-vue', { 'for': 'vue' } " vue syntax highlighting
+Plug 'scrooloose/nerdtree' " tree file browser
+Plug 'sheerun/vim-polyglot' " syntax highlighting for a large number of languages
+Plug 'terryma/vim-expand-region' " smart selected region expanding
+Plug 'tpope/vim-commentary' " comment out lines with a keybind
+Plug 'tpope/vim-eunuch' " unix helpers
+Plug 'tpope/vim-fugitive' " git helpers
+Plug 'tpope/vim-markdown', { 'for': 'md' } " markdown highlighting
+Plug 'tpope/vim-sensible' " defaults everyone can agree on
+Plug 'tpope/vim-surround' " tools for surrounding elements
+Plug 'vim-scripts/nginx.vim', { 'for': 'conf' } " highlighting for nginx configs
+Plug 'dense-analysis/ale' " asynchronous lint engine
+Plug 'Xuyuanp/nerdtree-git-plugin' " git plugin for nerdtree
+Plug 'yegappan/mru' " most recently used
 
 call plug#end()
+

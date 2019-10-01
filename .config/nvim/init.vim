@@ -1,9 +1,21 @@
-exe 'source' stdpath('config').'/plugs.vim'
-exe 'source' stdpath('config').'/maps.vim'
+" source some other vim config files.
+	exe 'source' stdpath('config').'/plugs.vim'
+	exe 'source' stdpath('config').'/maps.vim'
+	exe 'source' stdpath('config').'/colours.vim'
 
-set number
+" some initial things
+	set nocompatible
+	filetype plugin on
+	syntax on
+	set encoding=utf-8
+	set number relativenumber
 
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
+" enable autocompletion
+	set wildmode=longest,list,full
+
+" set vim-vue to use only html, css, & js
+	let g:vue_pre_processors = []
+
+" set ale to lint js with eslint
+	let g:ale_linters = { 'javascript': ['eslint'], }
 
