@@ -533,6 +533,11 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
+  # Custom keybinds.
+  - { key: N,       mods: Control,  action: SpawnNewInstance                 }
+  - { key: T,       mods: Control|Shift,  action: SpawnNewInstance           }
+
+  # Default keybinds.
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
