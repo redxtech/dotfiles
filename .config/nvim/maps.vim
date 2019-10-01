@@ -2,8 +2,8 @@
 	map <C-n> :NERDTreeToggle<CR>
 
 " map Ctrl+w & Alt+w to expanding & shrinking visual selected region
-	map <C-w> <Plug>(expand_region_expand)
-	map <M-w> <Plug>(expand_region_shrink)
+	" map <C-w> <Plug>(expand_region_expand)
+	" map <M-w> <Plug>(expand_region_shrink)
 
 " map Ctrl+s to saving the file
 	map <C-s> :write<CR>

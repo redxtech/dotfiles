@@ -10,12 +10,11 @@
 	set encoding=utf-8
 	set number relativenumber
 
-" enable autocompletion
-	set wildmode=longest,list,full
-
 " set vim-vue to use only html, css, & js
 	let g:vue_pre_processors = []
 
-" set ale to lint js with eslint
+" set ale to lint & fix js with eslint
 	let g:ale_linters = { 'javascript': ['eslint'], }
+	let b:ale_fixers = ['eslint']
+	let b:ale_fix_on_save = 1
 
