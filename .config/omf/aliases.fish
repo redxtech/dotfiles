@@ -8,24 +8,27 @@ alias grep="grep --color"
 alias whence="type -a"
 
 # config edit shortcuts
-alias fconf="nano $HOME/.config/fish/config.fish"
-alias pconf="nano $OMF_CONFIG/prof.fish"
-alias aconf="nano $OMF_CONFIG/aliases.fish"
+alias fconf="$EDITOR $HOME/.config/fish/config.fish"
+alias aconf="$EDITOR $OMF_CONFIG/aliases.fish"
 alias resrc="omf reload"
-alias reload="omf reload"
+
+# some command aliases
+alias SS="sudo systemctl"
+alias v="nvim"
+alias mkd="mkdir -pv"
 
 # webserver shortcuts
 alias webup="sudo systemctl start nginx"
 alias webdn="sudo systemctl stop nginx"
 alias webrs="sudo systemctl restart nginx"
 
-# redo last command as sudo
+# redo last command as sud
 alias please='sudo (fc -ln -1)'
 alias shit="please"
 
 # nordvpn aliases
-alias nordvpn="sudo nordvpn"
-alias nordvpn-rank="sudo nordvpn best -r na"
+# alias nordvpn="sudo nordvpn"
+# alias nordvpn-rank="sudo nordvpn best -r na"
 
 # docker aliases
 # alias docker="sudo docker"
