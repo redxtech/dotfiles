@@ -14,7 +14,8 @@ alias resrc="omf reload"
 
 # some command aliases
 alias SS="sudo systemctl"
-alias v="nvim"
+alias v="$EDITOR"
+alias vim="$EDITOR"
 alias mkd="mkdir -pv"
 
 # webserver shortcuts
