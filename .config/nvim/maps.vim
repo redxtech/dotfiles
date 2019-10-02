@@ -17,3 +17,10 @@
 " map replace all to S
 	noremap S :%s//g<Left><Left>
 
+" map F9 to building the current file with gcc
+	noremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+" map F5 to running the current file
+	noremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+
+" map F10 to opening the asyncrun window
+	nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>

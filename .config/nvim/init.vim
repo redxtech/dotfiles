@@ -18,3 +18,7 @@
 	let b:ale_fixers = ['eslint']
 	let b:ale_fix_on_save = 1
 
+" some asyncrun config
+	let g:asyncrun_open = 6
+	let g:asyncrun_bell = 1
+
