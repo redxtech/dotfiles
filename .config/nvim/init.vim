@@ -22,3 +22,10 @@
 	let g:asyncrun_open = 6
 	let g:asyncrun_bell = 1
 
+" automatically resize vim when window is resized
+	autocmd VimResized * :wincmd =
+
+" zoom vim buffers
+	nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+	nnoremap <leader>= :wincmd =<cr>
+

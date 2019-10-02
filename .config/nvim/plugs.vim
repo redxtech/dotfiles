@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'christoomey/vim-sort-motion' " sort motion
+Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
 Plug 'editorconfig/editorconfig-vim' " editorconfig support
 Plug 'ervandew/supertab' " tab completion
 Plug 'fvictorio/vim-textobj-backticks' " backticks object
