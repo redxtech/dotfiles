@@ -1,11 +1,8 @@
 " set build options
-let s:c_compiler = "gcc" " clang could also be used
-let s:error_level = "all"
-let s:c_standard = "c11"
-let s:optimization = "0"
-
-" open a runner pane when the file opens and save pane index to a variable
-	"VtrOpenRunner { 'orientation': 'v' }
+	let s:c_compiler = "gcc" " clang could also be used
+	let s:error_level = "all"
+	let s:c_standard = "c11"
+	let s:optimization = "0"
 
 " contruct a build command from the options
 	let s:build_command = s:c_compiler . " -W" . s:error_level . " -std=" . s:c_standard . " -O" . s:optimization . " -o "
