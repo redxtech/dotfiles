@@ -24,3 +24,4 @@
 
 " map F10 to opening the asyncrun window
 	nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+
