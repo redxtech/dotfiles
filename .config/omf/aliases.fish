@@ -12,8 +12,7 @@ alias fconf="$EDITOR $HOME/.config/fish/config.fish"
 alias aconf="$EDITOR $OMF_CONFIG/aliases.fish"
 alias resrc="omf reload"
 
-# some command aliases
-alias SS="sudo systemctl"
+# some command aliases alias SS="sudo systemctl"
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias mkd="mkdir -pv"
@@ -49,4 +48,10 @@ alias plexst="sudo systemctl status pms"
 
 # for fun
 alias starwars="telnet towel.blinkenlights.nl"
+
+# remind me that I'm not runnign vim
+set -l _NOT_USING_VIM "You're in your shell, not vim you idiot!"
+alias :q="cowsay \"$_NOT_USING_VIM\""
+alias :w="cowsay \"$_NOT_USING_VIM\""
+alias :x="cowsay \"$_NOT_USING_VIM\""
 
