@@ -29,3 +29,10 @@
 	nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 	nnoremap <leader>= :wincmd =<cr>
 
+" set python version (pyx)
+	if has('python3')
+	  set pyx=3
+	elseif has('python')
+	  set pyx=3
+	endif
+
