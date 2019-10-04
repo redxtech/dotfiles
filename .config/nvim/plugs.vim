@@ -32,6 +32,7 @@ Plug 'tpope/vim-markdown', { 'for': 'md' } " markdown highlighting
 Plug 'tpope/vim-repeat' " repeat plugins with .
 Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
+Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
 Plug 'dense-analysis/ale' " asynchronous lint engine
 Plug 'yegappan/mru' " most recently used
 
