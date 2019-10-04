@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree' " tree file browser
 Plug 'sheerun/vim-polyglot' " syntax highlighting for a large number of languages
 Plug 'skywind3000/asyncrun.vim' " run async commands
 Plug 'terryma/vim-expand-region' " smart selected region expanding
+Plug 'tmux-plugins/vim-tmux' " tmux configuration
 Plug 'tpope/vim-commentary' " comment out lines with a keybind
 Plug 'tpope/vim-dotenv' " dotenv file support
 Plug 'tpope/vim-eunuch' " unix helpers
