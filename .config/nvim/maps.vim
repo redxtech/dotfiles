@@ -1,19 +1,37 @@
-" map Ctrl+n to NERDTree toggling
-map <C-n> :NERDTreeToggle<CR>
+" define build & run bindings
+let g:bar_build = "<leader>b"
+let g:bar_run = "<leader>r"
+let g:bar_run_with_focus = "<leader>R"
+let g:bar_run_specific_file = "<leader>rr"
+let g:bar_run_specific_file_with_focus = "<leader>RR"
+let g:bar_dev = "<leader>d"
+let g:bar_test = "<leader>t"
+let g:bar_deps = "<leader>deps"
+let g:bar_kill_runner = "<leader>x"
+let g:bar_attach = "<leader>a"
 
-" map Ctrl+w & Alt+w to expanding & shrinking visual selected region
-" map <C-w> <Plug>(expand_region_expand)
-" map <M-w> <Plug>(expand_region_shrink)
+" define some mapping keys
+let s:nerdtree = "<C-n>" 
+let s:replace_all = "S"
+let s:spellcheck = "s"
+let s:zoom = "<leader>-"
+let s:unzoom = "<leader>="
 
-" map Ctrl+s to saving the file
-map <C-s> :write<CR>
+" mapping function
+function! g:Bind(keys, command)
+	exe "nnoremap " . a:keys . " " . a:command
+endfunction
 
-" map Ctrl+\ to comment out the current line
-map <C-\> <Plug>CommentaryLine
+" map NERDTree toggling
+call g:Bind(s:nerdtree, ":NERDTreeToggle<CR>")
 
-" map <leader>s to toggling spellcheck
-map <leader>s :setlocal spell! spelllang=en_us<CR>
+" map toggling spellcheck
+call g:Bind(s:spellcheck, ":setlocal spell! spelllang=en_us<CR>")
 
-" map replace all to S
-noremap S :%s//g<Left><Left>
+" map replace all
+call g:Bind(s:replace_all, ":%s//g<Left><Left>")
+
+" map zoomimg vim buffers
+call g:Bind(s:zoom, ":wincmd _<cr>:wincmd \\|<cr>")
+call g:Bind(s:unzoom, ":wincmd =<cr>")
 

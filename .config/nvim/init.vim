@@ -25,10 +25,6 @@ let g:asyncrun_bell = 1
 " automatically resize vim when window is resized
 autocmd VimResized * :wincmd =
 
-" zoom vim buffers
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
-
 " set python version (pyx)
 if has('python3')
 	set pyx=3
