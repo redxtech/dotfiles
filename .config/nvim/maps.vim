@@ -16,22 +16,32 @@ let s:replace_all = "S"
 let s:spellcheck = "s"
 let s:zoom = "<leader>-"
 let s:unzoom = "<leader>="
+let s:noh = "<leader>c"
+let s:region_expand = "<C-w>"
+let s:region_shrink = "<M-w>"
 
 " mapping function
 function! g:Bind(keys, command)
 	exe "nnoremap " . a:keys . " " . a:command
 endfunction
 
-" map NERDTree toggling
+" bind NERDTree toggling
 call g:Bind(s:nerdtree, ":NERDTreeToggle<CR>")
 
-" map toggling spellcheck
+" bind toggling spellcheck
 call g:Bind(s:spellcheck, ":setlocal spell! spelllang=en_us<CR>")
 
-" map replace all
+" bind replace all
 call g:Bind(s:replace_all, ":%s//g<Left><Left>")
 
-" map zoomimg vim buffers
+" bind nohlsearch
+call g:Bind(s:noh, ":noh<cr>")
+
+" bind zoomimg vim buffers
 call g:Bind(s:zoom, ":wincmd _<cr>:wincmd \\|<cr>")
 call g:Bind(s:unzoom, ":wincmd =<cr>")
+
+" bind expand selection
+exe "xnoremap " . s:region_expand . " <Plug>(expand_region_expand)"
+exe "xnoremap " . s:region_shrink . " <Plug>(expand_region_shrink)"
 
