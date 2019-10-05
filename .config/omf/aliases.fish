@@ -49,9 +49,8 @@ alias plexst="sudo systemctl status pms"
 # for fun
 alias starwars="telnet towel.blinkenlights.nl"
 
-# remind me that I'm not runnign vim
-set -l _NOT_USING_VIM "You're in your shell, not vim you idiot!"
-alias :q="cowsay \"$_NOT_USING_VIM\""
-alias :w="cowsay \"$_NOT_USING_VIM\""
-alias :x="cowsay \"$_NOT_USING_VIM\""
+# remind me that I'm not running vim
+alias :q="not_vim"
+alias :w="not_vim"
+alias :x="not_vim"
 
