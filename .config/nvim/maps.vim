@@ -17,6 +17,7 @@ let s:spellcheck = "s"
 let s:zoom = "<leader>-"
 let s:unzoom = "<leader>="
 let s:noh = "<leader>c"
+let s:delete_line = "<C-x>"
 let s:region_expand = "<C-w>"
 let s:region_shrink = "<M-w>"
 let s:yank_list = "<leader>y"
@@ -37,6 +38,9 @@ call g:Bind(s:replace_all, ":%s//g<Left><Left>")
 
 " bind nohlsearch
 call g:Bind(s:noh, ":noh<cr>")
+
+" bind delete line
+call g:Bind(s:delete_line, 'dd')
 
 " bind zoomimg vim buffers
 call g:Bind(s:zoom, ":wincmd _<cr>:wincmd \\|<cr>")

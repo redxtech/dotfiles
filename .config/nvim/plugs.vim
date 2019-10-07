@@ -6,7 +6,9 @@ Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
 Plug 'redxtech/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim' " editorconfig support
 Plug 'fvictorio/vim-textobj-backticks' " backticks object
+Plug 'glacambre/firenvim' " nvim client for browser
 Plug 'glts/vim-textobj-comment' " comment text object
+Plug 'honza/vim-snippets' " snippets
 Plug 'itchyny/lightline.vim' " powerline
 Plug 'jiangmiao/auto-pairs' " auto match brackets & etc.
 Plug 'jistr/vim-nerdtree-tabs' " nerdtree open across tabs
@@ -17,6 +19,7 @@ Plug 'kana/vim-textobj-entire' " entire buffer text object
 Plug 'kana/vim-textobj-indent' " indent object
 Plug 'kana/vim-textobj-line' " line object
 Plug 'kana/vim-textobj-user' " allow user defined text objects
+Plug 'liuchengxu/vim-clap' " interactive finder & dispatcher
 Plug 'metakirby5/codi.vim' " scratch-code playground
 Plug 'mhinz/vim-signify' " git change indicators
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
@@ -31,6 +34,7 @@ Plug 'tpope/vim-eunuch' " unix helpers
 Plug 'tpope/vim-fugitive' " git helpers
 Plug 'tpope/vim-jdaddy', { 'for': 'json' } " json object & motions
 Plug 'tpope/vim-markdown', { 'for': 'md' } " markdown highlighting
+Plug 'tpope/vim-obsession' " session saving
 Plug 'tpope/vim-repeat' " repeat plugins with .
 Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
