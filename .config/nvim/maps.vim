@@ -19,6 +19,7 @@ let s:unzoom = "<leader>="
 let s:noh = "<leader>c"
 let s:region_expand = "<C-w>"
 let s:region_shrink = "<M-w>"
+let s:yank_list = "<leader>y"
 
 " mapping function
 function! g:Bind(keys, command)
@@ -45,3 +46,5 @@ call g:Bind(s:unzoom, ":wincmd =<cr>")
 exe "xnoremap " . s:region_expand . " <Plug>(expand_region_expand)"
 exe "xnoremap " . s:region_shrink . " <Plug>(expand_region_shrink)"
 
+" bind showing a list of yanks
+exe "nnoremap <silent> " . s:yank_list . " :<C-u>CocList -A --normal yank<cr>"
