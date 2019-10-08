@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'amix/open_file_under_cursor.vim' " open files
 Plug 'christoomey/vim-sort-motion' " sort motion
 Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
 " Plug 'christoomey/vim-tmux-runner' " send commands to tmux panes
@@ -40,6 +41,7 @@ Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
 Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
 Plug 'dense-analysis/ale' " asynchronous lint engine
+Plug 'wakatime/vim-wakatime' " time tracker
 Plug 'yegappan/mru' " most recently used
 
 " coc extensions

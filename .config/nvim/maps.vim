@@ -21,6 +21,7 @@ let s:delete_line = "<C-x>"
 let s:region_expand = "<C-w>"
 let s:region_shrink = "<M-w>"
 let s:yank_list = "<leader>y"
+let g:coc_snippet_next = '<c-j>'
 
 " mapping function
 function! g:Bind(keys, command)
