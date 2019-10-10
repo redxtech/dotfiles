@@ -45,16 +45,17 @@ Plug 'wakatime/vim-wakatime' " time tracker
 Plug 'yegappan/mru' " most recently used
 
 " coc extensions
-Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install --frozen-lockfile', 'for': 'rust'}
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile', 'for': ['css', 'vue', 'html']}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile', 'for': ['html', 'vue']}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile', 'for': 'json'}
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': 'python'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile', 'for': 'rust'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
 Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile', 'for': ['yml', 'yaml']}
 Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Shougo/neco-vim'
 Plug 'voldikss/coc-browser', {'do': 'yarn install --frozen-lockfile'}

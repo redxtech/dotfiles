@@ -20,6 +20,7 @@ set softtabstop=4
 set shiftwidth=4
 set updatetime=300
 set signcolumn=yes
+set splitbelow splitright
 
 " set vim-vue to use only html, css, & js
 let g:vue_pre_processors = []
