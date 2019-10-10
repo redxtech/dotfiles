@@ -31,3 +31,7 @@ let b:ale_fix_on_save = 1
 " automatically resize vim when window is resized
 autocmd VimResized * :wincmd =
 
+" set goyo mode for neomutt
+" autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+" autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
+

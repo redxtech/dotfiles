@@ -16,6 +16,7 @@ Plug 'jistr/vim-nerdtree-tabs' " nerdtree open across tabs
 Plug 'joshdick/onedark.vim' " colour scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy-finder
 Plug 'junegunn/fzf.vim' " fuzzy-finder
+Plug 'junegunn/goyo.vim' " no distrations
 Plug 'kana/vim-textobj-entire' " entire buffer text object
 Plug 'kana/vim-textobj-indent' " indent object
 Plug 'kana/vim-textobj-line' " line object
@@ -24,6 +25,7 @@ Plug 'liuchengxu/vim-clap' " interactive finder & dispatcher
 Plug 'metakirby5/codi.vim' " scratch-code playground
 Plug 'mhinz/vim-signify' " git change indicators
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
+" Plug 'neomutt/neomutt.vim' " mail plugin
 Plug 'scrooloose/nerdtree' " tree file browser
 Plug 'sheerun/vim-polyglot' " syntax highlighting for a large number of languages
 Plug 'terryma/vim-expand-region' " smart selected region expanding
