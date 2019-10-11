@@ -3,6 +3,7 @@ set -l opam_path "$HOME/.opam/system/bin"
 set -l cargo_path "$HOME/.cargo/bin"
 set -l python_path "$HOME/.asdf/installs/python"
 set -l rust_path "$HOME/.asdf/installs/rust"
+set -l scripts_path "$HOME/Documents/scripts/bin"
 
 # echo $PATH | sed -E 's/ /\n/g'
 
@@ -14,7 +15,7 @@ if test -d $opam_path; and ! contains $opam_path $PATH
   set -gx PATH $PATH $opam_path
 end
 
-if test -d $cargo_path; and ! contains $cargo_path 
+if test -d $cargo_path; and ! contains $cargo_path $PATH
   set -gx PATH $PATH $cargo_path
 end
 
@@ -30,5 +31,9 @@ if type -q asdf
   if test -d $python_bin_path; and ! contains $python_bin_path $PATH
     set -gx PATH $PATH $python_bin_path
   end
+end
+
+if test -d $scripts_path; and ! contains $scripts_path $PATH
+    set -gx PATH $PATH $scripts_path
 end
 
