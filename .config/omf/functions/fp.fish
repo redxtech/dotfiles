@@ -1,4 +1,4 @@
-function fp --description "Search your path"
+function fp -d "search your path"
   set -l loc (echo $PATH | tr ' ' '\n' | eval "fzf $FZF_DEFAULT_OPTS --header='[find:path]'")
 
   if test (count $loc) = 1

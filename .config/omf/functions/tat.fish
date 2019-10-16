@@ -1,3 +1,4 @@
+# function to attack or create tmux sessions based on context
 function tat -d "attach or create tmux session named the same as current directory"
 	# save the currect directory to be made into a session name
 	set -lx session_name (basename "$PWD" | tr . -)
