@@ -1,5 +1,8 @@
 # Abbreviations
 
+# re-source the init file
+abbr resrc "source $OMF_CONFIG/init.fish"
+
 # some command abbreviations
 abbr e "$EDITOR"
 abbr v "$EDITOR"
