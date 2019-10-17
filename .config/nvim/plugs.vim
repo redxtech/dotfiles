@@ -1,3 +1,10 @@
+" install vim-plug if not installed already
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'amix/open_file_under_cursor.vim' " open files
@@ -25,6 +32,7 @@ Plug 'kana/vim-textobj-user' " allow user defined text objects
 Plug 'liuchengxu/vim-clap' " interactive finder & dispatcher
 Plug 'metakirby5/codi.vim' " scratch-code playground
 Plug 'mhinz/vim-signify' " git change indicators
+Plug 'mhinz/vim-startify' " new startup page
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
 " Plug 'neomutt/neomutt.vim' " mail plugin
 Plug 'scrooloose/nerdtree' " tree file browser
