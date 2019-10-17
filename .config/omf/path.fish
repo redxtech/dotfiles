@@ -4,8 +4,7 @@ set -l cargo_path "$HOME/.cargo/bin"
 set -l python_path "$HOME/.asdf/installs/python"
 set -l rust_path "$HOME/.asdf/installs/rust"
 set -l scripts_path "$HOME/Documents/scripts/bin"
-
-# echo $PATH | sed -E 's/ /\n/g'
+set -l local_bin_path "$HOME/.local/bin"
 
 if test -d $yarn_path; and ! contains $yarn_path $PATH
   set -gx PATH $PATH $yarn_path
@@ -35,5 +34,12 @@ end
 
 if test -d $scripts_path; and ! contains $scripts_path $PATH
     set -gx PATH $PATH $scripts_path
+end
+
+if test -d $local_bin_path; and ! contains $local_bin_path $PATH
+    set -gx PATH $PATH $local_bin_path
+    for bin_path in (string split ' ' (du $local_bin_path | cut -f2 | tr '\n' ' ' | awk '{$1=$1}1'))
+        set -gx PATH $PATH $bin_path
+    end
 end
 
