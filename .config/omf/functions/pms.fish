@@ -10,6 +10,7 @@ function pms -d "manage custom plex media server"
     # make sure $args exits and has exactly one element
     if test -z "$argv"
         sudo systemctl status pms
+        return $status
     else if test (count $argv) -ne 1
         echo "error: specify only one operation"
         return 1
