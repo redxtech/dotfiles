@@ -22,63 +22,18 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 4
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-
-modules-left = bspwm i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-
-tray-position = right
-tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
+[fonts]
+main = "Fira Code:size=10;3"
+fa = "Font Awesome 5 Free:size=10;0"
+icon = "siji:pixelsize=10;1"
 
 [bar/main]
 monitor = ${env:MONITOR:DP-0}
 ; bottom = true
 width = 100%
-height = 40
-radius = 6
-fixed-center = false
+height = 30
+radius = 0
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -89,32 +44,41 @@ line-color = #00000000
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 1
 
-font-0 = fixed:pixelsize=10;1
+; font-0 = "Fira Code:size=10;3"
+font-0 = "Fura Code Nerd Font:size=10;3"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem pulseaudio memory cpu wlan eth temperature date powermenu
+; modules-center = xwindow
+modules-center = player
+modules-right = pulseaudio eth date
+
+separator = " | "
 
 tray-position = right
+tray-detached = false
+tray-maxsize = 10
+tray-background = ${root.background}
 tray-padding = 2
+
+dpi-x = 0
+dpi-y = 0
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-scroll = default
 
 [bar/other]
 monitor = ${env:MONITOR:HDMI-0}
 ; bottom = true
 width = 100%
 height = 30
-radius = 6
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -123,35 +87,30 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #00000000
 
-padding-left = 0
-padding-right = 2
+padding = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 1
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
+; modules-center = mpd
 modules-right = pulseaudio memory cpu wlan eth temperature date
-
-tray-position = right
-tray-padding = 2
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-scroll = default
 
 [bar/laptop]
 ; monitor = ${env:MONITOR:DP-0}
 ; bottom = true
 width = 100%
-height = 40
-radius = 6
+height = 30
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -163,16 +122,15 @@ line-color = #00000000
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 1
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem pulseaudio memory cpu wlan eth temperature date powermenu
+; modules-center = mpd
+modules-right = pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -181,7 +139,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-scroll = default
 
 [module/xwindow]
 type = internal/xwindow
@@ -352,31 +310,26 @@ interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+format-connected-prefix = " "
+; format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = "祝 %upspeed% /  %downspeed%"
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+format-disconnected-prefix = " "
+format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
-
+date = "%A %b %d, %Y"
 time = %H:%M
-time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date% - %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -385,10 +338,10 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = ﱝ
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 11
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -485,34 +438,23 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/powermenu]
-type = custom/menu
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.local/bin/polybar/player-mpris-tail.py -f '{icon} {artist} - {title}'
+tail = true
+label = %output%
+click-left = ~/.local/bin/polybar/player-mpris-tail.py previous
+click-right = ~/.local/bin/polybar/player-mpris-tail.py next
+click-middle = ~/.local/bin/polybar/player-mpris-tail.py play-pause
 
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+[module/player]
+type = custom/script
+exec = ~/.local/bin/polybar/player.sh format
+interval = 3
+; label = <label>
+click-left = ~/.local/bin/polybar/player.sh play-pause
+click-right = ~/.local/bin/polybar/player.sh play-pause
+click-middle = ~/.local/bin/polybar/player.sh play-pause
 
 [settings]
 screenchange-reload = true
