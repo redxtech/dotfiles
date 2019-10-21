@@ -2,7 +2,7 @@
 
 # check if the operating system is linux
 is_linux () {
-    [ "$(uname)" == "Linux" ]
+    [ "$(uname)" = "Linux" ]
 }
 
 # check if the spotifycli command exists
