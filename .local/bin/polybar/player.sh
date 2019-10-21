@@ -46,17 +46,17 @@ main () {
     case "$1" in
         # show default formatting
         default)
-            $cmd metadata --format "$format_string"
+            $cmd metadata --format "$format_string" 2>/dev/null
             ;;
         # show default formatting with status icons
         icons)
             icon=""
-            if [ "$($cmd status)" = "Playing" ]; then
+            if [ "$($cmd status 2>/dev/null)" = "Playing" ]; then
                 icon="$play_icon"
             else
                 icon="$pause_icon"
             fi
-            $cmd metadata --format "$icon  $format_string"
+            $cmd metadata --format "$icon  $format_string" 2>/dev/null
             ;;
         # passthrough commands to playerctl
         *)
@@ -64,14 +64,14 @@ main () {
 
         if [ "$params" = "" ]; then
             icon=""
-            if [ "$($cmd status)" = "Playing" ]; then
+            if [ "$($cmd status 2>/dev/null)" = "Playing" ]; then
                 icon="$play_icon"
             else
                 icon="$pause_icon"
             fi
-            $cmd metadata --format "$icon  $format_string"
+            $cmd metadata --format "$icon  $format_string" 2>/dev/null
         else
-            $cmd "$@"
+            $cmd "$@" 2>/dev/null
         fi
         ;;
     esac
