@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# x startup script
+
+# start sxhkd
+sxhkd &
+
