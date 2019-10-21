@@ -1,0 +1,13 @@
+# keybinds
+
+# terminal
+super + Return
+    $TERMINAL
+
+# web browser
+super + w
+    $BROWSER
+
+# file browser
+    /usr/bin/dolphin
+

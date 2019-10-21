@@ -46,6 +46,8 @@ function conf -d "open configuration file"
             $EDITOR "$HOME/.config/ranger/scope.sh"
         case a alacritty # alacritty
             $EDITOR "$HOME/.config/alacritty/alacritty.yml"
+        case s sxhkd
+            $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
         case '*'
             echo "error: that config doesn't exist"
             return 1

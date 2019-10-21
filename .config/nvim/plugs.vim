@@ -29,6 +29,7 @@ Plug 'kana/vim-textobj-entire' " entire buffer text object
 Plug 'kana/vim-textobj-indent' " indent object
 Plug 'kana/vim-textobj-line' " line object
 Plug 'kana/vim-textobj-user' " allow user defined text objects
+Plug 'kovetskiy/sxhkd-vim' " sxkd config syntax
 Plug 'liuchengxu/vim-clap' " interactive finder & dispatcher
 Plug 'metakirby5/codi.vim' " scratch-code playground
 Plug 'mhinz/vim-signify' " git change indicators
