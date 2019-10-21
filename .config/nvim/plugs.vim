@@ -57,6 +57,7 @@ Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
 Plug 'dense-analysis/ale' " asynchronous lint engine
 Plug 'wakatime/vim-wakatime' " time tracker
 Plug 'yegappan/mru' " most recently used
+Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
 
 " coc extensions
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
