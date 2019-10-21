@@ -230,10 +230,9 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20f0u5
+interface = wlp59s0
 interval = 3.0
 
-format-connected-prefix = " "
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
@@ -245,7 +244,6 @@ ramp-signal-1 = 直
 ramp-signal-2 = 直
 ramp-signal-3 = 直
 ramp-signal-4 = 直
-ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
