@@ -449,12 +449,12 @@ click-middle = ~/.local/bin/polybar/player-mpris-tail.py play-pause
 
 [module/player]
 type = custom/script
-exec = ~/.local/bin/polybar/player.sh format
+exec = ~/.local/bin/music/player.sh format
 interval = 3
 ; label = <label>
-click-left = ~/.local/bin/polybar/player.sh play-pause
-click-right = ~/.local/bin/polybar/player.sh play-pause
-click-middle = ~/.local/bin/polybar/player.sh play-pause
+click-left = ~/.local/bin/music/player.sh play-pause
+click-right = ~/.local/bin/music/player.sh play-pause
+click-middle = ~/.local/bin/music/player.sh play-pause
 
 [settings]
 screenchange-reload = true
