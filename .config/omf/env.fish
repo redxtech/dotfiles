@@ -8,3 +8,8 @@ set -xg fish_user_paths
 set -xg FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 set -xg RANGER_LOAD_DEFAULT_RC FALSE
 
+# local
+if test -f "$HOME/.config/omf/.env"
+    source $HOME/.config/omf/.env
+end
+
