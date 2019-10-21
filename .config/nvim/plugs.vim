@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'amix/open_file_under_cursor.vim' " open files
+Plug 'ap/vim-css-color' " colour highlighting
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' } " other theme
 Plug 'christoomey/vim-sort-motion' " sort motion
 Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
@@ -36,6 +37,7 @@ Plug 'mhinz/vim-signify' " git change indicators
 Plug 'mhinz/vim-startify' " new startup page
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
 " Plug 'neomutt/neomutt.vim' " mail plugin
+Plug 'ryanoasis/vim-devicons' " filetype icons
 Plug 'scrooloose/nerdtree' " tree file browser
 Plug 'sheerun/vim-polyglot' " syntax highlighting for a large number of languages
 Plug 'terryma/vim-expand-region' " smart selected region expanding
