@@ -22,176 +22,161 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[modules]
+main-left = i3
+main-center = music-player
+main-right = pulseaudio updates-arch eth wlan date
+
+secondary-left = ""
+secondary-center = ""
+secondary-right = ""
+
+[scripts]
+player-icons="~/.local/bin/polybar/player.sh icons"
+player-toggle="~/.local/bin/polybar/player.sh play-pause"
+updates="~/.local/bin/polybar/updates-arch-combined.sh"
+
 [fonts]
-main = "Fira Code:size=10;3"
-fa = "Font Awesome 5 Free:size=10;0"
+main = "Fura Code Nerd Font:size=10;3"
+unifont = unifont:fontformat=truetype:size=8:antialias=false;0
 icon = "siji:pixelsize=10;1"
 
-[bar/main]
-monitor = ${env:MONITOR:DP-0}
-; bottom = true
+[prefs]
 width = 100%
 height = 30
 radius = 0
 fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
 line-size = 3
 line-color = #00000000
-
+padding = 2
 padding-left = 0
 padding-right = 2
-
 module-margin = 1
-
-; font-0 = "Fira Code:size=10;3"
-font-0 = "Fura Code Nerd Font:size=10;3"
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-
-modules-left = i3
-; modules-center = xwindow
-modules-center = player
-modules-right = pulseaudio eth date
-
-separator = " | "
-
+separator = "|"
 tray-position = right
 tray-detached = false
 tray-maxsize = 10
-tray-background = ${root.background}
 tray-padding = 2
+dpi = 0
+cursor-click = pointer
+cursor-scroll = default
 
-dpi-x = 0
-dpi-y = 0
+[bar/main]
+monitor = ${env:MONITOR:DP-0}
+width = ${prefs.width}
+height = ${prefs.height}
+radius = ${prefs.radius}
+fixed-center = ${prefs.fixed-center}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = ${prefs.line-size}
+line-color = ${prefs.line-color}
+
+padding-left = ${prefs.padding-left}
+padding-right = ${prefs.padding-right}
+
+module-margin = ${prefs.module-margin}
+
+font-0 = ${fonts.main}
+font-1 = ${fonts.unifont}
+font-2 = ${fonts.icon}
+
+modules-left = ${modules.main-left}
+modules-center = ${modules.main-center}
+modules-right = ${modules.main-right}
+
+separator = ${prefs.separator}
+
+tray-position = ${prefs.tray-position}
+tray-detached = ${prefs.tray-detached}
+tray-maxsize = ${prefs.tray-maxsize}
+tray-background = ${root.background}
+tray-padding = ${prefs.tray-padding}
+
+dpi-x = ${prefs.dpi}
+dpi-y = ${prefs.dpi}
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-cursor-click = pointer
-cursor-scroll = default
+cursor-click = ${prefs.cursor-click}
+cursor-scroll = ${prefs.cursor-scroll}
 
 [bar/other]
 monitor = ${env:MONITOR:HDMI-0}
-; bottom = true
-width = 100%
-height = 30
-radius = 0
-fixed-center = false
+width = ${prefs.width}
+height = ${prefs.height}
+radius = ${prefs.radius}
+fixed-center = ${prefs.fixed-center}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
-line-color = #00000000
+line-size = ${prefs.line-size}
+line-color = ${prefs.line-color}
 
-padding = 2
+padding = ${prefs.padding}
+module-margin = ${prefs.module-margin}
 
-module-margin = 1
+font-0 = ${fonts.main}
+font-1 = ${fonts.unifont}
+font-2 = ${fonts.icon}
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+modules-left = ${modules.secondary-left}
+modules-center = ${modules.secondary-center}
+modules-right = ${modules.secondary-right}
 
-modules-left = i3
-; modules-center = mpd
-modules-right = pulseaudio memory cpu wlan eth temperature date
+dpi-x = ${prefs.dpi}
+dpi-y = ${prefs.dpi}
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-cursor-click = pointer
-cursor-scroll = default
+cursor-click = ${prefs.cursor-click}
+cursor-scroll = ${prefs.cursor-scroll}
 
 [bar/laptop]
 ; monitor = ${env:MONITOR:DP-0}
-; bottom = true
-width = 100%
-height = 30
-radius = 0
-fixed-center = false
+width = ${prefs.width}
+height = ${prefs.height}
+radius = ${prefs.radius}
+fixed-center = ${prefs.fixed-center}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
-line-color = #00000000
+line-size = ${prefs.line-size}
+line-color = ${prefs.line-color}
 
-padding-left = 0
-padding-right = 2
+padding-left = ${prefs.padding-left}
+padding-right = ${prefs.padding-right}
 
-module-margin = 1
+module-margin = ${prefs.module-margin}
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = ${fonts.main}
+font-1 = ${fonts.unifont}
+font-2 = ${fonts.icon}
 
-modules-left = i3
-; modules-center = mpd
-modules-right = pulseaudio date
+modules-left = ${modules.main-left}
+modules-center = ${modules.main-center}
+modules-right = ${modules.main-right}
 
-tray-position = right
-tray-padding = 2
+tray-position = ${prefs.tray-position}
+tray-detached = ${prefs.tray-detached}
+tray-maxsize = ${prefs.tray-maxsize}
+tray-background = ${root.background}
+tray-padding = ${prefs.tray-paddings}
+
+dpi-x = ${prefs.dpi}
+dpi-y = ${prefs.dpi}
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-cursor-click = pointer
-cursor-scroll = default
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
+cursor-click = ${prefs.cursor-click}
+cursor-scroll = ${prefs.cursor-scroll}
 
 [module/i3]
 type = internal/i3
@@ -227,45 +212,6 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-; Separator in between workspaces
-; label-separator = |
-
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -287,21 +233,18 @@ type = internal/network
 interface = wlp0s20f0u5
 interval = 3.0
 
+format-connected-prefix = " "
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 睊
+ramp-signal-1 = 直
+ramp-signal-2 = 直
+ramp-signal-3 = 直
+ramp-signal-4 = 直
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -315,7 +258,7 @@ format-connected-prefix = " "
 label-connected = "祝 %upspeed% /  %downspeed%"
 
 format-disconnected-prefix = " "
-format-disconnected = <label-disconnected>
+format-disconnected = 
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
@@ -335,41 +278,13 @@ label = %date% - %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume = " %percentage%%"
 label-volume-foreground = ${root.foreground}
 
-label-muted = ﱝ
+label-muted = "ﱝ"
 label-muted-foreground = #666
 
 bar-volume-width = 11
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -438,23 +353,19 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/player-mpris-tail]
+[module/music-player]
 type = custom/script
-exec = ~/.local/bin/polybar/player-mpris-tail.py -f '{icon} {artist} - {title}'
-tail = true
-label = %output%
-click-left = ~/.local/bin/polybar/player-mpris-tail.py previous
-click-right = ~/.local/bin/polybar/player-mpris-tail.py next
-click-middle = ~/.local/bin/polybar/player-mpris-tail.py play-pause
-
-[module/player]
-type = custom/script
-exec = ~/.local/bin/music/player.sh format
+exec = ${scripts.player-icons}
 interval = 3
-; label = <label>
-click-left = ~/.local/bin/music/player.sh play-pause
-click-right = ~/.local/bin/music/player.sh play-pause
-click-middle = ~/.local/bin/music/player.sh play-pause
+click-left = ${scripts.player-toggle}
+click-right = ${scripts.player-toggle}
+click-middle = ${scripts.player-toggle}
+
+[module/updates-arch]
+type = custom/script
+exec = ${scripts.updates}
+interval = 600
+format-underline = #f50a4d
 
 [settings]
 screenchange-reload = true
