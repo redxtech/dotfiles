@@ -6,8 +6,13 @@ main () {
     # initialize some variables
     players="spotify vlc plasma-browser-integration"
     player=""
-    play_icon=""
-    pause_icon=""
+    if [ -z ${REV_PLAY_PAUSE_ICONS+x} ]; then
+        play_icon=""
+        pause_icon=""
+    else
+        play_icon=""
+        pause_icon=""
+    fi
 
     # test that playerctl exists
     if ! command -v playerctl >/dev/null; then
@@ -17,7 +22,7 @@ main () {
 
     # test if a player is playing something (with priority given to first specified)
     for local_player in $players; do
-        if [ "$(playerctl -p $local_player status 2>/dev/null)" = "Playing" ]; then
+        if [ "$(playerctl -p "$local_player" status 2>/dev/null)" = "Playing" ]; then
             player="$local_player"
             break
         fi
@@ -25,7 +30,7 @@ main () {
     
     # if nothing is playing, try all players
     if [ "$player" = "" ]; then
-        player="$(echo $players | sed -E 's/ /,/g')"
+        player="$(echo "$players" | sed -E 's/ /,/g')"
     fi
 
     # set the command to use the right player
@@ -60,7 +65,7 @@ main () {
             ;;
         # passthrough commands to playerctl
         *)
-        params="$@"
+        params=$*
 
         if [ "$params" = "" ]; then
             icon=""
