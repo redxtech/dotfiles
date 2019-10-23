@@ -23,6 +23,10 @@ let s:region_shrink = "<M-w>"
 let s:yank_list = "<leader>y"
 let g:coc_snippet_next = '<c-j>'
 
+" nerdtree mappings
+let g:NERDTreeMapActivateNode = "l"
+let g:NERDTreeMapCloseDir = "h"
+
 " mapping function
 function! g:Bind(keys, command)
 	exe "nnoremap " . a:keys . " " . a:command
