@@ -24,8 +24,8 @@ alert = #bd2c40
 
 [modules]
 main-left = i3
-main-center = music-player
-main-right = pulseaudio updates-arch eth wlan date
+main-center = 
+main-right = music-player pulseaudio local-weather updates-arch eth wlan date
 
 secondary-left = ""
 secondary-center = ""
@@ -35,6 +35,7 @@ secondary-right = ""
 player-icons="~/.local/bin/polybar/player.sh icons"
 player-toggle="~/.local/bin/polybar/player.sh play-pause"
 updates="~/.local/bin/polybar/updates-arch-combined.sh"
+weather="~/.local/bin/polybar/weather.sh"
 
 [fonts]
 main = "Fura Code Nerd Font:size=10;3"
@@ -364,6 +365,14 @@ type = custom/script
 exec = ${scripts.updates}
 interval = 600
 format-underline = #f50a4d
+click-middle = "$TERMINAL -e pacaur -Syu"
+click-right = "$TERMINAL -e pacaur -Syu"
+click-left = "$TERMINAL -e pacaur -Syu"
+
+[module/local-weather]
+type = custom/script
+exec = ${scripts.weather}
+interval = 120
 
 [settings]
 screenchange-reload = true
