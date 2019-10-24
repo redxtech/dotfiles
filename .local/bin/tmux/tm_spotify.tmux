@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
+# shellcheck source=helpers/spotify.sh
 . "$HOME/.local/bin/tmux/helpers/spotify.sh"
 
 main () {
-    echo "$(spotify_msg --playbackstatus) $(spotify_msg --status)" | sed 's/^ $/Spotify is off/'
+    echo "$(spotify_msg --playbackstatus 2>/dev/null) $(spotify_msg --status 2>/dev/null)" | sed 's/^ $/Spotify is off/'
 }
 
 main

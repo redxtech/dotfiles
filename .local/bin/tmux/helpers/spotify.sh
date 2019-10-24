@@ -17,9 +17,11 @@ spotify_msg () {
             spotifycli "$1"
         else
             echo "error: tm_spotify needs spotify-cli linux (pip)"
+            return 1
         fi
     else
         echo "error: tm_spotify only works on linux"
+        return 1
     fi
 }
 
