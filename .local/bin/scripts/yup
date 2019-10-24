@@ -29,7 +29,15 @@ log_err () {
 
 # usage function
 usage () {
-    echo "usage: yup [-h] [-d/--dev] [-n/--npm]"
+    cat << 'eof'
+Usage: yup [-h/--help] [-d/--dev] [-D/--both] [-n/--npm]
+
+Options:
+    -h, --help  show this help message
+    -d, --dev   update the devDependencies
+    -b, --both  update both dependencies and devDependencies
+    -n, --npm   update the dependencies using npm
+eof
 }
 
 # function to upgrade yarn dependencies
@@ -37,7 +45,7 @@ main () {
 
     # set package manager command
     if has_yarn; then
-        PM_CMD="yarn"
+        PM_CMD="yarn add"
     elif has_npm; then
         PM_CMD="npm install"
     else
@@ -52,61 +60,80 @@ main () {
     fi
 
     # if there's no package.json file, throw an error
-    # if ! has_package_json; then
-        # log_err "no package.json file found"
-        # return 1
-    # fi
+    if ! has_package_json; then
+        log_err "no package.json file found"
+        return 1
+    fi
+
+    # set default dependency scope
+    SCOPE="dependencies"
+    BOTH=false
 
     # check for args
     for arg in "$@"; do
-        if test "$arg" = "-h"; then
+        # help/usage command
+        if test "$arg" = "-h" -o "$arg" = "--help"; then
             usage
             return 0
         fi
+
+        # set the command to use npm if the arg is passed
+        if test "$arg" = "-n" -o "$arg" = "--npm"; then
+            PM_CMD="npm install"
+        fi
+
+        # use set scope to devDependencies if the arg is passed
+        if test "$arg" = "-d" -o "$arg" = "--dev"; then
+            SCOPE="devDependencies"
+            PM_CMD="$PM_CMD --save-dev"
+        elif test "$arg" = "-b" -o "$arg" = "--both"; then
+            BOTH=true
+        fi
     done
 
-    return 0
-    # initialize some variables
-    # set -lx scope "dependencies"
-    # set -lx install_command "yarn add"
-    # set -lx command_options ""
-
-    # parse -d, -n, --dev, & --npm as argument
-    # argparse 'd/dev' 'n/npm' -- $argv
-
-    # echo "args: $argv"
-    
-    # test if -d or --dev flag is set, and set scope accordingly
-    # also set command_options to -D if dev is specified
-    # if test -n "$_flag_dev";
-        # set scope "devDependencies"
-        # set command_options " -D"
-    # f
-
-    # test if -n or --npm flag is set, and set install_command accordingly
-    # if test -n "$_flag_npm"; or $_missing_yarn
-        # if $_missing_npm
-            # echo "NPM specied, but is missing. Install NPM and add it to path to use it."
-
-            # set install_command "yarn add"
-        # else
-
-            # set install_command "npm install"
-        # fi
-    # f
-
     # grab deps from package.json
-    # set -l deps (jq "{$scope: {}}+.|.$scope+{}|keys|map(\" \"+.)+[\"\"]|add" ./package.json)
-    # set -l stripped (echo $deps | sed "s/\"//g"
-    
-    # set command to run
-    # set -l command_to_run "$install_command$command_options$stripped"
-    # echo "Command: $command_to_run $argv"
-    
-    # return 0
+    # start with empty object, then 
+    DEPS="$(jq "{}+.$SCOPE|keys|map(.+\" \")+[\"\"]|add" ./package.json | sed -E 's/^\"//; s/( )?\"$//')"
 
-    # run either yarn add or npm install
-    # echo "$install_command$stripped $argv" | fish
+    # if there aren't any dependencies, exit the function
+    if test -z "$DEPS"; then
+        echo "no $SCOPE in package.json"
+        return 0
+    fi
+
+    # set the command to run
+    CMD_TO_RUN="$PM_CMD $DEPS"
+
+    # run the command
+    echo "Updating $SCOPE..."
+    $CMD_TO_RUN
+
+    # if the both arg was passed, run the command again, but for devDependencies
+    if $BOTH; then
+        # change the scope to devDependencies
+        PM_CMD="$PM_CMD --dev"
+        SCOPE="devDependencies"
+
+        # grab the deps again
+        DEPS="$(jq "{}+.$SCOPE|keys|map(.+\" \")+[\"\"]|add" ./package.json | sed -E 's/^\"//; s/( )?\"$//')"
+
+        # if there aren't any dependencies, exit the function
+        if test -z "$DEPS"; then
+            echo "no $SCOPE in package.json"
+            return 0
+        fi
+
+        # set the command to run
+        CMD_TO_RUN="$PM_CMD $DEPS"
+
+        # run the command
+        echo "Updating $SCOPE..."
+        $CMD_TO_RUN
+    fi
+
+    # end the function
+    echo "Upgrades finished!"
+    return 0
 }
 
 main "$@"
