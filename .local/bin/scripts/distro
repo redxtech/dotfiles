@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# simple command to show the current distro
+
+main () {
+    grep \"^ID=\" | tr -d 'ID=' < /etc/os-release 
+}
+
+main
+
