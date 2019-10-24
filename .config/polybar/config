@@ -24,8 +24,8 @@ alert = #bd2c40
 
 [modules]
 main-left = i3
-main-center = 
-main-right = music-player pulseaudio local-weather updates-arch eth wlan date
+main-center = music-player
+main-right = pulseaudio battery local-weather updates-arch eth wlan date
 
 secondary-left = ""
 secondary-center = ""
@@ -38,7 +38,7 @@ updates="~/.local/bin/polybar/updates-arch-combined.sh"
 weather="~/.local/bin/polybar/weather.sh"
 
 [fonts]
-main = "Fura Code Nerd Font:size=10;3"
+main = "FiraCode Nerd Font Mono:size=9;3"
 unifont = unifont:fontformat=truetype:size=8:antialias=false;0
 icon = "siji:pixelsize=10;1"
 
@@ -266,12 +266,12 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 5
 
-date = "%A %b %d, %Y"
+date = "%a %b %d, %Y"
 time = %H:%M
 
 format-underline = #0a6cf5
 
-label = %date% - %time%
+label = %time% - %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -279,9 +279,11 @@ type = internal/pulseaudio
 format-volume = <label-volume> <bar-volume>
 label-volume = " %percentage%%"
 label-volume-foreground = ${root.foreground}
+format-underline = #00ff64
 
 label-muted = "ﱝ"
 label-muted-foreground = #666
+; label-muted-underline = #ff5555
 
 bar-volume-width = 11
 bar-volume-foreground-0 = #55aa55
@@ -359,6 +361,7 @@ interval = 3
 click-left = ${scripts.player-toggle}
 click-right = ${scripts.player-toggle}
 click-middle = ${scripts.player-toggle}
+label-underline = #05d1ff
 
 [module/updates-arch]
 type = custom/script
@@ -373,6 +376,7 @@ click-left = "$TERMINAL -e pacaur -Syu"
 type = custom/script
 exec = ${scripts.weather}
 interval = 120
+label-underline = #ffcd05
 
 [settings]
 screenchange-reload = true
