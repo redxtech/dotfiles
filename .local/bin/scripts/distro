@@ -3,7 +3,7 @@
 # simple command to show the current distro
 
 main () {
-    grep \"^ID=\" | tr -d 'ID=' < /etc/os-release 
+    grep -E '^ID=' /etc/os-release | tr -d 'ID='
 }
 
 main
