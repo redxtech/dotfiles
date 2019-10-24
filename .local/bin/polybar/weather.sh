@@ -68,7 +68,7 @@ main () {
     uv_index="$(echo "$weather" | jq '.[0].uvIndex' | sed -E 's/^"//; s/"$//')"
     weather_code="$(echo "$weather" | jq '.[0].weatherCode' | sed -E 's/^"//; s/"$//')"
 
-    echo "$(weather_icon "$weather_code") $temperature°C | $uv_index "
+    echo "$(weather_icon "$weather_code")  $temperature°C | $uv_index  "
 }
 
 main

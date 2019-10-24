@@ -25,7 +25,7 @@ alert = #bd2c40
 [modules]
 main-left = i3
 main-center = music-player
-main-right = pulseaudio battery local-weather updates-arch eth wlan date
+main-right = pulseaudio updates-arch-combined local-weather eth wlan date battery
 
 secondary-left = ""
 secondary-center = ""
@@ -38,7 +38,7 @@ updates="~/.local/bin/polybar/updates-arch-combined.sh"
 weather="~/.local/bin/polybar/weather.sh"
 
 [fonts]
-main = "FiraCode Nerd Font Mono:size=9;3"
+main = "FiraCode Nerd Font:size=9;3"
 unifont = unifont:fontformat=truetype:size=8:antialias=false;0
 icon = "siji:pixelsize=10;1"
 
@@ -168,7 +168,7 @@ tray-position = ${prefs.tray-position}
 tray-detached = ${prefs.tray-detached}
 tray-maxsize = ${prefs.tray-maxsize}
 tray-background = ${root.background}
-tray-padding = ${prefs.tray-paddings}
+tray-padding = ${prefs.tray-padding}
 
 dpi-x = ${prefs.dpi}
 dpi-y = ${prefs.dpi}
@@ -240,11 +240,11 @@ label-connected = %essid%
 
 format-disconnected =
 
-ramp-signal-0 = 睊
-ramp-signal-1 = 直
-ramp-signal-2 = 直
-ramp-signal-3 = 直
-ramp-signal-4 = 直
+ramp-signal-0 = "睊"
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
 
 [module/eth]
 type = internal/network
@@ -305,34 +305,36 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #55aa55
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = #ffb52a
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-prefix = "  "
+format-full-underline = #55aa55
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
+animation-discharging-3 = " "
+animation-discharging-4 = " "
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -363,7 +365,7 @@ click-right = ${scripts.player-toggle}
 click-middle = ${scripts.player-toggle}
 label-underline = #05d1ff
 
-[module/updates-arch]
+[module/updates-arch-combined]
 type = custom/script
 exec = ${scripts.updates}
 interval = 600
