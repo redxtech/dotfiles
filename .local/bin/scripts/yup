@@ -1,0 +1,113 @@
+#!/usr/bin/env sh
+
+# a command to upgrade yarn dependencies
+
+# function to test if yarn is installed
+has_yarn () {
+    command -v yarn >/dev/null 2>&1
+}
+
+# function to test if npm is installed
+has_npm () {
+    command -v npm >/dev/null 2>&1
+}
+
+# function to test if jq is installed
+has_jq () {
+    command -v jq >/dev/null 2>&1
+}
+
+# function to test if there's a local package.json
+has_package_json () {
+    [ -e ./package.json ]
+}
+
+# error logging function
+log_err () {
+    echo "error: $*"
+}
+
+# usage function
+usage () {
+    echo "usage: yup [-h] [-d/--dev] [-n/--npm]"
+}
+
+# function to upgrade yarn dependencies
+main () {
+
+    # set package manager command
+    if has_yarn; then
+        PM_CMD="yarn"
+    elif has_npm; then
+        PM_CMD="npm install"
+    else
+        log_err "yarn and/or npm aren't installed"
+        return 1
+    fi
+
+    # if jq isn't installed, throw an error
+    if ! has_jq; then
+        log_err "jq isn't installed"
+        return 1
+    fi
+
+    # if there's no package.json file, throw an error
+    # if ! has_package_json; then
+        # log_err "no package.json file found"
+        # return 1
+    # fi
+
+    # check for args
+    for arg in "$@"; do
+        if test "$arg" = "-h"; then
+            usage
+            return 0
+        fi
+    done
+
+    return 0
+    # initialize some variables
+    # set -lx scope "dependencies"
+    # set -lx install_command "yarn add"
+    # set -lx command_options ""
+
+    # parse -d, -n, --dev, & --npm as argument
+    # argparse 'd/dev' 'n/npm' -- $argv
+
+    # echo "args: $argv"
+    
+    # test if -d or --dev flag is set, and set scope accordingly
+    # also set command_options to -D if dev is specified
+    # if test -n "$_flag_dev";
+        # set scope "devDependencies"
+        # set command_options " -D"
+    # f
+
+    # test if -n or --npm flag is set, and set install_command accordingly
+    # if test -n "$_flag_npm"; or $_missing_yarn
+        # if $_missing_npm
+            # echo "NPM specied, but is missing. Install NPM and add it to path to use it."
+
+            # set install_command "yarn add"
+        # else
+
+            # set install_command "npm install"
+        # fi
+    # f
+
+    # grab deps from package.json
+    # set -l deps (jq "{$scope: {}}+.|.$scope+{}|keys|map(\" \"+.)+[\"\"]|add" ./package.json)
+    # set -l stripped (echo $deps | sed "s/\"//g"
+    
+    # set command to run
+    # set -l command_to_run "$install_command$command_options$stripped"
+    # echo "Command: $command_to_run $argv"
+    
+    # return 0
+
+    # run either yarn add or npm install
+    # echo "$install_command$stripped $argv" | fish
+}
+
+main "$@"
+
