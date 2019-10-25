@@ -4,7 +4,7 @@
 
 # location of scripts
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_CUSTOM="$HOME/.config/zsh"
+export ZSH_CUSTOM="$HOME/.config/zsh"
 
 # zsh config
 HYPHEN_INSENSITIVE="true"
@@ -22,7 +22,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # plugin setup
 plugins=(
     git
+    zsh-completions
+    zsh-autosuggestions
+    history-substring-search
+    zsh-syntax-highlighting
 )
+
+autoload -U compinit && compinit
 
 # source oh-my-zsh
 source "$ZSH/oh-my-zsh.sh"
