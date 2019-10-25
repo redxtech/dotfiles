@@ -7,15 +7,15 @@ set -l scripts_path "$HOME/Documents/scripts/bin"
 set -l local_bin_path "$HOME/.local/bin"
 
 if test -d $yarn_path; and ! contains $yarn_path $PATH
-  set -gx PATH $PATH $yarn_path
+    set -gx PATH $PATH $yarn_path
 end
 
 if test -d $opam_path; and ! contains $opam_path $PATH
-  set -gx PATH $PATH $opam_path
+    set -gx PATH $PATH $opam_path
 end
 
 if test -d $cargo_path; and ! contains $cargo_path $PATH
-  set -gx PATH $PATH $cargo_path
+    set -gx PATH $PATH $cargo_path
 end
 
 if type -q asdf
@@ -37,9 +37,12 @@ if test -d $scripts_path; and ! contains $scripts_path $PATH
 end
 
 if test -d $local_bin_path; and ! contains $local_bin_path $PATH
-    set -gx PATH $PATH $local_bin_path
     for bin_path in (string split ' ' (du $local_bin_path | cut -f2 | tr '\n' ' ' | awk '{$1=$1}1'))
         set -gx PATH $PATH $bin_path
     end
+end
+
+if test -d "$local_bin_path/status"; and ! contains "$local_bin_path/status" $PATH
+    set -gx PATH $PATH "$local_bin_path/status"
 end
 
