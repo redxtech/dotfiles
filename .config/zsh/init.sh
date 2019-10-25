@@ -17,11 +17,3 @@ if test -e "$HOME/.config/zsh/aliases.sh"; then
   . "$HOME/.config/zsh/aliases.sh"
 fi
 
-if test -e "$HOME/.asdf/asdf.sh"; then
-    # shellcheck disable=SC1090
-  . "$HOME/.asdf/asdf.sh"
-fi
-
-# init thefuck
-eval "$(thefuck --alias)"
-

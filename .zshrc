@@ -12,7 +12,7 @@ ENABLE_CORRECTION="true"
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-setopt appendhistory autocd beep extendedglob notify
+setopt appendhistory append_history share_history histignorealldups autocd beep extendedglob notify autocd
 bindkey -v
 
 # theme setup
@@ -21,14 +21,40 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # plugin setup
 plugins=(
+    # repo plugins
+    # archlinux
+    asdf
+    # aws
+    # cargo
+    command-not-found
+    # docker
+    # docker-compose
+    # dotenv
+    extract
+    fd
+    # firewalld
+    fzf
     git
+    # git-extras
+    # git-flow
+    gitfast
+    # golang
+    history-substring-search
+    # npx
+    # pip
+    ripgrep
+    # rust
+    thefuck
+    tmux
+    # yarn
+
+    # cloned plugins
     zsh-completions
     zsh-autosuggestions
-    history-substring-search
     zsh-syntax-highlighting
 )
 
-autoload -U compinit && compinit
+autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
 # source oh-my-zsh
 source "$ZSH/oh-my-zsh.sh"
