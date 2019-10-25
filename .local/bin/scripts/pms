@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+
+# function to log errors
+log_err () {
+    echo "error $*"
+}
+
+# script to manage plex media server operations
+main () {
+
+    # exit if the pms service file doesn't exist
+    if ! test -f "/usr/lib/systemd/system/pms.service"; then
+        log_err "pms not found"
+        return 1
+    fi
+
+    # make sure $1 exits and has exactly one element
+    if test -z "$1"; then
+        sudo systemctl status pms
+        return $?
+    elif test -n "$2"; then
+        log_err "specify only one operation"
+        return 1
+    fi
+
+    # run the specified systemctl command for pms
+    case $1 in
+        start|up) # startup
+            sudo systemctl start pms
+            ;;
+        restart|rs) # restart
+            sudo systemctl restart pms
+            ;;
+        stop|down|dn) # stop
+            sudo systemctl stop pms
+            ;;
+        status) # status
+            sudo systemctl status pms
+            ;;
+        enable|setup) # enable
+            sudo systemctl --now enable pms
+            ;;
+        disable|remove) # disable
+            sudo systemctl --now disable pms
+            ;;
+        *)
+            echo "error: that operation doesn't exist"
+            return 1
+            ;;
+    esac
+}
+
+main "$@"
+

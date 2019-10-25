@@ -1,0 +1,78 @@
+#!/usr/bin/env sh
+
+# script to handle configuration file opening
+main () {
+    # make sure $args exits and has exactly one element
+    if test -z "$1"; then
+        echo "error: specify a config"
+        return 1
+    elif test -n "$2"; then
+        echo "error: specify only one config"
+        return 1
+    fi
+
+    # open the specified config file with $EDITOR
+    case $1 in
+        v|vim|nvim|vimrc|vi) # vim
+            $EDITOR "$HOME/.config/nvim/init.vim"
+            ;;
+        vm) # vim maps
+            $EDITOR "$HOME/.config/nvim/maps.vim"
+            ;;
+        vp) # vim plugs
+            $EDITOR "$HOME/.config/nvim/plugs.vim" 
+            ;;
+    	o|omf|oi) # omf (init)
+            $EDITOR "$HOME/.config/omf/init.fish"
+            ;;
+    	oa) # omf aliases
+            $EDITOR "$HOME/.config/omf/aliases.fish"
+            ;;
+    	oaa) # omf abbreviations
+            $EDITOR "$HOME/.config/omf/abbreviations.fish"
+            ;;
+    	ob) # omf before init
+            $EDITOR "$HOME/.config/omf/before.init.fish"
+            ;;
+    	oe) # omf env
+            $EDITOR "$HOME/.config/omf/env.fish"
+            ;;
+    	op) # omf path
+            $EDITOR "$HOME/.config/omf/path.fish"
+            ;;
+    	t|tmux) # tmux
+            $EDITOR "$HOME/.tmux.conf"
+            ;;
+    	i|i3) # i3
+            $EDITOR "$HOME/.config/i3/config"
+            ;;
+    	p|polybar|poly) # polybar
+            $EDITOR "$HOME/.config/polybar/config"
+            ;;
+    	pl) # polybar launch
+            $EDITOR "$HOME/.config/polybar/launch.sh"
+            ;;
+    	r|ranger) # ranger
+            $EDITOR "$HOME/.config/ranger/rc.conf"
+            ;;
+    	rr) # ranger rifle
+            $EDITOR "$HOME/.config/ranger/rifle.conf"
+            ;;
+    	rs) # ranger scope
+            $EDITOR "$HOME/.config/ranger/scope.sh"
+            ;;
+        a|alacritty) # alacritty
+            $EDITOR "$HOME/.config/alacritty/alacritty.yml"
+            ;;
+        s|sxhkd) # simple x hotkey daemon
+            $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
+            ;;
+        *) # config doesn't exist
+            echo "error: that config doesn't exist"
+            return 1
+            ;;
+    esac
+}
+
+main "$@"
+

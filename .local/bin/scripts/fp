@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+
+# error logging function
+log_err () {
+    echo "error: $*"
+}
+
+# script to search path with fzf & rg
+main () {
+    # make sure fzf & rg are installed
+    if ! command -v fzf >/dev/null; then
+        log_err "fzf not installed"
+        return 1
+    elif ! command -v rg >/dev/null; then
+        log_err "rg not installed"
+        return 1
+    fi
+
+    # save currently selected path as a variable
+    LOCATION=$(echo "$PATH" | tr ':' '\n' | eval "fzf $FZF_DEFAULT_OPTS --header='[find:path]'")
+
+    # recursively search path
+    if test "$(echo "$LOCATION" | wc -w)" -eq 1; then
+        COMMAND=$(rg --files "$LOCATION" | rev | cut -d'/' -f1 | rev | tr ' ' '\n' | eval "fzf $FZF_DEFAULT_OPTS --header='[find:exe] => $LOCATION'")
+        if test "$(echo "$COMMAND" | wc -w)" -eq 1; then
+            echo "$LOCATION $COMMAND"
+        else
+            main
+        fi
+    fi
+}
+
+main
+

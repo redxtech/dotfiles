@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# script to start tmux if not already started
+main () {
+    if test -z "$TMUX"; then
+        tat
+    fi
+}
+
+main
+
