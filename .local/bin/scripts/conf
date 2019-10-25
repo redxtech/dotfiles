@@ -22,6 +22,27 @@ main () {
         vp) # vim plugs
             $EDITOR "$HOME/.config/nvim/plugs.vim" 
             ;;
+        z|zsh) # zsh
+            $EDITOR "$HOME/.zshrc"
+            ;;
+    	zi) # zsh (init)
+            $EDITOR "$HOME/.config/zsh/init.sh"
+            ;;
+    	za) # zsh aliases
+            $EDITOR "$HOME/.config/zsh/aliases.sh"
+            ;;
+    	zb) # zsh before init
+            $EDITOR "$HOME/.config/zsh/before.init.sh"
+            ;;
+    	ze) # zsh env
+            $EDITOR "$HOME/.config/zsh/env.sh"
+            ;;
+    	zp) # zsh path
+            $EDITOR "$HOME/.config/zsh/path.sh"
+            ;;
+        zt) # zsh theme
+            $EDITOR "$HOME/.config/zsh/themes/zshred.zsh-theme"
+            ;;
     	o|omf|oi) # omf (init)
             $EDITOR "$HOME/.config/omf/init.fish"
             ;;
@@ -39,6 +60,9 @@ main () {
             ;;
     	op) # omf path
             $EDITOR "$HOME/.config/omf/path.fish"
+            ;;
+        prof|profile) # .profile
+            $EDITOR "$HOME/.profile"
             ;;
     	t|tmux) # tmux
             $EDITOR "$HOME/.tmux.conf"
@@ -66,6 +90,9 @@ main () {
             ;;
         s|sxhkd) # simple x hotkey daemon
             $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
+            ;;
+        c|conf) # this file
+            $EDITOR "$HOME/.local/bin/scripts/conf"
             ;;
         *) # config doesn't exist
             echo "error: that config doesn't exist"

@@ -47,3 +47,7 @@ $(return_code)
 %{$fg[cyan]%}[$(date +%H:%M)]\
 %{$reset_color%}'
 
+# prompt demo
+# λ { project:master } --> [~/code/project][0][22:34]
+# » <command>
+
