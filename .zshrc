@@ -17,7 +17,6 @@ bindkey -v
 
 # theme setup
 ZSH_THEME="zshred"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # plugin setup
 plugins=(
