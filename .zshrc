@@ -34,6 +34,7 @@ plugins=(
     # firewalld
     fzf
     git
+    # git-extra-commands
     # git-extras
     # git-flow
     gitfast

@@ -13,6 +13,8 @@ function try_install () {
 
 # install oh-my-zsh plugins
 function main () {
+    # extra git commands
+    try_install unixorn/git-extra-commands
     # zsh completions
     try_install zsh-users/zsh-completions
     # zsh autosuggestions
