@@ -28,9 +28,6 @@ alias :q="not-vim"
 alias :w="not-vim"
 alias :x="not-vim"
 
-# re-source the init file
-alias resrc "source $HOME/.zshrc"
-
 # some command aliaseviations
 alias e='$EDITOR'
 alias v='$EDITOR'

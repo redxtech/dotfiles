@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+function main () {
+    if test -f "$HOME/.zshrc"; then
+        source "$HOME/.zshrc"
+    fi
+}
+
+main
+
