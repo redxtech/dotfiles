@@ -6,15 +6,12 @@ main () {
     # initialize some variables
     players="spotify vlc plasma-browser-integration"
     player=""
-    if [ -z ${REV_PLAY_PAUSE_ICONS+x} ]; then
-        play_icon=""
-        pause_icon=""
-    else
-        play_icon=""
-        pause_icon=""
-    fi
 
-    # test that playerctl exists
+    # set icons
+    play_icon=""
+    pause_icon=""
+
+    # test that playerctl is installed
     if ! command -v playerctl >/dev/null; then
         echo "error: playerctl isn't installed"
         return 1
@@ -39,7 +36,7 @@ main () {
     # set the format string based on player
     format_string=""
     case "$player" in
-        vlc)
+        vlc) # for vlc just use the title
             format_string="{{title}}"
             ;;
         *)
@@ -60,6 +57,15 @@ main () {
                 icon="$play_icon"
             else
                 icon="$pause_icon"
+            fi
+            $cmd metadata --format "$icon  $format_string" 2>/dev/null
+            ;;
+        reverse)
+            icon=""
+            if [ "$($cmd status 2>/dev/null)" = "Playing" ]; then
+                icon="$pause_icon"
+            else
+                icon="$play_icon"
             fi
             $cmd metadata --format "$icon  $format_string" 2>/dev/null
             ;;

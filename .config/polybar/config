@@ -31,12 +31,6 @@ secondary-left = ""
 secondary-center = ""
 secondary-right = ""
 
-[scripts]
-player-icons="~/.local/bin/polybar/player.sh icons"
-player-toggle="~/.local/bin/polybar/player.sh play-pause"
-updates="~/.local/bin/polybar/updates-arch-combined.sh"
-weather="~/.local/bin/polybar/weather.sh"
-
 [fonts]
 main = "FiraCode Nerd Font:size=9;3"
 unifont = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -358,16 +352,16 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/music-player]
 type = custom/script
-exec = ${scripts.player-icons}
+exec = player icons
 interval = 3
-click-left = ${scripts.player-toggle}
-click-right = ${scripts.player-toggle}
-click-middle = ${scripts.player-toggle}
+click-left = player play-pause
+click-right = player play-pause
+click-middle = player play-pause
 label-underline = #05d1ff
 
 [module/updates-arch-combined]
 type = custom/script
-exec = ${scripts.updates}
+exec = updates-arch-combined
 interval = 600
 format-underline = #f50a4d
 click-middle = "$TERMINAL -e pacaur -Syu"
@@ -376,7 +370,7 @@ click-left = "$TERMINAL -e pacaur -Syu"
 
 [module/local-weather]
 type = custom/script
-exec = ${scripts.weather}
+exec = weather
 interval = 120
 label-underline = #ffcd05
 
