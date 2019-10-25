@@ -6,9 +6,14 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/.config/zsh"
 
-# correction config
+# zsh config
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory autocd beep extendedglob notify
+bindkey -v
 
 # theme setup
 ZSH_THEME="zshred"
