@@ -12,7 +12,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="*"
 # get user & host if in an SSH  session
 function prompt_whoami () {
     if test -n "$SSH_TTY"; then
-        printf '%{$fg[cyan]%}(%s@%s) ' $(whoami) $(hostname)
+        printf "%%{$fg[cyan]%%}(%s@%s) " $(whoami) $(hostname)
     fi
 }
 
