@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+main () {
+    echo "export PATH=\"\$(echo \"\$PATH\" | sed -E 's/(^|:){1}[^:]*asdf\/shims:?/:/; s/:$//; s/^://')\""
+}
+
+main
+
