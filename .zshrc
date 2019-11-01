@@ -41,6 +41,7 @@ plugins=(
     # golang
     history-substring-search
     # npx
+    omz
     # pip
     ripgrep
     # rust
