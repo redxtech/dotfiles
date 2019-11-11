@@ -91,6 +91,9 @@ main () {
         s|sxhkd) # simple x hotkey daemon
             $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
             ;;
+        rt|rtorrent) # rtorrent
+            $EDITOR "$HOME/.rtorrent.rc"
+            ;;
         c|conf) # this file
             $EDITOR "$HOME/.local/bin/scripts/conf"
             ;;
