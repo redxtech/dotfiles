@@ -1,7 +1,9 @@
 #! /usr/bin/env fish
 
-source "$HOME/.local/bin/install/arch_helpers/arch_setup.fish"
-source "$HOME/.local/bin/install/arch_helpers/pacaur_install.fish"
+# TODO: convert to pure sh
+
+source "$HOME/.local/bin/install/arch/arch_setup.fish"
+source "$HOME/.local/bin/install/arch/pacaur_install.fish"
 
 # function to install dotfiles on arch
 function arch_install

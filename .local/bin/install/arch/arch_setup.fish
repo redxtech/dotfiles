@@ -1,6 +1,6 @@
 #! /usr/bin/env fish
 
-source "$HOME/.local/bin/install/arch_helpers/aur_install.fish"
+source "$HOME/.local/bin/install/arch/aur_install.fish"
 
 # function to setup the arch installation of the dotfiles
 function arch_setup
