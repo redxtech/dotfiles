@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# function to copy files to the systemd servcice folder
+main () {
+    sudo cp -i "$HOME/.local/files/"*.service "/etc/systemd/system/"
+}
+
+main
+
