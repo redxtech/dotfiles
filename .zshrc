@@ -8,7 +8,7 @@ export ZSH_CUSTOM="$HOME/.config/zsh"
 
 # zsh config
 HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
@@ -39,19 +39,18 @@ plugins=(
     # git-flow
     gitfast
     # golang
-    history-substring-search
-    # npx
+    npx
     omz
     # pip
     ripgrep
     # rust
     thefuck
     tmux
-    # yarn
+    yarn
 
     # cloned plugins
-    zsh-completions
-    zsh-autosuggestions
+    # zsh-completions
+    # zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
