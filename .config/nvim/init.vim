@@ -1,8 +1,8 @@
 " source some other vim config files.
-exe 'source' stdpath('config').'/plugs.vim'
-exe 'source' stdpath('config').'/maps.vim'
-exe 'source' stdpath('config').'/coc.vim'
-exe 'source' stdpath('config').'/colours.vim'
+source ~/.config/nvim/plugs.vim
+source ~/.config/nvim/maps.vim
+source ~/.config/nvim/coc.vim
+source ~/.config/nvim/colours.vim
 
 " some initial things
 set nocompatible
