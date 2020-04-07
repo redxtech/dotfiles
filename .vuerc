@@ -36,5 +36,7 @@
       "vuex": true,
       "cssPreprocessor": "stylus"
     }
-  }
+  },
+  "latestVersion": "4.2.3",
+  "lastChecked": 1583021718025
 }
