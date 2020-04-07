@@ -1,0 +1,1 @@
+/home/redxtech/.config/nvim/init.vim
