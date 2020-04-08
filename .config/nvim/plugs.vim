@@ -55,7 +55,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
 " only load wakatime if on main machine
 if g:on_main_machine
     Plug 'wakatime/vim-wakatime' " time tracker
-    echo "loaded wakatime"
 endif
 
 " coc extensions
