@@ -18,41 +18,61 @@ bindkey -v
 # theme setup
 ZSH_THEME="zshred"
 
-# plugin setup
-plugins=(
-    # repo plugins
-    # archlinux
-    asdf
-    # aws
-    # cargo
-    command-not-found
-    # docker
-    # docker-compose
-    # dotenv
-    extract
-    fd
-    # firewalld
-    fzf
-    git
-    # git-extra-commands
-    # git-extras
-    # git-flow
-    gitfast
-    # golang
-    npx
-    omz
-    # pip
-    ripgrep
-    # rust
-    thefuck
-    tmux
-    yarn
+# oh-my-zsh plugin setup
+if test "$(~/.local/bin/scripts/distro)" = "arch2"; then
+    # arch specific plugins (read: main setup)
+    plugins=(
+        # repo plugins
+        archlinux
+        asdf
+        # cargo
+        command-not-found
+        docker
+        docker-compose
+        dotenv
+        extract
+        fd
+        fzf
+        gcloud
+        git
+        # git-flow
+        gitfast
+        history-substring-search
+        npx
+        ripgrep
+        # rust
+        ssh-agent
+        # systemd
+        thefuck
+        tmux
+        yarn
+        z
 
-    # cloned plugins
-    # zsh-completions
-    # zsh-autosuggestions
-    zsh-syntax-highlighting
-)
+        omz
+        zsh-syntax-highlighting
+    )
+
+    # plugin specific options
+    zstyle :omz:plugins:ssh-agent agent-forwarding on
+    zstyle :omz:plugins:ssh-agent identities id_rsa # id_github
+else
+    # plugins for alternate machines
+    plugins=(
+        command-not-found
+        docker
+        docker-compose
+        dotenv
+        extract
+        git
+        history-substring-search
+        npx
+        yarn
+        z
+
+        omz
+        zsh-syntax-highlighting
+    )
+fi
 
 autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
@@ -61,4 +81,5 @@ source "$ZSH/oh-my-zsh.sh"
 
 # source the profile script
 [[ -f "$HOME/.profile" ]] && source "$HOME/.profile"
+[[ -f "$HOME/.profile2" ]] && source "$HOME/.profile2"
 
