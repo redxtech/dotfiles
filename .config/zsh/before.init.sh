@@ -24,5 +24,7 @@ export LC_ALL="$LANG"
 # fi
 
 # initialize thefuck
-eval $(thefuck --alias)
+if command -v thefuck>/dev/null; then
+    eval $(thefuck --alias)
+fi
 
