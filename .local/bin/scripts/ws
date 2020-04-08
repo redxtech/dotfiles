@@ -16,6 +16,7 @@ main () {
     # make sure $args exits and has exactly one element
     if test -z "$1"; then
         sudo systemctl status nginx
+        return 0
     elif test -n "$2"; then
         log_err "specify only one operation"
         return 1
