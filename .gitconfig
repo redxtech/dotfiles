@@ -1,7 +1,6 @@
 [user]
 	name = Gabe Dunn
 	email = gabe@gabedunn.dev
-	signingKey = D978BB8E3CF6F9EDAAB2947B35F455B717B723CE
 
 [push]
 	default = matching
@@ -33,7 +32,3 @@
 	dc = diff --cached
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	pop = stash pop
-[commit]
-	gpgSign = true
-[tag]
-	forceSignAnnotated = true
