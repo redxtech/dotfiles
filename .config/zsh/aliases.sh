@@ -8,7 +8,6 @@ alias grep="grep --color"
 
 # redo last command as sudo
 alias shit='sudo $(fc -ln -1)'
-alias please="shit"
 
 # clipboard alias
 alias xclip="xclip -selection c"
