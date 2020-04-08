@@ -1,9 +1,15 @@
 #!/usr/bin/env sh
 
 # basic environment
-export TERMINAL="/usr/bin/alacritty"
-export EDITOR="/usr/bin/nvim"
-export BROWSER="/usr/bin/vivaldi-snapshot"
+EDITOR="$(command -v vim)"
+
+# if nvim is installed switch the variable to that
+if command -v nvim>/dev/null; then
+    EDITOR="$(command -v nvim)"
+fi
+
+# export the editor
+export EDITOR
 
 # program specific
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
