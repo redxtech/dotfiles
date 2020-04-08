@@ -7,16 +7,12 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'amix/open_file_under_cursor.vim' " open files
 Plug 'ap/vim-css-color' " colour highlighting
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' } " other theme
 Plug 'christoomey/vim-sort-motion' " sort motion
 Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
-" Plug 'christoomey/vim-tmux-runner' " send commands to tmux panes
-Plug 'redxtech/vim-tmux-runner'
+Plug 'redxtech/vim-tmux-runner' " send commands to tmux panes
 Plug 'editorconfig/editorconfig-vim' " editorconfig support
 Plug 'fvictorio/vim-textobj-backticks' " backticks object
-Plug 'glacambre/firenvim' " nvim client for browser
 Plug 'glts/vim-textobj-comment' " comment text object
 Plug 'honza/vim-snippets' " snippets
 Plug 'itchyny/lightline.vim' " powerline
@@ -35,8 +31,6 @@ Plug 'liuchengxu/vim-clap' " interactive finder & dispatcher
 Plug 'metakirby5/codi.vim' " scratch-code playground
 Plug 'mhinz/vim-signify' " git change indicators
 Plug 'mhinz/vim-startify' " new startup page
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
-" Plug 'neomutt/neomutt.vim' " mail plugin
 Plug 'ryanoasis/vim-devicons' " filetype icons
 Plug 'scrooloose/nerdtree' " tree file browser
 Plug 'sheerun/vim-polyglot' " syntax highlighting for a large number of languages
@@ -60,20 +54,23 @@ Plug 'yegappan/mru' " most recently used
 Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
 
 " coc extensions
-Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile', 'for': ['css', 'vue', 'html']}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile', 'for': ['html', 'vue']}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile', 'for': 'json'}
-Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': 'python'}
-Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile', 'for': 'rust'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile', 'for': ['yml', 'yaml']}
-Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
-Plug 'Shougo/neco-vim'
-Plug 'voldikss/coc-browser', {'do': 'yarn install --frozen-lockfile'}
+if g:has_node == 0
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
+    Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
+    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile', 'for': ['css', 'vue', 'html']}
+    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile', 'for': ['html', 'vue']}
+    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile', 'for': 'json'}
+    Plug 'neoclide/coc-neco'
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': 'python'}
+    Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile', 'for': 'rust'}
+    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
+    Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile', 'for': ['js', 'vue']}
+    Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile', 'for': ['yml', 'yaml']}
+    Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'Shougo/neco-vim'
+    Plug 'voldikss/coc-browser', {'do': 'yarn install --frozen-lockfile'}
+endif
 
 call plug#end()
 

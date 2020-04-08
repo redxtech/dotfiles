@@ -1,8 +1,4 @@
 " source some other vim config files.
-source ~/.config/nvim/plugs.vim
-source ~/.config/nvim/maps.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/colours.vim
 
 " some initial things
 set nocompatible
@@ -31,7 +27,21 @@ let b:ale_fix_on_save = 1
 " automatically resize vim when window is resized
 autocmd VimResized * :wincmd =
 
-" set goyo mode for neomutt
-" autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-" autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
+" detect if node exists
+let s:has_node_command = system('command -v node')
+let g:has_node = v:shell_error
+
+" load some additional config
+try
+    source ~/.config/nvim/plugs.vim
+    source ~/.config/nvim/maps.vim
+    source ~/.config/nvim/colours.vim
+
+    " only load coc if node is available
+    if g:has_node == 0
+        source ~/.config/nvim/coc.vim
+    endif
+catch /.*/
+    echo "something went wrong loading additional config files"
+endtry
 
