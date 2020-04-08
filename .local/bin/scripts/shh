@@ -46,7 +46,7 @@ main () {
             SHH_SERVER="when-api.gabedunn.dev"
             SHH_SHELL="zsh"
             ;;
-        various|gcpvarious|gcpv) # instance for various things on google cloud platform
+        various|gcpvarious|gcpv|v) # instance for various things on google cloud platform
             SHH_HOSTNAME="gabe_gabedunn_dev"
             SHH_SERVER="various.gabedunn.dev"
             SHH_SHELL="zsh"
