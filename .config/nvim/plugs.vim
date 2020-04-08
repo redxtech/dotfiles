@@ -49,12 +49,17 @@ Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
 Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
 Plug 'dense-analysis/ale' " asynchronous lint engine
-Plug 'wakatime/vim-wakatime' " time tracker
 Plug 'yegappan/mru' " most recently used
 Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
 
+" only load wakatime if on main machine
+if g:on_main_machine
+    Plug 'wakatime/vim-wakatime' " time tracker
+    echo "loaded wakatime"
+endif
+
 " coc extensions
-if g:has_node == 0
+if g:has_node
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
     Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile', 'for': ['css', 'vue', 'html']}

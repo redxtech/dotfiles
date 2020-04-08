@@ -27,9 +27,13 @@ let b:ale_fix_on_save = 1
 " automatically resize vim when window is resized
 autocmd VimResized * :wincmd =
 
+" detect if we're on arch (read: main machine)
+let s:distro_command = substitute(system('~/.local/bin/scripts/distro'), '\n', '', '')
+let g:on_main_machine = s:distro_command == "arch"
+
 " detect if node exists
 let s:has_node_command = system('command -v node')
-let g:has_node = v:shell_error
+let g:has_node = v:shell_error == 0
 
 " load some additional config
 try
@@ -38,7 +42,7 @@ try
     source ~/.config/nvim/colours.vim
 
     " only load coc if node is available
-    if g:has_node == 0
+    if g:has_node
         source ~/.config/nvim/coc.vim
     endif
 catch /.*/
