@@ -29,7 +29,7 @@ main () {
 
     # if a param is specified use the second remote
     if test -n "$2"; then
-        REMOTE="sonarr3"
+        SS_REMOTE="sonarr3"
     fi
 
     # alternate cases for different setups
