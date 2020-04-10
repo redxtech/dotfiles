@@ -20,46 +20,39 @@ main () {
     fi
 
     # set up some variables
-    SHH_HOSTNAME=""
+    SHH_USER="redxtech"
     SHH_SERVER=""
-    SHH_SHELL=""
+    SHH_SHELL="zsh"
 
     # run the specified systemctl command for nginx
     case $1 in
         seedbox|sb) # seedbox
-            SHH_HOSTNAME="redxtech"
             SHH_SERVER="lw829.usbx.me"
             SHH_SHELL="PATH=\"\$PATH:\$HOME/bin\" ~/bin/zsh"
             ;;
         seedbox2|sb2) # seedbox 2
-            SHH_HOSTNAME="redxtech"
             SHH_SERVER="lw820.usbx.me"
             SHH_SHELL="PATH=\"\$PATH:\$HOME/bin\" ~/bin/zsh"
             ;;
         bot|devcord) # devcord bot server
-            SHH_HOSTNAME="root"
+            SHH_USER="root"
             SHH_SERVER="challenges.devcord.com"
-            SHH_SHELL="zsh"
             ;;
         when|gcpwhen) # when instance on google cloud platform
-            SHH_HOSTNAME="gabe_gabedunn_dev"
+            SHH_USER="gabe_gabedunn_dev"
             SHH_SERVER="when-api.gabedunn.dev"
-            SHH_SHELL="zsh"
             ;;
         various|gcpvarious|gcpv|v) # instance for various things on google cloud platform
-            SHH_HOSTNAME="gabe_gabedunn_dev"
+            SHH_USER="gabe_gabedunn_dev"
             SHH_SERVER="various.gabedunn.dev"
-            SHH_SHELL="zsh"
             ;;
         invoice|invoiceninja|in) # invoice ninja instance
-            SHH_HOSTNAME="gabe_gabedunn_dev"
+            SHH_USER="gabe_gabedunn_dev"
             SHH_SERVER="invoice.gabedunn.dev"
-            SHH_SHELL="zsh"
             ;;
         ryan|gcpryan) # ryandoedelmemories database on google cloud platform
-            SHH_HOSTNAME="gabe_gabedunn_dev"
+            SHH_USER="gabe_gabedunn_dev"
             SHH_SERVER="db.ryandoedelmemories.com"
-            SHH_SHELL="zsh"
             ;;
         *) # default
             echo "error: that server doesn't exist"
@@ -68,7 +61,7 @@ main () {
     esac
 
     # run the ssh command
-    ssh "$SHH_HOSTNAME@$SHH_SERVER" -t "$SHH_SHELL"
+    ssh "$SHH_USER@$SHH_SERVER" -t "$SHH_SHELL"
 }
 
 main "$@"
