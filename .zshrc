@@ -45,6 +45,7 @@ if test "$(~/.local/bin/scripts/distro)" = "arch2"; then
         # systemd
         thefuck
         tmux
+        vagrant
         yarn
         z
 
