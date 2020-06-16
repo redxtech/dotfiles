@@ -36,7 +36,7 @@ main () {
             ;;
         bot|devcord) # devcord bot server
             SHH_USER="root"
-            SHH_SERVER="challenges.devcord.com"
+            SHH_SERVER="log.devcord.com"
             ;;
         when|gcpwhen) # when instance on google cloud platform
             SHH_USER="gabe_gabedunn_dev"
