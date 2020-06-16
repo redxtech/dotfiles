@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+# main function to call the proper installation functions
+main () {
+    # set default values
+    CURRENT_DISTRO="arch" # TODO: this will be set dynamically in the future
+    
+    # set variable for line separators (25 of -)
+    DASH_LINE="-------------------------"
+
+    case $CURRENT_DISTRO in
+        arch) # arch linux install scripts
+            echo "$DASH_LINE"
+            echo "You are running arch linux!"
+            echo "Loading arch installation..."
+            echo "$DASH_LINE"
+            . "./arch/install.sh"
+            echo "$DASH_LINE"
+            echo "Arch installation completed!"
+            echo "$DASH_LINE"
+            ;;
+        *) # default
+            echo "$DASH_LINE"
+            echo "Distro not implemented yet."
+            echo "$DASH_LINE"
+            ;;
+    esac
+}
+
+main
+
