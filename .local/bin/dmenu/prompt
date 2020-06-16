@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-# gives a dmenu prompt labeled with $1 to perform command $2.
-# `./prompt "Do you want to shutdown?" "shutdown -h now"`
-
-[ "$(printf "No\\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
-
