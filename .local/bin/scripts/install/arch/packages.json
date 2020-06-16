@@ -1,0 +1,22 @@
+{
+    "packages": {
+        "all": [
+            "alacritty",
+            "htop",
+            "mpv",
+            "neofetch",
+            "neovim",
+            "nodejs",
+            "ranger",
+            "sxhkd",
+            "yadm-git",
+            "zsh"
+        ],
+        "desktop": [],
+        "laptop": [],
+        "on-hold": [
+            "i3",
+            "polybar"
+        ]
+    }
+}

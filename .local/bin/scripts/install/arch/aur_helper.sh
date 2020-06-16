@@ -6,7 +6,8 @@ aur_install () {
 
     # set some directory variables
     AUR_BUILD_DIR="$HOME/.cache/aur_install_dir"
-    AUR_PACKAGE_DIR="package"
+    AUR_PACKAGE_DIR="$AUR_BUILD_DIR/package"
+    AUR_PKGBUILD="$AUR_PACKAGE_DIR/PKGBUILD"
     CURRENT_DIR="$(pwd)"
 
     # make sure a program was specified
@@ -15,21 +16,21 @@ aur_install () {
         return 1
     fi
 
-    # create the build directory if it doesn't exist already and cd into it
+    # clean & create the build directory then cd into it
+    rm -rf "$AUR_BUILD_DIR"
     mkdir -p "$AUR_BUILD_DIR"
     cd "$AUR_BUILD_DIR" || return 1
 
     # clone the git repo
     git clone "https://aur.archlinux.org/$1.git" "$AUR_PACKAGE_DIR"
 
-    # check if the directory is empty
-    if test "$(/usr/bin/ls -A "./$AUR_PACKAGE_DIR")"; then
-        echo "Cloned repo was empty. Exiting..."
+    if ! ls "$AUR_PKGBUILD" >/dev/null; then
+        echo "PKGBUILD not found. Exiting..."
         return 1
     fi
 
     # cd into the package directory
-    cd "./$AUR_PACKAGE_DIR" || return 1
+    cd "$AUR_PACKAGE_DIR" || return 1
 
     # install the package with the PKGBUILD
     makepkg -irs --noconfirm --needed
@@ -37,14 +38,19 @@ aur_install () {
     # assuming successful install, switch back to the previous directory
     cd "$CURRENT_DIR" || return 1
 
+    # remove build directory
+    rm -rf "$AUR_BUILD_DIR"
+
     # return a successful install
     return 0
 }
 
 # function to install the required dependencies
 install_deps () {
+    echo "Installing dependencies (base-devel, git & jq)..."
+
     # run the pacman command to install the packages
-    sudo pacman -Sq --noconfirm --needed base-devel git || return 1
+    sudo pacman -Sq --noconfirm --needed base-devel git jq || return 1
 
     # return a successful install
     return 0
