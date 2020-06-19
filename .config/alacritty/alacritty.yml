@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 110
-    lines: 30
+    columns: 140
+    lines: 35
 
   # Window position (changes require restart)
   #
@@ -397,10 +397,12 @@ live_config_reload: true
 #   - (Linux) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/bin/zsh
+  program: /usr/bin/tmux
   args:
-    - -c
-    - tat
+    - new-session
+    - -A
+    - -s
+    - redxtech
 
 # Startup directory
 #
