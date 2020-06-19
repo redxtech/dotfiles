@@ -4,8 +4,7 @@
 
 # config values for media-sync
 
-# lock and log file locations
-export _MS_LOCKFILE="$HOME/.media-sync.lock"
+# log file location
 export _MS_LOGFILE="$HOME/.media-sync.log"
 
 # runtime config
