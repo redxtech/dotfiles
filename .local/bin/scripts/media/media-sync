@@ -3,60 +3,64 @@
 # pull in some dependencies
 # shellcheck source=../utils/testdeps.sh
 . "$HOME/.local/bin/scripts/utils/testdeps.sh" || exit 1
-# shellcheck source=../utils/lockfile.sh
-. "$HOME/.local/bin/scripts/utils/lockfile.sh" || exit 1
 
 # pull in the config
 # shellcheck source=../../../dotfiles/config/media-sync.sh
 . "$HOME/.local/dotfiles/config/media-sync.sh" || exit 1
 
-# cleanup function
-cleanup () {
-    printf "\nForcefully exiting...\n"
+# logging function
+logger () {
+    echo "[$(date "+%Y/%m/%d %H:%M:%S")] $*" >> "$_MS_LOGFILE"
+}
 
-    # deal with the lockfile
-    lockfile_exit "$_MS_LOCKFILE"
-
-    # exit the script
-    exit 2
+# test if tmux session exists
+tmux_session_exists () {
+    # list tmux sessions, print the first column, and compare it against the expected session name
+    if tmux ls | awk -F ": " '{print $1}' | grep "$_MS_TMUX_SESSION" >/dev/null; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 # run command in a tmux session
 tmuxify () {
-    # if inside an existing tmux session we must unset $TMUX to allow nesting
-    if test -z "$TMUX"; then
-        tmux new-session -s "$_MS_TMUX_SESSION" "$@"
-    else
-        TMUX=""
-        tmux new-session -s "$_MS_TMUX_SESSION" "$@"
+    # test to see if the script is already running
+    if ! tmux_session_exists; then
+        # if inside an existing tmux session we must unset $TMUX to allow nesting
+        if test -z "$TMUX"; then
+            tmux new-session -d -s "$_MS_TMUX_SESSION" "$*"
+        else
+            TMUX=""
+            tmux new-session -d -s "$_MS_TMUX_SESSION" "$*"
+        fi
     fi
+    
+    # attach to the existing session
+    tmux_attach_session
 }
 
 # safely attach to the tmux session
 tmux_attach_session () {
-    # if inside an existing tmux session we must unset $TMUX to allow nesting
-    if test -z "$TMUX"; then
-        tmux attach-session -t "$_MS_TMUX_SESSION"
+    # only try to attach if there's a tmux session open
+    if tmux_session_exists; then
+        # if inside an existing tmux session we must unset $TMUX to allow nesting
+        if test -z "$TMUX"; then
+            tmux attach-session -t "$_MS_TMUX_SESSION"
+        else
+            TMUX=""
+            tmux attach-session -t "$_MS_TMUX_SESSION"
+        fi
     else
-        TMUX=""
-        tmux attach-session -t "$_MS_TMUX_SESSION"
+        echo "media-sync isn't currently running."
     fi
 }
 
 # main function to handle media-sync
 main () {
     # test to see if all the dependencies are installed
-    if ! testdeps tmux rclone; then
+    if ! testdeps tmux rclone awk grep; then
         exit 1
-    fi
-
-    # test for lockfile
-    if ! lockfile_init "$_MS_LOCKFILE"; then
-        # if the command isn't "attach" test for the lockfile
-        if test "$1" != "attach"; then
-            echo "media-sync is already running in tmux session $_MS_TMUX_SESSION."
-            return 1
-        fi
     fi
 
     # parse the bandwidth config options
@@ -78,9 +82,16 @@ main () {
         radarr|movie|movies)
             _MS_RCLONE_COMMAND="$_MS_RADARR_SRC $_MS_RADARR_DEST"
             ;;
-        attach)
-            lockfile_exit "$_MS_LOCKFILE"
+        attach|monitor|view)
             tmux_attach_session
+            exit 0
+            ;;
+        log|logs)
+            cat "$_MS_LOGFILE"
+            exit 0
+            ;;
+        clearlogs)
+            rm -i "$_MS_LOGFILE"
             exit 0
             ;;
         *)
@@ -88,16 +99,22 @@ main () {
             ;;
     esac
 
+    # set some notices to print
+    _MS_PRINT_TV="printf \"\nSyncing TV...\n\n\";"
+    _MS_PRINT_MOVIES="printf \"\nSyncing Movies...\n\n\";"
+    _MS_PRINT_ONE="printf \"\nSyncing $1...\n\n\";"
+
     if $_MS_BOTH; then
+        logger "Syncing both..."
         # run both commands in a tmux session
-        tmuxify "$_MS_RCLONE_TEMPLATE $_MS_SONARR_SRC $_MS_SONARR_DEST; $_MS_RCLONE_TEMPLATE $_MS_RADARR_SRC $_MS_RADARR_DEST"
+        tmuxify "$_MS_PRINT_TV $_MS_RCLONE_TEMPLATE $_MS_SONARR_SRC $_MS_SONARR_DEST; $_MS_PRINT_MOVIES  $_MS_RCLONE_TEMPLATE $_MS_RADARR_SRC $_MS_RADARR_DEST"
     else
+        logger "Syncing $1..."
         # run the sync command in a tmux session
-        tmuxify "$_MS_RCLONE_TEMPLATE $_MS_RCLONE_COMMAND"
+        tmuxify "$_MS_PRINT_ONE $_MS_RCLONE_TEMPLATE $_MS_RCLONE_COMMAND"
     fi
 
-    # clean up the lockfile
-    lockfile_exit "$_MS_LOCKFILE"
+    logger "Done syncing."
 }
 
 # set the trap to run if prematurely exited

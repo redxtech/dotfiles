@@ -6,7 +6,7 @@
 
 # lock and log file locations
 export _MS_LOCKFILE="$HOME/.media-sync.lock"
-export _MS_LOGFILE="/dev/null"
+export _MS_LOGFILE="$HOME/.media-sync.log"
 
 # runtime config
 export _MS_TMUX_SESSION="media-sync"
