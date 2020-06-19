@@ -59,7 +59,7 @@ tmux_attach_session () {
 # main function to handle media-sync
 main () {
     # test to see if all the dependencies are installed
-    if ! testdeps tmux rclone awk grep; then
+    if ! testdeps tmux rclone awk grep tail; then
         exit 1
     fi
 
@@ -87,7 +87,8 @@ main () {
             exit 0
             ;;
         log|logs)
-            cat "$_MS_LOGFILE"
+            echo "Showing the last 10 lines..."
+            tail "$_MS_LOGFILE"
             exit 0
             ;;
         clearlogs)
