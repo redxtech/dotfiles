@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
 # TODO: implement better error handling from called scripts
+# TODO: work out how to run this script before installing yadm
+# TODO: look at ccache
 
 # main function to call the proper installation functions
 main () {
