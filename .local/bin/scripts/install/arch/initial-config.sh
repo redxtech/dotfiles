@@ -11,8 +11,8 @@ main () {
     # do that
 
     # TODO: use sed to modify config files
-    # TODO: look into ccache
-    # TODO: change default core count for makepkg
+    # TODO: modify BUILDENV in /etc/makepkg.conf to include ccache
+    # TODO: modify MAKEFLAGS in /etc/makepkg.conf to include -j9 (number of threads + 1)
     # TODO: set sh to point to dash
 
 }

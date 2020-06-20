@@ -13,36 +13,40 @@ main () {
     . "$INSTALL_SCRIPT_DIR/arch/initial-config.sh"
 
     echo "Step 03: install oh-my-zsh"
-    # # shellcheck source=./oh-my-zsh.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/oh-my-zsh.sh"
+    # shellcheck source=./oh-my-zsh.sh
+    . "$INSTALL_SCRIPT_DIR/arch/oh-my-zsh.sh"
 
     echo "Step 04: clone dotfiles"
-    # # shellcheck source=./dotfiles.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/dotfiles.sh"
+    # shellcheck source=./dotfiles.sh
+    . "$INSTALL_SCRIPT_DIR/arch/dotfiles.sh"
     
     echo "Step 05: install wayland"
-    # # shellcheck source=./wayland.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/wayland.sh"
+    # shellcheck source=./wayland.sh
+    . "$INSTALL_SCRIPT_DIR/arch/wayland.sh"
     
     echo "Step 06: install desktop environment (GNOME)"
-    # # shellcheck source=./desktop-env.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/desktop_env.sh"
+    # shellcheck source=./desktop-env.sh
+    . "$INSTALL_SCRIPT_DIR/arch/desktop_env.sh"
     
     echo "Step 07: set DE config with gsettings"
-    # # shellcheck source=./gsettings.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/gsettings.sh"
+    # shellcheck source=./gsettings.sh
+    . "$INSTALL_SCRIPT_DIR/arch/gsettings.sh"
     
     echo "Step 08: install packages"
-    # # shellcheck source=./packages.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/packages.sh"
+    # shellcheck source=./packages.sh
+    . "$INSTALL_SCRIPT_DIR/arch/packages.sh"
 
-    echo "Step 09: initialize rclone mounts"
-    # # shellcheck source=./rclone-mounts.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/rclone-mounts.sh"
+    echo "Step 09: configure fonts (twemoji)"
+    # shellcheck source=./fonts.sh
+    . "$INSTALL_SCRIPT_DIR/arch/fonts.sh"
 
-    echo "Step 10: initialize sonarr-sync"
-    # # shellcheck source=./rclone-mounts.sh
-    # . "$INSTALL_SCRIPT_DIR/arch/rclone-mounts.sh"
+    echo "Step 10: initialize rclone mounts"
+    # shellcheck source=./rclone-mounts.sh
+    . "$INSTALL_SCRIPT_DIR/arch/rclone-mounts.sh"
+
+    echo "Step 11: initialize media-sync"
+    # shellcheck source=./media-sync.sh
+    . "$INSTALL_SCRIPT_DIR/arch/media-sync.sh"
 }
 
 main
