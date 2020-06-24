@@ -16,7 +16,7 @@ logger () {
 # test if tmux session exists
 tmux_session_exists () {
     # list tmux sessions, print the first column, and compare it against the expected session name
-    if tmux ls | awk -F ": " '{print $1}' | grep "$_MS_TMUX_SESSION" >/dev/null; then
+    if tmux ls 2>/dev/null | awk -F ": " '{print $1}' | grep "$_MS_TMUX_SESSION" >/dev/null; then
         return 0
     else
         return 1
