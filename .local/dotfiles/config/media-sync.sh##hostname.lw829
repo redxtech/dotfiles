@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# TODO: add config for other devices
+# media-sync config for seedbox
 
 # config values for media-sync
 
