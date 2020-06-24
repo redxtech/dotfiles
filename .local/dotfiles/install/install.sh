@@ -14,6 +14,8 @@ main () {
     # make the command executable
     chmod a+x "$HOME/yadm" || return 1
 
+    # TODO: specify the yadm config class for alternate files
+
     # clone the dotfiles repo
     "$HOME/yadm" clone "https://github.com/redxtech/dotfiles.git" || return 1
 
