@@ -36,8 +36,10 @@ tmuxify () {
         fi
     fi
     
-    # attach to the existing session
-    tmux_attach_session
+    # attach to the existing session if not run by cron
+    if test "$_MS_CRON" != "true"; then
+        tmux_attach_session
+    fi
 }
 
 # safely attach to the tmux session
@@ -83,7 +85,10 @@ main () {
             _MS_RCLONE_COMMAND="$_MS_RADARR_SRC $_MS_RADARR_DEST"
             ;;
         attach|monitor|view)
-            tmux_attach_session
+            # attach to the existing session if not run by cron
+            if test "$_MS_CRON" != "true"; then
+                tmux_attach_session
+            fi
             exit 0
             ;;
         log|logs)
