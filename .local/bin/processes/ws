@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# pull in some dependencies
+# shellcheck source=../utils/testdeps.sh
+. "$HOME/.local/bin/utils/testdeps.sh" || exit 1
+
+# TODO: add args functions in own files to replace current arg parsing
+
 # error logging function
 log_err () {
     echo "error: $*"
@@ -7,10 +13,9 @@ log_err () {
 
 # script to manage nginx webserver daemon operations
 main () {
-    # exit if the nginx command doesn't exist
-    if ! command -v nginx >/dev/null; then
-        log_err "nginx command not found"
-        return 1
+    # test to see if all the dependencies are installed
+    if ! testdeps nginx; then
+        exit 1
     fi
 
     # make sure $args exits and has exactly one element
