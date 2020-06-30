@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# script to show the $PATH in a ledgible manner
+# script to list the $PATH in a ledgible manner
 main () {
     echo "$PATH" | sed 's/:/\n/g'
 }
