@@ -2,7 +2,7 @@
 
 # pull in some dependencies
 # shellcheck source=../utils/testdeps.sh
-. "$HOME/.local/bin/scripts/utils/testdeps.sh" || exit 1
+. "$HOME/.local/bin/utils/testdeps.sh" || exit 1
 
 # pull in the config
 # shellcheck source=../../../dotfiles/config/media-sync.sh
