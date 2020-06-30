@@ -5,7 +5,7 @@
 . "$HOME/.local/bin/utils/testdeps.sh" || exit 1
 
 # pull in the config
-# shellcheck source=../../../dotfiles/config/media-sync.sh
+# shellcheck source=../../dotfiles/config/media-sync.sh
 . "$HOME/.local/dotfiles/config/media-sync.sh" || exit 1
 
 # logging function
