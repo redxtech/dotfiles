@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# TODO: move service installation to user systemd processes instead of global/system
+
 # function to copy files to the systemd servcice folder
 main () {
     sudo cp -i "$HOME/.local/files/"*.service "/etc/systemd/system/"
