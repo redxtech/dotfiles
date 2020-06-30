@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# TODO: modernize script
+
 # a command to upgrade yarn dependencies
 
 # function to test if yarn is installed
