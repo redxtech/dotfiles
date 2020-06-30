@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# TODO: move to proper folder
+# TODO: optimize commands
+
 # script to handle configuration file opening
 main () {
     # make sure $args exits and has exactly one element

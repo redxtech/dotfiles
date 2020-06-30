@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# TODO: implement some of neofetch's distro detection
+# TODO: move to utils folder
+
 # simple command to show the current distro
 
 main () {
