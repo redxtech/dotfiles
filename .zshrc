@@ -41,7 +41,6 @@ if test "$(~/.local/bin/scripts/distro)" = "arch2"; then
         npx
         ripgrep
         # rust
-        ssh-agent
         # systemd
         thefuck
         tmux
