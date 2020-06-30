@@ -10,7 +10,7 @@ main () {
     CURRENT_DISTRO="arch" # TODO: this will be set dynamically in the future
 
     # set install script directory
-    export INSTALL_SCRIPT_DIR="$HOME/.local/bin/scripts/install"
+    export INSTALL_SCRIPT_DIR="$HOME/.local/bin/install"
     
     # set variable for line separators (25 of -)
     DASH_LINE="-------------------------"
