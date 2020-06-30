@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# pull in some dependencies
+# shellcheck source=../utils/testdeps.sh
+. "$HOME/.local/bin/utils/testdeps.sh" || exit 1
+
 # error logging function
 log_err () {
     echo "error: $*"
@@ -7,10 +11,9 @@ log_err () {
 
 # script to manage vpn connections
 main () {
-    # exit if nordvpn isn't installed
-    if ! command -v nordvpn >/dev/null; then
-        log_err "nordvpn not installed"
-        return 1
+    # test to see if all the dependencies are installed
+    if ! testdeps nordvpn; then
+        exit 1
     fi
 
     # run the specified systemctl command for vpn
