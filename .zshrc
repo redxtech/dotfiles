@@ -12,7 +12,7 @@ ENABLE_CORRECTION="false"
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-setopt appendhistory append_history share_history histignorealldups autocd beep extendedglob notify autocd
+setopt appendhistory append_history share_history histignorealldups autocd beep extendedglob notify autocd histignorespace
 bindkey -v
 
 # theme setup
