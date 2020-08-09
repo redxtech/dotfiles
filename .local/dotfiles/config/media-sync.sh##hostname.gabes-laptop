@@ -9,7 +9,7 @@ export _MS_LOGFILE="$HOME/.media-sync.log"
 
 # runtime config
 export _MS_TMUX_SESSION="media-sync"
-export _MS_BANDWIDTH_LIMIT="5M"
+# export _MS_BANDWIDTH_LIMIT="5M"
 export _MS_RCLONE_CONFIG="$HOME/.config/rclone/rclone.conf"
 
 # remote location config
