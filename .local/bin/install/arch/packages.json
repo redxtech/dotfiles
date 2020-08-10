@@ -67,6 +67,7 @@
             "shellcheck",
             "slack-desktop",
             "slurm",
+            "source-highlight",
             "spotify",
             "sublime-text-dev",
             "sxhkd",
