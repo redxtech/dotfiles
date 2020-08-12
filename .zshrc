@@ -29,7 +29,7 @@ if test "$(~/.local/bin/scripts/distro)" = "arch2"; then
         command-not-found
         docker
         docker-compose
-        dotenv
+        # dotenv
         extract
         fd
         fzf
@@ -61,7 +61,7 @@ else
         command-not-found
         docker
         docker-compose
-        dotenv
+        # dotenv
         extract
         git
         history-substring-search
