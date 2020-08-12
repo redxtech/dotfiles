@@ -24,6 +24,11 @@ if command -v exa >/dev/null; then
     alias ls="exa --group-directories-first"
 fi
 
+# ping -> prettyping
+if command -v prettyping >/dev/null; then
+    alias ping="prettyping --nolegend"
+fi
+
 # remind me that I'm not running vim
 alias :q="not-vim"
 alias :w="not-vim"
