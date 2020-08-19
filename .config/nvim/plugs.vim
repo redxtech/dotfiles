@@ -10,7 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ap/vim-css-color' " colour highlighting
 Plug 'christoomey/vim-sort-motion' " sort motion
 Plug 'christoomey/vim-tmux-navigator' " allows for tmux navigations
-Plug 'redxtech/vim-tmux-runner' " send commands to tmux panes
+Plug 'christoomey/vim-tmux-runner' " send commands to tmux panes
 Plug 'editorconfig/editorconfig-vim' " editorconfig support
 Plug 'fvictorio/vim-textobj-backticks' " backticks object
 Plug 'glts/vim-textobj-comment' " comment text object
