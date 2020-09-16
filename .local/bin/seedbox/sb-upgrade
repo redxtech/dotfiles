@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+main () {
+    for SERVICE in airsonic jackett lidarr ombi plex radarr sonarr; do
+        echo "Upgrading $SERVICE..."
+        "app-$SERVICE upgrade"
+        echo "Restarting $SERVICE..."
+        "app-$SERVICE restart"
+    done
+
+    echo "Upgrades complete!"
+}
+
+     main
