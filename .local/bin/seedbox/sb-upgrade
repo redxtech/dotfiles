@@ -3,12 +3,12 @@
 main () {
     for SERVICE in airsonic jackett lidarr ombi plex radarr sonarr; do
         echo "Upgrading $SERVICE..."
-        "/usr/bin/app-$SERVICE upgrade"
+        "/usr/bin/app-$SERVICE" upgrade
         echo "Restarting $SERVICE..."
-        "/usr/bin/app-$SERVICE restart"
+        "/usr/bin/app-$SERVICE" restart
     done
 
     echo "Upgrades complete!"
 }
 
-     main
+main
