@@ -10,7 +10,7 @@ main () {
     CURRENT_DISTRO="arch" # TODO: this will be set dynamically in the future
 
     # set install script directory
-    export INSTALL_SCRIPT_DIR="$HOME/.local/bin/install"
+    export INSTALL_SCRIPT_DIR="$HOME/.local/dotfiles/install/arch"
     
     # set variable for line separators (25 of -)
     DASH_LINE="-------------------------"
@@ -21,7 +21,7 @@ main () {
             echo "You are running arch linux!"
             echo "Loading arch installation..."
             echo "$DASH_LINE"
-            # shellcheck source=./arch/install.sh
+            # shellcheck source=../../dotfiles/install/arch/install.sh
             . "$INSTALL_SCRIPT_DIR/arch/install.sh" || echo "Arch installation failed!"
             echo "$DASH_LINE"
             echo "Arch installation completed!"
