@@ -8,7 +8,7 @@ main () {
         echo "Herecura already added!"
     else
         # shellcheck disable=SC2024
-        sudo tee -a /etc/pacman.conf < "$JS_BASE/../files/herecura.txt"
+        sudo tee -a /etc/pacman.conf < "$JS_BASE/files/herecura.txt"
 
         # reload pacman database
         sudo pacman -Sy
