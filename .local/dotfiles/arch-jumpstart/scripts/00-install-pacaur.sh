@@ -60,7 +60,7 @@ install_deps () {
 main () {
 
     # check to make sure packages aren't already installed
-    if pacman -Qi git jq >/dev/null 2>&1 /dev/null; then
+    if pacman -Qi git jq >/dev/null 2>&1; then
         echo "git and jq already installed"
     else
         # install general dependencies
