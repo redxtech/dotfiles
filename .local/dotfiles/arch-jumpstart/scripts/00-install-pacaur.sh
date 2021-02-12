@@ -58,14 +58,28 @@ install_deps () {
 
 # main function to install the aur helper
 main () {
-    # install general dependencies
-    install_deps || return 1
 
-    # install pacaur dependency
-    aur_install "auracle-git" || return 1
+    # check to make sure packages aren't already installed
+    if pacman -Qi git jq >/dev/null 2>&1 /dev/null; then
+        echo "git and jq already installed"
+    else
+        # install general dependencies
+        install_deps || return 1
+    fi
 
-    # install pacaur
-    aur_install "pacaur" || return 1
+    if pacman -Qi auracle-git >/dev/null 2>&1; then
+        echo "auracle-git already installed"
+    else
+        # install pacaur dependency
+        aur_install "auracle-git" || return 1
+    fi
+
+    if pacman -Qi pacaur >/dev/null 2>&1; then
+        echo "pacaur already installed"
+    else
+        # install pacaur
+        aur_install "pacaur" || return 1
+    fi
 }
 
 main
