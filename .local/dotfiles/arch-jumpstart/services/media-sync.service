@@ -1,0 +1,14 @@
+[Unit]
+Description=Media Sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Environment="_MS_CRON=true"
+ExecStart=/home/redxtech/.local/bin/media/media-sync
+ExecStop=tmux kill-session -t media-sync
+
+[Install]
+WantedBy=multi-user.target
+

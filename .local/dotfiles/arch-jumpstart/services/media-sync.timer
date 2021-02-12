@@ -1,0 +1,9 @@
+[Unit]
+Description=Media Sync timer
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Unit=media-sync.service
+
+[Install]
+WantedBy=multi-user.target

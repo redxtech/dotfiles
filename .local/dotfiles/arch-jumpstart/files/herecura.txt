@@ -1,0 +1,5 @@
+
+# Custom servers
+[herecura]
+Server = https://repo.herecura.be/$repo/$arch
+
