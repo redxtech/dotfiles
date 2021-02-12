@@ -35,8 +35,15 @@
       "routerHistoryMode": true,
       "vuex": true,
       "cssPreprocessor": "stylus"
+    },
+    "v3.x.x (minimal)": {
+      "useConfigFiles": false,
+      "plugins": {
+        "@vue/cli-plugin-babel": {}
+      },
+      "vueVersion": "3"
     }
   },
-  "latestVersion": "4.5.3",
-  "lastChecked": 1597193056133
+  "latestVersion": "4.5.8",
+  "lastChecked": 1604272917883
 }
