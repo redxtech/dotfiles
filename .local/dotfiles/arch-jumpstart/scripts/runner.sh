@@ -2,7 +2,7 @@
 
 main () {
     # set base path
-    JS_BASE="$(dirname -- "$(realpath "$0")")"
+    JS_BASE="$(dirname "$(dirname -- "$(realpath "$0")")")"
     export JS_BASE
     
     # shellcheck source=./00-install-pacaur.sh
@@ -15,7 +15,7 @@ main () {
     . "$JS_BASE/20-install-packages.sh"
 
     # shellcheck source=./30-go-over-configuration.sh
-    . "$JS_BASE/230-go-over-configuration.sh"
+    . "$JS_BASE/30-go-over-configuration.sh"
 
     # shellcheck source=./40-start-services.sh
     . "$JS_BASE/40-start-services.sh"

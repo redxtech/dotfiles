@@ -2,7 +2,7 @@
 
 main () {
     # copy service files to proper location
-    sudo cp -i "$JS_BASE/../services/*" /etc/systemd/system/
+    sudo cp -i "$JS_BASE/services/*" /etc/systemd/system/
 
     # reload daemon
     sudo systemctl daemon-reload
