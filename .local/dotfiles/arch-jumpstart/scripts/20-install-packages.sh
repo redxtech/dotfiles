@@ -6,7 +6,7 @@ main () {
 
     # install packages
     # shellcheck disable=SC2086
-    pacaur -Sq $JS_PACKAGES
+    pacaur -Sq --noconfirm $JS_PACKAGES
 
     echo "Packages installed!"
 }
