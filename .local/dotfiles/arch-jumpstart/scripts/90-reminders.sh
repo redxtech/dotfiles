@@ -2,7 +2,7 @@
 
 main () {
     echo "Some general reminders:"
-    echo ""
+    echo "- Download id_rsa{,.pub} and save to ~/.ssh (700), with perms 600 and 644 (pub)."
 
     echo "Some TODO reminders:"
     echo ""
@@ -16,5 +16,4 @@ main () {
     echo "- Add rebuild python modules script"
     echo "- Switch yadm remove to ssh version"
     echo "- Script to run jumpstart scripts manually"
-    echo "- Add reminder to pull in id_rsa files"
 }
