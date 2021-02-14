@@ -7,7 +7,12 @@ main () {
     echo "Some TODO reminders:"
     echo ""
 
-    echo "- Automate zsh install"
+    echo "- Automate zsh install" # pre-yadm clone
     echo "- Auto-link sh to dash"
-    echo "- Auto-build coc-plugins"
+    echo "- Install yarn" # post package install
+    echo "- Passwordless sudo"
+    echo "- Install neovim python, nodejs"
+    echo "- Add python-pynvim"
+    echo "- Add rebuild python modules script"
+    echo "- "
 }
