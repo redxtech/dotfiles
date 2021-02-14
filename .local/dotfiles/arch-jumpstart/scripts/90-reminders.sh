@@ -12,7 +12,9 @@ main () {
     echo "- Install yarn" # post package install
     echo "- Passwordless sudo"
     echo "- Install neovim python, nodejs"
-    echo "- Add python-pynvim"
+    echo "- Add python-pynvim to packages"
     echo "- Add rebuild python modules script"
-    echo "- "
+    echo "- Switch yadm remove to ssh version"
+    echo "- Script to run jumpstart scripts manually"
+    echo "- Add reminder to pull in id_rsa files"
 }
