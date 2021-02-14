@@ -19,6 +19,9 @@ main () {
 
     # shellcheck source=./40-start-services.sh
     . "$JS_BASE/scripts/40-start-services.sh"
+
+    # shellcheck source=./1000-reminders.shj
+    . "$JS_BASE/scripts/1000-reminders.sh"
 }
 
 main
