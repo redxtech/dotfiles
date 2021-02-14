@@ -10,7 +10,7 @@ main () {
     echo "Some TODO reminders:"
     echo ""
 
-    echo "- Automate zsh install" # pre-yadm clone
+    echo "- Test zsh install"
     echo "- Passwordless sudo"
     echo "- Add rebuild python modules script"
     echo "- Switch yadm remove to ssh version"
