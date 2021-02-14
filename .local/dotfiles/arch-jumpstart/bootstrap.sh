@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# run with `sh -c "$(curl -fsSL https://raw.github.com/redxtech/dotfiles/master/.local/dotfiles/arch-jumpstart/bootstrap.sh)"`
+
 # main function to download yadm and install the dotfiles
 main () {
     # start in the home directory
