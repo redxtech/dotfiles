@@ -11,10 +11,11 @@ main () {
     echo ""
 
     echo "- Test zsh install"
-    echo "- Passwordless sudo"
     echo "- Add rebuild python modules script"
     echo "- Switch yadm remove to ssh version"
     echo "- Add list of rclone configs"
+    echo "- Add local computers to /etc/hosts"
+    echo "- Switch to 1.1.1.1 DNS"
 }
 
 main
