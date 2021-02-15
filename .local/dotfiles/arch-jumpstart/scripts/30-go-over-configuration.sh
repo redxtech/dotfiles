@@ -1,13 +1,16 @@
 #!/usr/bin/env sh
 
 main () {
-    read -p "Press enter to edit media sync config..."
+    echo "Press enter to edit media-sync config..."
+    read -r
 
     # check media-sync configuration
-    vim "$HOME/.local/dotfiles/config/media-sync.sh"
+    nvim "$HOME/.local/dotfiles/config/media-sync.sh"
 
     # passwordless sudo
-    read -p "Press enter to configure passwordless sudo..."
+    echo "Press enter to configure passwordless sudo..."
+    read -r
+
     sudo EDITOR="$(which nvim)" visudo
 
     # use all cores for compilation
@@ -15,13 +18,15 @@ main () {
     echo "BUILDENV=(ccache)"
     echo "BUILDDIR=/tmp/makepkg"
     echo "PKGEXT=\".pkg.tar\""
-    read -p "Press enter to configure multi-core compilation and ccache"
+    echo "Press enter to configure multi-core compilation and ccache..."
+    read -r
     sudo vim /etc/makepkg.conf
 
     # TODO: add system config files here as well
 
 
-    read -p "Press enter to confirm configuration..."
+    echo "Press enter to confirm configuration..."
+    read -r
 
     # create media-sync folders
     # shellcheck source=/home/redxtech/.local/dotfiles/config/media-sync.sh
@@ -30,8 +35,12 @@ main () {
     mkdir -pv "$_MS_RADARR_DEST"
 
     # create sudo group and add me to it
-    sudo groupadd sudo
-    sudo usermod -a -G sudo "$USER"
+    if grep -q -E "^sudo:" /etc/group; then
+        sudo groupadd sudo
+    fi
+    if groups "$USER" | grep -q '\bsudo\b'; then
+        sudo usermod -a -G sudo "$USER"
+    fi
 }
 
 main
