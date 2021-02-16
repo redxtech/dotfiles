@@ -31,6 +31,11 @@ main () {
         -e 's/^Server = https:\/\/br-sp/# Server = https:\/\/br-sp/' \
         /etc/pacman.d/chaotic-mirrorlist
 
+    # change geoclue api key
+    sudo sed -i \
+        -e 's/^#url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=YOUR_KEY/url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=geoclue/' \
+        /etc/geoclue/geoclue.conf
+
     echo "Press enter to confirm configuration..."
     read -r
 
