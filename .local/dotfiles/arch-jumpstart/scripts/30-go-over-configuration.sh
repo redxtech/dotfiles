@@ -35,7 +35,7 @@ main () {
     read -r
 
     # create media-sync folders
-    # shellcheck source=/home/redxtech/.local/dotfiles/config/media-sync.sh
+    # shellcheck source=/home/gabe/.local/dotfiles/config/media-sync.sh
     . "$HOME/.local/dotfiles/config/media-sync.sh"
     mkdir -pv "$_MS_SONARR_DEST"
     mkdir -pv "$_MS_RADARR_DEST"
