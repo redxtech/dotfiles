@@ -22,6 +22,7 @@ main () {
     echo "- Add local computers to /etc/hosts (desktop, laptop, rpi)."
     echo "- Run build-coc."
     echo "- Install vim & tmux dependencies."
+    echo "- Configure geoclue"
 
     # TODO:
     # - Test zsh install
