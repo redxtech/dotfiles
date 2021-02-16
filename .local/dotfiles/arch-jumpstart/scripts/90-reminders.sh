@@ -17,9 +17,10 @@ main () {
     echo ""
     echo "Some general reminders:"
     echo "- Download id_rsa{,.pub} and save to ~/.ssh (700), with perms 600 and 644 (pub)."
-    echo "- Add rclone configs (movies, tv, music, sonarr, radarr, gabe, backup, other)"
-    echo "- Add local computers to /etc/hosts (desktop, laptop, rpi)"
-    echo "- Run build-coc"
+    echo "- Add rclone configs (movies, tv, music, sonarr, radarr, gabe, backup, other)."
+    echo "- Add local computers to /etc/hosts (desktop, laptop, rpi)."
+    echo "- Run build-coc."
+    echo "- Install vim & tmux dependencies."
 
     # TODO:
     # - Test zsh install
