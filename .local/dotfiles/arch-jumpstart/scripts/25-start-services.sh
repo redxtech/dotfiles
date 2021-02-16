@@ -7,6 +7,10 @@ main () {
     sudo cp -i "$JS_BASE/services/mount-movies.service" /etc/systemd/system/
     sudo cp -i "$JS_BASE/services/mount-tv.service" /etc/systemd/system/
 
+    # make folders
+    mkdir -pv "$HOME/media/mnt/movies"
+    mkdir -pv "$HOME/media/mnt/tv"
+
     # reload daemon
     sudo systemctl daemon-reload
 
