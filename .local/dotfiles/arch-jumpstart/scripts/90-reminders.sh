@@ -24,12 +24,11 @@ main () {
     echo "Some TODO reminders:"
     echo ""
 
-    echo "- Eventually convert config check to auto edit with sed"
     echo "- Test zsh install"
     echo "- Add list of rclone configs"
     echo "- Add local computers to /etc/hosts"
     echo "- Switch to 1.1.1.1 DNS"
-    echo "- Choose USA chaotic-mirrorlist mirror"
+    echo "- Fix zsh plugin choosing"
 
     language_versions
 }

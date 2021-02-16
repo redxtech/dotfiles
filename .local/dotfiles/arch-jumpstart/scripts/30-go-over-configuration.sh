@@ -13,17 +13,23 @@ main () {
 
     sudo EDITOR="$(which nvim)" visudo
 
-    # use all cores for compilation
-    echo "MAKEFLAGS=\"-j$(nproc)\""
-    echo "BUILDENV=(ccache)"
-    echo "BUILDDIR=/tmp/makepkg"
-    echo "PKGEXT=\".pkg.tar\""
-    echo "Press enter to configure multi-core compilation and ccache..."
-    read -r
-    sudo vim /etc/makepkg.conf
+    # make changes to makepkg.conf:
+    # - use all cores for compilation
+    # - use ccache for faster subsequent compilations
+    # - use tmpfs for compilation
+    # - skip compression step
+    sudo sed -i \
+        -e 's/^#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$(nproc)\"/' \
+        -E "s/(BUILDENV=\(.*)(\!ccache)(.*\))/\1ccache\3/g" \
+        -e 's/^#BUILDDIR=\/tmp\/makepkg/BUILDDIR=\/tmp\/makepkg/' \
+        -e "s/^PKGEXT='.pkg.tar.zst'/PKGEXT='.pkg.tar'/" \
+        /etc/makepkg.conf
 
-    # TODO: add system config files here as well
-
+    # remove mirrors (random, brazil) from chaotic mirrorlist
+    sudo sed -i \
+        -e 's/^Server = https:\/\/random/# Server = https:\/\/random/' \
+        -e 's/^Server = https:\/\/br-sp/# Server = https:\/\/br-sp/' \
+        /etc/pacman.d/chaotic-mirrorlist
 
     echo "Press enter to confirm configuration..."
     read -r
