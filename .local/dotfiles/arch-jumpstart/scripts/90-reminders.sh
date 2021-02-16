@@ -27,7 +27,6 @@ main () {
     echo "- Test zsh install"
     echo "- Add list of rclone configs"
     echo "- Add local computers to /etc/hosts"
-    echo "- Switch to 1.1.1.1 DNS"
     echo "- Fix zsh plugin choosing"
 
     language_versions
