@@ -10,6 +10,9 @@ main () {
     # install git
     sudo pacman -S --noconfirm --quiet git || return 1
 
+    # install zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
     # pull the yadm command to the current folder
     curl -fLo "$HOME/yadm" "https://github.com/TheLocehiliosan/yadm/raw/master/yadm" || return 1
 
