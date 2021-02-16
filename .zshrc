@@ -19,7 +19,9 @@ bindkey -v
 ZSH_THEME="zshred"
 
 # oh-my-zsh plugin setup
-if test "$(~/.local/bin/scripts/distro)" = "arch2"; then
+_CURR_DISTRO="$(~/.local/bin/utils/distro)"
+
+if test "$_CURR_DISTRO" = "arch" -o "$_CURR_DISTRO" = "garuda"; then
     # arch specific plugins (read: main setup)
     plugins=(
         # repo plugins
