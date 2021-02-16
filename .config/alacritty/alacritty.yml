@@ -402,7 +402,7 @@ shell:
     - new-session
     - -A
     - -s
-    - redxtech
+    - gabe
 
 # Startup directory
 #
