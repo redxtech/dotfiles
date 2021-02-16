@@ -47,6 +47,13 @@ main () {
     if groups "$USER" | grep -q '\bsudo\b'; then
         sudo usermod -a -G sudo "$USER"
     fi
+
+    # add permission for redshift to use geoclue
+    if grep redshift /etc/geoclue/geoclue.conf; then
+        echo "already added redshift permission"
+    else
+        sudo tee -a /etc/geoclue/geoclue.conf < "$JS_BASE/files/geoclue.conf" >/dev/null
+    fi
 }
 
 main

@@ -7,6 +7,8 @@ main () {
     sudo cp -i "$JS_BASE/services/mount-movies.service" /etc/systemd/system/
     sudo cp -i "$JS_BASE/services/mount-tv.service" /etc/systemd/system/
 
+    cp -i "$JS_BASE/services/geoclue-agent.service" ~/.config/systemd/user
+
     # make folders
     mkdir -pv "$HOME/media/mnt/movies"
     mkdir -pv "$HOME/media/mnt/tv"
@@ -18,6 +20,8 @@ main () {
     sudo systemctl enable media-sync.timer
     sudo systemctl enable mount-movies.service
     sudo systemctl enable mount-tv.service
+    
+    systemctl --user enable --now geoclue-agent.service
 }
 
 main
