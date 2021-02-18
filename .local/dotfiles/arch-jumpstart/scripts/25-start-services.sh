@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
 main () {
+    # make folders
+    mkdir -pv "$HOME/media/mnt/movies"
+    mkdir -pv "$HOME/media/mnt/tv"
+    mkdir -pv "$HOME/.config/systemd/user"
+
     # copy service files to proper location
     sudo cp -i "$JS_BASE/services/mount-movies.service" /etc/systemd/system/
     sudo cp -i "$JS_BASE/services/mount-tv.service" /etc/systemd/system/
@@ -8,10 +13,6 @@ main () {
     cp -i "$JS_BASE/services/media-sync.service" ~/.config/systemd/user
     cp -i "$JS_BASE/services/media-sync.timer" ~/.config/systemd/user
     cp -i "$JS_BASE/services/geoclue-agent.service" ~/.config/systemd/user
-
-    # make folders
-    mkdir -pv "$HOME/media/mnt/movies"
-    mkdir -pv "$HOME/media/mnt/tv"
 
     # reload daemon
     sudo systemctl daemon-reload

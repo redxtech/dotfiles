@@ -1,16 +1,10 @@
 #!/usr/bin/env sh
 
 main () {
-    echo "Press enter to edit media-sync config..."
-    read -r
-
     # check media-sync configuration
     nvim "$HOME/.local/dotfiles/config/media-sync.sh"
 
     # passwordless sudo
-    echo "Press enter to configure passwordless sudo..."
-    read -r
-
     sudo EDITOR="$(which nvim)" visudo
 
     # make changes to makepkg.conf:
@@ -20,7 +14,7 @@ main () {
     # - skip compression step
     sudo sed -i \
         -e 's/^#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$(nproc)\"/' \
-        -E "s/(BUILDENV=\(.*)(\!ccache)(.*\))/\1ccache\3/g" \
+        -e 's/^BUILDENV=(.*)/BUILDENV=(!distcc color ccache check !sign)/' \
         -e 's/^#BUILDDIR=\/tmp\/makepkg/BUILDDIR=\/tmp\/makepkg/' \
         -e "s/^PKGEXT='.pkg.tar.zst'/PKGEXT='.pkg.tar'/" \
         /etc/makepkg.conf
@@ -35,9 +29,6 @@ main () {
     sudo sed -i \
         -e 's/^#url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=YOUR_KEY/url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=geoclue/' \
         /etc/geoclue/geoclue.conf
-
-    echo "Press enter to confirm configuration..."
-    read -r
 
     # create media-sync folders
     # shellcheck source=/home/gabe/.local/dotfiles/config/media-sync.sh
@@ -54,7 +45,7 @@ main () {
     fi
 
     # add permission for redshift to use geoclue
-    if grep redshift /etc/geoclue/geoclue.conf; then
+    if grep -q redshift /etc/geoclue/geoclue.conf; then
         echo "already added redshift permission"
     else
         sudo tee -a /etc/geoclue/geoclue.conf < "$JS_BASE/files/geoclue.conf" >/dev/null
