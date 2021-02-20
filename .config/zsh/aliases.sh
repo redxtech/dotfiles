@@ -37,7 +37,7 @@ alias :x="not-vim"
 # some command aliaseviations
 alias e='$EDITOR'
 alias v='$EDITOR'
-alias SS="sudo systemctl"
+alias ss="sudo systemctl"
 
 # docker aliases
 # alias docker="sudo docker"
