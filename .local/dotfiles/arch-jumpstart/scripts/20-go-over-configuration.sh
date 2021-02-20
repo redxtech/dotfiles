@@ -19,6 +19,20 @@ main () {
         -e "s/^PKGEXT='.pkg.tar.zst'/PKGEXT='.pkg.tar'/" \
         /etc/makepkg.conf
 
+    # pacman configuration
+    sudo sed -i \
+        -e 's/^#Color$/Color/' \
+        -e 's/^#TotalDownload/TotalDownload/' \
+        -e 's/^#VerbosePkgLists/VerbosePkgLists/' \
+        /etc/pacman.conf
+
+    # add secret if not already there
+    if grep -q -E '^ILoveCandy' /etc/pacman.conf; then
+        echo "Secret already configured"
+    else
+        sudo sed -i -e '/# Misc options/a ILoveCandy' /etc/pacman.conf
+    fi
+
     # remove mirrors (random, brazil) from chaotic mirrorlist
     sudo sed -i \
         -e 's/^Server = https:\/\/random/# Server = https:\/\/random/' \
@@ -38,9 +52,13 @@ main () {
 
     # create sudo group and add me to it
     if grep -q -E "^sudo:" /etc/group; then
+        echo "sudo group already created"
+    else
         sudo groupadd sudo
     fi
     if groups "$USER" | grep -q '\bsudo\b'; then
+        echo "user already in group"
+    else
         sudo usermod -a -G sudo "$USER"
     fi
 
