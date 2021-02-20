@@ -20,6 +20,9 @@ main () {
         /etc/makepkg.conf
 
     # pacman configuration
+    # - use coloured output
+    # - show total downloaded progress instead of per package
+    # - show table of packages with size before install
     sudo sed -i \
         -e 's/^#Color$/Color/' \
         -e 's/^#TotalDownload/TotalDownload/' \
@@ -66,6 +69,7 @@ main () {
     if grep -q redshift /etc/geoclue/geoclue.conf; then
         echo "already added redshift permission"
     else
+        # shellcheck disable=2024
         sudo tee -a /etc/geoclue/geoclue.conf < "$JS_BASE/files/geoclue.conf" >/dev/null
     fi
 }

@@ -18,7 +18,10 @@ main () {
     sudo systemctl daemon-reload
     systemctl --user daemon-reload
 
-    # enable services
+    # enable ssh server
+    sudo systemctl enable --now sshd.service
+
+    # enable custom services
     sudo systemctl enable mount-movies.service
     sudo systemctl enable mount-tv.service
     
