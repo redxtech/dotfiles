@@ -40,7 +40,7 @@ if test "$_CURR_DISTRO" = "arch" -o "$_CURR_DISTRO" = "garuda"; then
         # git-flow
         gitfast
         history-substring-search
-        npx
+        # npx
         ripgrep
         # rust
         # systemd
