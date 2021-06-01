@@ -40,8 +40,8 @@ alias v='$EDITOR'
 alias ss="sudo systemctl"
 
 # docker aliases
-# alias docker="sudo docker"
-# alias docker-compose="sudo docker-compose"
+alias docker="sudo docker"
+alias docker-compose="sudo docker-compose"
 # alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
 
 # man function to use colours
