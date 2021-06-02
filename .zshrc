@@ -82,7 +82,6 @@ autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 # source oh-my-zsh
 source "$ZSH/oh-my-zsh.sh"
 
-# source the profile script
-[[ -f "$HOME/.profile" ]] && source "$HOME/.profile"
-[[ -f "$HOME/.profile2" ]] && source "$HOME/.profile2"
-
+# source the custom zsh config
+# shellcheck source=.config/zsh/init.sh
+[ -f "$ZSH_CUSTOM/init.sh" ] && . "$ZSH_CUSTOM/init.sh"
