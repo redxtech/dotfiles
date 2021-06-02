@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # new makedir command
 alias mkd="mkdir -pv"

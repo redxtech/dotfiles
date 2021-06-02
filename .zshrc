@@ -83,5 +83,5 @@ autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 source "$ZSH/oh-my-zsh.sh"
 
 # source the custom zsh config
-# shellcheck source=.config/zsh/init.sh
-[ -f "$ZSH_CUSTOM/init.sh" ] && . "$ZSH_CUSTOM/init.sh"
+# shellcheck source=.config/zsh/init.zsh
+[ -f "$ZSH_CUSTOM/init.zsh" ] && . "$ZSH_CUSTOM/init.zsh"

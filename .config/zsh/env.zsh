@@ -1,15 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # basic environment
 EDITOR="$(command -v vim)"
+TERMINAL="$(command -v alacritty)"
 
 # if nvim is installed switch the variable to that
 if command -v nvim>/dev/null; then
     EDITOR="$(command -v nvim)"
 fi
 
-# export the editor
+# export the variables
 export EDITOR
+export TERMINAL
 
 # program specific
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"

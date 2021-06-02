@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"
 CARGO_PATH="$HOME/.cargo/bin"
