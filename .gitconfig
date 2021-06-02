@@ -1,7 +1,5 @@
-[user]
-	name = Gabe Dunn
-	email = gabed@hey.com
-
+[include]
+	path = .gitconfig.local
 [push]
 	default = matching
 [core]
