@@ -2,7 +2,6 @@
 
 YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"
 CARGO_PATH="$HOME/.cargo/bin"
-SCRIPTS_PATH="$HOME/Documents/scripts/bin"
 LOCAL_BIN_PATH="$HOME/.local/bin"
 
 # function to test if one variables contains another
@@ -22,10 +21,6 @@ fi
 
 if test -d "$CARGO_PATH" && ! contains "$CARGO_PATH" "$PATH"; then
     export PATH="$PATH:$CARGO_PATH"
-fi
-
-if test -d "$SCRIPTS_PATH" && ! contains "$SCRIPTS_PATH" "$PATH"; then
-    export PATH="$PATH:$SCRIPTS_PATH"
 fi
 
 if test -d "$LOCAL_BIN_PATH" && ! contains "$LOCAL_BIN_PATH" "$PATH"; then

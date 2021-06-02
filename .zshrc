@@ -19,62 +19,63 @@ bindkey -v
 ZSH_THEME="zshred"
 
 # oh-my-zsh plugin setup
-_CURR_DISTRO="$(~/.local/bin/utils/distro)"
+plugins=(
+    # repo plugins
+    bgnotify
+    # cargo
+    colored-man-pages
+    command-not-found
+    copybuffer
+    docker
+    docker-compose
+    dotenv
+    emoji
+    encode64
+    extract
+    fd
+    frontend-search
+    fzf
+    gitfast
+    gpg-agent
+    history-substring-search
+    keychain
+    man
+    perms
+    ripgrep
+    # rust
+    # rustup
+    safe-paste
+    ssh-agent
+    sublime
+    systemd
+    thefuck
+    tmux
+    transfer
+    vscode
+    wd
+    yarn
+    zsh_reload
+    zsh-interactive-cd
 
-if test "$_CURR_DISTRO" = "arch" -o "$_CURR_DISTRO" = "garuda"; then
-    # arch specific plugins (read: main setup)
-    plugins=(
-        # repo plugins
-        archlinux
-        asdf
-        # cargo
-        command-not-found
-        docker
-        docker-compose
-        # dotenv
-        extract
-        fd
-        fzf
-        gcloud
-        git
-        # git-flow
-        gitfast
-        history-substring-search
-        # npx
-        ripgrep
-        # rust
-        # systemd
-        thefuck
-        tmux
-        vagrant
-        yarn
-        z
+    # manually installed plugins
+    omz
+    zsh-syntax-highlighting
+)
 
-        omz
-        zsh-syntax-highlighting
-    )
-
-    # plugin specific options
-    zstyle :omz:plugins:ssh-agent agent-forwarding on
-    zstyle :omz:plugins:ssh-agent identities id_rsa # id_github
-else
-    # plugins for alternate machines
-    plugins=(
-        command-not-found
-        docker
-        docker-compose
-        # dotenv
-        extract
-        git
-        history-substring-search
-        npx
-        yarn
-        z
-
-        omz
-        zsh-syntax-highlighting
-    )
+_CURR_DISTRO="$(lsb_release -is)"
+if test "$(lsb_release -is)" = "Arch" -o "$(lsb_release -is)" = "Garuda"; then
+    plugins+=(archlinux)
+elif test "$(lsb_release -is)" = "openSUSE"; then
+    plugins+=(suse)
 fi
+
+# plugin specific options
+zstyle :omz:plugins:keychain agents gpg,ssh
+zstyle :omz:plugins:keychain identities id_rsa # id_ed25519 id_github 2C5879C2
+zstyle :omz:plugins:keychain options --quiet
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+ZSH_DOTENV_PROMPT=false
+VSCODE=code-insiders
 
 autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
