@@ -67,6 +67,7 @@ plugins=(
 _CURR_DISTRO="$(lsb_release -is)"
 if test "$(lsb_release -is)" = "Arch" -o "$(lsb_release -is)" = "Garuda"; then
     plugins+=(archlinux)
+    VSCODE=code-insiders
 elif test "$(lsb_release -is)" = "openSUSE"; then
     plugins+=(suse)
 fi
@@ -77,7 +78,6 @@ zstyle :omz:plugins:keychain identities id_rsa # id_ed25519 id_github 2C5879C2
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 ZSH_DOTENV_PROMPT=false
-VSCODE=code-insiders
 
 autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
