@@ -2,6 +2,10 @@
 	path = .gitconfig.local
 [push]
 	default = matching
+[init]
+	defaultBranch = master
+[gpg]
+	program = /usr/bin/gpg
 [core]
 	autocrlf = input
 	trustctime = false
