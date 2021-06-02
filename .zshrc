@@ -59,6 +59,8 @@ plugins=(
 
     # manually installed plugins
     omz
+    zsh-autosuggestions
+    zsh-completions
     zsh-syntax-highlighting
 )
 
