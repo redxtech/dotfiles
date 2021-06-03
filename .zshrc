@@ -74,7 +74,7 @@ fi
 
 # plugin specific options
 zstyle :omz:plugins:keychain agents gpg,ssh
-zstyle :omz:plugins:keychain identities id_rsa # id_ed25519 id_github 2C5879C2
+zstyle :omz:plugins:keychain identities id_ed25519 # id_github
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 ZSH_DOTENV_PROMPT=false
