@@ -12,6 +12,7 @@ from shutil import copy2, which
 def install_packages(name, packages):
    print(f'[{name}] Installing packages...')
    
+   # TODO: detect distro and set install command based on that
    # use pacaur if installed, otherwise use pacman
    command_builder = ['pacaur'] if which('pacaur') is not None else ['sudo', 'pacman']
 
@@ -107,7 +108,7 @@ def main():
          # extract important data
          name        = data['name']       if 'name' in data else 'blank'
          packages    = data['packages']   if 'packages' in data else []
-         commands    = data['commands']   if 'commands' in data else []
+         commands    = data['commands']   if 'commands' in data else [] # TODO: pull different package list if on different distro?
          resources   = data['resources']  if 'resources' in data else []
 
          print(f'Loading Module: {name}...')
