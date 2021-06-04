@@ -39,6 +39,7 @@ plugins=(
     gitignore
     gpg-agent
     history-substring-search
+    httpie
     keychain
     man
     perms
