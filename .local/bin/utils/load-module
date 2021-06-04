@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+import yaml
+
+from pathlib import Path
+from shutil import copy2, which
+
+# install packages function
+def install_packages(name, packages):
+   print(f'[{name}] Installing packages...')
+   
+   # use pacaur if installed, otherwise use pacman
+   command_builder = ['pacaur'] if which('pacaur') is not None else ['sudo', 'pacman']
+
+   # add args and packages to the command
+   command_builder.append('-S')
+   command_builder.append('--noconfirm')
+   command_builder += packages
+
+   # run the command
+   print(f'[{name}] {" ".join(command_builder)}')
+   command = subprocess.run(command_builder, capture_output=True)
+   
+   # show any errors
+   sys.stderr.buffer.write(command.stderr)
+
+   # return the success
+   return command.returncode == 0
+
+# copy resources to their destinations
+def copy_resources(name, resources, resource_path):
+   print(f'[{name}] Copying resources...')
+
+   # copy each file
+   for file in resources:
+      try:
+         # expand the paths to actually refer to the files
+         source = resource_path + file['file']
+         dest = os.path.expanduser(file['dest'])
+         dest_dir = os.path.dirname(dest)
+
+         # create directory if it doesn't already exist
+         if not os.path.isdir(dest_dir):
+            os.makedirs(dest_dir)
+
+         # do the copying
+         copy2(source, dest)
+      except Exception as err:
+         filename = file['file']
+
+         print(err)
+         print(f'[{name}] Something went wrong copying {filename}, skipping.')
+
+# run the setup commands
+def run_commands(name, commands, scripts_path):
+   print(f'[{name}] Running commands...')
+
+   # turn the commands into lists and put them all in a new lsit
+   command_builder = [ cmd.split() for cmd in commands ]
+   
+   # run each command
+   for command_list in command_builder:
+      # if the command is a file in the scripts directory, assume it's a script
+      script_file = scripts_path + command_list[0]
+      if os.path.isfile(script_file):
+         # make sure it's executable
+         subprocess.run(['chmod', '+x', script_file])
+         # set the command to be the absolute path to the file
+         command_list[0] = script_file
+
+      # run the command
+      command = subprocess.run(command_list, capture_output=True)
+
+      # log the output
+      sys.stdout.buffer.write(command.stdout)
+      sys.stderr.buffer.write(command.stderr)
+
+# pretty much all the main logic
+def main():
+   component_path = str(Path.home()) + '/.local/dotfiles/components/'
+   resource_path = component_path + 'resources/'
+   scripts_path = resource_path + 'scripts/'
+
+   # get user-specified modules
+   modules = sys.argv[1:]
+
+   # load the base module if it's empty
+   if len(modules) < 1:
+      modules.append('base')
+   
+   # loop through the modules load each one
+   for module in modules:
+      file = Path(component_path + module + '.yaml')
+
+      # make sure the file exists
+      if not file.is_file():
+         print(f'There is no module located at {file}.')
+         continue
+
+      # load the data from the yaml file
+      with open(file, 'r') as f:
+         data = yaml.safe_load(f)
+
+         # extract important data
+         name        = data['name']       if 'name' in data else 'blank'
+         packages    = data['packages']   if 'packages' in data else []
+         commands    = data['commands']   if 'commands' in data else []
+         resources   = data['resources']  if 'resources' in data else []
+
+         print(f'Loading Module: {name}...')
+
+         # install packages if the list isn't empty
+         if len(packages):
+            if not install_packages(name, packages):
+               print(f'[{name}] Something went wrong installing the packages, skipping module...')
+               continue
+
+         # copy resources to their destinations, if any
+         if len(resources):
+            copy_resources(name, resources, resource_path)
+
+         # run the commands if there are any
+         if len(commands):
+            run_commands(name, commands, scripts_path)
+
+main()
