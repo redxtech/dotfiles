@@ -36,6 +36,7 @@ plugins=(
     frontend-search
     fzf
     gitfast
+    gitignore
     gpg-agent
     history-substring-search
     keychain
