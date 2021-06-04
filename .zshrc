@@ -43,6 +43,7 @@ plugins=(
     keychain
     man
     perms
+    pip
     ripgrep
     # rust
     # rustup
