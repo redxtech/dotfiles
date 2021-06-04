@@ -29,55 +29,22 @@ main () {
             $EDITOR "$HOME/.zshrc"
             ;;
     	zi) # zsh (init)
-            $EDITOR "$HOME/.config/zsh/init.sh"
+            $EDITOR "$HOME/.config/zsh/init.zsh"
             ;;
     	za) # zsh aliases
-            $EDITOR "$HOME/.config/zsh/aliases.sh"
-            ;;
-    	zb) # zsh before init
-            $EDITOR "$HOME/.config/zsh/before.init.sh"
+            $EDITOR "$HOME/.config/zsh/aliases.zsh"
             ;;
     	ze) # zsh env
-            $EDITOR "$HOME/.config/zsh/env.sh"
+            $EDITOR "$HOME/.config/zsh/env.zsh"
             ;;
     	zp) # zsh path
-            $EDITOR "$HOME/.config/zsh/path.sh"
+            $EDITOR "$HOME/.config/zsh/path.zsh"
             ;;
         zt) # zsh theme
             $EDITOR "$HOME/.config/zsh/themes/zshred.zsh-theme"
             ;;
-    	o|omf|oi) # omf (init)
-            $EDITOR "$HOME/.config/omf/init.fish"
-            ;;
-    	oa) # omf aliases
-            $EDITOR "$HOME/.config/omf/aliases.fish"
-            ;;
-    	oaa) # omf abbreviations
-            $EDITOR "$HOME/.config/omf/abbreviations.fish"
-            ;;
-    	ob) # omf before init
-            $EDITOR "$HOME/.config/omf/before.init.fish"
-            ;;
-    	oe) # omf env
-            $EDITOR "$HOME/.config/omf/env.fish"
-            ;;
-    	op) # omf path
-            $EDITOR "$HOME/.config/omf/path.fish"
-            ;;
-        prof|profile) # .profile
-            $EDITOR "$HOME/.profile"
-            ;;
     	t|tmux) # tmux
             $EDITOR "$HOME/.tmux.conf"
-            ;;
-    	i|i3) # i3
-            $EDITOR "$HOME/.config/i3/config"
-            ;;
-    	p|polybar|poly) # polybar
-            $EDITOR "$HOME/.config/polybar/config"
-            ;;
-    	pl) # polybar launch
-            $EDITOR "$HOME/.config/polybar/launch.sh"
             ;;
     	r|ranger) # ranger
             $EDITOR "$HOME/.config/ranger/rc.conf"
@@ -93,9 +60,6 @@ main () {
             ;;
         s|sxhkd) # simple x hotkey daemon
             $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
-            ;;
-        rt|rtorrent) # rtorrent
-            $EDITOR "$HOME/.rtorrent.rc"
             ;;
         c|conf) # this file
             $EDITOR "$HOME/.local/bin/scripts/conf"
