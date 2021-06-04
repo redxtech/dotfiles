@@ -16,7 +16,7 @@ def install_packages(name, packages):
    command_builder = ['pacaur'] if which('pacaur') is not None else ['sudo', 'pacman']
 
    # add args and packages to the command
-   command_builder.append('-S')
+   command_builder.append('-Sq')
    command_builder.append('--noconfirm')
    command_builder += packages
 

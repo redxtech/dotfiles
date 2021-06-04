@@ -1,0 +1,9 @@
+name: Base Setup
+packages:
+  - alacritty
+  - neofetch
+  - neovim
+  - python
+commands:
+  - base-add-herecura.sh
+  - base-install-pacaur.sh
