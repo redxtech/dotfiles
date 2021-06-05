@@ -1,0 +1,59 @@
+#!/usr/bin/env zsh
+
+# function to clone a package from the AUR and install it with makepkg
+aur-install () {
+    # make sure git is installed
+    if [[ -z $commands[git] ]]; then
+        echo 'git is not installed, you should "pacman -S git" first.'
+        return 1
+    fi
+    
+    local usage="usage: aur-install <package>"
+
+    # make sure at least one arg was passed
+    if test -z "$1"; then
+        echo "you need to specify a package to install"
+        echo "$usage"
+        return 1
+    fi
+
+    # make sure only one arg was passed
+    if test -n "$2"; then
+        echo "aur-install can only install one package at a time!"
+        echo "$usage"
+        return 1
+    fi
+
+    # set where it's going to build the package
+    local build_dir="$HOME/.cache/aur-install-build/$1"
+    local pkgbuild="$build_dir/PKGBUILD"
+
+    echo "Installing $1..."
+
+    # make sure the build directory is empty by deleting and re-creating it
+    if test -d "$build_dir"; then
+        rm -r "$build_dir"
+    fi
+    mkdir -p "$build_dir"
+
+    # clone the git repo to the build directory, exit if there's no PKGBUILD
+    git clone "https://aur.archlinux.org/$1.git" "$build_dir"
+    if ! test -f "$pkgbuild"; then
+        echo "$1 doesn't exist in the AUR!"
+        rm -rf "$build_dir"
+        return 1
+    fi
+
+    # cd into the build dir
+    local current="$(pwd)"
+    cd "$build_dir" || return 1
+
+    # install the package with makepkg
+    makepkg -is
+
+    # go back to where you once were
+    cd "$current" || return 1
+
+    # clean up after yourself
+    rm -rf "$build_dir"
+}
