@@ -8,8 +8,8 @@ main () {
     player=""
 
     # set icons
-    play_icon=""
-    pause_icon=""
+    play_icon=""
+    pause_icon=""
 
     # test that playerctl is installed
     if ! command -v playerctl >/dev/null; then
