@@ -1,0 +1,5 @@
+name: Spotify
+packages:
+  - spotify
+  - kdocker
+

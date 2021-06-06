@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 
 main () {
-    # check media-sync configuration
-    nvim "$HOME/.local/dotfiles/config/media-sync.sh"
-
     # passwordless sudo
     sudo EDITOR="$(which nvim)" visudo
 
@@ -21,11 +18,9 @@ main () {
 
     # pacman configuration
     # - use coloured output
-    # - show total downloaded progress instead of per package
     # - show table of packages with size before install
     sudo sed -i \
         -e 's/^#Color$/Color/' \
-        -e 's/^#TotalDownload/TotalDownload/' \
         -e 's/^#VerbosePkgLists/VerbosePkgLists/' \
         /etc/pacman.conf
 
@@ -46,24 +41,6 @@ main () {
     sudo sed -i \
         -e 's/^#url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=YOUR_KEY/url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=geoclue/' \
         /etc/geoclue/geoclue.conf
-
-    # create media-sync folders
-    # shellcheck source=/home/gabe/.local/dotfiles/config/media-sync.sh
-    . "$HOME/.local/dotfiles/config/media-sync.sh"
-    mkdir -pv "$_MS_SONARR_DEST"
-    mkdir -pv "$_MS_RADARR_DEST"
-
-    # create sudo group and add me to it
-    if grep -q -E "^sudo:" /etc/group; then
-        echo "sudo group already created"
-    else
-        sudo groupadd sudo
-    fi
-    if groups "$USER" | grep -q '\bsudo\b'; then
-        echo "user already in group"
-    else
-        sudo usermod -a -G sudo "$USER"
-    fi
 
     # add permission for redshift to use geoclue
     if grep -q redshift /etc/geoclue/geoclue.conf; then

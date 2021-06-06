@@ -6,4 +6,4 @@ packages:
   - python
 commands:
   - base-add-herecura.sh
-  - base-install-pacaur.sh
+  - base-configuration.sh
