@@ -36,19 +36,6 @@ main () {
         -e 's/^Server = https:\/\/random/# Server = https:\/\/random/' \
         -e 's/^Server = https:\/\/br-sp/# Server = https:\/\/br-sp/' \
         /etc/pacman.d/chaotic-mirrorlist
-
-    # change geoclue api key
-    sudo sed -i \
-        -e 's/^#url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=YOUR_KEY/url=https:\/\/location.services.mozilla.com\/v1\/geolocate?key=geoclue/' \
-        /etc/geoclue/geoclue.conf
-
-    # add permission for redshift to use geoclue
-    if grep -q redshift /etc/geoclue/geoclue.conf; then
-        echo "already added redshift permission"
-    else
-        # shellcheck disable=2024
-        sudo tee -a /etc/geoclue/geoclue.conf < "$JS_BASE/files/geoclue.conf" >/dev/null
-    fi
 }
 
 main
