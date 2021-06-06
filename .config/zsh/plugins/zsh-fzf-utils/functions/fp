@@ -1,18 +1,16 @@
-#!/usr/bin/env sh
-
-# error logging function
-log_err () {
-    echo "error: $*"
-}
+#!/usr/bin/env zsh
 
 # script to search path with fzf & rg
-main () {
-    # make sure fzf & rg are installed
-    if ! command -v fzf >/dev/null; then
-        log_err "fzf not installed"
+fp () {
+    # make sure fzf is installed
+    if [[ -z $commands[fzf] ]]; then
+        echo 'fzf is not installed.'
         return 1
-    elif ! command -v rg >/dev/null; then
-        log_err "rg not installed"
+    fi
+
+    # make sure ripgrep is installed
+    if [[ -z $commands[rg] ]]; then
+        echo 'ripgrep is not installed.'
         return 1
     fi
 
@@ -25,10 +23,8 @@ main () {
         if test "$(echo "$COMMAND" | wc -w)" -eq 1; then
             echo "$LOCATION $COMMAND"
         else
-            main
+            fp
         fi
     fi
 }
-
-main
 

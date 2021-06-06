@@ -65,6 +65,7 @@ plugins=(
     zsh-aur-install
     zsh-autosuggestions
     zsh-completions
+    zsh-fzf-utils
     zsh-not-vim
     zsh-syntax-highlighting
     zsh-unix-simple

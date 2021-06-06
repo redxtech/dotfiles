@@ -1,11 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # script to kill a process found with fzf
-main () {
-
+kp () {
     # make sure fzf is installed
-    if ! command -v fzf >/dev/null; then
-        echo "error: fzf not installed"
+    if [[ -z $commands[fzf] ]]; then
+        echo 'fzf is not installed.'
         return 1
     fi
 
@@ -20,6 +19,4 @@ main () {
         fi
     fi
 }
-
-main "$@"
 
