@@ -66,6 +66,7 @@ plugins=(
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
+    zsh-unix-simple
 )
 
 _CURR_DISTRO="$(lsb_release -is)"
