@@ -28,8 +28,8 @@ let b:ale_fix_on_save = 1
 autocmd VimResized * :wincmd =
 
 " detect if we're on arch (read: main machine)
-let s:distro_command = substitute(system('~/.local/bin/scripts/distro'), '\n', '', '')
-let g:on_main_machine = s:distro_command == "arch"
+let s:distro_command = substitute(system('lsb_release -is'), '\n', '', '')
+let g:on_main_machine = s:distro_command == "Arch" || s:distro_command == "Garuda"
 
 " detect if node exists
 let s:has_node_command = system('command -v node')
