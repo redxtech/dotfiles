@@ -61,7 +61,6 @@ plugins=(
     zsh-interactive-cd
 
     # manually installed plugins
-    omz
     zsh-aur-install
     zsh-autosuggestions
     zsh-completions
