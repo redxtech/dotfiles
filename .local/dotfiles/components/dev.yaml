@@ -1,0 +1,13 @@
+name: Dev Tools
+packages:
+  - docker
+  - docker-compose
+  - nodejs
+  - npm
+  - python
+  - python-pip
+  - shellcheck
+  - visual-studio-code-insiders-bin
+  - yarn
+commands:
+  - yarn global add neovim

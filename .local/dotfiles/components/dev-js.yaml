@@ -1,0 +1,5 @@
+name: JS Dev
+packages:
+  - nodejs
+  - npm
+  - yarn

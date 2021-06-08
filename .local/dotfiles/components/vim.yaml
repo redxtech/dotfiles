@@ -1,0 +1,12 @@
+name: vim
+packages:
+  - neovim
+  - nodejs
+  - npm
+  - python
+  - python-pip
+  - xclip
+  - yarn
+commands:
+  - yarn global add neovim
+  - pip install pynvim

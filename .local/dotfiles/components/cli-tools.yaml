@@ -1,0 +1,23 @@
+name: CLI Tools
+packages:
+  - bat
+  - exa
+  - fd
+  - fzf
+  - htop
+  - httpie
+  - mediainfo
+  - mktorrent
+  - neofetch
+  - prettyping
+  - ps_mem
+  - rclone
+  - ripgrep
+  - shellcheck
+  - slurm
+  - source-highlight
+  - time
+  - tldr
+  - tree
+  - youtube-dl
+  - xclip

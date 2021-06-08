@@ -1,0 +1,7 @@
+name: C++ Dev
+packages:
+  - clang
+  - cmake
+  - docker
+  - docker-compose
+  - gcc
