@@ -48,6 +48,7 @@ Plug 'tpope/vim-repeat' " repeat plugins with .
 Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
 Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
+Plug 'tpope/vim-unimpaired' " for moving between pairs of characters []
 Plug 'dense-analysis/ale' " asynchronous lint engine
 Plug 'yegappan/mru' " most recently used
 Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
