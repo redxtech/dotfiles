@@ -2,4 +2,5 @@ name: Spotify
 packages:
   - spotify
   - kdocker
+  - playerctl
 
