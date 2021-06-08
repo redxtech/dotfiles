@@ -38,7 +38,9 @@ Plug 'terryma/vim-expand-region' " smart selected region expanding
 Plug 'tmux-plugins/vim-tmux-focus-events' " fix focus events in tmux
 Plug 'tmux-plugins/vim-tmux' " tmux configuration
 Plug 'tpope/vim-commentary' " comment out lines with a keybind
+Plug 'tpope/vim-dispatch' " run stuff in other pane
 Plug 'tpope/vim-dotenv' " dotenv file support
+Plug 'tpope/vim-endwise' " smart end auto-adding
 Plug 'tpope/vim-eunuch' " unix helpers
 Plug 'tpope/vim-fugitive' " git helpers
 Plug 'tpope/vim-jdaddy', { 'for': 'json' } " json object & motions
@@ -49,6 +51,7 @@ Plug 'tpope/vim-sensible' " defaults everyone can agree on
 Plug 'tpope/vim-surround' " tools for surrounding elements
 Plug 'tpope/vim-tbone' " tools for using tmux commands in vim
 Plug 'tpope/vim-unimpaired' " for moving between pairs of characters []
+Plug 'tpope/vim-vinegar' " project drawer
 Plug 'dense-analysis/ale' " asynchronous lint engine
 Plug 'yegappan/mru' " most recently used
 Plug 'Xuyuanp/nerdtree-git-plugin' " git status for nerd tree
@@ -60,6 +63,7 @@ endif
 
 " coc extensions
 if g:has_node
+    Plug 'clangd/coc-clangd', {'branch': 'release'} " language server for C/C++
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense completion
     Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile', 'for': ['javascript', 'css', 'vue', 'html']}
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile', 'for': ['css', 'vue', 'html']}
