@@ -24,6 +24,10 @@ let g:vue_pre_processors = []
 " lint files on fix
 let b:ale_fix_on_save = 1
 
+" auto open markdown live preview
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 1
+
 " automatically resize vim when window is resized
 autocmd VimResized * :wincmd =
 

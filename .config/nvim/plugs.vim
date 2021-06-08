@@ -15,6 +15,7 @@ Plug 'editorconfig/editorconfig-vim' " editorconfig support
 Plug 'fvictorio/vim-textobj-backticks' " backticks object
 Plug 'glts/vim-textobj-comment' " comment text object
 Plug 'honza/vim-snippets' " snippets
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " markdown preview
 Plug 'itchyny/lightline.vim' " powerline
 Plug 'jiangmiao/auto-pairs' " auto match brackets & etc.
 Plug 'jistr/vim-nerdtree-tabs' " nerdtree open across tabs
@@ -40,7 +41,7 @@ Plug 'tmux-plugins/vim-tmux' " tmux configuration
 Plug 'tpope/vim-commentary' " comment out lines with a keybind
 Plug 'tpope/vim-dispatch' " run stuff in other pane
 Plug 'tpope/vim-dotenv' " dotenv file support
-Plug 'tpope/vim-endwise' " smart end auto-adding
+" Plug 'tpope/vim-endwise' " smart end auto-adding
 Plug 'tpope/vim-eunuch' " unix helpers
 Plug 'tpope/vim-fugitive' " git helpers
 Plug 'tpope/vim-jdaddy', { 'for': 'json' } " json object & motions
