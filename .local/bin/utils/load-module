@@ -24,8 +24,13 @@ def install_packages(name, packages):
    # run the command
    print(f'[{name}] {" ".join(command_builder)}')
    command = subprocess.run(command_builder, capture_output=True)
-   
-   # show any errors
+
+   # command = subprocess.run(command_builder, stdout=subprocess.PIPE)
+   # for c in iter(lambda: command.stdout.read(1), b''):
+   #    sys.stdout.write(c)
+
+   # show the result & any errors
+   sys.stdout.buffer.write(command.stdout)
    sys.stderr.buffer.write(command.stderr)
 
    # return the success
