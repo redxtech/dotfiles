@@ -63,6 +63,10 @@ name = "git"
 git_plugin = "fugitive"
 
 [[layers]]
+name = "gtags"
+gtagslabel = "ctags"
+
+[[layers]]
 name = 'incsearch'
 
 [[layers]]
