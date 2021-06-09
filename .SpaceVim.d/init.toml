@@ -53,7 +53,6 @@ name = "debug"
 
 [[layers]]
 name = "format"
-format_on_save = true
 
 [[layers]]
 name = "fzf"
@@ -72,7 +71,6 @@ name = 'incsearch'
 [[layers]]
 name = "lang#c"
 clang_executable = "/usr/bin/clang"
-enable_clang_syntax_highlight = true
   [layer.clang_std]
     cpp = "gnu++17"
 
