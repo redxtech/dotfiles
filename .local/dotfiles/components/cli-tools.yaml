@@ -4,6 +4,7 @@ packages:
   - exa
   - fd
   - fzf
+  - gtop
   - htop
   - httpie
   - mediainfo
