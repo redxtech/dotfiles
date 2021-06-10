@@ -86,6 +86,11 @@ clang_executable = "/usr/bin/clang"
     cpp = "gnu++17"
 
 [[layers]]
+name = "lang#python"
+enable_typeinfo = true
+enabled_linters = ['python', 'pylint']
+
+[[layers]]
 name = "lang#toml"
 
 [[layers]]
