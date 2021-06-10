@@ -24,6 +24,11 @@ if command -v exa >/dev/null; then
     alias ls="exa --group-directories-first"
 fi
 
+# cat -> bat
+if command -v bat >/dev/null; then
+    alias cat="bat --theme TwoDark"
+fi
+
 # ping -> prettyping
 if command -v prettyping >/dev/null; then
     alias ping="prettyping --nolegend"
