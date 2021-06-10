@@ -9,4 +9,7 @@ packages:
   - yarn
 commands:
   - yarn global add neovim
-  - pip install pynvim
+  - yarn global add bash-language-server
+  - pip3 install pynvim
+  - pip3 install msgpack
+  - pip3 install python-language-server

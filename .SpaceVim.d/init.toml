@@ -8,33 +8,38 @@
 
 # All SpaceVim option below [option] section
 [options]
-    # set spacevim theme. by default colorscheme layer is not loaded,
-    # if you want to use more colorscheme, please load the colorscheme
-    # layer
+    # spacevim bootstrap functions
+    bootstrap_before = 'bootstrap#before'
+    bootstrap_after = 'bootstrap#after'
+
+    # colour settings
     colorscheme = "onedark"
     colorscheme_bg = "dark"
-    # Disable guicolors in basic mode, many terminal do not support 24bit
-    # true colors
     enable_guicolors = true
-    # Disable statusline separator, if you want to use other value, please
-    # install nerd fonts
+
+    # status line config
     statusline_separator = "arrow"
     statusline_iseparator = "arrow"
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
+    enable_tabline_ft_icon = true
     enable_statusline_mode = true
+    enable_os_fileformat_icon = true
+    enable_vimfiler_filetypeicon = true
+    enable_vimfiler_gitstatus = true
 
-    # autocomplete method
-    autocomplete_method = "coc"
-
-    # font
+    # font for gui version
     guifont = 'DankMono Nerd Font'
 
-    # use nerdtree instead of vimfiler
-    filemanager = "nerdtree"
+    # use defx instead of vimfiler
+    filemanager = "defx"
+    filetree_direction = "left"
 
     # use ale instead of neomake
     lint_engine = "ale"
+
+    # set my github username
+    github_username = "redxtech"
 
 # Enable autocomplete layer
 [[layers]]
@@ -48,31 +53,51 @@ name = "checkers"
 [[layers]]
 name = "colorscheme"
 
+# [[layers]]
+# name = "debug"
+
 [[layers]]
-name = "debug"
+name = "default"
+
+[[layers]]
+name = "denite"
 
 [[layers]]
 name = "format"
-
-[[layers]]
-name = "fzf"
 
 [[layers]]
 name = "git"
 git_plugin = "fugitive"
 
 [[layers]]
-name = "gtags"
-gtagslabel = "ctags"
+name = "github"
 
 [[layers]]
-name = 'incsearch'
+name = "gtags"
+# gtagslabel = "ctags"
+
+[[layers]]
+name = "incsearch"
 
 [[layers]]
 name = "lang#c"
 clang_executable = "/usr/bin/clang"
   [layer.clang_std]
     cpp = "gnu++17"
+
+[[layers]]
+name = "lang#toml"
+
+[[layers]]
+name = "lang#sh"
+
+[[layers]]
+name = "lsp"
+filetypes = [
+  "cpp",
+  "python",
+  "sh"
+]
 
 [[layers]]
 name = "shell"
@@ -84,10 +109,6 @@ name = "sudo"
 
 [[layers]]
 name = "tmux"
-
-[[layers]]
-name = "ui"
-enable_scrollbar = true
 
 [[layers]]
 name = "VersionControl"
