@@ -11,6 +11,7 @@
 	trustctime = false
 	editor = vim
 	filemode = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [credential]
@@ -41,3 +42,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[interactive]
+	diffFilter = diff-so-fancy --patch

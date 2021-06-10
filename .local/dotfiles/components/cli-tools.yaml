@@ -1,6 +1,7 @@
 name: CLI Tools
 packages:
   - bat
+  - diff-so-fancy
   - exa
   - fd
   - fzf
