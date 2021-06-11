@@ -35,6 +35,9 @@
     filemanager = "defx"
     filetree_direction = "left"
 
+    # use coc instead of deoplete
+    autocomplete_method = "coc"
+
     # use ale instead of neomake
     lint_engine = "ale"
 
