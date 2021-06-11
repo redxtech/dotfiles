@@ -89,15 +89,18 @@ clang_executable = "/usr/bin/clang"
     cpp = "gnu++17"
 
 [[layers]]
+name = "lang#markdown"
+
+[[layers]]
 name = "lang#python"
 enable_typeinfo = true
 enabled_linters = ['python', 'pylint']
 
 [[layers]]
-name = "lang#toml"
+name = "lang#sh"
 
 [[layers]]
-name = "lang#sh"
+name = "lang#toml"
 
 [[layers]]
 name = "lsp"
