@@ -17,3 +17,8 @@ export TERMINAL
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 
+# TODO: see if plugin for this
+# source local env file
+if test -f "$HOME/.config/zsh/env.local.zsh"; then
+    source "$HOME/.config/zsh/env.local.zsh"
+fi
