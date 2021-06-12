@@ -26,8 +26,11 @@ ZSH_DOTENV_PROMPT=false
 source "$ANTIGEN_PATH/antigen.zsh"
 antigen init "$HOME/.antigenrc"
 
-# autoload & compile the functions
-autoload -U compinit && compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
+# autoload & compile the functions if it hasn't been done in the last 24h
+autoload -Uz compinit
+if [[ -n "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"(#qN.mh+24) ]]; then
+  compinit -C -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
+fi
 
 # source the custom zsh environment
 # shellcheck source=.config/zsh/init.zsh
