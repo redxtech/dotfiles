@@ -23,7 +23,6 @@ antigen bundles <<EOBUNDLES
     gitfast
     gitignore
     gpg-agent
-    history-substring-search
     httpie
     keychain
     man
@@ -32,11 +31,9 @@ antigen bundles <<EOBUNDLES
     ripgrep
     # rust
     # rustup
-    safe-paste
     ssh-agent
     sublime
     systemd
-    thefuck
     tmux
     transfer
     vscode
@@ -46,13 +43,23 @@ antigen bundles <<EOBUNDLES
     zsh-interactive-cd
 
     # plugins from git
+    djui/alias-tips
+    hlissner/zsh-autopair
+    laggardkernel/zsh-thefuck
+    olets/zsh-abbr
+    oz/safe-paste
     redxtech/zsh-aur-install
     redxtech/zsh-fzf-utils
     redxtech/zsh-not-vim
     redxtech/zsh-unix-simple
+    Tarrasch/zsh-bd
+    Tarrasch/zsh-colors
+    unixorn/autoupdate-antigen.zshplugin
+    zdharma/fast-syntax-highlighting
+    zpm-zsh/clipboard
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
-    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-history-substring-search
 EOBUNDLES
 
 # load platform specific plugins

@@ -47,3 +47,15 @@ alias docker-compose="sudo docker-compose"
 # for fun
 alias starwars="telnet towel.blinkenlights.nl"
 
+## abbreviations
+
+# default to session and quiet
+alias abbr="abbr -S --quiet"
+
+# i often spell yadm as yamd
+abbr yamd="yadm"
+
+# my common misspellings
+abbr ecoh="echo"
+abbr pacuar="pacaur"
+

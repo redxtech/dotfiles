@@ -11,7 +11,6 @@
 	trustctime = false
 	editor = vim
 	filemode = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [credential]
@@ -42,18 +41,26 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[interactive]
-	diffFilter = diff-so-fancy --patch
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+; [interactive]
+;   diffFilter = delta --color-only
+[delta]
+  features = side-by-side line-numbers decorations
+  syntax-theme = TwoDark
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
+  navigate = true
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-decoration-style = cyan box ul
+[delta "line-numbers"]
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28
