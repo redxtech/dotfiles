@@ -26,7 +26,7 @@ antigen bundles <<EOBUNDLES
     history-substring-search
     httpie
     keychain
-    main
+    man
     perms
     pip
     ripgrep
