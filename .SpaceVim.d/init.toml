@@ -13,7 +13,7 @@
     bootstrap_after = 'bootstrap#after'
 
     # colour settings
-    colorscheme = "onedark"
+    colorscheme = "challenger_deep"
     colorscheme_bg = "dark"
     enable_guicolors = true
 
@@ -123,3 +123,9 @@ name = "tmux"
 
 [[layers]]
 name = "VersionControl"
+
+[[custom_plugins]]
+repo = "challenger-deep-theme/vim"
+name = "challenger-deep"
+normalized_name = "challenger-deep"
+merged = false
