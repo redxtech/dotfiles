@@ -46,6 +46,8 @@ alias docker-compose="sudo docker-compose"
 
 # for fun
 alias starwars="telnet towel.blinkenlights.nl"
+alias excuse="fortune bofh-excuses | yosay"
+alias excuse-cow="fortune bofh-excuses | cowsay"
 
 ## abbreviations
 
