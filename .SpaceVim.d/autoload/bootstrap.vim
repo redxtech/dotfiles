@@ -4,8 +4,9 @@ function! bootstrap#before() abort
   " set coc default sources
   let g:coc_global_extensions = [
   \ 'coc-browser',
+  \ 'coc-git',
   \ 'coc-json',
-  \ 'coc-git'
+  \ 'coc-toml'
   \]
 endfunction
 

@@ -8,42 +8,42 @@
 
 # All SpaceVim option below [option] section
 [options]
-    # spacevim bootstrap functions
-    bootstrap_before = 'bootstrap#before'
-    bootstrap_after = 'bootstrap#after'
+  # spacevim bootstrap functions
+  bootstrap_before = 'bootstrap#before'
+  bootstrap_after = 'bootstrap#after'
 
-    # colour settings
-    colorscheme = "onedark"
-    # colorscheme = "challenger_deep"
-    colorscheme_bg = "dark"
-    enable_guicolors = true
+  # colour settings
+  colorscheme = "onedark"
+  # colorscheme = "challenger_deep"
+  colorscheme_bg = "dark"
+  enable_guicolors = true
 
-    # status line config
-    statusline_separator = "arrow"
-    statusline_iseparator = "arrow"
-    buffer_index_type = 4
-    enable_tabline_filetype_icon = true
-    enable_tabline_ft_icon = true
-    enable_statusline_mode = true
-    enable_os_fileformat_icon = true
-    enable_vimfiler_filetypeicon = true
-    enable_vimfiler_gitstatus = true
+  # status line config
+  statusline_separator = "arrow"
+  statusline_iseparator = "arrow"
+  buffer_index_type = 4
+  enable_tabline_filetype_icon = true
+  enable_tabline_ft_icon = true
+  enable_statusline_mode = true
+  enable_os_fileformat_icon = true
+  enable_vimfiler_filetypeicon = true
+  enable_vimfiler_gitstatus = true
 
-    # font for gui version
-    guifont = 'DankMono Nerd Font'
+  # font for gui version
+  guifont = 'DankMono Nerd Font'
 
-    # use defx instead of vimfiler
-    filemanager = "defx"
-    filetree_direction = "left"
+  # use defx instead of vimfiler
+  filemanager = "defx"
+  filetree_direction = "left"
 
-    # use coc instead of deoplete
-    autocomplete_method = "coc"
+  # use coc instead of deoplete
+  autocomplete_method = "coc"
 
-    # use ale instead of neomake
-    lint_engine = "ale"
+  # use ale instead of neomake
+  lint_engine = "ale"
 
-    # set my github username
-    github_username = "redxtech"
+  # set my github username
+  github_username = "redxtech"
 
     # challenger deep colour palette
     # custom_color_palette = [
@@ -60,86 +60,87 @@
 
 # Enable autocomplete layer
 [[layers]]
-name = "autocomplete"
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "smart"
+  name = "autocomplete"
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
-name = "checkers"
+  name = "checkers"
 
 [[layers]]
-name = "colorscheme"
+  name = "colorscheme"
 
 # [[layers]]
-# name = "debug"
+  # name = "debug"
 
 [[layers]]
-name = "default"
+  name = "default"
 
 [[layers]]
-name = "denite"
+  name = "denite"
 
 [[layers]]
-name = "format"
+  name = "format"
 
 [[layers]]
-name = "git"
-git_plugin = "fugitive"
+  name = "git"
+  git_plugin = "fugitive"
 
 [[layers]]
-name = "github"
+  name = "github"
 
 [[layers]]
-name = "gtags"
-# gtagslabel = "ctags"
+  name = "gtags"
+  # gtagslabel = "ctags"
 
 [[layers]]
-name = "incsearch"
+  name = "incsearch"
 
 [[layers]]
-name = "lang#c"
-clang_executable = "/usr/bin/clang"
+  name = "lang#c"
+  clang_executable = "/usr/bin/clang"
   [layer.clang_std]
     cpp = "gnu++17"
 
 [[layers]]
-name = "lang#markdown"
+  name = "lang#markdown"
 
 [[layers]]
-name = "lang#python"
-enable_typeinfo = true
-enabled_linters = ['python', 'pylint']
+  name = "lang#python"
+  enable_typeinfo = true
+  enabled_linters = ['python', 'pylint']
 
 [[layers]]
-name = "lang#sh"
+  name = "lang#sh"
 
 [[layers]]
-name = "lang#toml"
+  name = "lang#toml"
 
 [[layers]]
-name = "lsp"
-filetypes = [
-  "cpp",
-  "python",
-  "sh"
-]
+  name = "lsp"
+  filetypes = [
+    "cpp",
+    "python",
+    "sh"
+  ]
 
 [[layers]]
-name = "shell"
-default_position = "bottom"
-default_height = 30
+  name = "shell"
+  default_position = "bottom"
+  default_height = 30
 
 [[layers]]
-name = "sudo"
+  name = "sudo"
 
 [[layers]]
-name = "tmux"
+  name = "tmux"
 
 [[layers]]
-name = "VersionControl"
+  name = "VersionControl"
 
 [[custom_plugins]]
-repo = "challenger-deep-theme/vim"
-name = "challenger-deep"
-normalized_name = "challenger-deep"
-merged = false
+  repo = "challenger-deep-theme/vim"
+  name = "challenger-deep"
+  normalized_name = "challenger-deep"
+  merged = false
+
