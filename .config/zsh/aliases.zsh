@@ -60,4 +60,5 @@ abbr yamd="yadm"
 # my common misspellings
 abbr ecoh="echo"
 abbr pacuar="pacaur"
+abbr sudp="sudo"
 
