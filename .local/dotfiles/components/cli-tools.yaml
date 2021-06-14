@@ -1,5 +1,6 @@
 name: CLI Tools
 packages:
+  - bandwhich
   - bat
   - git-delta
   - exa
@@ -12,6 +13,8 @@ packages:
   - mktorrent
   - neofetch
   - prettyping
+  - procs
+  - progress
   - ps_mem
   - rclone
   - ripgrep
@@ -20,6 +23,10 @@ packages:
   - source-highlight
   - time
   - tldr
+  - tokei
+  - tre-command
   - tree
   - youtube-dl
   - xclip
+npm:
+  - speed-test

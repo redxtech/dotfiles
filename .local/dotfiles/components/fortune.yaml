@@ -2,7 +2,6 @@ name: Fortune
 packages:
     - fortune-mod
     - cowsay
-    - fortune-mod-anti-jokes
     - fortune-mod-archlinux
     - fortune-mod-arresteddevelopment
     - fortune-mod-bofh-excuses
