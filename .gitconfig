@@ -22,6 +22,7 @@
 	keepbackups = false
 	prompt = false
 	trustexitcode = false
+	path = nvim
 [alias]
 	last = log -1 --stat
 	cp = cherry-pick
@@ -50,7 +51,6 @@
   diffFilter = delta --color-only
 [delta]
   features = side-by-side line-numbers decorations
-  syntax-theme = TwoDark
   plus-style = syntax "#003800"
   minus-style = syntax "#3f0001"
   navigate = true

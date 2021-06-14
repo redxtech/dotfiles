@@ -16,6 +16,7 @@ export TERMINAL
 # program specific
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export RANGER_LOAD_DEFAULT_RC="FALSE"
+export BAT_THEME=TwoDark
 
 # TODO: see if plugin for this
 # source local env file

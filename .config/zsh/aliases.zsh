@@ -26,7 +26,7 @@ fi
 
 # cat -> bat
 if command -v bat >/dev/null; then
-    alias cat="bat --theme TwoDark"
+    alias cat="bat"
 fi
 
 # ping -> prettyping

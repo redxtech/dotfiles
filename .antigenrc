@@ -43,6 +43,7 @@ antigen bundles <<EOBUNDLES
     zsh-interactive-cd
 
     # plugins from git
+    bigH/git-fuzzy --loc=bin
     djui/alias-tips
     hlissner/zsh-autopair
     laggardkernel/zsh-thefuck
