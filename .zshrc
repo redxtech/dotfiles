@@ -20,6 +20,10 @@ zstyle :omz:plugins:keychain agents gpg,ssh
 zstyle :omz:plugins:keychain identities id_ed25519 # id_github
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle ":morpho" screen-saver "pipes.sh"
+zstyle ":morpho" arguments "-p 4 -t 3 -r 10000"
+zstyle ":morpho" delay "600"
+zstyle ":morpho" check-interval "60"
 ZSH_DOTENV_PROMPT=false
 
 # load antigen & all antigen config

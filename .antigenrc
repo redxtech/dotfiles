@@ -50,6 +50,7 @@ antigen bundles <<EOBUNDLES
     laggardkernel/zsh-thefuck
     olets/zsh-abbr
     oz/safe-paste
+    psprint/zsh-morpho
     redxtech/zsh-aur-install
     redxtech/zsh-fzf-utils
     redxtech/zsh-not-vim

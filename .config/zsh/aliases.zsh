@@ -34,6 +34,11 @@ if command -v prettyping >/dev/null; then
     alias ping="prettyping --nolegend"
 fi
 
+# pipes.sh -> pipes
+if command -v pipes.sh >/dev/null; then
+  alias pipes="pipes.sh -p 4 -t 3 -r 10000"
+fi
+
 # some command aliaseviations
 alias e='$EDITOR'
 alias v='$EDITOR'
