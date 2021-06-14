@@ -2,6 +2,7 @@ name: CLI Tools
 packages:
   - bandwhich
   - bat
+  - diskus
   - git-delta
   - exa
   - fd
