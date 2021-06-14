@@ -10,6 +10,7 @@ packages:
   - gtop
   - htop
   - httpie
+  - hub
   - mediainfo
   - mktorrent
   - neofetch

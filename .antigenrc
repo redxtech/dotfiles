@@ -21,6 +21,7 @@ antigen bundles <<EOBUNDLES
     frontend-search
     fzf
     gitfast
+    github
     gitignore
     gpg-agent
     httpie
