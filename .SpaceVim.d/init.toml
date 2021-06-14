@@ -139,8 +139,12 @@
   name = "VersionControl"
 
 [[custom_plugins]]
-  repo = "challenger-deep-theme/vim"
   name = "challenger-deep"
+  repo = "challenger-deep-theme/vim"
   normalized_name = "challenger-deep"
+  merged = false
+
+[[custom_plugins]]
+  repo = "ap/vim-css-color"
   merged = false
 

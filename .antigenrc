@@ -58,6 +58,7 @@ antigen bundles <<EOBUNDLES
     Tarrasch/zsh-bd
     Tarrasch/zsh-colors
     unixorn/autoupdate-antigen.zshplugin
+    wfxr/forgit
     zdharma/fast-syntax-highlighting
     zpm-zsh/clipboard
     zsh-users/zsh-autosuggestions
