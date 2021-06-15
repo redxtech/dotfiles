@@ -49,7 +49,6 @@
 - https://github.com/willdoescode/nat
 - https://github.com/rabite0/hunter
 - https://github.com/simeg/eureka
-- https://github.com/windsoilder/hors
 
 ## Look Into Later:
 - https://github.com/achembarpu/pockyt
@@ -73,3 +72,11 @@
 - https://github.com/jarun/nnn
 - 
 
+## Play Around With:
+- powerlevel10k
+- zoxide
+- zsh-extract
+- git-fuzzy
+- bottom
+- hors
+-
