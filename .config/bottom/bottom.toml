@@ -1,0 +1,4 @@
+[flags]
+  network_use_binary_prefix = true
+  show_table_scroll_position = true
+

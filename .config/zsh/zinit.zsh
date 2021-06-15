@@ -98,8 +98,10 @@ zinit ice wait lucid
 zinit light sei40kr/zsh-fast-alias-tips
 
 # pull in some crates
-zinit ice rustup cargo"zoxide" as"command" pick"bin/(zoxide)"
+crates=(bottom hors zoxide)
+zinit ice rustup cargo"${(j.;.)crates}" as"command" pick"bin/*"
 zinit light zdharma/null
+unset crates
 
 # pull in some binaries from github releases
 zinit as"program" from"gh-r" for \

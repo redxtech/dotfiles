@@ -1,9 +1,6 @@
 # TODO
-https://challenger-deep-theme.github.io
-use antibody instead of antigen
-go through antigen plugins and use plugins extracted from oh-my-zsh
 
-## Items:
+## Awesome Lists:
 <!-- - https://github.com/agarrharr/awesome-cli-apps -->
 <!-- - https://github.com/Kikobeats/awesome-cli -->
 <!-- - https://project-awesome.org/umutphp/awesome-cli -->
@@ -14,27 +11,7 @@ go through antigen plugins and use plugins extracted from oh-my-zsh
 - https://github.com/jondot/awesome-devenv
 - https://github.com/kahun/awesome-sysadmin
 
-- https://github.com/TejasQ/add-gitignore
-- https://github.com/httpie/httpie
-- https://github.com/cezaraugusto/mklicense
-- https://github.com/captainsafia/legit
-- https://github.com/iCHAIT/moviemon
-- https://github.com/NISH1001/playx
-- https://github.com/SwagLyrics/SwagLyrics-For-Spotify
-- https://github.com/Rigellute/spotify-tui
-- https://lib.rs/crates/coreutils
-- https://github.com/sharkdp/hyperfine
-- https://github.com/ClementTsang/bottom
-- https://github.com/pemistahl/grex
-- https://github.com/xxxserxxx/gotop
-- https://gitlab.com/timvisee/ffsend
-- https://lib.rs/crates/pueue
-- https://github.com/willdoescode/nat
-- https://github.com/rabite0/hunter
-- https://github.com/simeg/eureka
-- https://github.com/windsoilder/hors
-
-## Yes:
+## Approved:
 - https://github.com/axiros/terminal_markdown_viewer
 - http://www.figlet.org
 - https://github.com/timvisee/ffsend
@@ -54,9 +31,27 @@ go through antigen plugins and use plugins extracted from oh-my-zsh
 - https://github.com/wfxr/forgit
 -
  
+## Programs:
+- https://github.com/TejasQ/add-gitignore
+- https://github.com/httpie/httpie
+- https://github.com/cezaraugusto/mklicense
+- https://github.com/captainsafia/legit
+- https://github.com/iCHAIT/moviemon
+- https://github.com/NISH1001/playx
+- https://github.com/SwagLyrics/SwagLyrics-For-Spotify
+- https://github.com/Rigellute/spotify-tui
+- https://lib.rs/crates/coreutils
+- https://github.com/sharkdp/hyperfine
+- https://github.com/pemistahl/grex
+- https://github.com/xxxserxxx/gotop
+- https://gitlab.com/timvisee/ffsend
+- https://lib.rs/crates/pueue
+- https://github.com/willdoescode/nat
+- https://github.com/rabite0/hunter
+- https://github.com/simeg/eureka
+- https://github.com/windsoilder/hors
+
 ## Look Into Later:
-- https://github.com/getantibody/antibody
-- https://github.com/zdharma/zinit
 - https://github.com/achembarpu/pockyt
 - https://github.com/sgentle/caniuse-cmd
 - https://github.com/sindresorhus/is-up-cli
@@ -75,7 +70,6 @@ go through antigen plugins and use plugins extracted from oh-my-zsh
 - https://github.com/molovo/revolver
 - https://github.com/asdf-vm/asdf
 - https://github.com/kiurchv/asdf.plugin.zsh
-- https://github.com/zpm-zsh/colors
 - https://github.com/jarun/nnn
 - 
 
