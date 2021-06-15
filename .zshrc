@@ -57,9 +57,10 @@ if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
   compinit -C -d "$ZSH_COMPDUMP"
 fi
 
+# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # source the custom zsh environment
 # shellcheck source=.config/zsh/init.zsh
 [ -f "$ZSH_CUSTOM/init.zsh" ] && . "$ZSH_CUSTOM/init.zsh"
 
-# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
