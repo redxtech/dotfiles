@@ -175,7 +175,7 @@ font:
 draw_bold_text_with_bright_colors: true
 
 # Colours (Challenger Deep)
-colors:
+colors_c_deep:
   # Default colors
   primary:
     background: '0x1b182c'
@@ -202,35 +202,35 @@ colors:
     magenta: '0x906cff'
     cyan:    '0x63f2f1'
     white:   '0xa6b3cc'
-
+#
 # Colors (One Dark)
-# colors:
+colors:
   # Default colors
-  # primary:
-    # background: '0x1e2127'
-    # foreground: '0xabb2bf'
+  primary:
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
 
   # Normal colors
-  # normal:
-    # black:   '0x1e2127'
-    # red:     '0xe06c75'
-    # green:   '0x98c379'
-    # yellow:  '0xd19a66'
-    # blue:    '0x61afef'
-    # magenta: '0xc678dd'
-    # cyan:    '0x56b6c2'
-    # white:   '0xabb2bf'
+  normal:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
 
   # Bright colors
-  # bright:
-    # black:   '0x5c6370'
-    # red:     '0xe06c75'
-    # green:   '0x98c379'
-    # yellow:  '0xd19a66'
-    # blue:    '0x61afef'
-    # magenta: '0xc678dd'
-    # cyan:    '0x56b6c2'
-    # white:   '0xffffff'
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'
 
 # Colors (Tomorrow Night Bright)
 # colors:
