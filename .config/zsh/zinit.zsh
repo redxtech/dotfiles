@@ -80,7 +80,7 @@ zinit wait lucid for \
   OMZP::zsh_reload
 
 # oh-my-zsh plugins with full directory
-zinit ice svn
+zinit ice svn wait lucid
 zinit snippet OMZP::gitfast
 
 # can't load this one in turbo mode
@@ -91,21 +91,25 @@ zinit as"null" wait lucid for \
   sbin"bin/git-fuzzy" \
     bigH/git-fuzzy
 
-# alias tips
+# binaries from github releases
 zinit ice wait lucid from"gh-r" as"program"
-zinit light sei40kr/fast-alias-tips-bin
+zinit load sei40kr/fast-alias-tips-bin
 zinit ice wait lucid
-zinit light sei40kr/zsh-fast-alias-tips
+zinit load sei40kr/zsh-fast-alias-tips
+
+zinit ice wait lucid from"gh-r" as"program"
+zinit load junegunn/fzf
+zinit ice wait lucid from"gh-r" as"program" pick"bin/dog"
+zinit load ogham/dog
+
+zinit wait lucid from"gh-r" as"program" bpick"*linux_x86_64.tar.*" for \
+  charmbracelet/glow
 
 # pull in some crates
 crates=(bottom hors zoxide)
-zinit ice rustup cargo"${(j.;.)crates}" as"command" pick"bin/*"
+zinit ice id-as"crates-bin" rustup cargo"${(j.;.)crates}" as"command" pick"bin/*"
 zinit light zdharma/null
 unset crates
-
-# pull in some binaries from github releases
-zinit as"program" from"gh-r" for \
-  junegunn/fzf
 
 # zinit as"null" lucid from"gh-r" for \
   # mv"exa* -> exa" sbin ogham/exa \
@@ -114,15 +118,15 @@ zinit as"program" from"gh-r" for \
 # TODO: use zinit to load npm packages here
 
 # completions
-zinit ice as"completion"
+zinit ice as"completion" wait lucid
 zinit snippet OMZP::docker/_docker
-zinit ice as"completion"
+zinit ice as"completion" wait lucid
 zinit snippet OMZP::docker-compose/_docker-compose
-zinit ice as"completion"
+zinit ice as"completion" wait lucid
 zinit snippet OMZP::fd/_fd
-zinit ice as"completion"
+zinit ice as"completion" wait lucid
 zinit snippet OMZP::ripgrep/_ripgrep
-zinit ice atclone'./zplug.zsh'
+zinit ice atclone'./zplug.zsh' wait lucid
 zinit light g-plane/zsh-yarn-autocompletions
 
 # autocompletion, syntax highlighting, and autosuggestions
@@ -135,6 +139,6 @@ zinit wait lucid for \
     zsh-users/zsh-autosuggestions
 
 # history substring search
-zinit ice wait"!1" lucid atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[[B' history-substring-search-down"
+zinit ice wait lucid atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[[B' history-substring-search-down"
 zinit load zsh-users/zsh-history-substring-search
 

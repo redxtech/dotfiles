@@ -18,8 +18,6 @@
 - https://github.com/kefranabg/readme-md-generator
 - https://github.com/pipeseroni/pipes.sh
 - https://github.com/sindresorhus/terminal-link-cli
-- https://github.com/ogham/dog
-- https://github.com/charmbracelet/glow
 - https://github.com/icetee/pv
 - https://github.com/dbrgn/tealdeer
 - https://github.com/tanrax/terminal-AdvancedNewFile
@@ -79,4 +77,5 @@
 - git-fuzzy
 - bottom
 - hors
--
+- dog
+- glow
