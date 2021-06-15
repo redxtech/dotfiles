@@ -27,6 +27,17 @@ zinit light-mode for \
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
+# distro specific plugins
+CURRENT_DISTRO="$(lsb_release -is)"
+if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
+  zinit ice wait lucid
+  zinit snippet OMZP::archlinux
+elif test "$CURRENT_DISTRO" = "openSUSE"; then
+  zinit ice wait lucid
+  zinit snippet OMZP::suse
+fi
+unset CURRENT_DISTRO
+
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
@@ -86,23 +97,19 @@ zinit light sei40kr/fast-alias-tips-bin
 zinit ice wait lucid
 zinit light sei40kr/zsh-fast-alias-tips
 
-# TODO: use zinit to auto pull in some binary files from github releases
+# pull in some crates
+zinit ice rustup cargo"zoxide" as"command" pick"bin/(zoxide)"
+zinit light zdharma/null
+
+# pull in some binaries from github releases
+zinit as"program" from"gh-r" for \
+  junegunn/fzf
+
 # zinit as"null" lucid from"gh-r" for \
   # mv"exa* -> exa" sbin ogham/exa \
   # mv"fd* -> fd" sbin"fd/fd" @sharkdp/fd \
   # sbin"fzf" junegunn/fzf-bin
 # TODO: use zinit to load npm packages here
-
-# distro specific plugins
-CURRENT_DISTRO="$(lsb_release -is)"
-if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
-  zinit ice wait lucid
-  zinit snippet OMZP::archlinux
-elif test "$CURRENT_DISTRO" = "openSUSE"; then
-  zinit ice wait lucid
-  zinit snippet OMZP::suse
-fi
-unset CURRENT_DISTRO
 
 # completions
 zinit ice as"completion"
