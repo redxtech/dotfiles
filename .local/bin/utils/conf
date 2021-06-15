@@ -5,70 +5,55 @@
 
 # script to handle configuration file opening
 main () {
-    # make sure $args exits and has exactly one element
-    if test -z "$1"; then
-        echo "error: specify a config"
-        return 1
-    elif test -n "$2"; then
-        echo "error: specify only one config"
-        return 1
-    fi
+  # make sure $args exits and has exactly one element
+  if test -z "$1"; then
+    echo "error: specify a config"
+    return 1
+  elif test -n "$2"; then
+    echo "error: specify only one config"
+    return 1
+  fi
 
-    # open the specified config file with $EDITOR
-    case $1 in
-        v|vim|nvim|vimrc|vi) # vim
-            $EDITOR "$HOME/.config/nvim/init.vim"
-            ;;
-        vm) # vim maps
-            $EDITOR "$HOME/.config/nvim/maps.vim"
-            ;;
-        vp) # vim plugs
-            $EDITOR "$HOME/.config/nvim/plugs.vim" 
-            ;;
-        z|zsh) # zsh
-            $EDITOR "$HOME/.zshrc"
-            ;;
-    	zi) # zsh (init)
-            $EDITOR "$HOME/.config/zsh/init.zsh"
-            ;;
-    	za) # zsh aliases
-            $EDITOR "$HOME/.config/zsh/aliases.zsh"
-            ;;
-    	ze) # zsh env
-            $EDITOR "$HOME/.config/zsh/env.zsh"
-            ;;
-    	zp) # zsh path
-            $EDITOR "$HOME/.config/zsh/path.zsh"
-            ;;
-        zt) # zsh theme
-            $EDITOR "$HOME/.config/zsh/themes/zshred.zsh-theme"
-            ;;
-    	t|tmux) # tmux
-            $EDITOR "$HOME/.tmux.conf"
-            ;;
-    	r|ranger) # ranger
-            $EDITOR "$HOME/.config/ranger/rc.conf"
-            ;;
-    	rr) # ranger rifle
-            $EDITOR "$HOME/.config/ranger/rifle.conf"
-            ;;
-    	rs) # ranger scope
-            $EDITOR "$HOME/.config/ranger/scope.sh"
-            ;;
-        a|alacritty) # alacritty
-            $EDITOR "$HOME/.config/alacritty/alacritty.yml"
-            ;;
-        s|sxhkd) # simple x hotkey daemon
-            $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
-            ;;
-        c|conf) # this file
-            $EDITOR "$HOME/.local/bin/scripts/conf"
-            ;;
-        *) # config doesn't exist
-            echo "error: that config doesn't exist"
-            return 1
-            ;;
-    esac
+  # open the specified config file with $EDITOR
+  case $1 in
+    v|vim|nvim|sv|space|spacevim) # vim
+      $EDITOR "$HOME/.SpaceVim.d/init.toml"
+      ;;
+    vb|vboot|vbootstrap)
+      $EDITOR "$HOME/.SpaceVim.d/autoload/bootstrap.vim"
+      ;;
+    z|zsh) # zsh
+      $EDITOR "$HOME/.zshrc"
+      ;;
+    zi) # zsh (init)
+      $EDITOR "$HOME/.config/zsh/init.zsh"
+      ;;
+    za) # zsh aliases
+      $EDITOR "$HOME/.config/zsh/aliases.zsh"
+      ;;
+    ze) # zsh env
+      $EDITOR "$HOME/.config/zsh/env.zsh"
+      ;;
+    zp) # zsh path
+      $EDITOR "$HOME/.config/zsh/path.zsh"
+      ;;
+    zinit) # zinit config
+      $EDITOR "$HOME/.config/zsh/zinit.zsh"
+      ;;
+    t|tmux) # tmux
+      $EDITOR "$HOME/.tmux.conf"
+      ;;
+    a|alacritty) # alacritty
+      $EDITOR "$HOME/.config/alacritty/alacritty.yml"
+      ;;
+    c|conf) # this file
+      $EDITOR "$HOME/.local/bin/scripts/conf"
+      ;;
+    *) # config doesn't exist
+      echo "error: that config doesn't exist"
+      return 1
+      ;;
+  esac
 }
 
 main "$@"
