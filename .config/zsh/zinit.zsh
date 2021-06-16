@@ -74,7 +74,6 @@ zinit wait lucid for \
   OMZP::keychain \
   OMZP::man \
   OMZP::pip \
-  OMZP::ssh-agent \
   OMZP::systemd \
   OMZP::transfer \
   OMZP::zsh_reload
