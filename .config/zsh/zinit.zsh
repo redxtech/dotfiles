@@ -62,10 +62,6 @@ zinit wait lucid for \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
 
-# git library for themes and completions
-zinit snippet OMZL::completion.zsh
-zinit snippet OMZL::git.zsh
-
 # oh-my-zsh plugins (single file plugins only)
 zinit wait lucid for \
   OMZP::command-not-found \
@@ -80,10 +76,6 @@ zinit wait lucid for \
   OMZP::systemd \
   OMZP::transfer \
   OMZP::zsh_reload
-
-# oh-my-zsh plugins with full directory
-zinit ice svn wait lucid
-zinit snippet OMZP::gitfast
 
 # can't load this one in turbo mode
 zinit light olets/zsh-abbr
