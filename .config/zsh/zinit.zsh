@@ -105,14 +105,22 @@ zinit wait lucid from"gh-r" as"program" for \
     charmbracelet/glow \
   sbin"btm" \
     ClementTsang/bottom \
-  sbin"tldr" mv"tldr* -> tldr" \
+  sbin"delta-*/delta" \
+    dandavison/delta \
+  sbin"tldr" mv"tldr* -> tldr" dl"https://raw.githubusercontent.com/dbrgn/tealdeer/master/zsh_tealdeer -> _tldr" \
     dbrgn/tealdeer \
-  sbin"hub-linux-*/bin/hub" \
+  sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
   sbin \
     junegunn/fzf \
+  sbin"bin/exa" mv"completions/exa.zsh -> _exa" \
+    ogham/exa \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
+  sbin"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat" \
+    @sharkdp/bat \
+  sbin"fd-*/fd" \
+    @sharkdp/fd \
   sbin"spt" \
     Rigellute/spotify-tui \
   sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
@@ -136,6 +144,12 @@ zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
   sbin \
     Xfennec/progress
 
+# completions packages
+zinit ice as"completion" wait lucid
+zinit snippet https://raw.githubusercontent.com/gantsign/zsh-plugins/master/ctop/_ctop
+zinit ice as"completion" mv"completion.zsh -> _delta" wait lucid
+zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
+
 # completions from oh-my-zsh
 zinit ice as"completion" wait lucid
 zinit snippet OMZP::docker/_docker
@@ -147,6 +161,10 @@ zinit ice as"completion" wait lucid
 zinit snippet OMZP::ripgrep/_ripgrep
 zinit ice atclone'./zplug.zsh' wait lucid
 zinit light g-plane/zsh-yarn-autocompletions
+
+# TODO: missing completions
+# - glow
+# - tin-summer (sn)
 
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \
