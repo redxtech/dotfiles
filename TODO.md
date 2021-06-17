@@ -12,14 +12,11 @@
 - https://github.com/kahun/awesome-sysadmin
 
 ## Approved:
-- https://github.com/axiros/terminal_markdown_viewer
 - http://www.figlet.org
 - https://github.com/timvisee/ffsend
 - https://github.com/kefranabg/readme-md-generator
-- https://github.com/pipeseroni/pipes.sh
 - https://github.com/sindresorhus/terminal-link-cli
 - https://github.com/icetee/pv
-- https://github.com/dbrgn/tealdeer
 - https://github.com/tanrax/terminal-AdvancedNewFile
 - https://github.com/LuRsT/hr
 - https://github.com/paulirish/git-open
@@ -69,12 +66,17 @@
 ## Play Around With:
 - powerlevel10k
 - zoxide
+- asdf
+- unixorn/fzf
 - zsh-extract
+- httpie
+- transfer
 - git-fuzzy
 - bottom (btm)
+- hub
 - hors
 - dog
-- glow
 - tin-summer (sn)
 - spotify-tui (spt) & spotifyd
+- tealdeer (tldr)
 

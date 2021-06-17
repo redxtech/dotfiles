@@ -31,6 +31,8 @@ zinit light romkatv/powerlevel10k
 CURRENT_DISTRO="$(lsb_release -is)"
 if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit ice wait lucid
+  zinit load redxtech/zsh-aur-install
+  zinit ice wait lucid
   zinit snippet OMZP::archlinux
 elif test "$CURRENT_DISTRO" = "openSUSE"; then
   zinit ice wait lucid
@@ -41,25 +43,24 @@ unset CURRENT_DISTRO
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
-  Aloxaf/fzf-tab \
   ajeetdsouza/zoxide \
+  Aloxaf/fzf-tab \
+  asdf-vm/asdf \
   axtl/gpg-agent.zsh \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   MenkeTechnologies/zsh-cargo-completion \
-  MichaelAquilina/zsh-auto-notify \
+  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors spotifyd spt yadm)" \
+    MichaelAquilina/zsh-auto-notify \
   MichaelAquilina/zsh-emojis \
-  redxtech/zsh-aur-install \
   redxtech/zsh-fzf-utils \
   redxtech/zsh-not-vim \
   redxtech/zsh-unix-simple \
   Tarrasch/zsh-bd \
   Tarrasch/zsh-colors \
+  unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
-
-# currently disabled plugins
-# zpm-zsh/tmux
 
 # git library for themes and completions
 zinit snippet OMZL::completion.zsh
@@ -71,6 +72,7 @@ zinit wait lucid for \
   OMZP::copybuffer \
   OMZP::docker-compose \
   OMZP::encode64 \
+  OMZP::github \
   OMZP::httpie \
   OMZP::keychain \
   OMZP::man \
@@ -86,38 +88,52 @@ zinit snippet OMZP::gitfast
 # can't load this one in turbo mode
 zinit light olets/zsh-abbr
 
-# git-fuzzy bin file
-zinit as"null" wait lucid for \
+# binaries from github repos
+zinit as"command" wait lucid for \
   sbin"bin/git-fuzzy" \
-    bigH/git-fuzzy
+    bigH/git-fuzzy \
+  sbin \
+    denilsonsa/prettyping \
+  sbin \
+    pipeseroni/pipes.sh
 
-# binaries from github releases
+# fast alias tips
 zinit ice wait lucid from"gh-r" as"program"
 zinit load sei40kr/fast-alias-tips-bin
 zinit ice wait lucid
 zinit load sei40kr/zsh-fast-alias-tips
 
-zinit ice wait lucid from"gh-r" as"program"
-zinit load junegunn/fzf
-zinit ice wait lucid from"gh-r" as"program" pick"bin/dog"
-zinit load ogham/dog
-# TODO: transition some crates to binary releases
+# binaries from githuub releases
+zinit wait lucid from"gh-r" as"program" for \
+  sbin"glow" bpick"*linux_x86_64.tar*" \
+    charmbracelet/glow \
+  sbin"btm" \
+    ClementTsang/bottom \
+  sbin"hub-linux-*/bin/hub" \
+    @github/hub \
+  sbin \
+    junegunn/fzf \
+  sbin"bin/dog" \
+    ogham/dog \
+  sbin"spt" \
+    Rigellute/spotify-tui \
+  sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
+    Spotifyd/spotifyd \
+  sbin"sn" \
+    vmchale/tin-summer \
+  sbin bpick"*ubuntu*" \
+    WindSoilder/hors
 
-zinit wait lucid from"gh-r" as"program" bpick"*linux_x86_64.tar.*" for \
-  charmbracelet/glow
+zinit wait lucid from"gh-r" as"completion" for \
+  ClementTsang/bottom \
+  ogham/dog
 
-# pull in some crates
-crates=(bottom hors spotify-tui spotifyd tin-summer zoxide)
+# rustup & crates trhat can't be pulled from github-releases
+crates=(cargo-quickinstall tealdeer zoxide)
 zinit ice id-as"crates-bin" rustup cargo"${(j.;.)crates}" as"command" sbin"bin/*" \
   atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zinit light zdharma/null
 unset crates
-
-# zinit as"null" lucid from"gh-r" for \
-  # mv"exa* -> exa" sbin ogham/exa \
-  # mv"fd* -> fd" sbin"fd/fd" @sharkdp/fd \
-  # sbin"fzf" junegunn/fzf-bin
-# TODO: use zinit to load npm packages here
 
 # completions
 zinit ice as"completion" wait lucid
