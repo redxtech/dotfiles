@@ -15,7 +15,6 @@ contains () {
 local paths_to_add=(
   "$HOME/.SpaceVim/bin"
   "$HOME/.config/yarn/global/node_modules/.bin"
-  "$HOME/.cargo/bin"
   "$HOME/.local/bin"
 )
 
