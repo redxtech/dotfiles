@@ -61,6 +61,8 @@ zinit wait lucid for \
   Tarrasch/zsh-colors \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
+  zdharma/zui \
+  zinit-zsh/zinit-console
 
 # oh-my-zsh plugins (single file plugins only)
 zinit wait lucid for \
