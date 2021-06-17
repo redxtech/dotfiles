@@ -62,7 +62,8 @@ zinit wait lucid for \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
   zdharma/zui \
-  zinit-zsh/zinit-console
+  zinit-zsh/zinit-console \
+  zpm-zsh/ssh
 
 # oh-my-zsh plugins (single file plugins only)
 zinit wait lucid for \
@@ -147,20 +148,22 @@ zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
 # completions packages
 zinit ice as"completion" wait lucid
 zinit snippet https://raw.githubusercontent.com/gantsign/zsh-plugins/master/ctop/_ctop
+zinit ice as"completion" wait lucid
+zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
 zinit ice as"completion" mv"completion.zsh -> _delta" wait lucid
 zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
+zinit wait lucid nocd depth=1 \
+    atinit"ZSH_BASH_COMPLETIONS_FALLBACK_LAZYLOAD_DISABLE=true" for \
+      3v1n0/zsh-bash-completions-fallback
+zinit wait lucid for \
+  atclone"./zplug.zsh" \
+    g-plane/zsh-yarn-autocompletions \
+  greymd/docker-zsh-completion \
+  pkulev/zsh-rustup-completion
 
-# completions from oh-my-zsh
-zinit ice as"completion" wait lucid
-zinit snippet OMZP::docker/_docker
-zinit ice as"completion" wait lucid
-zinit snippet OMZP::docker-compose/_docker-compose
-zinit ice as"completion" wait lucid
-zinit snippet OMZP::fd/_fd
-zinit ice as"completion" wait lucid
-zinit snippet OMZP::ripgrep/_ripgrep
-zinit ice atclone'./zplug.zsh' wait lucid
-zinit light g-plane/zsh-yarn-autocompletions
+# add these extra completions to path (nocompletions) instead of to .zinit/completions (dont override existing completions)
+zinit ice lucid nocompile wait'0e' nocompletions
+zinit load MenkeTechnologies/zsh-more-completions
 
 # TODO: missing completions
 # - glow
