@@ -56,6 +56,7 @@ zinit wait lucid for \
   MichaelAquilina/zsh-emojis \
   redxtech/zsh-fzf-utils \
   redxtech/zsh-not-vim \
+  redxtech/zsh-show-path \
   redxtech/zsh-unix-simple \
   Tarrasch/zsh-bd \
   Tarrasch/zsh-colors \
