@@ -8,6 +8,9 @@ alias grep="grep --color"
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
+# fix hors engine
+alias hors="hors -e google"
+
 # redo last command as sudo
 alias shit='sudo $(fc -ln -1)'
 
