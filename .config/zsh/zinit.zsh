@@ -99,6 +99,8 @@ zinit wait lucid from"gh-r" as"program" for \
     ajeetdsouza/zoxide \
   sbin"ctop" mv"ctop* -> ctop" \
     bcicen/ctop \
+  sbin"ripgrep-*/rg" \
+    BurntSushi/ripgrep \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
   sbin"btm" \
@@ -109,7 +111,7 @@ zinit wait lucid from"gh-r" as"program" for \
     @github/hub \
   sbin \
     junegunn/fzf \
-  sbin"bin/dog" \
+  sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
   sbin"spt" \
     Rigellute/spotify-tui \
@@ -133,11 +135,6 @@ zinit as"command" wait lucid for \
 zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
   sbin \
     Xfennec/progress
-
-# completions from github releases
-zinit wait lucid from"gh-r" as"completion" for \
-  ClementTsang/bottom \
-  ogham/dog
 
 # completions from oh-my-zsh
 zinit ice as"completion" wait lucid
