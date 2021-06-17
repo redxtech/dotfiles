@@ -80,22 +80,18 @@ zinit wait lucid for \
 # can't load this one in turbo mode
 zinit light olets/zsh-abbr
 
-# binaries from github repos
-zinit as"command" wait lucid for \
-  sbin"bin/git-fuzzy" \
-    bigH/git-fuzzy \
-  sbin \
-    denilsonsa/prettyping \
-  sbin \
-    pipeseroni/pipes.sh
-
 # fast alias tips
 zinit ice wait lucid from"gh-r" as"program"
 zinit load sei40kr/fast-alias-tips-bin
 zinit ice wait lucid
 zinit load sei40kr/zsh-fast-alias-tips
 
-# binaries from githuub releases
+# install and expose rust via rustup
+zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
+  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
+zinit light zdharma/null
+
+# binaries from github releases
 zinit wait lucid from"gh-r" as"program" for \
   sbin"zoxide-*/zoxide" id-as"zoxide-bin" \
     ajeetdsouza/zoxide \
@@ -122,16 +118,26 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin bpick"*ubuntu*" \
     WindSoilder/hors
 
+# binaries from github repos
+zinit as"command" wait lucid for \
+  sbin"bin/git-fuzzy" \
+    bigH/git-fuzzy \
+  sbin \
+    denilsonsa/prettyping \
+  sbin \
+    pipeseroni/pipes.sh
+
+# programs compiled with make
+zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
+  sbin \
+    Xfennec/progress
+
+# completions from github releases
 zinit wait lucid from"gh-r" as"completion" for \
   ClementTsang/bottom \
   ogham/dog
 
-# install and expose rust via rustup
-zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
-  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zinit light zdharma/null
-
-# completions
+# completions from oh-my-zsh
 zinit ice as"completion" wait lucid
 zinit snippet OMZP::docker/_docker
 zinit ice as"completion" wait lucid
