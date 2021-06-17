@@ -97,10 +97,16 @@ zinit load sei40kr/zsh-fast-alias-tips
 
 # binaries from githuub releases
 zinit wait lucid from"gh-r" as"program" for \
+  sbin"zoxide-*/zoxide" id-as"zoxide-bin" \
+    ajeetdsouza/zoxide \
+  sbin"ctop" mv"ctop* -> ctop" \
+    bcicen/ctop \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
   sbin"btm" \
     ClementTsang/bottom \
+  sbin"tldr" mv"tldr* -> tldr" \
+    dbrgn/tealdeer \
   sbin"hub-linux-*/bin/hub" \
     @github/hub \
   sbin \
@@ -120,12 +126,10 @@ zinit wait lucid from"gh-r" as"completion" for \
   ClementTsang/bottom \
   ogham/dog
 
-# rustup & crates trhat can't be pulled from github-releases
-crates=(cargo-quickinstall tealdeer zoxide)
-zinit ice id-as"crates-bin" rustup cargo"${(j.;.)crates}" as"command" sbin"bin/*" \
+# install and expose rust via rustup
+zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
   atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zinit light zdharma/null
-unset crates
 
 # completions
 zinit ice as"completion" wait lucid
