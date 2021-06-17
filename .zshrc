@@ -43,6 +43,7 @@ zstyle :omz:plugins:keychain identities id_ed25519 # id_github
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 FAST_ALIAS_TIPS_PREFIX="$(tput setaf 4)Alias tip: "
+AUTO_NOTIFY_IGNORE+=(btm conf htop spt yadm)
 
 # load zoxide (zinit wont use it for some reason)
 # (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"

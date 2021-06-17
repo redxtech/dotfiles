@@ -100,13 +100,15 @@ zinit ice wait lucid from"gh-r" as"program"
 zinit load junegunn/fzf
 zinit ice wait lucid from"gh-r" as"program" pick"bin/dog"
 zinit load ogham/dog
+# TODO: transition some crates to binary releases
 
 zinit wait lucid from"gh-r" as"program" bpick"*linux_x86_64.tar.*" for \
   charmbracelet/glow
 
 # pull in some crates
-crates=(bottom hors zoxide)
-zinit ice id-as"crates-bin" rustup cargo"${(j.;.)crates}" as"command" pick"bin/*"
+crates=(bottom hors spotify-tui spotifyd tin-summer zoxide)
+zinit ice id-as"crates-bin" rustup cargo"${(j.;.)crates}" as"command" sbin"bin/*" \
+  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zinit light zdharma/null
 unset crates
 

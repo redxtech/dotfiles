@@ -27,8 +27,7 @@
 - https://github.com/sharkdp/diskus
 - https://github.com/ms-jpq/sad
 - https://github.com/wfxr/forgit
--
- 
+
 ## Programs:
 - https://github.com/TejasQ/add-gitignore
 - https://github.com/httpie/httpie
@@ -37,11 +36,9 @@
 - https://github.com/iCHAIT/moviemon
 - https://github.com/NISH1001/playx
 - https://github.com/SwagLyrics/SwagLyrics-For-Spotify
-- https://github.com/Rigellute/spotify-tui
 - https://lib.rs/crates/coreutils
 - https://github.com/sharkdp/hyperfine
 - https://github.com/pemistahl/grex
-- https://github.com/xxxserxxx/gotop
 - https://gitlab.com/timvisee/ffsend
 - https://lib.rs/crates/pueue
 - https://github.com/willdoescode/nat
@@ -68,14 +65,16 @@
 - https://github.com/asdf-vm/asdf
 - https://github.com/kiurchv/asdf.plugin.zsh
 - https://github.com/jarun/nnn
-- 
 
 ## Play Around With:
 - powerlevel10k
 - zoxide
 - zsh-extract
 - git-fuzzy
-- bottom
+- bottom (btm)
 - hors
 - dog
 - glow
+- tin-summer (sn)
+- spotify-tui (spt) & spotifyd
+
