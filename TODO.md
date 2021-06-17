@@ -1,4 +1,5 @@
 # TODO
+update yup to be better zsh plugin
 
 ## Awesome Lists:
 <!-- - https://github.com/agarrharr/awesome-cli-apps -->
