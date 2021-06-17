@@ -44,6 +44,7 @@ zinit wait lucid for \
   Aloxaf/fzf-tab \
   ajeetdsouza/zoxide \
   axtl/gpg-agent.zsh \
+  hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   MenkeTechnologies/zsh-cargo-completion \
