@@ -146,6 +146,8 @@ zinit as"command" wait lucid for \
   sbin \
     denilsonsa/prettyping \
   sbin \
+    elasticdog/transcrypt \
+  sbin \
     LuRsT/hr \
   sbin \
     pipeseroni/pipes.sh \
