@@ -12,20 +12,6 @@ update yup to be better zsh plugin
 - https://github.com/jondot/awesome-devenv
 - https://github.com/kahun/awesome-sysadmin
 
-## Approved:
-- http://www.figlet.org
-- https://github.com/timvisee/ffsend
-- https://github.com/kefranabg/readme-md-generator
-- https://github.com/sindresorhus/terminal-link-cli
-- https://github.com/icetee/pv
-- https://github.com/tanrax/terminal-AdvancedNewFile
-- https://github.com/LuRsT/hr
-- https://github.com/paulirish/git-open
-- https://github.com/Xfennec/progress
-- https://github.com/sharkdp/diskus
-- https://github.com/ms-jpq/sad
-- https://github.com/wfxr/forgit
-
 ## Programs:
 - https://github.com/TejasQ/add-gitignore
 - https://github.com/httpie/httpie
@@ -37,7 +23,6 @@ update yup to be better zsh plugin
 - https://lib.rs/crates/coreutils
 - https://github.com/sharkdp/hyperfine
 - https://github.com/pemistahl/grex
-- https://gitlab.com/timvisee/ffsend
 - https://lib.rs/crates/pueue
 - https://github.com/willdoescode/nat
 - https://github.com/rabite0/hunter
@@ -80,4 +65,11 @@ update yup to be better zsh plugin
 - tin-summer (sn)
 - spotify-tui (spt) & spotifyd
 - tealdeer (tldr)
+- ffsend
+- diskus
+- sad
+- forgit
+- hr
+- pv
+- figlet
 
