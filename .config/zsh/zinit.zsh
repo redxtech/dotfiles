@@ -118,22 +118,30 @@ zinit wait lucid from"gh-r" as"program" for \
     junegunn/fzf \
   sbin bpick"*linux*zip" \
     ms-jpq/sad \
+    sbin"pueu(e|ed)" bpick"pueue-linux-x86_64" bpick"pueued-linux-x86_64" mv"pueue-* -> pueue" cp"pueued-* -> pueued" \
+    Nukesor/pueue \
   sbin"bin/exa" mv"completions/exa.zsh -> _exa" \
     ogham/exa \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
+  sbin \
+    pemistahl/grex \
   sbin"spt" \
     Rigellute/spotify-tui \
   sbin"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat" \
     @sharkdp/bat \
   sbin"diskus-*/diskus" \
     @sharkdp/diskus \
+  sbin"hyperfine-*/hyperfine" \
+    @sharkdp/hyperfine \
   sbin"fd-*/fd" \
     @sharkdp/fd \
   sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
     Spotifyd/spotifyd \
   sbin mv"ffsend-* -> ffsend" dl"https://raw.githubusercontent.com/timvisee/ffsend/master/contrib/completions/_ffsend" \
     timvisee/ffsend \
+  sbin"coreutils-*/coreutils" \
+    uutils/coreutils \
   sbin"sn" \
     vmchale/tin-summer \
   sbin bpick"*ubuntu*" \
@@ -157,6 +165,8 @@ zinit as"command" wait lucid for \
 
 # binaries from npm
 zinit wait lucid as"program" for \
+  node"!add-gitignore" id-as"add-gitignore-bin" \
+    zdharma/null \
   node"!mklicense" id-as"mklicense-bin" \
     zdharma/null
 
@@ -197,6 +207,7 @@ zinit load MenkeTechnologies/zsh-more-completions
 # - hr
 # - pv
 # - figlet
+# - grex
 
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \

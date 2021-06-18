@@ -13,19 +13,8 @@ update yup to be better zsh plugin
 - https://github.com/kahun/awesome-sysadmin
 
 ## Programs:
-- https://github.com/TejasQ/add-gitignore
 - https://github.com/httpie/httpie
-- https://github.com/captainsafia/legit
 - https://github.com/iCHAIT/moviemon
-- https://github.com/NISH1001/playx
-- https://github.com/SwagLyrics/SwagLyrics-For-Spotify
-- https://lib.rs/crates/coreutils
-- https://github.com/sharkdp/hyperfine
-- https://github.com/pemistahl/grex
-- https://lib.rs/crates/pueue
-- https://github.com/willdoescode/nat
-- https://github.com/rabite0/hunter
-- https://github.com/simeg/eureka
 
 ## Look Into Later:
 - https://github.com/achembarpu/pockyt
@@ -47,6 +36,7 @@ update yup to be better zsh plugin
 - https://github.com/asdf-vm/asdf
 - https://github.com/kiurchv/asdf.plugin.zsh
 - https://github.com/jarun/nnn
+- https://github.com/rabite0/hunter
 
 ## Play Around With:
 - powerlevel10k
@@ -71,5 +61,6 @@ update yup to be better zsh plugin
 - hr
 - pv
 - figlet
-
+- pueue
+- eureka
 
