@@ -156,9 +156,9 @@ zinit as"command" wait lucid for \
     TheLocehiliosan/yadm.git
 
 # binaries from npm
-# zinit wait lucid as"program" for \
-  # node"terminal-link <- !terminal-link-cli" id-as"terminal-link-cli" \
-    # zdharma/null
+zinit wait lucid as"program" for \
+  node"!mklicense" id-as"mklicense-bin" \
+    zdharma/null
 
 # programs compiled with make
 zinit wait lucid as"program" make"PREFIX=$ZPFX" for \

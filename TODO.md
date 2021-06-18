@@ -15,7 +15,6 @@ update yup to be better zsh plugin
 ## Programs:
 - https://github.com/TejasQ/add-gitignore
 - https://github.com/httpie/httpie
-- https://github.com/cezaraugusto/mklicense
 - https://github.com/captainsafia/legit
 - https://github.com/iCHAIT/moviemon
 - https://github.com/NISH1001/playx
@@ -72,4 +71,5 @@ update yup to be better zsh plugin
 - hr
 - pv
 - figlet
+
 
