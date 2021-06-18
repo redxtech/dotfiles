@@ -151,7 +151,7 @@ zinit as"command" wait lucid for \
     LuRsT/hr \
   sbin \
     pipeseroni/pipes.sh \
-  sbin dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/4cebf29c7580e9a5add66c17e34c7a563c342ffd/yadm.patch" \
+  sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/4cebf29c7580e9a5add66c17e34c7a563c342ffd/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
 
