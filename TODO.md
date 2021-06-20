@@ -63,4 +63,8 @@ update yup to be better zsh plugin
 - figlet
 - pueue
 - eureka
+- gtop
+- dust
+- vivid
+- bfs
 

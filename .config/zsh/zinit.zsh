@@ -102,6 +102,8 @@ zinit wait lucid from"gh-r" as"program" for \
     ajeetdsouza/zoxide \
   sbin"ctop" mv"ctop* -> ctop" \
     bcicen/ctop \
+  sbin"dust-*/dust" \
+    bootandy/dust \
   sbin"ripgrep-*/rg" \
     BurntSushi/ripgrep \
   sbin"glow" bpick"*linux_x86_64.tar*" \
@@ -136,6 +138,8 @@ zinit wait lucid from"gh-r" as"program" for \
     @sharkdp/hyperfine \
   sbin"fd-*/fd" \
     @sharkdp/fd \
+  sbin"vivid-*/vivid" \
+    @sharkdp/vivid \
   sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
     Spotifyd/spotifyd \
   sbin mv"ffsend-* -> ffsend" dl"https://raw.githubusercontent.com/timvisee/ffsend/master/contrib/completions/_ffsend" \
@@ -167,6 +171,8 @@ zinit as"command" wait lucid for \
 zinit wait lucid as"program" for \
   node"!add-gitignore" id-as"add-gitignore-bin" \
     zdharma/null \
+  node"!gtop" id-as"gtop-bin" \
+    zdharma/null \
   node"!mklicense" id-as"mklicense-bin" \
     zdharma/null
 
@@ -176,6 +182,8 @@ zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
     cmatsuoka/figlet \
   sbin"pv" atclone"./configure" atpull"%atclone" \
     icetee/pv \
+  sbin make"release" \
+    tavianator/bfs \
   sbin \
     Xfennec/progress
 
@@ -208,6 +216,10 @@ zinit load MenkeTechnologies/zsh-more-completions
 # - pv
 # - figlet
 # - grex
+# - vivid
+# - dust
+# - bfs
+# - tokei
 
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \
