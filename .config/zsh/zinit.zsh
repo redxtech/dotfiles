@@ -188,8 +188,6 @@ zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
     cmatsuoka/figlet \
   sbin"pv" atclone"./configure" atpull"%atclone" \
     icetee/pv \
-  sbin make"release" \
-    tavianator/bfs \
   sbin \
     Xfennec/progress
 
