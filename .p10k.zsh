@@ -32,7 +32,9 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    os_icon                 # os identifier
+    # os_icon               # os identifier
+    leading_icon            # λ
+    context                 # user@hostname
     dir_git_prefix          # {
     dir                     # current directory
     vcs                     # git status
@@ -84,7 +86,7 @@
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
-    context                 # user@hostname
+    # context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
@@ -184,12 +186,8 @@
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=red
-  # Custom icon. (arch linux icon)
-  if test "$(lsb_release -is)" = "Garuda"; then
-    typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B '
-  elif test "$(lsb_release -is)" = "openSUSE"; then
-    typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B '
-  fi
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
@@ -855,9 +853,9 @@
   # Context color when running with privileges.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
   # Context color in SSH without privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=7
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=6
   # Default context color (no privileges, no SSH).
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=7
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=6
 
   # Context format when running with privileges: bold user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
@@ -865,6 +863,10 @@
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n@%m'
   # Default context format (no privileges, no SSH): user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
+
+  # show the context in parenthesis
+  typeset -g POWERLEVEL9K_CONTEXT_PREFIX="("
+  typeset -g POWERLEVEL9K_CONTEXT_SUFFIX=")"
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
@@ -1565,6 +1567,15 @@
     # instant_prompt_example. This will give us the same `example` prompt segment in the instant
     # and regular prompts.
     prompt_example
+  }
+
+  # custom leading icon
+  function prompt_leading_icon() {
+    # p10k segment -e -t "$fg_bold[red]ﬦ"
+    p10k segment -f 1 -t "%Bλ%b"
+  }
+  function instant_prompt_leading_icon() {
+    prompt_leading_icon
   }
 
   # custom prefix & suffix for directory and git status
