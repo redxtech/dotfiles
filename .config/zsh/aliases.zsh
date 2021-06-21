@@ -19,22 +19,26 @@ alias xclip="xclip -selection c"
 
 # vim -> nvim
 if command -v nvim >/dev/null; then
-    alias vim="nvim"
+  alias vvim="$(which vim)"
+  alias vim="nvim"
 fi
 
 # ls -> exa
 if command -v exa >/dev/null; then
-    alias ls="exa --group-directories-first"
+  alias lls="$(which ls)"
+  alias ls="exa --group-directories-first"
 fi
 
 # cat -> bat
 if command -v bat >/dev/null; then
-    alias cat="bat"
+  alias ccat="$(which cat)"
+  alias cat="bat"
 fi
 
 # ping -> prettyping
 if command -v prettyping >/dev/null; then
-    alias ping="prettyping --nolegend"
+  alias pping="$(which ping)"
+  alias ping="prettyping --nolegend"
 fi
 
 # pipes.sh -> pipes
