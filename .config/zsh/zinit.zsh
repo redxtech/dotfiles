@@ -127,6 +127,8 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
   sbin \
+    orf/gping \
+  sbin \
     pemistahl/grex \
   sbin"spt" \
     Rigellute/spotify-tui \
@@ -171,9 +173,13 @@ zinit as"command" wait lucid for \
 zinit wait lucid as"program" for \
   node"!add-gitignore" id-as"add-gitignore-bin" \
     zdharma/null \
+  node"carbon-now <- !carbon-now-cli -> carbon-now" id-as"carbon-now-bin" \
+    zdharma/null \
   node"!gtop" id-as"gtop-bin" \
     zdharma/null \
   node"!mklicense" id-as"mklicense-bin" \
+    zdharma/null \
+  node"!yo" id-as"yeoman-bin" \
     zdharma/null
 
 # programs compiled with make
@@ -220,6 +226,7 @@ zinit load MenkeTechnologies/zsh-more-completions
 # - dust
 # - bfs
 # - tokei
+# - gping
 
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \

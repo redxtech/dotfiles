@@ -18,15 +18,9 @@ update yup to be better zsh plugin
 
 ## Look Into Later:
 - https://github.com/achembarpu/pockyt
-- https://github.com/sgentle/caniuse-cmd
-- https://github.com/sindresorhus/is-up-cli
 - https://github.com/jesseduffield/lazydocker
-- https://github.com/yeoman/yo
-- https://github.com/mixn/carbon-now-cli
 - https://github.com/dylanaraps/pywal
 - https://www.ansible.com
-- https://github.com/deadc0de6/dotdrop
-- https://github.com/orf/gping
 - https://github.com/emre/storm/
 - https://asciinema.org
 - https://github.com/zyedidia/micro
@@ -67,4 +61,7 @@ update yup to be better zsh plugin
 - dust
 - vivid
 - bfs
+- yo
+- carbon-now
+- gping
 
