@@ -40,6 +40,9 @@ main () {
     zinit) # zinit config
       $EDITOR "$HOME/.config/zsh/zinit.zsh"
       ;;
+    p|p10k) # powerlevel10k config
+      $EDITOR "$HOME/.p10k.zsh"
+      ;;
     t|tmux) # tmux
       $EDITOR "$HOME/.tmux.conf"
       ;;

@@ -90,21 +90,16 @@ zinit load sei40kr/fast-alias-tips-bin
 zinit ice wait lucid
 zinit load sei40kr/zsh-fast-alias-tips
 
-# install and expose rust via rustup
-zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
-  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zinit light zdharma/null
-
 # binaries from github releases
 zinit wait lucid from"gh-r" as"program" for \
-  sbin"zoxide-*/zoxide" id-as"zoxide-bin" \
+  sbin"zoxide-*/zoxide" dl"https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/_zoxide" \
   atload"eval \"\$(zoxide init zsh)\"" \
       ajeetdsouza/zoxide \
   sbin"ctop" mv"ctop* -> ctop" \
     bcicen/ctop \
   sbin"dust-*/dust" \
     bootandy/dust \
-  sbin"ripgrep-*/rg" \
+  sbin"ripgrep-*/rg" mv"ripgrep-*/complete/_rg -> _rg" \
     BurntSushi/ripgrep \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
@@ -168,6 +163,11 @@ zinit as"command" wait lucid for \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
+
+# install and expose rust via rustup
+zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
+  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
+zinit light zdharma/null
 
 # binaries from npm
 zinit wait lucid as"program" for \
