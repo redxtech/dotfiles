@@ -43,7 +43,6 @@ unset CURRENT_DISTRO
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
-  ajeetdsouza/zoxide \
   Aloxaf/fzf-tab \
   asdf-vm/asdf \
   axtl/gpg-agent.zsh \
@@ -99,7 +98,8 @@ zinit light zdharma/null
 # binaries from github releases
 zinit wait lucid from"gh-r" as"program" for \
   sbin"zoxide-*/zoxide" id-as"zoxide-bin" \
-    ajeetdsouza/zoxide \
+  atload"eval \"\$(zoxide init zsh)\"" \
+      ajeetdsouza/zoxide \
   sbin"ctop" mv"ctop* -> ctop" \
     bcicen/ctop \
   sbin"dust-*/dust" \
