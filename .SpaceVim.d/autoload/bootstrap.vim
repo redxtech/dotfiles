@@ -9,6 +9,9 @@ function! bootstrap#before() abort
   \ 'coc-json',
   \ 'coc-toml'
   \]
+
+  " set doq path
+  let g:pydocstring_doq_path = "$HOME/.local/bin/doq"
 endfunction
 
 function! bootstrap#after() abort

@@ -105,6 +105,8 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin \
     atload"eval \"\$(mcfly init zsh)\"" \
       cantino/mcfly \
+  sbin \
+    casey/just \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
   sbin mv"sd-* -> sd" \

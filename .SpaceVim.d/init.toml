@@ -148,3 +148,7 @@
   repo = "ap/vim-css-color"
   merged = false
 
+[[custom_plugins]]
+  repo = "NoahTheDuke/vim-just"
+  merged = false
+
