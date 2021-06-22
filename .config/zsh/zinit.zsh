@@ -164,7 +164,9 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin"sn" \
     vmchale/tin-summer \
   sbin bpick"*ubuntu*" \
-    WindSoilder/hors
+    WindSoilder/hors \
+  sbin bpick"*unknown-linux-gnu*" \
+    XAMPPRocky/tokei
 
 # binaries from github repos
 zinit as"command" wait lucid for \

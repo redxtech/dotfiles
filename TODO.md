@@ -77,5 +77,5 @@ make an "environment" repo with a list of shell tools, etc.
 - jq
 - sd
 - curlie
-- 
+- tokei
 
