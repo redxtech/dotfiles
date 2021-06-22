@@ -1,5 +1,10 @@
 # TODO
 update yup to be better zsh plugin
+https://github.com/vagnum08/cpupower-gui
+https://github.com/pop-os/system76-power
+todo.sh
+make an "environment" repo with a list of shell tools, etc.
+(sorta like https://github.com/ibraheemdev/modern-unix)
 
 ## Awesome Lists:
 <!-- - https://github.com/agarrharr/awesome-cli-apps -->
@@ -64,4 +69,13 @@ update yup to be better zsh plugin
 - yo
 - carbon-now
 - gping
+- xh
+- McFly
+- procs
+- duf
+- choose
+- jq
+- sd
+- curlie
+- 
 

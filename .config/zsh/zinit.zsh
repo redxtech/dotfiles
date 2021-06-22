@@ -102,21 +102,32 @@ zinit wait lucid from"gh-r" as"program" for \
     bootandy/dust \
   sbin"ripgrep-*/rg" mv"ripgrep-*/complete/_rg -> _rg" \
     BurntSushi/ripgrep \
+  sbin \
+    atload"eval \"\$(mcfly init zsh)\"" \
+      cantino/mcfly \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
+  sbin mv"sd-* -> sd" \
+    chmln/sd \
   sbin"btm" \
     ClementTsang/bottom \
+  sbin \
+    dalance/procs \
   sbin"delta-*/delta" \
     dandavison/delta \
   sbin"tldr" mv"tldr* -> tldr" dl"https://raw.githubusercontent.com/dbrgn/tealdeer/master/zsh_tealdeer -> _tldr" \
     dbrgn/tealdeer \
+  sbin"xh-*/xh" mv"xh-*/completions/_xh -> _xh" \
+    ducaale/xh \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
   sbin \
     junegunn/fzf \
   sbin bpick"*linux*zip" \
     ms-jpq/sad \
-    sbin"pueu(e|ed)" bpick"pueue-linux-x86_64" bpick"pueued-linux-x86_64" mv"pueue-* -> pueue" cp"pueued-* -> pueued" \
+  sbin bpick"*linux_x86_64*" \
+    muesli/duf \
+  sbin"pueu(e|ed)" bpick"pueue-linux-x86_64" bpick"pueued-linux-x86_64" mv"pueue-* -> pueue" cp"pueued-* -> pueued" \
     Nukesor/pueue \
   sbin"bin/exa" mv"completions/exa.zsh -> _exa" \
     ogham/exa \
@@ -128,6 +139,8 @@ zinit wait lucid from"gh-r" as"program" for \
     pemistahl/grex \
   sbin"spt" \
     Rigellute/spotify-tui \
+  sbin bpick"*linux_amd64.tar*" \
+    rs/curlie \
   sbin"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat" \
     @sharkdp/bat \
   sbin"diskus-*/diskus" \
@@ -140,6 +153,10 @@ zinit wait lucid from"gh-r" as"program" for \
     @sharkdp/vivid \
   sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
     Spotifyd/spotifyd \
+  sbin mv"jq-* -> jq" \
+    stedolan/jq \
+  sbin \
+    theryangeary/choose \
   sbin mv"ffsend-* -> ffsend" dl"https://raw.githubusercontent.com/timvisee/ffsend/master/contrib/completions/_ffsend" \
     timvisee/ffsend \
   sbin"coreutils-*/coreutils" \
