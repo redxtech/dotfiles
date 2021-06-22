@@ -19,7 +19,8 @@ zinit light-mode for \
   zinit-zsh/z-a-rust \
   zinit-zsh/z-a-as-monitor \
   zinit-zsh/z-a-patch-dl \
-  zinit-zsh/z-a-bin-gem-node
+  sileht/z-a-bin-gem-node
+  # zinit-zsh/z-a-bin-gem-node
 
 # zsh prompt
 # zinit load redxtech/zshred
@@ -180,6 +181,10 @@ zinit wait lucid as"program" for \
   node"!mklicense" id-as"mklicense-bin" \
     zdharma/null \
   node"!yo" id-as"yeoman-bin" \
+    zdharma/null
+
+zinit wait lucid as"program" for \
+  pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
 
 # programs compiled with make
