@@ -115,7 +115,7 @@ zinit wait lucid from"gh-r" as"program" for \
     chmln/sd \
   sbin"btm" \
     ClementTsang/bottom \
-  sbin \
+  sbin bpick"*lnx*" \
     dalance/procs \
   sbin"delta-*/delta" \
     dandavison/delta \
