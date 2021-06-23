@@ -54,6 +54,8 @@ zinit wait lucid for \
   atload"AUTO_NOTIFY_IGNORE+=(btm conf hors spotifyd spt yadm)" \
     MichaelAquilina/zsh-auto-notify \
   MichaelAquilina/zsh-emojis \
+  blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
+    redxtech/zsh-asdf-direnv \
   redxtech/zsh-fzf-utils \
   redxtech/zsh-not-vim \
   redxtech/zsh-show-path \
@@ -200,6 +202,8 @@ zinit wait lucid as"program" for \
   node"!gtop" id-as"gtop-bin" \
     zdharma/null \
   node"!mklicense" id-as"mklicense-bin" \
+    zdharma/null \
+  node"!speed-test" id-as"speed-test-bin" \
     zdharma/null \
   node"!yo" id-as"yeoman-bin" \
     zdharma/null

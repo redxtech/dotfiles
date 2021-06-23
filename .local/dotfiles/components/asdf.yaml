@@ -1,0 +1,8 @@
+name: ASDF
+commands:
+  - asdf plugin add python
+  - asdf plugin add direnv
+  - asdf install python latest
+  - asdf install direnv latest
+  - asdf global python latest
+  - asdf global direnv latest

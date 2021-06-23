@@ -190,17 +190,17 @@ def run_commands(name, commands, scripts_path):
     print(f'[{name}] Running commands...')
 
     # turn the commands into lists and put them all in a new lsit
-    command_builder = [ cmd.split() for cmd in commands ]
+    command_list = [ cmd.split() for cmd in commands ]
 
     # run each command
-    for command_list in command_builder:
+    for command_builder in command_list:
         # if the command is a file in the scripts directory, assume it's a script
-        script_file = scripts_path + command_list[0]
+        script_file = scripts_path + command_builder[0]
         if os.path.isfile(script_file):
             # make sure it's executable
             subprocess.run(['chmod', '+x', script_file], check=False)
             # set the command to be the absolute path to the file
-            command_list[0] = script_file
+            command_builder[0] = script_file
 
         with subprocess.Popen(command_builder, stdout=subprocess.PIPE) as command:
             # print each line to stdout as it becomes available
