@@ -51,7 +51,7 @@ zinit wait lucid for \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   MenkeTechnologies/zsh-cargo-completion \
-  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors micro spotifyd spt yadm)" \
+  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors kitty micro spotifyd spt tmux yadm zsh)" \
     MichaelAquilina/zsh-auto-notify \
   MichaelAquilina/zsh-emojis \
   blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
@@ -135,6 +135,8 @@ zinit wait lucid from"gh-r" as"program" for \
     muesli/duf \
   sbin"pueu(e|ed)" bpick"pueue-linux-x86_64" bpick"pueued-linux-x86_64" mv"pueue-* -> pueue" cp"pueued-* -> pueued" \
     Nukesor/pueue \
+  sbin \
+    o2sh/onefetch \
   sbin"bin/exa" mv"completions/exa.zsh -> _exa" \
     ogham/exa \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
