@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-# pull in some dependencies
-# shellcheck source=../utils/testdeps.sh
-. "$HOME/.local/bin/utils/testdeps.sh" || exit 1
-
 # pull in the config
 # shellcheck source=../../dotfiles/config/media-sync.sh
 . "$HOME/.local/dotfiles/config/media-sync.sh" || exit 1
@@ -62,11 +58,6 @@ tmux_attach_session () {
 
 # main function to handle media-sync
 main () {
-    # test to see if all the dependencies are installed
-    if ! testdeps tmux rclone awk grep tail; then
-        exit 1
-    fi
-
     # parse the bandwidth config options
     _MS_BW=""
     if test -n "$_MS_BANDWIDTH_LIMIT"; then
