@@ -46,11 +46,17 @@ main () {
     t|tmux) # tmux
       $EDITOR "$HOME/.tmux.conf"
       ;;
+    k|kitty) # kitty
+      $EDITOR "$HOME/.config/kitty/kitty.conf"
+      ;;
     a|alacritty) # alacritty
       $EDITOR "$HOME/.config/alacritty/alacritty.yml"
       ;;
+    n|fetch|neofetch) # neofetch
+      $EDITOR "$HOME/.config/neofetch/config.conf"
+      ;;
     c|conf) # this file
-      $EDITOR "$HOME/.local/bin/scripts/conf"
+      $EDITOR "$0"
       ;;
     *) # config doesn't exist
       echo "error: that config doesn't exist"
