@@ -51,7 +51,7 @@ zinit wait lucid for \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   MenkeTechnologies/zsh-cargo-completion \
-  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors spotifyd spt yadm)" \
+  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors micro spotifyd spt yadm)" \
     MichaelAquilina/zsh-auto-notify \
   MichaelAquilina/zsh-emojis \
   blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
@@ -126,6 +126,8 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
   sbin \
+    jesseduffield/lazydocker \
+  sbin \
     junegunn/fzf \
   sbin bpick"*linux*zip" \
     ms-jpq/sad \
@@ -170,7 +172,9 @@ zinit wait lucid from"gh-r" as"program" for \
   sbin bpick"*ubuntu*" \
     WindSoilder/hors \
   sbin bpick"*unknown-linux-gnu*" \
-    XAMPPRocky/tokei
+    XAMPPRocky/tokei \
+  sbin"micro-*/micro" \
+    zyedidia/micro
 
 # binaries from github repos
 zinit as"command" wait lucid for \
@@ -209,6 +213,8 @@ zinit wait lucid as"program" for \
     zdharma/null
 
 zinit wait lucid as"program" for \
+  pip"!asciinema" id-as"asciinema-bin" \
+    zdharma/null \
   pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
 

@@ -18,22 +18,14 @@ make an "environment" repo with a list of shell tools, etc.
 - https://github.com/kahun/awesome-sysadmin
 
 ## Programs:
-- https://github.com/httpie/httpie
 - https://github.com/iCHAIT/moviemon
 
 ## Look Into Later:
-- https://github.com/achembarpu/pockyt
-- https://github.com/jesseduffield/lazydocker
 - https://github.com/dylanaraps/pywal
 - https://www.ansible.com
 - https://github.com/emre/storm/
-- https://asciinema.org
-- https://github.com/zyedidia/micro
-- https://github.com/xxh/xxh
 - https://github.com/ko1nksm/getoptions
 - https://github.com/molovo/revolver
-- https://github.com/asdf-vm/asdf
-- https://github.com/kiurchv/asdf.plugin.zsh
 - https://github.com/jarun/nnn
 - https://github.com/rabite0/hunter
 
@@ -78,4 +70,8 @@ make an "environment" repo with a list of shell tools, etc.
 - sd
 - curlie
 - tokei
+- just
+- asciinema
+- lazydocker
+-
 
