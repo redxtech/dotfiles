@@ -186,8 +186,6 @@ zinit as"command" wait lucid for \
     elasticdog/transcrypt \
   sbin \
     LuRsT/hr \
-  sbin \
-    pipeseroni/pipes.sh \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
