@@ -143,6 +143,8 @@ zinit wait lucid from"gh-r" as"program" for \
     orf/gping \
   sbin \
     pemistahl/grex \
+  sbin"rclone-*/rclone" bpick"*amd64.zip*" \
+    rclone/rclone \
   sbin"spt" \
     Rigellute/spotify-tui \
   sbin bpick"*linux_amd64.tar*" \
@@ -182,6 +184,8 @@ zinit as"command" wait lucid for \
     bigH/git-fuzzy \
   sbin \
     denilsonsa/prettyping \
+  sbin \
+    dylanaraps/neofetch \
   sbin \
     elasticdog/transcrypt \
   sbin \
