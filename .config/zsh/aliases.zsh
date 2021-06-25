@@ -17,6 +17,9 @@ alias shit='sudo $(fc -ln -1)'
 # clipboard alias
 alias xclip="xclip -selection c"
 
+# neofetch with image
+alias neofetchk="neofetch --backend kitty --source .config/wall.png"
+
 # vim -> nvim
 if command -v nvim >/dev/null; then
   alias vvim="$(which vim)"
