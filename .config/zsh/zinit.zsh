@@ -50,6 +50,7 @@ zinit wait lucid for \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
+  LucasLarson/gunstage \
   MenkeTechnologies/zsh-cargo-completion \
   atload"AUTO_NOTIFY_IGNORE+=(btm conf hors kitty micro spotifyd spt tmux yadm zsh)" \
     MichaelAquilina/zsh-auto-notify \
