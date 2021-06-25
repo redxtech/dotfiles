@@ -57,6 +57,11 @@ if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
   compinit -C -d "$ZSH_COMPDUMP"
 fi
 
+# load kitty completions if in kitty
+# if test "$TERM" = "xterm-kitty"; then
+  # eval "$(kitty + complete setup zsh)"
+# fi
+
 # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
