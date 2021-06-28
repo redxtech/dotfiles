@@ -152,3 +152,7 @@
   repo = "NoahTheDuke/vim-just"
   merged = false
 
+[[custom_plugins]]
+  repo = "zinit-zsh/zinit-vim-syntax"
+  merged = false
+
