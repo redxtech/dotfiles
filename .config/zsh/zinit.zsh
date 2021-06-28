@@ -49,7 +49,6 @@ zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
   Aloxaf/fzf-tab \
   asdf-vm/asdf \
-  axtl/gpg-agent.zsh \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
@@ -80,8 +79,8 @@ zinit wait lucid for \
   OMZP::docker-compose \
   OMZP::encode64 \
   OMZP::github \
+  OMZP::gpg-agent \
   OMZP::httpie \
-  OMZP::keychain \
   OMZP::man \
   OMZP::pip \
   OMZP::systemd \
