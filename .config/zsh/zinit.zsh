@@ -193,6 +193,8 @@ zinit as"command" wait lucid for \
   sbin \
     elasticdog/transcrypt \
   sbin \
+    funtoo/keychain \
+  sbin \
     LuRsT/hr \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
