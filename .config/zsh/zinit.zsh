@@ -52,7 +52,7 @@ zinit wait lucid for \
   le0me55i/zsh-extract \
   LucasLarson/gunstage \
   MenkeTechnologies/zsh-cargo-completion \
-  atload"AUTO_NOTIFY_IGNORE+=(btm conf hors kitty micro spotifyd spt tmux yadm zsh)" \
+  atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro spotifyd spt tmux yadm zsh)" \
     MichaelAquilina/zsh-auto-notify \
   MichaelAquilina/zsh-emojis \
   blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
