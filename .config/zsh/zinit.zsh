@@ -81,6 +81,7 @@ zinit wait lucid for \
   OMZP::github \
   OMZP::gpg-agent \
   OMZP::httpie \
+  OMZP::keychain \
   OMZP::man \
   OMZP::pip \
   OMZP::systemd \
