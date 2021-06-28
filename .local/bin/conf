@@ -55,6 +55,9 @@ main () {
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
       ;;
+    s|ssh) # ssh
+      $EDITOR "$HOME/.ssh/config"
+      ;;
     c|conf) # this file
       $EDITOR "$0"
       ;;
