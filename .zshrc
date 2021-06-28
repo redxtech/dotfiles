@@ -54,7 +54,7 @@ source "$ZSH_CUSTOM/zinit.zsh"
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
 if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
-  compinit -C -d "$ZSH_COMPDUMP"
+  compinit -d "$ZSH_COMPDUMP"
 fi
 
 # load kitty completions if in kitty

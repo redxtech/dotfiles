@@ -249,25 +249,6 @@ zinit wait lucid for \
   greymd/docker-zsh-completion \
   pkulev/zsh-rustup-completion
 
-# add these extra completions to path (nocompletions) instead of to .zinit/completions (dont override existing completions)
-zinit ice lucid nocompile wait'0e' nocompletions
-zinit load MenkeTechnologies/zsh-more-completions
-
-# TODO: missing completions
-# - glow
-# - tin-summer (sn)
-# - diskus
-# - sad
-# - hr
-# - pv
-# - figlet
-# - grex
-# - vivid
-# - dust
-# - bfs
-# - tokei
-# - gping
-
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
