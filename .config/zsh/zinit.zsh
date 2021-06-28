@@ -23,13 +23,11 @@ zinit light-mode for \
   # zinit-zsh/z-a-bin-gem-node
 
 # zsh prompt
-# zinit load redxtech/zshred
-# zinit load ~/Code/zshred
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 # distro specific plugins
-CURRENT_DISTRO="$(lsb_release -is)"
+local CURRENT_DISTRO="$(lsb_release -is)"
 if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit ice wait lucid
   zinit load redxtech/zsh-aur-install
@@ -81,6 +79,7 @@ zinit wait lucid for \
   OMZP::github \
   OMZP::gpg-agent \
   OMZP::httpie \
+  OMZP::keychain \
   OMZP::man \
   OMZP::pip \
   OMZP::systemd \
@@ -168,7 +167,7 @@ zinit wait lucid from"gh-r" as"program" for \
     Spotifyd/spotifyd \
   sbin mv"jq-* -> jq" \
     stedolan/jq \
-  sbin \
+  sbin bpick"choose" \
     theryangeary/choose \
   sbin"coreutils-*/coreutils" \
     uutils/coreutils \
@@ -182,7 +181,7 @@ zinit wait lucid from"gh-r" as"program" for \
     zyedidia/micro
 
 # binaries from github repos
-zinit as"command" wait lucid for \
+zinit as"program" wait lucid for \
   sbin"bin/git-fuzzy" \
     bigH/git-fuzzy \
   sbin \
@@ -192,13 +191,15 @@ zinit as"command" wait lucid for \
   sbin \
     elasticdog/transcrypt \
   sbin \
+    funtoo/keychain \
+  sbin \
     LuRsT/hr \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
 
 # install and expose rust via rustup
-zinit ice id-as"rustup" rustup as"command" sbin"bin/*" \
+zinit ice id-as"rustup" rustup as"program" sbin"bin/*" \
   atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zinit light zdharma/null
 
