@@ -52,7 +52,7 @@ source "$ZSH_CUSTOM/zinit.zsh"
 
 # autoload & compile the functions if it hasn't been done in the last 24h
 autoload -Uz compinit
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcomp-$HOST"
+ZSH_COMPDUMP="${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
 if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
   compinit -C -d "$ZSH_COMPDUMP"
 fi
