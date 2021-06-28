@@ -38,6 +38,9 @@ if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
 elif test "$CURRENT_DISTRO" = "openSUSE"; then
   zinit ice wait lucid
   zinit snippet OMZP::suse
+elif test "$CURRENT_DISTRO" = "Ubuntu"; then
+  zinit ice wait lucid
+  zint load OMZP::ubuntu
 fi
 unset CURRENT_DISTRO
 
@@ -168,8 +171,6 @@ zinit wait lucid from"gh-r" as"program" for \
     stedolan/jq \
   sbin \
     theryangeary/choose \
-  sbin mv"ffsend-* -> ffsend" dl"https://raw.githubusercontent.com/timvisee/ffsend/master/contrib/completions/_ffsend" \
-    timvisee/ffsend \
   sbin"coreutils-*/coreutils" \
     uutils/coreutils \
   sbin"sn" \
