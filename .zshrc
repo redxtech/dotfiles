@@ -7,7 +7,6 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-
 # custom zsh config location
 ZSH_CUSTOM="$HOME/.config/zsh"
 
@@ -44,18 +43,8 @@ zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 FAST_ALIAS_TIPS_PREFIX="$(tput setaf 4)Alias tip: "
 
-# load zoxide (zinit wont use it for some reason)
-# (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
-
 # all zinit config here
 source "$ZSH_CUSTOM/zinit.zsh" 
-
-# autoload & compile the functions if it hasn't been done in the last 24h
-# autoload -Uz compinit
-# ZSH_COMPDUMP="${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
-# if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
-  # compinit -d "$ZSH_COMPDUMP"
-# fi
 
 # load kitty completions if in kitty
 # if test "$TERM" = "xterm-kitty"; then
