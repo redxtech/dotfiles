@@ -218,10 +218,11 @@ zinit wait lucid as"program" for \
   node"!yo" id-as"yeoman-bin" \
     zdharma/null
 
+# binaries from pip
 zinit wait lucid as"program" for \
-  pip"!asciinema" id-as"asciinema-bin" \
+  pip"!asciinema" id-as"asciinema-bin" nocompletions \
     zdharma/null \
-  pip"wal <- !pywal -> wal" id-as"pywal-bin" \
+  pip"wal <- !pywal -> wal" id-as"pywal-bin" nocompletions \
     zdharma/null
 
 # programs compiled with make
