@@ -14,64 +14,37 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# load a few important annexes, without turbo
-zinit light-mode for \
-  zinit-zsh/z-a-rust \
-  zinit-zsh/z-a-as-monitor \
-  zinit-zsh/z-a-patch-dl \
-  sileht/z-a-bin-gem-node
-  # zinit-zsh/z-a-bin-gem-node
+# load zinit meta plugin
+zinit light redxtech/z-a-meta-plugins
+
+# load the meta plugins
+# TODO: use annexes+con
+zinit skip'cargo-extensions git-open git-recent git-my git-quick-stats git-now git-extras peco skim' for \
+  annexes \
+  console-tools \
+  ext-git \
+  fuzzy \
+  molovo \
+  rust-utils \
+  zsh-users+fast
 
 # zsh prompt
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
-# distro specific plugins
-local CURRENT_DISTRO="$(lsb_release -is)"
-if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
-  zinit ice wait lucid
-  zinit load redxtech/zsh-aur-install
-  zinit ice wait lucid
-  zinit snippet OMZP::archlinux
-elif test "$CURRENT_DISTRO" = "openSUSE"; then
-  zinit ice wait lucid
-  zinit snippet OMZP::suse
-elif test "$CURRENT_DISTRO" = "Ubuntu"; then
-  zinit ice wait lucid
-  zint load OMZP::ubuntu
-fi
-unset CURRENT_DISTRO
-
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
+  atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro spotifyd spt tmux yadm zsh)" \
+    MichaelAquilina/zsh-auto-notify \
   Aloxaf/fzf-tab \
   asdf-vm/asdf \
+  blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
+    redxtech/zsh-asdf-direnv \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   LucasLarson/gunstage \
-  MenkeTechnologies/zsh-cargo-completion \
-  atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro spotifyd spt tmux yadm zsh)" \
-    MichaelAquilina/zsh-auto-notify \
-  MichaelAquilina/zsh-emojis \
-  blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
-    redxtech/zsh-asdf-direnv \
-  redxtech/zsh-fzf-utils \
-  redxtech/zsh-not-vim \
-  redxtech/zsh-show-path \
-  redxtech/zsh-unix-simple \
-  Tarrasch/zsh-bd \
-  Tarrasch/zsh-colors \
-  unixorn/fzf-zsh-plugin \
-  voronkovich/gitignore.plugin.zsh \
-  wfxr/forgit \
-  zdharma/zui \
-  zinit-zsh/zinit-console \
-  zpm-zsh/ssh
-
-# oh-my-zsh plugins (single file plugins only)
-zinit wait lucid for \
   OMZP::command-not-found \
   OMZP::copybuffer \
   OMZP::docker-compose \
@@ -81,22 +54,37 @@ zinit wait lucid for \
   OMZP::httpie \
   OMZP::keychain \
   OMZP::man \
-  OMZP::pip \
   OMZP::systemd \
   OMZP::transfer \
-  OMZP::zsh_reload
+  OMZP::zsh_reload \
+  redxtech/zsh-fzf-utils \
+  redxtech/zsh-not-vim \
+  redxtech/zsh-show-path \
+  redxtech/zsh-unix-simple \
+  unixorn/fzf-zsh-plugin \
+  voronkovich/gitignore.plugin.zsh \
+  zpm-zsh/ssh
 
 # can't load this one in turbo mode
 zinit light olets/zsh-abbr
 
-# fast alias tips
-zinit ice wait lucid from"gh-r" as"program"
-zinit load sei40kr/fast-alias-tips-bin
-zinit ice wait lucid
-zinit load sei40kr/zsh-fast-alias-tips
+# distro specific plugins
+local CURRENT_DISTRO="$(lsb_release -is)"
+if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
+  zinit wait lucid for \
+    redxtech/zsh-aur-install \
+    OMZP::archlinux
+elif test "$CURRENT_DISTRO" = "openSUSE"; then
+  zinit wait lucid for \
+    OMZP::suse
+elif test "$CURRENT_DISTRO" = "Ubuntu"; then
+  zinit wait lucid for \
+    OMZP::ubuntu
+fi
+unset CURRENT_DISTRO
 
 # binaries from github releases
-zinit wait lucid from"gh-r" as"program" for \
+zinit wait lucid from"gh-r" as"command" for \
   sbin"zoxide-*/zoxide" dl"https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/_zoxide" \
   atload"eval \"\$(zoxide init zsh)\"" \
       ajeetdsouza/zoxide \
@@ -104,8 +92,6 @@ zinit wait lucid from"gh-r" as"program" for \
     bcicen/ctop \
   sbin"dust-*/dust" \
     bootandy/dust \
-  sbin"ripgrep-*/rg" mv"ripgrep-*/complete/_rg -> _rg" \
-    BurntSushi/ripgrep \
   sbin \
     atload"eval \"\$(mcfly init zsh)\"" \
       cantino/mcfly \
@@ -127,20 +113,12 @@ zinit wait lucid from"gh-r" as"program" for \
     ducaale/xh \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
-  sbin \
-    jesseduffield/lazydocker \
-  sbin \
-    junegunn/fzf \
   sbin bpick"*linux*zip" \
     ms-jpq/sad \
   sbin bpick"*linux_x86_64*" \
     muesli/duf \
-  sbin"pueu(e|ed)" bpick"pueue-linux-x86_64" bpick"pueued-linux-x86_64" mv"pueue-* -> pueue" cp"pueued-* -> pueued" \
-    Nukesor/pueue \
   sbin \
     o2sh/onefetch \
-  sbin"bin/exa" mv"completions/exa.zsh -> _exa" \
-    ogham/exa \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
   sbin \
@@ -151,26 +129,12 @@ zinit wait lucid from"gh-r" as"program" for \
     rclone/rclone \
   sbin"spt" \
     Rigellute/spotify-tui \
-  sbin bpick"*linux_amd64.tar*" \
-    rs/curlie \
-  sbin"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat" \
-    @sharkdp/bat \
-  sbin"diskus-*/diskus" \
-    @sharkdp/diskus \
-  sbin"hyperfine-*/hyperfine" \
-    @sharkdp/hyperfine \
-  sbin"fd-*/fd" \
-    @sharkdp/fd \
-  sbin"vivid-*/vivid" \
-    @sharkdp/vivid \
   sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
     Spotifyd/spotifyd \
   sbin mv"jq-* -> jq" \
     stedolan/jq \
   sbin bpick"choose" \
     theryangeary/choose \
-  sbin"coreutils-*/coreutils" \
-    uutils/coreutils \
   sbin"sn" \
     vmchale/tin-summer \
   sbin bpick"*ubuntu*" \
@@ -181,7 +145,7 @@ zinit wait lucid from"gh-r" as"program" for \
     zyedidia/micro
 
 # binaries from github repos
-zinit as"program" wait lucid for \
+zinit as"command" wait lucid for \
   sbin"bin/git-fuzzy" \
     bigH/git-fuzzy \
   sbin \
@@ -198,16 +162,9 @@ zinit as"program" wait lucid for \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
 
-# install and expose rust via rustup
-zinit ice id-as"rustup" rustup as"program" sbin"bin/*" \
-  atload"export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zinit light zdharma/null
-
 # binaries from npm
-zinit wait lucid as"program" for \
+zinit wait lucid as"command" nocompletions for \
   node"!add-gitignore" id-as"add-gitignore-bin" \
-    zdharma/null \
-  node"carbon-now <- !carbon-now-cli -> carbon-now" id-as"carbon-now-bin" \
     zdharma/null \
   node"!gtop" id-as"gtop-bin" \
     zdharma/null \
@@ -219,14 +176,14 @@ zinit wait lucid as"program" for \
     zdharma/null
 
 # binaries from pip
-zinit wait lucid as"program" for \
-  pip"!asciinema" id-as"asciinema-bin" nocompletions \
+zinit wait lucid as"command" nocompletions for \
+  pip"!asciinema" id-as"asciinema-bin" \
     zdharma/null \
-  pip"wal <- !pywal -> wal" id-as"pywal-bin" nocompletions \
+  pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
 
 # programs compiled with make
-zinit wait lucid as"program" make"PREFIX=$ZPFX" for \
+zinit wait lucid as"command" make"PREFIX=$ZPFX" for \
   sbin"figlet" mv"fonts -> $HOME/.local/share/figletfonts" make"DEFAULTFONTDIR=$HOME/.local/share/figletfonts" \
     cmatsuoka/figlet \
   sbin"pv" atclone"./configure" atpull"%atclone" \
@@ -248,17 +205,5 @@ zinit wait lucid for \
   atclone"./zplug.zsh" \
     g-plane/zsh-yarn-autocompletions \
   greymd/docker-zsh-completion \
-  pkulev/zsh-rustup-completion
-
-# autocompletion, syntax highlighting, and autosuggestions
-zinit wait lucid for \
-  zdharma/fast-syntax-highlighting \
-  blockf atinit"zicompinit; zicdreplay" \
-    zsh-users/zsh-completions \
-  atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-
-# history substring search
-zinit ice wait lucid atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[[B' history-substring-search-down"
-zinit load zsh-users/zsh-history-substring-search
+  ryutok/rust-zsh-completions
 
