@@ -51,11 +51,11 @@ FAST_ALIAS_TIPS_PREFIX="$(tput setaf 4)Alias tip: "
 source "$ZSH_CUSTOM/zinit.zsh" 
 
 # autoload & compile the functions if it hasn't been done in the last 24h
-autoload -Uz compinit
-ZSH_COMPDUMP="${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
-if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
-  compinit -d "$ZSH_COMPDUMP"
-fi
+# autoload -Uz compinit
+# ZSH_COMPDUMP="${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
+# if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]]; then
+  # compinit -d "$ZSH_COMPDUMP"
+# fi
 
 # load kitty completions if in kitty
 # if test "$TERM" = "xterm-kitty"; then

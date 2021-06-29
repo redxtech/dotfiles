@@ -252,9 +252,8 @@ zinit wait lucid for \
 
 # autocompletion, syntax highlighting, and autosuggestions
 zinit wait lucid for \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma/fast-syntax-highlighting \
-  blockf \
+  zdharma/fast-syntax-highlighting \
+  blockf atinit"zicompinit; zicdreplay" \
     zsh-users/zsh-completions \
   atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
