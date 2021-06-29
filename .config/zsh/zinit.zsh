@@ -117,6 +117,8 @@ zinit wait lucid from"gh-r" as"command" for \
     ms-jpq/sad \
   sbin bpick"*linux_x86_64*" \
     muesli/duf \
+  sbin"**/bin/nvim" mv"nvim* -> nvim" nocompletions \
+    neovim/neovim \
   sbin \
     o2sh/onefetch \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
