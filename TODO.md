@@ -1,10 +1,10 @@
 # TODO
-update yup to be better zsh plugin
-https://github.com/vagnum08/cpupower-gui
-https://github.com/pop-os/system76-power
-todo.sh
-make an "environment" repo with a list of shell tools, etc.
-(sorta like https://github.com/ibraheemdev/modern-unix)
+- update yup to be better zsh plugin
+- https://github.com/vagnum08/cpupower-gui
+- https://github.com/pop-os/system76-power
+- todo.sh
+- make an "environment" repo with a list of shell tools, etc. (sorta like https://github.com/ibraheemdev/modern-unix)
+- add option for `x-say` tool for `zsh-not-vim`, (cowsay, yosay, etc.)
 
 ## Awesome Lists:
 <!-- - https://github.com/agarrharr/awesome-cli-apps -->
