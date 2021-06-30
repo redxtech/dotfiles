@@ -48,7 +48,9 @@ source "$ZSH_CUSTOM/zinit.zsh"
 
 # load kitty completions if in kitty
 if test "$TERM" = "xterm-kitty"; then
-  eval "$(kitty + complete setup zsh)"
+  if (( $+commands[kitty] )); then
+    eval "$(kitty + complete setup zsh)"
+  fi
 fi
 
 # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
