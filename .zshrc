@@ -41,7 +41,7 @@ zstyle :omz:plugins:keychain agents gpg,ssh
 zstyle :omz:plugins:keychain identities id_ed25519 # id_github
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-FAST_ALIAS_TIPS_PREFIX="$(tput setaf 4)Alias tip: "
+zstyle :plugins:not-vim say yosay
 
 # all zinit config here
 source "$ZSH_CUSTOM/zinit.zsh" 
