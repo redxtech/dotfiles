@@ -1,14 +1,22 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 main () {
-    for SERVICE in airsonic jackett lidarr ombi plex radarr sonarr; do
-        echo "Upgrading $SERVICE..."
-        "/usr/bin/app-$SERVICE" upgrade
-        echo "Restarting $SERVICE..."
-        "/usr/bin/app-$SERVICE" restart
-    done
+  local services=(
+    plex
+    rtorrent
+    jackett
+    sonarr
+    radarr
+  )
 
-    echo "Upgrades complete!"
+  for service in $services; do
+    echo "Upgrading $service..."
+    "/usr/bin/app-$service" upgrade
+    echo "Restarting $service..."
+    "/usr/bin/app-$service" restart
+  done
+
+  echo "Finished upgrades!"
 }
 
 main
