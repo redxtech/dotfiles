@@ -86,8 +86,11 @@ unset CURRENT_DISTRO
 # binaries from github releases
 zinit wait lucid from"gh-r" as"command" for \
   sbin"zoxide-*/zoxide" dl"https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/_zoxide" \
-  atload"eval \"\$(zoxide init zsh)\"" \
+    atload"eval \"\$(zoxide init zsh)\"" \
       ajeetdsouza/zoxide \
+  sbin"deploy/rainbow" \
+    atload"alias lolcat=\"rainbow\"" \
+      arsham/rainbow \
   sbin"ctop" mv"ctop* -> ctop" \
     bcicen/ctop \
   sbin"dust-*/dust" \
