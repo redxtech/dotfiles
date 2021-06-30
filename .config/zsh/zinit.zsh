@@ -186,8 +186,6 @@ zinit wait lucid as"command" nocompletions for \
 
 # programs compiled with make
 zinit wait lucid as"command" make"PREFIX=$ZPFX" for \
-  sbin"figlet" mv"fonts -> $HOME/.local/share/figletfonts" make"DEFAULTFONTDIR=$HOME/.local/share/figletfonts" \
-    cmatsuoka/figlet \
   sbin"pv" atclone"./configure" atpull"%atclone" \
     icetee/pv \
   sbin \
