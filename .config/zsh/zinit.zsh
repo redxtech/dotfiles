@@ -60,6 +60,7 @@ zinit wait lucid for \
   redxtech/zsh-fzf-utils \
   redxtech/zsh-not-vim \
   redxtech/zsh-show-path \
+  redxtech/zsh-tre \
   redxtech/zsh-unix-simple \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
@@ -114,6 +115,8 @@ zinit wait lucid from"gh-r" as"command" for \
     dandavison/delta \
   sbin"tldr" mv"tldr* -> tldr" dl"https://raw.githubusercontent.com/dbrgn/tealdeer/master/zsh_tealdeer -> _tldr" \
     dbrgn/tealdeer \
+  sbin \
+    dduan/tre \
   sbin"xh-*/xh" mv"xh-*/completions/_xh -> _xh" \
     ducaale/xh \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
