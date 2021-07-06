@@ -58,6 +58,8 @@ zinit wait lucid for \
   OMZP::transfer \
   OMZP::zsh_reload \
   redxtech/zsh-fzf-utils \
+  wait"2" atload="__kitty_complete" \
+    redxtech/zsh-kitty \
   redxtech/zsh-not-vim \
   redxtech/zsh-show-path \
   redxtech/zsh-tre \
