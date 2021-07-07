@@ -1,49 +1,51 @@
 [include]
-	path = ~/.config/git/gitconfig.local
+  path = ~/.config/git/gitconfig.local
 [push]
-	default = matching
+  default = matching
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [gpg]
-	program = /usr/bin/gpg
+  program = /usr/bin/gpg
 [core]
-	autocrlf = input
-	trustctime = false
-	editor = vim
-	filemode = false
+  autocrlf = input
+  trustctime = false
+  editor = vim
+  filemode = false
 [color]
-	ui = true
+  ui = true
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [mergetool]
-	keeptemporaries = false
-	keepbackups = false
-	prompt = false
-	trustexitcode = false
-	path = nvim
+  keeptemporaries = false
+  keepbackups = false
+  prompt = false
+  trustexitcode = false
+  path = nvim
 [alias]
-	last = log -1 --stat
-	cp = cherry-pick
-	co = checkout
-	cl = clone
-	ci = commit
-	st = status -sb
-	br = branch
-	unstage = reset HEAD --
-	dc = diff --cached
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-	pop = stash pop
-	s = status
-	d = diff
+  last = log -1 --stat
+  cp = cherry-pick
+  co = checkout
+  cl = clone
+  ci = commit
+  st = status -sb
+  br = branch
+  unstage = reset HEAD --
+  dc = diff --cached
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+  pop = stash pop
+  s = status
+  d = diff
+  c = commit
+  p = push
 [pull]
-	rebase = false
+  rebase = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [pager]
   diff = delta
   log = delta
@@ -67,4 +69,4 @@
   line-numbers-minus-style = 124
   line-numbers-plus-style = 28
 [hub]
-	protocol = ssh
+  protocol = ssh
