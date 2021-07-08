@@ -84,6 +84,10 @@ elif test "$CURRENT_DISTRO" = "openSUSE"; then
 elif test "$CURRENT_DISTRO" = "Ubuntu"; then
   zinit wait lucid for \
     OMZP::ubuntu
+elif test "$CURRENT_DISTRO" = "Debian"; then
+  zinit wait lucid for \
+    OMZP::debian \
+    redxtech/zsh-sb-upgrade
 fi
 unset CURRENT_DISTRO
 
