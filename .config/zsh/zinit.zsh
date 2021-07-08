@@ -64,6 +64,7 @@ zinit wait lucid for \
   redxtech/zsh-show-path \
   redxtech/zsh-tre \
   redxtech/zsh-unix-simple \
+  redxtech/zsh-yup \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
   zpm-zsh/ssh
