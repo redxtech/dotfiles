@@ -1,0 +1,6 @@
+name: Desktop
+packages:
+  - discord
+  - vivaldi
+  - plex-media-player
+
