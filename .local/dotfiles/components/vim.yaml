@@ -19,3 +19,4 @@ commands:
   - pip3 install isort
   - pip3 install coverage
   - pip3 install doq
+  - install-spacevim.sh
