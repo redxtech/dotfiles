@@ -199,11 +199,6 @@ zinit wait lucid as"command" nocompletions for \
   pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
 
-# binaries from cargo
-zinit wait lucid as"command" for \
-  sbin"bin/eureka" cargo"eureka" id-as"cargo-binaries" \
-    zdharma/null
-
 # programs compiled with make
 zinit wait lucid as"command" make"PREFIX=$ZPFX" for \
   sbin"pv" atclone"./configure" atpull"%atclone" \
