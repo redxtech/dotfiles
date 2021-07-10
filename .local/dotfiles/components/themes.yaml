@@ -1,6 +1,6 @@
 name: Themes
 packages:
   - tela-icon-theme
-  - vimix-kde-theme
+  - vimix-theme-kde-git
   - vimix-cursors
   - vimix-gtk-themes
