@@ -35,8 +35,6 @@ zinit light romkatv/powerlevel10k
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
-  atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro spotifyd spt tmux yadm zsh)" \
-    MichaelAquilina/zsh-auto-notify \
   Aloxaf/fzf-tab \
   asdf-vm/asdf \
   blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
@@ -92,6 +90,13 @@ elif test "$CURRENT_DISTRO" = "Debian"; then
     redxtech/zsh-sb-upgrade
 fi
 unset CURRENT_DISTRO
+
+# only if notify-send
+if (( $+commands[notify-send] )); then
+  zinit wait lucid for \
+    atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro spotifyd spt tmux yadm zsh)" \
+      MichaelAquilina/zsh-auto-notify
+fi
 
 # binaries from github releases
 zinit wait lucid from"gh-r" as"command" for \
