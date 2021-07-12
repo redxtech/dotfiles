@@ -1,5 +1,5 @@
 name: Base Setup
-package:
+packages:
   - alacritty
   - appimage-manager
   - appimagelauncher
