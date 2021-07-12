@@ -42,7 +42,8 @@ zinit wait lucid for \
   blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
     redxtech/zsh-asdf-direnv \
   hlissner/zsh-autopair \
-  laggardkernel/zsh-thefuck \
+  wait"1" \
+    laggardkernel/zsh-thefuck \
   le0me55i/zsh-extract \
   LucasLarson/gunstage \
   OMZP::command-not-found \
@@ -195,6 +196,8 @@ zinit wait lucid as"command" nocompletions for \
 # binaries from pip
 zinit wait lucid as"command" nocompletions for \
   pip"!asciinema" id-as"asciinema-bin" \
+    zdharma/null \
+  pip"!thefuck" id-as"thefuck-bin" \
     zdharma/null \
   pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
