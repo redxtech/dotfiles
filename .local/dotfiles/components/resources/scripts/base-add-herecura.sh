@@ -4,7 +4,7 @@
 main () {
     
     # check that the repo isn't already installed
-    if grep herecura /etc/pacman.conf; then
+    if grep -q herecura /etc/pacman.conf; then
         echo "Herecura already added!"
     else
         # shellcheck disable=SC2024
