@@ -7,16 +7,19 @@ packages:
   - python-pip
   - xclip
   - yarn
+npm:
+  - neovim
+  - bash-language-server
+pip:
+  - pynvim
+  - msgpack
+  - python-language-server
+  - pylint
+  - yapf
+  - autoflake
+  - isort
+  - coverage
+  - doq
 commands:
-  - yarn global add neovim
-  - yarn global add bash-language-server
-  - pip3 install pynvim
-  - pip3 install msgpack
-  - pip3 install python-language-server
-  - pip3 install pylint
-  - pip3 install yapf
-  - pip3 install autoflake
-  - pip3 install isort
-  - pip3 install coverage
-  - pip3 install doq
   - install-spacevim.sh
+
