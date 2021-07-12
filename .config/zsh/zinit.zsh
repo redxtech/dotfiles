@@ -61,6 +61,7 @@ zinit wait lucid for \
   redxtech/zsh-fzf-utils \
   wait"2" atload="__kitty_complete" \
     redxtech/zsh-kitty \
+  redxtech/zsh-load-module \
   redxtech/zsh-not-vim \
   redxtech/zsh-show-path \
   redxtech/zsh-tre \
@@ -129,6 +130,8 @@ zinit wait lucid from"gh-r" as"command" for \
     ducaale/xh \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
+  sbin mv"**/yq* -> yq" \
+    mikefarah/yq \
   sbin bpick"*linux*zip" \
     ms-jpq/sad \
   sbin bpick"*linux_x86_64*" \
