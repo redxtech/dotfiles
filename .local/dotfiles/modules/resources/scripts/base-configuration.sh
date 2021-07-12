@@ -58,6 +58,8 @@ main () {
       -e 's/^#Port.*/Port 22/' \
       /etc/ssh/sshd_config
 
+    sudo systemctl enable --now sshd.service
+
 }
 
 main
