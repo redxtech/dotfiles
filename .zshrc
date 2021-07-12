@@ -42,6 +42,7 @@ zstyle :omz:plugins:keychain identities id_ed25519 # id_github
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :plugins:not-vim say yosay
+export AUTO_NOTIFY_EXPIRE_TIME=10000
 
 # all zinit config here
 source "$ZSH_CUSTOM/zinit.zsh" 
