@@ -51,6 +51,13 @@ main () {
         -e 's/^Server = https:\/\/random/# Server = https:\/\/random/' \
         -e 's/^Server = https:\/\/br-sp/# Server = https:\/\/br-sp/' \
         /etc/pacman.d/chaotic-mirrorlist
+
+    # enable ssh
+    echo "Configuring & enabling sshd"
+    sudo sed -i \
+      -e 's/^#Port.*/Port 22/' \
+      /etc/ssh/sshd_config
+
 }
 
 main
