@@ -2,6 +2,8 @@
 - https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 - https://github.com/bilelmoussaoui/Hardcode-Tray
 
+- Add paths on sonarr & radarr that will auto download to desktop
+
 - Pling store
 - Script installs from pling store (add module for this)
 
