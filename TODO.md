@@ -1,10 +1,14 @@
 # TODO
+- https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+- https://github.com/bilelmoussaoui/Hardcode-Tray
+
+- Pling store
+- Script installs from pling store (add module for this)
+
+- Extensions: manual install: GSCOnnect, CPU Power Manager (laptop)
+- make media-sync plugin
 - update yup to be better zsh plugin
-- https://github.com/vagnum08/cpupower-gui
-- https://github.com/pop-os/system76-power
-- todo.sh
 - make an "environment" repo with a list of shell tools, etc. (sorta like https://github.com/ibraheemdev/modern-unix)
-- add option for `x-say` tool for `zsh-not-vim`, (cowsay, yosay, etc.)
 
 ## Awesome Lists:
 <!-- - https://github.com/agarrharr/awesome-cli-apps -->
@@ -17,10 +21,8 @@
 - https://github.com/jondot/awesome-devenv
 - https://github.com/kahun/awesome-sysadmin
 
-## Programs:
-- https://github.com/iCHAIT/moviemon
-
 ## Look Into Later:
+- https://wiki.archlinux.org/title/Rofi
 - https://github.com/dylanaraps/pywal
 - https://www.ansible.com
 - https://github.com/emre/storm/
@@ -30,10 +32,8 @@
 - https://github.com/rabite0/hunter
 
 ## Play Around With:
-- powerlevel10k
 - zoxide
 - asdf
-- unixorn/fzf
 - zsh-extract
 - httpie
 - transfer
@@ -41,19 +41,13 @@
 - bottom (btm)
 - hub
 - hors
-- dog
 - tin-summer (sn)
 - spotify-tui (spt) & spotifyd
-- tealdeer (tldr)
-- ffsend
 - diskus
 - sad
 - forgit
 - hr
 - pv
-- figlet
-- pueue
-- eureka
 - gtop
 - dust
 - vivid
@@ -73,5 +67,4 @@
 - just
 - asciinema
 - lazydocker
--
 
