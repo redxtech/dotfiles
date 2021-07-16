@@ -56,12 +56,6 @@
     "gnome-shell-duckduckgo-search-provider@keithcirkel.co.uk": {},
     "gTile@vibou": {
       "/org/gnome/shell/extensions/gtile/": "[/]\nshow-icon=true\nwindow-margin=25\nwindow-margin-fullscreen-enabled=true"
-    },
-    "material-shell@papyelgringo": {
-      "/org/gnome/shell/extensions/materialshell/theme/": "",
-      "/org/gnome/shell/extensions/materialshell/tweaks/": "",
-      "/org/gnome/shell/extensions/materialshell/layouts/": "",
-      "/org/gnome/shell/extensions/materialshell/bindings/": ""
     }
   },
   "keybindings": {
