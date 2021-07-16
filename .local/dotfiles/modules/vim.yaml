@@ -1,4 +1,6 @@
 name: vim
+depends:
+  - shell
 packages:
   - neovim
   - nodejs
