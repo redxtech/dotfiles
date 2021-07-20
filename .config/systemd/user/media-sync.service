@@ -6,8 +6,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 Environment="_MS_CRON=true"
-ExecStart=/home/gabe/.local/bin/media/media-sync
-# ExecStop=tmux kill-session -t media-sync # for some reason it terminates immediately if this is left uncommented
+ExecStart=/home/gabe/.local/bin/media-sync-cron
 
 [Install]
 WantedBy=multi-user.target
