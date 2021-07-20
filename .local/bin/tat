@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# if tmux session exists connect to it, otherwise start a new one
+
+# if specified, run with exec
+if test "$1" = "exec"; then
+  exec tmux new -A -s "$USER"
+else
+  tmux new -A -s "$USER"
+fi
+
