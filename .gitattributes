@@ -1,10 +1,5 @@
 #pattern  filter=crypt diff=crypt merge=crypt
-"Dank Mono Bold Nerd Font Complete Mono.otf"    filter=crypt    diff=crypt  merge=crypt
-"Dank Mono Bold Nerd Font Complete.otf"         filter=crypt    diff=crypt  merge=crypt
-"Dank Mono Italic Nerd Font Complete Mono.otf"  filter=crypt    diff=crypt  merge=crypt
-"Dank Mono Italic Nerd Font Complete.otf"       filter=crypt    diff=crypt  merge=crypt
-"Dank Mono Regular Nerd Font Complete Mono.otf" filter=crypt    diff=crypt  merge=crypt
-"Dank Mono Regular Nerd Font Complete.otf"      filter=crypt    diff=crypt  merge=crypt
-"eternity_4k.png"                               filter=crypt    diff=crypt  merge=crypt
-"rclone.conf"                                   filter=crypt    diff=crypt  merge=crypt
+"Dank*Mono*.otf"    filter=crypt    diff=crypt  merge=crypt
+"eternity_4k.png"   filter=crypt    diff=crypt  merge=crypt
+"rclone.conf"       filter=crypt    diff=crypt  merge=crypt
 
