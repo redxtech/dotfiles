@@ -60,6 +60,7 @@ zinit wait lucid for \
   wait"2" atload="__kitty_complete" \
     redxtech/zsh-kitty \
   redxtech/zsh-load-module \
+  redxtech/zsh-media-sync \
   redxtech/zsh-not-vim \
   redxtech/zsh-show-path \
   redxtech/zsh-tre \

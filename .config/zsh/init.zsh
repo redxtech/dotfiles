@@ -17,3 +17,7 @@ if test -e "$HOME/.config/zsh/aliases.zsh"; then
   . "$HOME/.config/zsh/aliases.zsh"
 fi
 
+if test -e "$HOME/.config/zsh/media-sync.zsh"; then
+  . "$HOME/.config/zsh/media-sync.zsh"
+fi
+
