@@ -1,0 +1,23 @@
+[Unit]
+Description=Mount TV Archive
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+KillMode=none
+Environment=GOMAXPROCS=2
+ExecStart=/usr/bin/rclone mount tv-archive:/ "%h/Drives/TV Archive" \
+  --config %h/.config/rclone/rclone.conf \
+  --use-mmap \
+  --dir-cache-time 1000h \
+  --poll-interval=15s \
+  --vfs-cache-mode writes \
+  --tpslimit 10
+
+ExecStop=/bin/fusermount -uz "%h/Drives/TV Archive/"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+

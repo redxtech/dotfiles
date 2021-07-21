@@ -1,0 +1,23 @@
+[Unit]
+Description=Mount Movie Archive
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+KillMode=none
+Environment=GOMAXPROCS=2
+ExecStart=/usr/bin/rclone mount movie-archive:/ "%h/Drives/Movie Archive" \
+  --config %h/.config/rclone/rclone.conf \
+  --use-mmap \
+  --dir-cache-time 1000h \
+  --poll-interval=15s \
+  --vfs-cache-mode writes \
+  --tpslimit 10
+
+ExecStop=/bin/fusermount -uz "%h/Drives/Movie Archive/"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
