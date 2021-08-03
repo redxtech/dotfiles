@@ -1,5 +1,6 @@
 name: Themes
 packages:
+  - papirus-icon-theme
   - tela-icon-theme
   - vimix-theme-kde-git
   - vimix-cursors
