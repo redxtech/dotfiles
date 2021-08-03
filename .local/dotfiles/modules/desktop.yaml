@@ -1,6 +1,9 @@
 name: Desktop
-packages:
+depends:
   - discord
-  - vivaldi
+packages:
+  - headset-charge-indicator
   - plex-media-player
+  - vivaldi
+  - vivaldi-ffmpeg-codecs
 
