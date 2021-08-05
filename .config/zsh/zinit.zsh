@@ -51,8 +51,8 @@ zinit wait lucid for \
   OMZP::github \
   OMZP::gpg-agent \
   OMZP::httpie \
-  OMZP::keychain \
   OMZP::man \
+  OMZP::ssh-agent \
   OMZP::systemd \
   OMZP::transfer \
   OMZP::zsh_reload \
