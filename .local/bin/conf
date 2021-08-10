@@ -49,8 +49,11 @@ main () {
     k|kitty) # kitty
       $EDITOR "$HOME/.config/kitty/kitty.conf"
       ;;
-    a|alacritty) # alacritty
+    alacritty) # alacritty
       $EDITOR "$HOME/.config/alacritty/alacritty.yml"
+      ;;
+    a|awesome|wm) # awesome
+      $EDITOR "$HOME/.config/awesome/rc.lua"
       ;;
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
