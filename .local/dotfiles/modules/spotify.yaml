@@ -3,5 +3,24 @@ packages:
   - spotify
   - kdocker
   - playerctl
+  - spicetify-cli
+  - spicetify-themes-git
   - tela-icon-theme
+commands:
+  - sudo chmod a+wr /usr/share/spotify
+  - sudo chmod a+wr /usr/share/spotify/Apps -R
+  - cp -r /usr/share/spicetify-cli/Themes/Sleek ~/.config/spicetify/Themes
+  - spicetify
+  - spicetify backup apply enable-devtool
+  - spicetify update
+  - spicetify config custom_apps new-releases
+  - spicetify config custom_apps lyrics-plus
+  - spicetify config extensions bookmark.js
+  - spicetify config extensions fullAppDisplay.js
+  - spicetify config extensions loopyLoop.js
+  - spicetify config extensions popupLyrics.js
+  - spicetify config extensions shuffle+.js
+  - spicetify config current_theme Sleek
+  - spicetify config color_scheme Deeper
+  - spicetify apply
 
