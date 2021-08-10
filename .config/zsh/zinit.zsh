@@ -36,9 +36,6 @@ zinit light romkatv/powerlevel10k
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
   Aloxaf/fzf-tab \
-  asdf-vm/asdf \
-  blockf dl"https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf" \
-    redxtech/zsh-asdf-direnv \
   hlissner/zsh-autopair \
   wait"1" \
     laggardkernel/zsh-thefuck \
@@ -198,6 +195,8 @@ zinit wait lucid as"command" nocompletions for \
   node"!mklicense" id-as"mklicense-bin" \
     zdharma/null \
   node"!speed-test" id-as"speed-test-bin" \
+    zdharma/null \
+  node"!vtop" id-as"vtop-npm" \
     zdharma/null \
   node"!yo" id-as"yeoman-bin" \
     zdharma/null
