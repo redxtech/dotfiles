@@ -13,8 +13,11 @@ main () {
     backend="$1"
   fi
 
+  # find absolute path to wallpaper
+  local wallpaper_abs="$(realpath ~/.config/wall.png)"
+
   # run pywal on the current wallpaper
-  wal -n --backend "$backend" -i ~/.config/wall.png
+  wal -n --backend "$backend" -i "$wallpaper_abs"
 
   # apply colour scheme to discord
   if command -v pywal-discord >/dev/null; then
