@@ -1,6 +1,7 @@
 name: Desktop
 depends:
   - discord
+  - variety
 packages:
   - headset-charge-indicator
   - plex-media-player
