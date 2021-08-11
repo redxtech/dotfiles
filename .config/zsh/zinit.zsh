@@ -206,8 +206,6 @@ zinit wait lucid as"command" nocompletions for \
   pip"!asciinema" id-as"asciinema-bin" \
     zdharma/null \
   pip"!thefuck" id-as"thefuck-bin" \
-    zdharma/null \
-  pip"wal <- !pywal -> wal" id-as"pywal-bin" \
     zdharma/null
 
 # programs compiled with make
