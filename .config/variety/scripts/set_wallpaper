@@ -253,8 +253,7 @@ fi
 ln -sf "$3" "$HOME/.config/wall.png"
 
 # run pywal
-wal -n -i ~/.config/wall.png
-pywal-discord
+./.local/bin/pywal
 
 # =====================================================================================
 
