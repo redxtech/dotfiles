@@ -14,9 +14,8 @@
 
   # colour settings
   colorscheme = "wal"
-  # colorscheme = "challenger_deep"
   colorscheme_bg = "dark"
-  enable_guicolors = true
+  enable_guicolors = false
 
   # status line config
   statusline_separator = "arrow"
