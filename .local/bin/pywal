@@ -17,7 +17,11 @@ main () {
   wal -n --backend "$backend" -i ~/.config/wall.png
 
   # apply colour scheme to discord
-  pywal-discord
+  if command -v pywal-discord >/dev/null; then
+    pywal-discord
+  else
+    echo "pywal-discord not installed"
+  fi
 }
 
 main $1
