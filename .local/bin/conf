@@ -16,6 +16,9 @@ main () {
 
   # open the specified config file with $EDITOR
   case $1 in
+    ###############
+    # User Config #
+    ###############
     v|vim|nvim|sv|space|spacevim) # vim
       $EDITOR "$HOME/.SpaceVim.d/init.toml"
       ;;
@@ -64,6 +67,27 @@ main () {
     s|ssh) # ssh
       $EDITOR "$HOME/.ssh/config"
       ;;
+    ###############
+    # Root Config #
+    ###############
+    ddclient|ddns) # dynamic dns - ddclient
+      sudoedit /etc/ddclient/ddclient.conf
+      ;;
+    makepkg) # makepkg
+      sudoedit /etc/makepkg.conf
+      ;;
+    pacman) # pacman
+      sudoedit /etc/pacman.confDefault to Error 
+      ;;
+    sshd) # ssh daemon
+      sudoedit /etc/ssh/sshd_config
+      ;;
+    sudo|sudoers|visudo) # sudoers
+      sudo EDITOR="$EDITOR" visudo
+      ;;
+    ###################
+    # Script Specific #
+    ###################
     c|conf) # this file
       $EDITOR "$0"
       ;;
