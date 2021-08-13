@@ -58,6 +58,9 @@ main () {
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
       ;;
+    w|wal|pywal) # pywal
+      $EDITOR "$HOME/.local/bin/pywal"
+      ;;
     s|ssh) # ssh
       $EDITOR "$HOME/.ssh/config"
       ;;
