@@ -3,7 +3,6 @@
 # function to apply pywal to all the things
 main () {
   # default colour palette backend
-  local backend="wal"
   # local backend="haishoku"
   # local backend="colorz"
   # local backend="colorthief"
@@ -17,7 +16,7 @@ main () {
   local wallpaper_abs="$(realpath ~/.config/wall.png)"
 
   # run pywal on the current wallpaper
-  wal -n --backend "$backend" -i "$wallpaper_abs"
+  wal -n --backend "${backend:-wal}" -i "$wallpaper_abs"
 
   # apply colour scheme to discord
   if command -v pywal-discord >/dev/null; then
