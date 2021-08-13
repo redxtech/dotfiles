@@ -151,6 +151,10 @@
   merged = false
 
 [[custom_plugins]]
+  repo = "tpope/vim-eunuch"
+  merged = false
+
+[[custom_plugins]]
   repo = "zinit-zsh/zinit-vim-syntax"
   merged = false
 
