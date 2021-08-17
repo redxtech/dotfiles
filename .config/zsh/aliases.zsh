@@ -17,6 +17,9 @@ alias shit='sudo $(fc -ln -1)'
 # clipboard alias
 alias xclip="xclip -selection c"
 
+# show remaining progress with `sync` command
+alias dirties="watch -d grep -e Dirty: -e Writeback: /proc/meminfo"
+
 # neofetch with image
 alias neofetchk="neofetch --backend kitty --source .config/wall.png"
 
