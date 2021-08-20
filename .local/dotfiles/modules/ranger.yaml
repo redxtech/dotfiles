@@ -6,9 +6,7 @@ packages:
   - highlight
   - lynx
   - mediainfo
-  - odt2text
+  - odt2txt
   - poppler
   - transmission-cli
   - w3m
-commands:
-  - git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons3
