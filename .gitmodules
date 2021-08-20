@@ -1,3 +1,6 @@
 [submodule ".config/kitty/kitty-themes"]
 	path = .config/kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
+[submodule ".config/ranger/plugins/devicons2"]
+	path = .config/ranger/plugins/devicons2
+	url = https://github.com/cdump/ranger-devicons2
