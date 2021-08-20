@@ -4,6 +4,7 @@ packages:
   - transcrypt
   - adobe-source-code-pro-fonts
   - adobe-source-sans-pro-fonts
+  - font-inter
   - nerd-fonts-fira-code
   - noto-fonts
   - otf-fira-mono

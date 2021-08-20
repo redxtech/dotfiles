@@ -3,8 +3,10 @@ depends:
   - discord
   - variety
 packages:
+  - font-inter
   - headset-charge-indicator
   - plex-media-player
+  - rofi
   - vivaldi
   - vivaldi-ffmpeg-codecs
 
