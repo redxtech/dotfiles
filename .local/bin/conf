@@ -19,20 +19,53 @@ main () {
     ###############
     # User Config #
     ###############
+    a|awesome|wm) # awesome
+      $EDITOR "$HOME/.config/awesome/rc.lua"
+      ;;
+    alacritty) # alacritty
+      $EDITOR "$HOME/.config/alacritty/alacritty.yml"
+      ;;
+    k|kitty) # kitty
+      $EDITOR "$HOME/.config/kitty/kitty.conf"
+      ;;
+    n|fetch|neofetch) # neofetch
+      $EDITOR "$HOME/.config/neofetch/config.conf"
+      ;;
+    p|p10k) # powerlevel10k config
+      $EDITOR "$HOME/.p10k.zsh"
+      ;;
+    r|ranger) # ranger config
+      $EDITOR "$HOME/.config/ranger/rc.conf"
+      ;;
+    rr|rifle) # ranger rifle config
+      $EDITOR "$HOME/.config/ranger/rifle.conf"
+      ;;
+    rs|rscope) # ranger scope config
+      $EDITOR "$HOME/.config/ranger/scope.sh"
+      ;;
+    s|ssh) # ssh
+      $EDITOR "$HOME/.ssh/config"
+      ;;
+    t|tmux) # tmux
+      $EDITOR "$HOME/.tmux.conf"
+      ;;
     v|vim|nvim|sv|space|spacevim) # vim
       $EDITOR "$HOME/.SpaceVim.d/init.toml"
       ;;
     vb|vboot|vbootstrap)
       $EDITOR "$HOME/.SpaceVim.d/autoload/bootstrap.vim"
       ;;
+    w|wal|pywal) # pywal
+      $EDITOR "$HOME/.local/bin/pywal"
+      ;;
     z|zsh) # zsh
       $EDITOR "$HOME/.zshrc"
       ;;
-    zi) # zsh (init)
-      $EDITOR "$HOME/.config/zsh/init.zsh"
-      ;;
     za) # zsh aliases
       $EDITOR "$HOME/.config/zsh/aliases.zsh"
+      ;;
+    zi) # zsh (init)
+      $EDITOR "$HOME/.config/zsh/init.zsh"
       ;;
     ze) # zsh env
       $EDITOR "$HOME/.config/zsh/env.zsh"
@@ -42,30 +75,6 @@ main () {
       ;;
     zinit) # zinit config
       $EDITOR "$HOME/.config/zsh/zinit.zsh"
-      ;;
-    p|p10k) # powerlevel10k config
-      $EDITOR "$HOME/.p10k.zsh"
-      ;;
-    t|tmux) # tmux
-      $EDITOR "$HOME/.tmux.conf"
-      ;;
-    k|kitty) # kitty
-      $EDITOR "$HOME/.config/kitty/kitty.conf"
-      ;;
-    alacritty) # alacritty
-      $EDITOR "$HOME/.config/alacritty/alacritty.yml"
-      ;;
-    a|awesome|wm) # awesome
-      $EDITOR "$HOME/.config/awesome/rc.lua"
-      ;;
-    n|fetch|neofetch) # neofetch
-      $EDITOR "$HOME/.config/neofetch/config.conf"
-      ;;
-    w|wal|pywal) # pywal
-      $EDITOR "$HOME/.local/bin/pywal"
-      ;;
-    s|ssh) # ssh
-      $EDITOR "$HOME/.ssh/config"
       ;;
     ###############
     # Root Config #
