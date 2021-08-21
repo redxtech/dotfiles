@@ -15,6 +15,7 @@ packages:
   - htop
   - jdk-openjdk
   - jq
+  - kitty
   - lsof
   - neofetch
   - neovim

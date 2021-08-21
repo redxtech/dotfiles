@@ -1,4 +1,6 @@
 name: CLI Tools
+depends:
+  - ranger
 packages:
   - bandwhich
   - bat
