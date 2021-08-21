@@ -1,4 +1,8 @@
 # TODO
+- https://github.com/rsms/inter/
+- add systemd services section to load-module
+- add desktop, laptop, server specific modules that depend on the other modules
+- add ddclient module
 - https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 - https://github.com/bilelmoussaoui/Hardcode-Tray
 
