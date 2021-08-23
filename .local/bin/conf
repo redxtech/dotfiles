@@ -22,6 +22,12 @@ main () {
     a|awesome|wm) # awesome
       $EDITOR "$HOME/.config/awesome/rc.lua"
       ;;
+    aa|autorun) # autorun script
+      $EDITOR "$HOME/.config/awesome/autorun.sh"
+      ;;
+    ap|picom) # compositor
+      $EDITOR "$HOME/.config/picom/picom.conf"
+      ;;
     alacritty) # alacritty
       $EDITOR "$HOME/.config/alacritty/alacritty.yml"
       ;;
