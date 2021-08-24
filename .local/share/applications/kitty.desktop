@@ -8,8 +8,8 @@ TryExec=kitty
 Exec=kitty
 Icon=kitty
 Categories=System;TerminalEmulator;
-Actions=new-zsh-window
+Actions=new-tmux-window
 
-[Desktop Action new-zsh-window]
-Name=New ZSH Window
-Exec=kitty -e zsh
+[Desktop Action new-tmux-window]
+Name=New Tmux Window
+Exec=kitty -e 'tmux new-session -As gabe'
