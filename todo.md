@@ -1,5 +1,15 @@
 # TODO
-- https://github.com/rsms/inter/
+- add weather widget 
+- add notificaation centre widget
+- add lock/logout/suspend/restart/shutdown button in wiibar
+- add audio output selector/volume entry in wiibar
+- configure easings in picom
+- set font to https://github.com/rsms/inter/
+- set icon theme
+- set gtk theme
+- set qt theme
+- set other theme
+- figure out how to prevent screen tearning
 - add systemd services section to load-module
 - add desktop, laptop, server specific modules that depend on the other modules
 - add ddclient module
