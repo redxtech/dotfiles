@@ -12,4 +12,4 @@ Actions=new-tmux-window
 
 [Desktop Action new-tmux-window]
 Name=New Tmux Window
-Exec=kitty -e 'tmux new-session -As gabe'
+Exec=sh -c "kitty -e $HOME/.local/bin/tat"
