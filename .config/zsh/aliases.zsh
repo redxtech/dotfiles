@@ -23,6 +23,9 @@ alias dirties="watch -d grep -e Dirty: -e Writeback: /proc/meminfo"
 # neofetch with image
 alias neofetchk="neofetch --backend kitty --source .config/wall.png"
 
+# edit the todo file
+alias todo="$EDITOR ~/.todo.md"
+
 # vim -> nvim
 if command -v nvim >/dev/null; then
   alias vvim="$(which vim)"
