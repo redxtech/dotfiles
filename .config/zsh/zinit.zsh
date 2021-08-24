@@ -46,10 +46,8 @@ zinit wait lucid for \
   OMZP::docker-compose \
   OMZP::encode64 \
   OMZP::github \
-  OMZP::gpg-agent \
   OMZP::httpie \
   OMZP::man \
-  OMZP::ssh-agent \
   OMZP::systemd \
   OMZP::transfer \
   OMZP::zsh_reload \

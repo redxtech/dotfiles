@@ -37,8 +37,8 @@ bindkey -v
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}'
 
 # plugin config
-zstyle :omz:plugins:ssh-agent identities id_ed25519 # id_github
-zstyle :omz:plugins:ssh-agent agent-forwarding on
+# zstyle :omz:plugins:ssh-agent identities id_ed25519 # id_github
+# zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :plugins:not-vim say yosay
 export AUTO_NOTIFY_EXPIRE_TIME=10000
 
