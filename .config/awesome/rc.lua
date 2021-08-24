@@ -242,6 +242,8 @@ awful.keyboard.append_global_keybindings({
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
+    awful.key({ "Control"}, "space", function () awful.spawn("rofi -show drun") end, 
+              {description = "open rofi launcher", group = "launcher"}),
     -- awful.key({ }, "Print", function () awful.util.spawn("maim ~/Pictures/Screenshots/Screenshot " .. os.date("%Y-%m-%d-%H:%M:%S") .. ".png ", false) end),
     awful.key({ }, "Print", function () awful.util.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots", false) end),
 })
