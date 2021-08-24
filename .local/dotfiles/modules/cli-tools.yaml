@@ -23,6 +23,7 @@ packages:
   - rclone
   - ripgrep
   - shellcheck
+  - sl
   - slurm
   - source-highlight
   - time
