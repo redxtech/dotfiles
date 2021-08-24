@@ -7,12 +7,16 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
+
 -- Declarative object management
 local ruled = require("ruled")
 local menubar = require("menubar")
@@ -33,6 +37,9 @@ naughty.connect_signal("request::display_error", function(message, startup)
 end)
 -- }}}
 
+-- save home dir to variable
+local home = os.getenv("HOME")
+
 -- run startup script
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
@@ -40,10 +47,15 @@ awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
+-- Some theme settings
+beautiful.useless_gap = 8
+beautiful.border_width = 0
+
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "kitty"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
+browser = "vivaldi-stable"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -55,6 +67,7 @@ modkey = "Mod4"
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
+-- TODO: add stuff to the main menu
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
@@ -79,27 +92,24 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
-        awful.layout.suit.floating,
         awful.layout.suit.tile,
-        awful.layout.suit.tile.left,
-        awful.layout.suit.tile.bottom,
-        awful.layout.suit.tile.top,
         awful.layout.suit.fair,
         awful.layout.suit.fair.horizontal,
-        awful.layout.suit.spiral,
         awful.layout.suit.spiral.dwindle,
-        awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen,
+        awful.layout.suit.tile.bottom,
         awful.layout.suit.magnifier,
         awful.layout.suit.corner.nw,
+        -- awful.layout.suit.floating,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.spiral,
+        -- awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
     })
 end)
 -- }}}
 
 -- {{{ Wibar
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -186,7 +196,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -227,10 +236,14 @@ awful.keyboard.append_global_keybindings({
               {description = "lua execute prompt", group = "awesome"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
+    -- awful.key({ }, "Print", function () awful.util.spawn("maim ~/Pictures/Screenshots/Screenshot " .. os.date("%Y-%m-%d-%H:%M:%S") .. ".png ", false) end),
+    awful.key({ }, "Print", function () awful.util.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots", false) end),
 })
 
 -- Tags related keybindings
@@ -480,7 +493,7 @@ ruled.client.connect_signal("request::rules", function()
     ruled.client.append_rule {
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
-        properties = { titlebars_enabled = true      }
+        properties = { titlebars_enabled = false      }
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
