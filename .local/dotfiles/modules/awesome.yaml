@@ -1,6 +1,7 @@
 name: Awesome
 packages:
-  - awesome
+  - awesome-git
+  - arandr
   - blueman
   - feh
   - flameshot
