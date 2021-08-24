@@ -30,7 +30,7 @@ run nm-applet
 run blueman-applet
 
 # apply proper monitor layour and sizing
-run ~/.screenlayout/default.sh
+run "~/.screenlayout/$(hostname).sh"
 
 # run variety and apply last wallpaper
 run variety
