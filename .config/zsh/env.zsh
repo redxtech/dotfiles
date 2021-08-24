@@ -2,7 +2,8 @@
 
 # basic environment
 EDITOR="$(command -v vim)"
-TERMINAL="$(command -v alacritty)"
+TERMINAL="$(command -v kitty)"
+BROWSER="$(command -v vivaldi-stable)"
 
 # if nvim is installed switch the variable to that
 if command -v nvim>/dev/null; then
@@ -12,6 +13,7 @@ fi
 # export the variables
 export EDITOR
 export TERMINAL
+export BROWSER
 
 # program specific
 export RANGER_LOAD_DEFAULT_RC="FALSE"
