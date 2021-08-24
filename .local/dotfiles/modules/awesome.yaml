@@ -9,3 +9,5 @@ packages:
   - network-manager-applet
   - picom-jonaburg-git
   - variety
+commands:
+  - mkdir -pv "~/Pictures/Screenshots"
