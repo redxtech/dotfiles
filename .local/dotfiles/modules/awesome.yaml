@@ -1,0 +1,10 @@
+name: Awesome
+packages:
+  - awesome
+  - blueman
+  - feh
+  - flameshot
+  - gnome-keyring
+  - network-manager-applet
+  - picom-jonaburg-git
+  - variety
