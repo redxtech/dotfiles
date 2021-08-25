@@ -3,6 +3,9 @@ depends:
   - discord
   - variety
 packages:
+  - dolphin
+  - dolphin-megasync-bin
+  - dolphin-plugins
   - font-inter
   - headset-charge-indicator
   - plex-media-player
