@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# function to check if a program is running, and if not, run it
+# check if a program is running, and if not, run it
 function run {
   if ! pgrep -f $1; then
     $@&
@@ -22,9 +22,6 @@ function srun {
 # compositor
 run picom --experimental-backend
 
-# keyring
-run gnome-keyring-daemon -s -d
-
 # connectivity applets
 run nm-applet
 run blueman-applet
@@ -38,5 +35,10 @@ feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
 
 # user apps
 run discord
+run qbittorrent
+run megasync
+run virt-manager
+
+# apps from local desktop files
 drun spotify
  
