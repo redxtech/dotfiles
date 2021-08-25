@@ -150,4 +150,6 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@import "/home/gabe/.config/rofi/themes/slate.rasi"
+
+@import "/home/gabe/.cache/wal/colors-rofi-dark.rasi"
+/* @import "/home/gabe/.config/rofi/themes/slate.rasi" */
