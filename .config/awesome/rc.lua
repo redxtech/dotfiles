@@ -48,7 +48,7 @@ awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- Some theme settings
-beautiful.useless_gap = 8
+beautiful.useless_gap = 10
 beautiful.border_width = 0
 
 -- This is used later as the default terminal and editor to run.
@@ -99,7 +99,7 @@ tag.connect_signal("request::default_layouts", function()
         awful.layout.suit.tile.bottom,
         awful.layout.suit.magnifier,
         awful.layout.suit.corner.nw,
-        -- awful.layout.suit.floating,
+        awful.layout.suit.floating,
         -- awful.layout.suit.tile.left,
         -- awful.layout.suit.tile.top,
         -- awful.layout.suit.spiral,
@@ -238,13 +238,16 @@ awful.keyboard.append_global_keybindings({
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
               {description = "open a browser", group = "launcher"}),
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     function () awful.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
               {description = "show the menubar", group = "launcher"}),
     awful.key({ "Control"}, "space", function () awful.spawn("rofi -show drun") end, 
               {description = "open rofi launcher", group = "launcher"}),
-    -- awful.key({ }, "Print", function () awful.util.spawn("maim ~/Pictures/Screenshots/Screenshot " .. os.date("%Y-%m-%d-%H:%M:%S") .. ".png ", false) end),
+    awful.key({ "Mod1" }, "Tab", function () awful.spawn("rofi -show windowcd") end, 
+              {description = "open window switcher", group = "client"}),
+    awful.key({ "Control", "Mod1" }, "s", function () awful.spawn("rofi -show ssh") end, 
+              {description = "open window switcher", group = "client"}),
     awful.key({ }, "Print", function () awful.util.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots", false) end),
     awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot gui -p " .. home .. "/Pictures/Screenshots", false) end),
 })
