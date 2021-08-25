@@ -246,6 +246,7 @@ awful.keyboard.append_global_keybindings({
               {description = "open rofi launcher", group = "launcher"}),
     -- awful.key({ }, "Print", function () awful.util.spawn("maim ~/Pictures/Screenshots/Screenshot " .. os.date("%Y-%m-%d-%H:%M:%S") .. ".png ", false) end),
     awful.key({ }, "Print", function () awful.util.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots", false) end),
+    awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot gui -p " .. home .. "/Pictures/Screenshots", false) end),
 })
 
 -- Tags related keybindings
