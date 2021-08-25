@@ -28,6 +28,9 @@ main () {
     ap|picom) # compositor
       $EDITOR "$HOME/.config/picom/picom.conf"
       ;;
+    ar|rofi) # launcher
+      $EDITOR "$HOME/.config/rofi/config.rasi"
+      ;;
     alacritty) # alacritty
       $EDITOR "$HOME/.config/alacritty/alacritty.yml"
       ;;
