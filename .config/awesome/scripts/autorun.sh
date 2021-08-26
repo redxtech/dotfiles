@@ -25,6 +25,11 @@ run picom --experimental-backend
 # apply proper monitor layour and sizing
 run "~/.screenlayout/$(hostname).sh"
 
+# run natural scrolling script if on laptop
+if test "$(hostname)" = "laptop"; then
+  srun ~/.config/awesome/scripts/natural-scrolling.sh
+fi
+
 # connectivity applets
 run nm-applet
 run blueman-applet

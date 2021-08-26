@@ -41,7 +41,7 @@ end)
 local home = os.getenv("HOME")
 
 -- run startup script
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("~/.config/awesome/scripts/autorun.sh")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
