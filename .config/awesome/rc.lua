@@ -246,7 +246,7 @@ awful.keyboard.append_global_keybindings({
               {description = "open rofi launcher", group = "launcher"}),
     awful.key({ "Mod1" }, "Tab", function () awful.spawn("rofi -show windowcd") end, 
               {description = "open window switcher", group = "client"}),
-    awful.key({ "Control", "Mod1" }, "s", function () awful.spawn("rofi -show ssh") end, 
+    awful.key({ "Shift", "Mod1" }, "s", function () awful.spawn("rofi -show ssh") end, 
               {description = "open window switcher", group = "client"}),
     awful.key({ }, "Print", function () awful.util.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots", false) end),
     awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot gui -p " .. home .. "/Pictures/Screenshots", false) end),
