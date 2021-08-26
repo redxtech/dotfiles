@@ -9,6 +9,7 @@ packages:
   - font-inter
   - headset-charge-indicator
   - plex-media-player
+  - redshift-gtk-git
   - rofi
   - vivaldi
   - vivaldi-ffmpeg-codecs
