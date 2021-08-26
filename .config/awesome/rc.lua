@@ -242,7 +242,7 @@ awful.keyboard.append_global_keybindings({
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
               {description = "show the menubar", group = "launcher"}),
-    awful.key({ "Control"}, "space", function () awful.spawn("rofi -show drun") end, 
+    awful.key({ "Control"}, "space", function () awful.spawn("rofi -show combi") end, 
               {description = "open rofi launcher", group = "launcher"}),
     awful.key({ "Mod1" }, "Tab", function () awful.spawn("rofi -show windowcd") end, 
               {description = "open window switcher", group = "client"}),
