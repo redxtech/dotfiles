@@ -9,9 +9,6 @@ main () {
   if test -z "$1"; then
     echo "error: specify a config"
     return 1
-  elif test -n "$2"; then
-    echo "error: specify only one config"
-    return 1
   fi
 
   # open the specified config file with $EDITOR
@@ -84,6 +81,60 @@ main () {
       ;;
     zinit) # zinit config
       $EDITOR "$HOME/.config/zsh/zinit.zsh"
+      ;;
+    ####################
+    # AwesomeWM Config #
+    ####################
+    abg) # awesome - global binds
+      $EDITOR "$HOME/.config/awesome/bindings/global.lua"
+      ;;
+    abga) # awesome - general awesome binds
+      $EDITOR "$HOME/.config/awesome/bindings/general-awesome.lua"
+      ;;
+    abl) # awesome - layout bindings
+      $EDITOR "$HOME/.config/awesome/bindings/layout.lua"
+      ;;
+    abf) # awesome - focus bindings
+      $EDITOR "$HOME/.config/awesome/bindings/focus.lua"
+      ;;
+    abt) # awesome - tags bindings
+      $EDITOR "$HOME/.config/awesome/bindings/tags.lua"
+      ;;
+    abm) # awesome - mouse bindings
+      $EDITOR "$HOME/.config/awesome/bindings/mouse.lua"
+      ;;
+    abc) # awesome - client bindings
+      $EDITOR "$HOME/.config/awesome/bindings/client.lua"
+      ;;
+    amr) # awesome - rules
+      $EDITOR "$HOME/.config/awesome/main/rules.lua"
+      ;;
+    ame) # awesome - errors
+      $EDITOR "$HOME/.config/awesome/main/errors.lua"
+      ;;
+    amv) # awesome - variables
+      $EDITOR "$HOME/.config/awesome/main/variables.lua"
+      ;;
+    ams) # awesome - signals
+      $EDITOR "$HOME/.config/awesome/main/signals.lua"
+      ;;
+    amn) # awesome - notifications
+      $EDITOR "$HOME/.config/awesome/main/notifications.lua"
+      ;;
+    aml) # awesome - layouts
+      $EDITOR "$HOME/.config/awesome/main/layouts.lua"
+      ;;
+    ads) # awesome - statusbar
+      $EDITOR "$HOME/.config/awesome/main/statusbar.lua"
+      ;;
+    adt) # awesome - theme
+      $EDITOR "$HOME/.config/awesome/main/theme.lua"
+      ;;
+    adm) # awesome - menubar
+      $EDITOR "$HOME/.config/awesome/main/menubar.lua"
+      ;;
+    adt) # awesome - titlebars
+      $EDITOR "$HOME/.config/awesome/main/titlebars.lua"
       ;;
     ###############
     # Root Config #
