@@ -102,6 +102,9 @@
     cpp = "gnu++17"
 
 [[layers]]
+  name = "lang#lua"
+
+[[layers]]
   name = "lang#markdown"
 
 [[layers]]
