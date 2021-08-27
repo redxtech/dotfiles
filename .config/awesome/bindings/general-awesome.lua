@@ -22,19 +22,22 @@ awful.keyboard.append_global_keybindings({
       description = "show main menu",
       group = "awesome"
     }),
-  awful.key({ modkey, "Control" }, "r",
+  awful.key(
+    { modkey, "Control" }, "r",
       awesome.restart,
     {
       description = "reload awesome",
       group = "awesome"
     }),
-  awful.key({ modkey, "Shift"   }, "q",
+  awful.key(
+    { modkey, "Shift"   }, "q",
       awesome.quit,
     {
       description = "quit awesome",
       group = "awesome"
     }),
-  awful.key({ modkey }, "x",
+  awful.key(
+    { modkey }, "x",
     function ()
       awful.prompt.run {
         prompt       = "Run Lua code: ",
@@ -47,63 +50,77 @@ awful.keyboard.append_global_keybindings({
       description = "lua execute prompt",
       group = "awesome"
     }),
-  awful.key({ modkey,           }, "Return",
+  awful.key(
+    { modkey,           }, "Return",
     function () awful.spawn(RC.vars.terminal) end,
     {
       description = "open a terminal",
       group = "launcher"
     }),
-  awful.key({ modkey,           }, "b", 
+  awful.key(
+    { modkey,           }, "b", 
       function () awful.spawn(RC.vars.browser) end,
     {
       description = "open a browser",
       group = "launcher"
     }),
-  awful.key({ modkey },            "r",     
+  awful.key(
+    { modkey },            "r",     
       function () awful.spawn("rofi -show run") end,
     {
       description = "run prompt",
       group = "launcher"
     }),
-  awful.key({ modkey }, "p", 
+  awful.key(
+    { modkey }, "p", 
       function() awful.spawn("rofi -show drun") end,
     {
       description = "show the menubar",
       group = "launcher"
     }),
-  awful.key({ "Control"}, "space", 
+  awful.key(
+    { "Control"}, "space", 
       function () awful.spawn("rofi -show combi") end, 
     {
       description = "open rofi launcher in combi mode",
       group = "launcher"
     }),
-  awful.key({ "Mod1" }, "Tab", 
+  awful.key(
+    { "Mod1" }, "Tab", 
       function () awful.spawn("rofi -show windowcd") end, 
     {
       description = "open window switcher",
       group = "client"
     }),
-  awful.key({ "Shift", "Mod1" }, "s", 
+  awful.key(
+    { "Shift", "Mod1" }, "s", 
       function () awful.spawn("rofi -show ssh") end, 
     {
       description = "open window switcher",
       group = "client"
     }),
-  awful.key({ }, "Print", 
+  awful.key(
+    { }, "Print", 
       function () awful.util.spawn("flameshot screen -p " .. RC.vars.home .. "/Pictures/Screenshots", false) end,
     {
       description = "screenshot the current screen",
       group = "screenshot",
     }),
-  awful.key({ "Shift" }, "Print", 
+  awful.key(
+    { "Shift" }, "Print", 
       function () awful.util.spawn("flameshot gui -p " .. RC.vars.home .. "/Pictures/Screenshots", false) end,
     {
       description = "screenshot with selection tool",
       group = "screenshot"
     }),
-    -- awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
-    -- awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end),
-    -- awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end),
+  -- media keys
+  awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
+  awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end),
+  awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end),
+  -- volume keys
+  awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end),
+  awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end),
+  awful.key({}, "XF86AudioMute",        function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
 })
 
 
