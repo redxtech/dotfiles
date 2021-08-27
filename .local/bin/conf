@@ -125,16 +125,16 @@ main () {
       $EDITOR "$HOME/.config/awesome/main/layouts.lua"
       ;;
     ads) # awesome - statusbar
-      $EDITOR "$HOME/.config/awesome/main/statusbar.lua"
+      $EDITOR "$HOME/.config/awesome/deco/statusbar.lua"
       ;;
     adt) # awesome - theme
-      $EDITOR "$HOME/.config/awesome/main/theme.lua"
+      $EDITOR "$HOME/.config/awesome/deco/theme.lua"
       ;;
     adm) # awesome - menubar
-      $EDITOR "$HOME/.config/awesome/main/menubar.lua"
+      $EDITOR "$HOME/.config/awesome/deco/menubar.lua"
       ;;
     adt) # awesome - titlebars
-      $EDITOR "$HOME/.config/awesome/main/titlebars.lua"
+      $EDITOR "$HOME/.config/awesome/deco/titlebars.lua"
       ;;
     ###############
     # Root Config #
