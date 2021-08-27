@@ -35,7 +35,8 @@ run nm-applet
 run blueman-applet
 
 # apply previous wallpaper
-feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
+# commented out because i've handled this in deco/theme.lua
+# feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
 
 # user apps
 run discord
