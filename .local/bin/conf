@@ -23,7 +23,7 @@ main () {
       $EDITOR "$HOME/.config/awesome/rc.lua"
       ;;
     aa|autorun) # autorun script
-      $EDITOR "$HOME/.config/awesome/autorun.sh"
+      $EDITOR "$HOME/.config/awesome/scripts/autorun.sh"
       ;;
     ap|picom) # compositor
       $EDITOR "$HOME/.config/picom/picom.conf"
