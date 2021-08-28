@@ -33,7 +33,7 @@ mytextclock = wibox.widget.textclock()
 screen.connect_signal("request::desktop_decoration", function(s)
   -- each screen has its own tag table
   -- TODO: do something fun with tag names
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({ ">_", "www", "~/", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
   -- create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
