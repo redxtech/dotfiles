@@ -103,6 +103,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     s.mytasklist, -- middle widget
     { -- right widgets
       layout = wibox.layout.fixed.horizontal,
+      spacing = 10,
       wibox.widget.systray(),
       mytextclock,
       s.mylayoutbox,
