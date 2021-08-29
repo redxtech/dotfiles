@@ -72,6 +72,13 @@ awful.keyboard.append_global_keybindings({
       group = "launcher"
     }),
   awful.key(
+    { modkey, "Control" }, "l", 
+      function() awful.spawn(RC.vars.home .. "/.config/rofi/powermenu/powermenu.sh") end,
+    {
+      description = "show power menu",
+      group = "awesome"
+    }),
+  awful.key(
     { modkey }, "p", 
       function() awful.spawn(RC.vars.home .. "/.config/rofi/launchers/misc/launcher.sh") end,
     {
