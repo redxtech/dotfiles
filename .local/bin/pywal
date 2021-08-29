@@ -24,6 +24,11 @@ main () {
   else
     echo "pywal-discord not installed"
   fi
+
+  # update lockscreen wallpaper if betterlockscreen installed
+  if command -v betterlockscreen >/dev/null; then
+    betterlockscreen -u "$wallpaper_abs"
+  fi
 }
 
 main $1
