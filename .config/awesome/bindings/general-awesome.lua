@@ -73,9 +73,9 @@ awful.keyboard.append_global_keybindings({
     }),
   awful.key(
     { modkey }, "p", 
-      function() awful.spawn("rofi -show drun") end,
+      function() awful.spawn(RC.vars.home .. "/.config/rofi/launchers/misc/launcher.sh") end,
     {
-      description = "show the menubar",
+      description = "show application launcher",
       group = "launcher"
     }),
   awful.key(
