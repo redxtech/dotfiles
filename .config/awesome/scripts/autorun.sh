@@ -39,7 +39,7 @@ run blueman-applet
 # feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
 
 # autolock screen
-run xautolock -locker "betterlockscreen -l"
+srun ~/.config/awesome/scripts/autolock.sh
 
 # user apps
 run discord
