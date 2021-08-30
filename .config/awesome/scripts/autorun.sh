@@ -38,6 +38,9 @@ run blueman-applet
 # commented out because i've handled this in deco/theme.lua
 # feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
 
+# autolock screen
+run xautolock -locker "betterlockscreen -l"
+
 # user apps
 run discord
 run qbittorrent
