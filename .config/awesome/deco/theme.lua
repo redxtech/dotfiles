@@ -9,6 +9,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- some theme settings
 beautiful.useless_gap = 10
 beautiful.border_width = 0
+beautiful.font = "Inter 12"
 
 -- set last wallpaper
 beautiful.wallpaper = RC.vars.home .. "/.config/wall.png"
