@@ -101,7 +101,7 @@ awful.keyboard.append_global_keybindings({
     }),
   awful.key(
     { "Shift", "Mod1" }, "s", 
-      function () awful.spawn("rofi -show ssh") end, 
+      function () awful.spawn(RC.vars.home .. "/.config/rofi/launchers/text/ssh.sh") end, 
     {
       description = "open window switcher",
       group = "client"
