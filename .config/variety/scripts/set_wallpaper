@@ -254,7 +254,7 @@ fi
 ln -sf "$3" "$HOME/.config/wall.png"
 
 # run pywal
-./.local/bin/pywal
+sh ~/.local/bin/pywal
 
 # =====================================================================================
 
