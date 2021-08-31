@@ -121,6 +121,13 @@ awful.keyboard.append_global_keybindings({
         group = "launcher"
       }),
   awful.key(
+    { "Shift", "Mod1" }, "/",
+      function () awful.spawn("zsh -c \"yadm stash\"") end,
+      {
+        description = "stash changes",
+        group = "dotfiles"
+      }),
+  awful.key(
     { }, "Print", 
       function () awful.util.spawn("flameshot screen -p " .. RC.vars.home .. "/Pictures/Screenshots", false) end,
     {
