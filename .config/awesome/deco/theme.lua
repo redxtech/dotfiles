@@ -4,8 +4,7 @@ local gears = require("gears")
 
 -- initialize themes
 -- themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
--- beautiful.init(RC.vars.home .. "/.config/awesome/themes/dots/theme.lua")
+beautiful.init(RC.vars.home .. "/.config/awesome/themes/gtk/theme.lua")
 
 -- some theme settings
 beautiful.useless_gap = 10
