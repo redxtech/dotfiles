@@ -15,14 +15,14 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({
   items = {
-    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "awesome", myawesomemenu, RC.vars.home .. "/.local/images/arch-centre.png" },
     { "open terminal", RC.vars.terminal }
   }
 })
 
 -- create a launcher widget
 mylauncher = awful.widget.launcher({
-  image = beautiful.awesome_icon,
+  image = RC.vars.home .. "/.local/images/arch-centre.png",
   menu = mymainmenu
 })
 
