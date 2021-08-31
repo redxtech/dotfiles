@@ -4,12 +4,13 @@ local gears = require("gears")
 
 -- initialize themes
 -- themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
+-- beautiful.init(RC.vars.home .. "/.config/awesome/themes/dots/theme.lua")
 
 -- some theme settings
 beautiful.useless_gap = 10
-beautiful.border_width = 0
-beautiful.font = "Inter 12"
+-- beautiful.border_width = 0
+-- beautiful.font = "Inter 12"
 
 -- set last wallpaper
 beautiful.wallpaper = RC.vars.home .. "/.config/wall.png"
