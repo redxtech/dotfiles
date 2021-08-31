@@ -121,6 +121,13 @@ awful.keyboard.append_global_keybindings({
         group = "launcher"
       }),
   awful.key(
+    { "Shift", "Mod1" }, "u",
+      function () awful.spawn(RC.vars.terminal .. " -e " .. "zsh -c \"pacaur -Syu ; echo Done - Press enter to exit; read\"") end,
+      {
+        description = "open pacaur -Syu",
+        group = "launcher"
+      }),
+  awful.key(
     { "Shift", "Mod1" }, "/",
       function () awful.spawn("zsh -c \"yadm stash\"") end,
       {
