@@ -107,6 +107,20 @@ awful.keyboard.append_global_keybindings({
       group = "client"
     }),
   awful.key(
+    { "Shift", "Mod1" }, "m",
+      function () awful.spawn(RC.vars.terminal .. " -e " .. RC.vars.home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
+      {
+        description = "open resource monitor",
+        group = "launcher"
+      }),
+  awful.key(
+    { "Shift", "Mod1" }, "f",
+      function () awful.spawn(RC.vars.terminal .. " -e " .. "ranger") end,
+      {
+        description = "open file browser",
+        group = "launcher"
+      }),
+  awful.key(
     { }, "Print", 
       function () awful.util.spawn("flameshot screen -p " .. RC.vars.home .. "/Pictures/Screenshots", false) end,
     {
