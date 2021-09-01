@@ -168,6 +168,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
+    -- create a systray widget
+    s.systray = wibox.widget.systray()
+    s.systray.visible = false
+
     -- create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -183,7 +187,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         s.mytasklist, -- middle widget
         { -- right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            s.systray,
             mytextclock,
             s.mylayoutbox,
         },
@@ -243,6 +247,16 @@ awful.keyboard.append_global_keybindings({
               {description = "open resource monitor", group = "launcher"}),
     awful.key({ "Shift", "Mod1" }, "u", function() awful.spawn(terminal .. " -e zsh -c \"pacaur -Syu; echo Done - Press enter to exit; read\"") end,
               {description = "open resource monitor", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "p", function() awful.spawn("plexmediaplayer") end,
+              {description = "open media player", group = "launcher"}),
+})
+
+-- system keybinds
+awful.keyboard.append_global_keybindings({
+    awful.key({ modkey,         }, "t", function()
+      awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+    end,
+              {description = "toggle the systray", group = "system"}),
 })
 
 -- media & volume keybinds
