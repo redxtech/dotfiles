@@ -19,8 +19,8 @@ theme="row_square"
 dir="$HOME/.config/rofi/powermenu"
 
 # random colors
-styles=($(ls -p --hide="colors.rasi" $dir/styles))
-color="${styles[$(( $RANDOM % 8 ))]}"
+# styles=($(ls -p --hide="colors.rasi" $dir/styles))
+# color="${styles[$(( $RANDOM % 8 ))]}"
 
 # comment this line to disable random colors
 # sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
@@ -81,7 +81,7 @@ case $chosen in
         ;;
     $lock)
 		if [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l dimblur
+			betterlockscreen -l
 		elif [[ -f /usr/bin/i3lock ]]; then
 			i3lock
 		fi
