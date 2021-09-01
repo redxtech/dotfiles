@@ -7,3 +7,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/awesome/bling"]
+	path = .config/awesome/bling
+	url = git@github.com:BlingCorp/bling.git
