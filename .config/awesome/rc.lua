@@ -47,7 +47,9 @@ home = os.getenv("HOME")
 modkey = "Mod4"
 
 -- themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+theme_name = "default"
+beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/" .. theme_name .. "/theme.lua")
+
 beautiful.useless_gap = 10
 beautiful.wallpaper = home .. "/.config/wall.png"
 
