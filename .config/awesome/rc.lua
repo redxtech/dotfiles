@@ -33,21 +33,23 @@ naughty.connect_signal("request::display_error", function(message, startup)
 end)
 -- }}}
 
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- {{{ Run startup script
+awful.spawn.with_shell("~/.config/awesome/scripts/autorun.sh")
+-- }}}
 
--- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+-- {{{ Variable & theme definitions
+-- this is used later as the default terminal and editor to run.
+terminal = "kitty"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
+browser = "vivaldi-stable"
+home = os.getenv("HOME")
 modkey = "Mod4"
+
+-- themes define colours, icons, font and wallpapers.
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.useless_gap = 10
+beautiful.wallpaper = home .. "/.config/wall.png"
 -- }}}
 
 -- {{{ Menu
@@ -60,12 +62,12 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, home .. "/.local/images/arch-centre.png" },
                                     { "open terminal", terminal }
                                   }
                         })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+mylauncher = awful.widget.launcher({ image = home .. "/.local/images/arch-centre.png",
                                      menu = mymainmenu })
 
 -- Menubar configuration
@@ -73,30 +75,27 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Tag
--- Table of layouts to cover with awful.layout.inc, order matters.
+-- table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
-    awful.layout.append_default_layouts({
-        awful.layout.suit.floating,
-        awful.layout.suit.tile,
-        awful.layout.suit.tile.left,
-        awful.layout.suit.tile.bottom,
-        awful.layout.suit.tile.top,
-        awful.layout.suit.fair,
-        awful.layout.suit.fair.horizontal,
-        awful.layout.suit.spiral,
-        awful.layout.suit.spiral.dwindle,
-        awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen,
-        awful.layout.suit.magnifier,
-        awful.layout.suit.corner.nw,
-    })
+  awful.layout.append_default_layouts({
+    awful.layout.suit.tile,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.corner.nw,
+    awful.layout.suit.floating,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+  })
 end)
 -- }}}
 
 -- {{{ Wibar
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -115,7 +114,8 @@ end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ '', '', '', '', '', '', '', '', '' }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -183,7 +183,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -224,10 +223,44 @@ awful.keyboard.append_global_keybindings({
               {description = "lua execute prompt", group = "awesome"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey },            "r",     function () awful.spawn("rofi -show run -modi run") end,
               {description = "run prompt", group = "launcher"}),
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey }, "p", function() awful.spawn(home .. "/.config/rofi/launchers/misc/launcher.sh") end,
+              {description = "show the app launcher", group = "launcher"}),
+})
+
+-- launcher keybinds
+awful.keyboard.append_global_keybindings({
+    awful.key({ modkey, "Control" }, "l", function() awful.spawn(home .. "/.config/rofi/powermenu/powermenu.sh") end,
+              {description = "show the power menu", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "s", function() awful.spawn(home .. "/.config/rofi/launchers/text/ssh.sh") end,
+              {description = "open ssh launcher", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "m", function() awful.spawn(terminal .. " -e " .. home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
+              {description = "open resource monitor", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "f", function() awful.spawn(terminal .. " -e ranger") end,
+              {description = "open resource monitor", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "u", function() awful.spawn(terminal .. " -e zsh -c \"pacaur -Syu; echo Done - Press enter to exit; read\"") end,
+              {description = "open resource monitor", group = "launcher"}),
+})
+
+-- media & volume keybinds
+awful.keyboard.append_global_keybindings({
+  awful.key({}, "XF86AudioPlay",        function() awful.util.spawn("playerctl play-pause",                 false) end),
+  awful.key({}, "XF86AudioNext",        function() awful.util.spawn("playerctl next",                       false) end),
+  awful.key({}, "XF86AudioPrev",        function() awful.util.spawn("playerctl previous",                   false) end),
+  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -q -D pulse sset Master 5%-",   false) end),
+  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -q -D pulse sset Master 5%+",   false) end),
+  awful.key({}, "XF86AudioMute",        function() awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
+})
+
+-- screenshot keybinds
+awful.keyboard.append_global_keybindings({
+    awful.key({ }, "Print", function() awful.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots") end,
+              {description = "screenshot the current screen", group = "screenshot"}),
+    awful.key({ "Shift" }, "Print", function() awful.spawn("flameshot gui -p " .. home .. "/Pictures/Screenshots") end,
+              {description = "screenshot with selection", group = "screenshot"}),
 })
 
 -- Tags related keybindings
@@ -373,6 +406,7 @@ awful.keyboard.append_global_keybindings({
     }
 })
 
+-- mouse resize & move binds
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({
         awful.button({ }, 1, function (c)
@@ -477,7 +511,7 @@ ruled.client.connect_signal("request::rules", function()
     ruled.client.append_rule {
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
-        properties = { titlebars_enabled = true      }
+        properties = { titlebars_enabled = false      }
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -551,3 +585,4 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
+
