@@ -50,6 +50,9 @@ modkey = "Mod4"
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.useless_gap = 10
 beautiful.wallpaper = home .. "/.config/wall.png"
+
+-- bling
+local bling = require("bling")
 -- }}}
 
 -- {{{ Menu
@@ -80,12 +83,17 @@ tag.connect_signal("request::default_layouts", function()
   awful.layout.append_default_layouts({
     awful.layout.suit.tile,
     awful.layout.suit.fair,
+    bling.layout.equalarea,
     awful.layout.suit.fair.horizontal,
+    bling.layout.centered,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     awful.layout.suit.floating,
+    -- bling.layout.vertical,
+    -- bling.layout.horizontal,
+    -- bling.layout.deck,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.spiral,
