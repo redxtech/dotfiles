@@ -529,11 +529,23 @@ ruled.client.connect_signal("request::rules", function()
         properties = { titlebars_enabled = false      }
     }
 
-    -- set firefox to always map on the tag named "2" on screen 1.
-    -- ruled.client.append_rule {
-    --     rule       = { class = "Firefox"     },
-    --     properties = { screen = 1, tag = "2" }
-    -- }
+    -- set browser to always map on the second tag on screen 1
+    ruled.client.append_rule {
+        rule       = { class = "Vivaldi-stable"     },
+        properties = {
+          tag = screen[1].tags[2],
+          switch_to_tags = true,
+        }
+    }
+
+    -- set plex to always map on the second tag on screen 2.
+    ruled.client.append_rule {
+        rule       = { class = "plexmediaplayer"     },
+        properties = {
+          tag = screen[2].tags[2],
+          switch_to_tags = true,
+        }
+    }
 end)
 
 -- }}}
