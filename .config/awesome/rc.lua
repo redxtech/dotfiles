@@ -3,26 +3,26 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
--- Standard awesome library
+-- standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Widget and layout library
+-- widget and layout library
 local wibox = require("wibox")
--- Theme handling library
+-- theme handling library
 local beautiful = require("beautiful")
--- Notification library
+-- notification library
 local naughty = require("naughty")
--- Declarative object management
+-- declarative object management
 local ruled = require("ruled")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
+-- enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
+-- check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
     naughty.notification {
@@ -53,7 +53,7 @@ beautiful.wallpaper = home .. "/.config/wall.png"
 -- }}}
 
 -- {{{ Menu
--- Create a launcher widget and a main menu
+-- create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
@@ -70,8 +70,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, home .. "/.local
 mylauncher = awful.widget.launcher({ image = home .. "/.local/images/arch-centre.png",
                                      menu = mymainmenu })
 
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- menubar configuration
+menubar.utils.terminal = terminal -- set the terminal for applications that require it
 -- }}}
 
 -- {{{ Tag
@@ -97,14 +97,14 @@ end)
 
 -- {{{ Wibar
 
--- Create a textclock widget
+-- create a textclock widget
 mytextclock = wibox.widget.textclock()
 
 screen.connect_signal("request::wallpaper", function(s)
-    -- Wallpaper
+    -- wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
+        -- if wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
@@ -113,15 +113,15 @@ screen.connect_signal("request::wallpaper", function(s)
 end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
-    -- Each screen has its own tag table.
+    -- each screen has its own tag table.
     awful.tag({ '', '', '', '', '', '', '', '', '' }, s, awful.layout.layouts[1])
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-    -- Create a promptbox for each screen
+    -- create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
 
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
+    -- create an imagebox widget which will contain an icon indicating which layout we're using.
+    -- we need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox {
         screen  = s,
         buttons = {
@@ -132,7 +132,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
-    -- Create a taglist widget
+    -- create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
@@ -154,7 +154,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
-    -- Create a tasklist widget
+    -- create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
@@ -168,20 +168,20 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
-    -- Create the wibox
+    -- create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    -- Add widgets to the wibox
+    -- add widgets to the wibox
     s.mywibox.widget = {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets
+        { -- left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
+        s.mytasklist, -- middle widget
+        { -- right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             mytextclock,
@@ -201,7 +201,7 @@ awful.mouse.append_global_mousebindings({
 
 -- {{{ Key bindings
 
--- General Awesome keys
+-- general awesome keys
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -225,17 +225,17 @@ awful.keyboard.append_global_keybindings({
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
               {description = "open a browser", group = "launcher"}),
-    awful.key({ modkey },            "r",     function () awful.spawn("rofi -show run -modi run") end,
+    awful.key({ modkey },            "r",     function () awful.spawn(home .. "/.config/rofi/bin/launcher_run") end,
               {description = "run prompt", group = "launcher"}),
-    awful.key({ modkey }, "p", function() awful.spawn(home .. "/.config/rofi/launchers/misc/launcher.sh") end,
+    awful.key({ modkey }, "p", function() awful.spawn(home .. "/.config/rofi/bin/launcher_misc") end,
               {description = "show the app launcher", group = "launcher"}),
 })
 
 -- launcher keybinds
 awful.keyboard.append_global_keybindings({
-    awful.key({ modkey, "Control" }, "l", function() awful.spawn(home .. "/.config/rofi/powermenu/powermenu.sh") end,
+    awful.key({ modkey, "Control" }, "l", function() awful.spawn(home .. "/.config/rofi/bin/powermenu") end,
               {description = "show the power menu", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "s", function() awful.spawn(home .. "/.config/rofi/launchers/text/ssh.sh") end,
+    awful.key({ "Shift", "Mod1" }, "s", function() awful.spawn(home .. "/.config/rofi/bin/launcher_ssh") end,
               {description = "open ssh launcher", group = "launcher"}),
     awful.key({ "Shift", "Mod1" }, "m", function() awful.spawn(terminal .. " -e " .. home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
               {description = "open resource monitor", group = "launcher"}),
@@ -263,7 +263,7 @@ awful.keyboard.append_global_keybindings({
               {description = "screenshot with selection", group = "screenshot"}),
 })
 
--- Tags related keybindings
+-- tags related keybindings
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
@@ -273,7 +273,7 @@ awful.keyboard.append_global_keybindings({
               {description = "go back", group = "tag"}),
 })
 
--- Focus related keybindings
+-- focus related keybindings
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey,           }, "j",
         function ()
@@ -310,7 +310,7 @@ awful.keyboard.append_global_keybindings({
               {description = "restore minimized", group = "client"}),
 })
 
--- Layout related keybindings
+-- layout related keybindings
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -441,7 +441,7 @@ client.connect_signal("request::default_keybindings", function()
                 {description = "toggle keep on top", group = "client"}),
         awful.key({ modkey,           }, "n",
             function (c)
-                -- The client currently has the input focus, so it cannot be
+                -- the client currently has the input focus, so it cannot be
                 -- minimized, since minimized clients can't have the focus.
                 c.minimized = true
             end ,
@@ -470,9 +470,9 @@ end)
 -- }}}
 
 -- {{{ Rules
--- Rules to apply to new clients.
+-- rules to apply to new clients.
 ruled.client.connect_signal("request::rules", function()
-    -- All clients will match this rule.
+    -- all clients will match this rule.
     ruled.client.append_rule {
         id         = "global",
         rule       = { },
@@ -484,7 +484,7 @@ ruled.client.connect_signal("request::rules", function()
         }
     }
 
-    -- Floating clients.
+    -- floating clients.
     ruled.client.append_rule {
         id       = "floating",
         rule_any = {
@@ -493,28 +493,28 @@ ruled.client.connect_signal("request::rules", function()
                 "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv",
                 "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer"
             },
-            -- Note that the name property shown in xprop might be set slightly after creation of the client
+            -- note that the name property shown in xprop might be set slightly after creation of the client
             -- and the name shown there might not match defined rules here.
             name    = {
                 "Event Tester",  -- xev.
             },
             role    = {
-                "AlarmWindow",    -- Thunderbird's calendar.
-                "ConfigManager",  -- Thunderbird's about:config.
-                "pop-up",         -- e.g. Google Chrome's (detached) Developer Tools.
+                "AlarmWindow",    -- thunderbird's calendar.
+                "ConfigManager",  -- thunderbird's about:config.
+                "pop-up",         -- e.g. google chrome's (detached) developer tools.
             }
         },
         properties = { floating = true }
     }
 
-    -- Add titlebars to normal clients and dialogs
+    -- add titlebars to normal clients and dialogs
     ruled.client.append_rule {
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
         properties = { titlebars_enabled = false      }
     }
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
+    -- set firefox to always map on the tag named "2" on screen 1.
     -- ruled.client.append_rule {
     --     rule       = { class = "Firefox"     },
     --     properties = { screen = 1, tag = "2" }
@@ -524,7 +524,7 @@ end)
 -- }}}
 
 -- {{{ Titlebars
--- Add a titlebar if titlebars_enabled is set to true in the rules.
+-- add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = {
@@ -537,20 +537,20 @@ client.connect_signal("request::titlebars", function(c)
     }
 
     awful.titlebar(c).widget = {
-        { -- Left
+        { -- left
             awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
-        { -- Middle
-            { -- Title
+        { -- middle
+            { -- title
                 align  = "center",
                 widget = awful.titlebar.widget.titlewidget(c)
             },
             buttons = buttons,
             layout  = wibox.layout.flex.horizontal
         },
-        { -- Right
+        { -- right
             awful.titlebar.widget.floatingbutton (c),
             awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton   (c),
@@ -565,7 +565,7 @@ end)
 -- {{{ Notifications
 
 ruled.notification.connect_signal('request::rules', function()
-    -- All notifications will match this rule.
+    -- all notifications will match this rule.
     ruled.notification.append_rule {
         rule       = { },
         properties = {
@@ -581,7 +581,7 @@ end)
 
 -- }}}
 
--- Enable sloppy focus, so that focus follows mouse.
+-- enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
