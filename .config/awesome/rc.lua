@@ -495,7 +495,8 @@ ruled.client.connect_signal("request::rules", function()
             raise     = true,
             screen    = awful.screen.preferred,
             placement = awful.placement.no_overlap+awful.placement.no_offscreen
-        }
+        },
+        callback = awful.client.setslave,
     }
 
     -- floating clients.
