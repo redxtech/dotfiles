@@ -10,6 +10,3 @@
 [submodule ".config/awesome/bling"]
 	path = .config/awesome/bling
 	url = git@github.com:BlingCorp/bling.git
-[submodule ".config/awesome/lain"]
-	path = .config/awesome/lain
-	url = git@github.com:lcpz/lain.git
