@@ -21,6 +21,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- modules
+local assault = require("deps.assault")
+local capture = require("deps.capture")
+
 -- {{{ Error handling
 -- check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -181,6 +185,27 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- create a systray widget
     s.systray = wibox.widget.systray()
 
+    -- create right widgets list
+    s.r_widgets = { -- right widgets
+        layout = wibox.layout.fixed.horizontal,
+        s.systray,
+    }
+
+    -- laptop specific widgets
+    local hostname = capture("hostname")
+    if (hostname == "laptop") then
+      -- create a battery widget
+      s.myassault = assault({
+        critical_level = 0.15
+      })
+      -- add it to the widgets
+      table.insert(s.r_widgets, s.myassault)
+    end
+
+    -- add default widgets
+    table.insert(s.r_widgets, mytextclock)
+    table.insert(s.r_widgets, s.mylayoutbox)
+
     -- create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -194,12 +219,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mypromptbox,
         },
         s.mytasklist, -- middle widget
-        { -- right widgets
-            layout = wibox.layout.fixed.horizontal,
-            s.systray,
-            mytextclock,
-            s.mylayoutbox,
-        },
+        s.r_widgets,  -- right widgets
     }
 end)
 -- }}}
