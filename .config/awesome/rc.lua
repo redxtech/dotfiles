@@ -178,7 +178,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
     -- create a systray widget
     s.systray = wibox.widget.systray()
-    s.systray.visible = false
 
     -- create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
