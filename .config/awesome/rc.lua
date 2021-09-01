@@ -258,6 +258,8 @@ awful.keyboard.append_global_keybindings({
               {description = "open resource monitor", group = "launcher"}),
     awful.key({ "Shift", "Mod1" }, "p", function() awful.spawn("plexmediaplayer") end,
               {description = "open media player", group = "launcher"}),
+    awful.key({ "Shift", "Mod1" }, "d", function() awful.spawn("discord") end,
+              {description = "open discord", group = "launcher"}),
 })
 
 -- system keybinds
@@ -543,6 +545,15 @@ ruled.client.connect_signal("request::rules", function()
         rule       = { class = "Vivaldi-stable"     },
         properties = {
           tag = screen[1].tags[2],
+          switch_to_tags = true,
+        }
+    }
+
+    -- set discord to always map to 3rd tag on 1st screen
+    ruled.client.append_rule {
+        rule       = { class = "discord"           },
+        properties = {
+          tag = screen[1].tags[3],
           switch_to_tags = true,
         }
     }
