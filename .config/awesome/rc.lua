@@ -292,12 +292,12 @@ awful.keyboard.append_global_keybindings({
 
 -- media & volume keybinds
 awful.keyboard.append_global_keybindings({
-  awful.key({}, "XF86AudioPlay",        function() awful.util.spawn("playerctl play-pause",                 false) end),
-  awful.key({}, "XF86AudioNext",        function() awful.util.spawn("playerctl next",                       false) end),
-  awful.key({}, "XF86AudioPrev",        function() awful.util.spawn("playerctl previous",                   false) end),
-  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -q -D pulse sset Master 5%-",   false) end),
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -q -D pulse sset Master 5%+",   false) end),
-  awful.key({}, "XF86AudioMute",        function() awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
+  awful.key({}, "XF86AudioPlay",        function() awful.util.spawn("playerctl play-pause",             false) end),
+  awful.key({}, "XF86AudioNext",        function() awful.util.spawn("playerctl next",                   false) end),
+  awful.key({}, "XF86AudioPrev",        function() awful.util.spawn("playerctl previous",               false) end),
+  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl -- set-sink-volume 0 -5%",   false) end),
+  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl -- set-sink-volume 0 +5%",   false) end),
+  awful.key({}, "XF86AudioMute",        function() awful.util.spawn("pactl -- set-sink-mute 0 toggle",  false) end),
 })
 
 -- screenshot keybinds
