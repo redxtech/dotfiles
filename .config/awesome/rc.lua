@@ -300,6 +300,13 @@ awful.keyboard.append_global_keybindings({
   awful.key({}, "XF86AudioMute",        function() awful.util.spawn("pactl -- set-sink-mute 0 toggle",  false) end),
 })
 
+-- brightness function keys
+-- TODO: find command that actually works
+awful.keyboard.append_global_keybindings({
+  awful.key({}, "XF86MonBrightnessDown",function() awful.util.spawn("light -U 5",                       false) end),
+  awful.key({}, "XF86MonBrightnessUp",  function() awful.util.spawn("light -A 5",                       false) end),
+})
+
 -- screenshot keybinds
 awful.keyboard.append_global_keybindings({
   awful.key({ }, "Print", function() awful.spawn("flameshot screen -p " .. home .. "/Pictures/Screenshots") end,

@@ -10,3 +10,6 @@
 [submodule ".config/awesome/bling"]
 	path = .config/awesome/bling
 	url = git@github.com:BlingCorp/bling.git
+[submodule ".config/awesome/deps/awesome-wm-widgets"]
+	path = .config/awesome/deps/awesome-wm-widgets
+	url = git@github.com:streetturtle/awesome-wm-widgets.git
