@@ -22,7 +22,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- modules
-local assault = require("deps.assault")
 local capture = require("deps.capture")
 
 -- {{{ Error handling
@@ -195,11 +194,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
   local hostname = capture("hostname")
   if (hostname == "laptop") then
     -- create a battery widget
-    s.myassault = assault({
-      critical_level = 0.15
-    })
+    local battery_widget = require("deps.awesome-wm-widgets.batteryarc-widget.batteryarc")
+    s.mybattery = battery_widget()
+
     -- add it to the widgets
-    table.insert(s.r_widgets, s.myassault)
+    table.insert(s.r_widgets, s.mybattery)
   end
 
   -- add default widgets
