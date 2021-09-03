@@ -12,13 +12,27 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = dofile(themes_path .. "default/theme.lua")
 
--- theme.font          = "sans 8"
+-- colors
+theme.clr = {
+    purple = "#c792ea",
+    blue = "#82aaff",
+    green = "#7cd380",
+    red = '#ff5370',
+    gray = '#8796b0',
+    yellow = '#ffcb8b',
+    pink = '#FF68C4',
+    white = '#8dd1de',
+    cyan = '#88c0d0',
+    orange = '#ffbd2e'
+}
+
+theme.font          = "Inter Nerd Font 10"
 --
--- theme.bg_normal     = "#222222"
+theme.bg_normal     = "#222222"
 -- theme.bg_focus      = "#535d6c"
 -- theme.bg_urgent     = "#ff0000"
 -- theme.bg_minimize   = "#444444"
--- theme.bg_systray    = theme.bg_normal
+theme.bg_systray    = theme.bg_normal
 --
 -- theme.fg_normal     = "#aaaaaa"
 -- theme.fg_focus      = "#ffffff"
@@ -43,15 +57,19 @@ local theme = dofile(themes_path .. "default/theme.lua")
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
+theme.taglist_bg_focus = theme.bg_normal
+theme.taglist_fg_focus = theme.clr.green
+theme.taglist_fg_occupied = "#ffffff"
+-- theme.taglist_fg_occupied = theme.clr.blue
 
 -- Generate taglist squares:
--- local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    -- taglist_square_size, theme.fg_normal
--- )
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    -- taglist_square_size, theme.fg_normal
--- )
+local taglist_square_size = dpi(0)
+theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+    taglist_square_size, theme.fg_normal
+)
+theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+    taglist_square_size, theme.fg_normal
+)
 
 -- Variables set for theming notifications:
 -- notification_font
