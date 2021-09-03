@@ -11,6 +11,8 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- theme handling library
 local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 -- notification library
 local naughty = require("naughty")
 -- declarative object management
@@ -53,7 +55,7 @@ modkey = "Mod4"
 theme_name = "default"
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/" .. theme_name .. "/theme.lua")
 
-beautiful.useless_gap = 10
+beautiful.useless_gap = dpi(10)
 beautiful.wallpaper = home .. "/.config/wall.png"
 
 -- bling
@@ -175,7 +177,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
       awful.button({ }, 1, function (c)
         c:activate { context = "tasklist", action = "toggle_minimization" }
       end),
-      awful.button({ }, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
+      awful.button({ }, 3, function() awful.menu.client_list { theme = { width = dpi(250) } } end),
       awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
       awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
     }
@@ -211,7 +213,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
   table.insert(s.r_widgets, s.mylayoutbox)
 
   -- create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.mywibox = awful.wibar({
+    position = "top",
+    screen = s,
+    height = dpi(30),
+    opacity = 0.8
+  })
 
   -- add widgets to the wibox
   s.mywibox.widget = {
