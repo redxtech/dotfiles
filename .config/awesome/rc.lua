@@ -184,10 +184,15 @@ screen.connect_signal("request::desktop_decoration", function(s)
   -- create a systray widget
   s.systray = wibox.widget.systray()
 
+  -- create cpu widget
+  local cpu_widget = require("deps.awesome-wm-widgets.cpu-widget.cpu-widget")
+  s.mycpu = cpu_widget()
+
   -- create right widgets list
   s.r_widgets = { -- right widgets
     layout = wibox.layout.fixed.horizontal,
     s.systray,
+    s.mycpu,
   }
 
   -- laptop specific widgets
