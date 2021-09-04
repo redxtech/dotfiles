@@ -1,8 +1,10 @@
 -- awesome_mode: api-level=4:screen=on
+-- vim:fdm=marker
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+-- {{{ Dependencies
 -- standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -25,6 +27,7 @@ require("awful.hotkeys_popup.keys")
 
 -- modules
 local capture = require("deps.capture")
+-- }}}
 
 -- {{{ Error handling
 -- check if awesome encountered an error during startup and fell back to
@@ -52,14 +55,14 @@ home = os.getenv("HOME")
 modkey = "Mod4"
 
 -- themes define colours, icons, font and wallpapers.
-theme_name = "default"
+theme_name = "dots"
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/" .. theme_name .. "/theme.lua")
 
-beautiful.useless_gap = dpi(10)
 beautiful.wallpaper = home .. "/.config/wall.png"
 
 -- bling
 local bling = require("bling")
+
 -- }}}
 
 -- {{{ Menu
@@ -110,7 +113,7 @@ tag.connect_signal("request::default_layouts", function()
 end)
 -- }}}
 
--- {{{ Wibar
+-- Widgets {{{
 
 -- create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -130,7 +133,6 @@ end)
 screen.connect_signal("request::desktop_decoration", function(s)
   -- each screen has its own tag table.
   awful.tag({ '', '', '', '', '', '', '', '', '' }, s, awful.layout.layouts[1])
-  -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
   -- create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
