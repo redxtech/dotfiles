@@ -1,11 +1,11 @@
 ---------------------------
--- Default awesome theme --
+-- My awesome theme --
 ---------------------------
 
 local theme_assets = require("beautiful.theme_assets")
-local xresources = require("beautiful.xresources")
+local dpi = require("beautiful.xresources").apply_dpi
 local rnotification = require("ruled.notification")
-local dpi = xresources.apply_dpi
+local naughty = require("naughty")
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
@@ -14,36 +14,93 @@ local theme = dofile(themes_path .. "default/theme.lua")
 
 -- colors
 theme.clr = {
-    purple = "#c792ea",
-    blue = "#82aaff",
-    green = "#7cd380",
-    red = '#ff5370',
-    gray = '#8796b0',
-    yellow = '#ffcb8b',
-    pink = '#FF68C4',
-    white = '#8dd1de',
-    cyan = '#88c0d0',
-    orange = '#ffbd2e'
+    purple      = "#c792ea",
+    blue        = "#82aaff",
+    green       = "#7cd380",
+    red         = "#ff5370",
+    gray        = "#8796b0",
+    yellow      = "#ffcb8b",
+    pink        = "#FF68C4",
+    white       = "#8dd1de",
+    cyan        = "#88c0d0",
+    orange      = "#ffbd2e",
+    black       = "#000000",
+    dark_gray   = "#424760",
+    pure_white  = "#ffffff"
 }
 
-theme.font          = "Inter Nerd Font 10"
---
-theme.bg_normal     = "#222222"
--- theme.bg_focus      = "#535d6c"
--- theme.bg_urgent     = "#ff0000"
--- theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
---
--- theme.fg_normal     = "#aaaaaa"
--- theme.fg_focus      = "#ffffff"
--- theme.fg_urgent     = "#ffffff"
--- theme.fg_minimize   = "#ffffff"
---
--- theme.useless_gap         = dpi(0)
--- theme.border_width        = dpi(1)
--- theme.border_color_normal = "#000000"
--- theme.border_color_active = "#535d6c"
--- theme.border_color_marked = "#91231c"
+-- fonts
+local font = "Inter Nerd Font"
+theme.font              = font .. " 10"
+theme.icon_font         = font .. " 14"
+theme.taglist_font      = font .. " 14"
+theme.widget_font       = font .. " 10"
+theme.notification_font = font .. " 10"
+theme.tasklist_font     = font .. " 10"
+
+-- forground colours
+-- theme.fg_normal         = "#424760"
+-- theme.fg_focus          = '#a6accd'
+-- theme.fg_urgent         = '#424760'
+
+-- background colours
+theme.bg_normal         = "#1e222a"
+theme.bg_focus          = "#121622"
+theme.bg_urgent         = "#081218"
+theme.bg_light          = "#2c3038"
+theme.bg_minimize       = theme.bg_light
+theme.bg_systray        = theme.bg_light
+
+-- taglist colours
+theme.taglist_fg_focus  = theme.clr.green
+theme.taglist_fg_occupied = theme.clr.pure_white
+theme.taglist_fg_empty  = theme.clr.dark_gray
+theme.taglist_fg_urgent = theme.clr.red
+theme.taglist_bg_focus  = theme.bg_light
+theme.taglist_bg_urgent = theme.bg_normal
+
+-- tasklist config stuff
+theme.tasklist_bg_normal = '#181828'
+theme.tasklist_bg_focus = '#1f1f2f'
+theme.tasklist_bg_urgent = '#1b1b2b'
+-- theme.tasklist_plain_task_name = false
+-- theme.tasklist_disable_icon = false
+
+-- gaps & borders
+theme.useless_gap       = dpi(10)
+theme.gap_single_client = true
+theme.border_width      = dpi(2)
+theme.border_normal     = theme.clr.black
+theme.border_focus      = theme.clr.cyan
+theme.border_marked     = theme.clr.red
+
+-- notifications
+theme.notification_fg   = "#a6accd"
+theme.notification_bg   = "#121622"
+theme.notification_opacity = 0.8
+theme.notification_border_color = theme.clr.cyan
+
+naughty.config.padding = dpi(8)
+naughty.config.defaults = {
+    timeout = 5,
+    text = "",
+    ontop = true,
+    position = "top_right",
+    margin = dpi(10),
+}
+
+-- set different colors for urgent notifications.
+rnotification.connect_signal('request::rules', function()
+    rnotification.append_rule {
+        rule       = {
+            urgency = 'critical'
+        },
+        properties = {
+            bg = theme.clr.red, 
+            fg = theme.clr.pure_white
+        }
+    }
+end)
 
 -- There are other variable sets
 -- overriding the default one when
@@ -55,12 +112,6 @@ theme.bg_systray    = theme.bg_normal
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
-theme.taglist_bg_focus = theme.bg_normal
-theme.taglist_fg_focus = theme.clr.green
-theme.taglist_fg_occupied = "#ffffff"
--- theme.taglist_fg_occupied = theme.clr.blue
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(0)
@@ -118,24 +169,6 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 --
 -- theme.wallpaper = themes_path.."default/background.png"
 
--- You can use your own layout icons like this:
--- theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
--- theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
--- theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
--- theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
--- theme.layout_max = themes_path.."default/layouts/maxw.png"
--- theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
--- theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
--- theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
--- theme.layout_tile = themes_path.."default/layouts/tilew.png"
--- theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
--- theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
--- theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
--- theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
--- theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
--- theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
--- theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
-
 -- Generate Awesome icon:
 -- theme.awesome_icon = theme_assets.awesome_icon(
     -- theme.menu_height, theme.bg_focus, theme.fg_focus
@@ -145,13 +178,6 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 -- theme.icon_theme = nil
 
--- Set different colors for urgent notifications.
--- rnotification.connect_signal('request::rules', function()
-    -- rnotification.append_rule {
-        -- rule       = { urgency = 'critical' },
-        -- properties = { bg = '#ff0000', fg = '#ffffff' }
-    -- }
--- end)
 
 return theme
 
