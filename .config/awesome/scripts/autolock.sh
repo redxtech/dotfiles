@@ -3,7 +3,9 @@
 # lock the screen after 10 mins
 main () {
   if ! pgrep -f "xautolock"; then
-    xautolock -locker "betterlockscreen -l dimblur"
+    xautolock \
+      -corners ++-- \
+      -locker "betterlockscreen -l dimblur"
   fi
 }
 
