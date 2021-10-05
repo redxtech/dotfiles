@@ -47,12 +47,13 @@ awful.spawn.with_shell("~/.config/awesome/scripts/autorun.sh")
 
 -- {{{ Variable & theme definitions
 -- this is used later as the default terminal and editor to run.
-terminal = "kitty"
-editor = "nvim"
-editor_cmd = terminal .. " -e " .. editor
-browser = "vivaldi-stable"
-home = os.getenv("HOME")
-modkey = "Mod4"
+terminal    = "kitty"
+editor      = "nvim"
+editor_cmd  = terminal .. " -e " .. editor
+browser     = "vivaldi-stable"
+home        = os.getenv("HOME")
+modkey      = "Mod4"
+altmod      = { "Shift", "Mod1" }
 
 -- themes define colours, icons, font and wallpapers.
 theme_name = "dots"
@@ -281,17 +282,17 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey, "Control" }, "l", function() awful.spawn(home .. "/.config/rofi/bin/powermenu") end,
               {description = "show the power menu", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "s", function() awful.spawn(home .. "/.config/rofi/bin/launcher_ssh") end,
+    awful.key( altmod, "s", function() awful.spawn(home .. "/.config/rofi/bin/launcher_ssh") end,
               {description = "open ssh launcher", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "m", function() awful.spawn(terminal .. " -e " .. home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
+    awful.key( altmod, "m", function() awful.spawn(terminal .. " -e " .. home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
               {description = "open resource monitor", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "f", function() awful.spawn(terminal .. " -e ranger") end,
+    awful.key( altmod, "f", function() awful.spawn(terminal .. " -e ranger") end,
               {description = "open resource monitor", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "u", function() awful.spawn(terminal .. " -e zsh -c \"pacaur -Syu; echo Done - Press enter to exit; read\"") end,
+    awful.key( altmod, "u", function() awful.spawn(terminal .. " -e zsh -c \"pacaur -Syu; echo Done - Press enter to exit; read\"") end,
               {description = "open resource monitor", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "p", function() awful.spawn("plexmediaplayer") end,
+    awful.key( altmod, "p", function() awful.spawn("plexmediaplayer") end,
               {description = "open media player", group = "launcher"}),
-    awful.key({ "Shift", "Mod1" }, "d", function() awful.spawn("discord") end,
+    awful.key( altmod, "d", function() awful.spawn("discord") end,
               {description = "open discord", group = "launcher"}),
 })
 
@@ -308,9 +309,19 @@ awful.keyboard.append_global_keybindings({
   awful.key({}, "XF86AudioPlay",        function() awful.util.spawn("playerctl play-pause",             false) end),
   awful.key({}, "XF86AudioNext",        function() awful.util.spawn("playerctl next",                   false) end),
   awful.key({}, "XF86AudioPrev",        function() awful.util.spawn("playerctl previous",               false) end),
-  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl -- set-sink-volume 0 -5%",   false) end),
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl -- set-sink-volume 0 +5%",   false) end),
-  awful.key({}, "XF86AudioMute",        function() awful.util.spawn("pactl -- set-sink-mute 0 toggle",  false) end),
+  awful.key({}, "XF86AudioLowerVolume", function()
+    -- awful.util.spawn("pactl -- set-sink-volume 0 -5%",   false)
+    awful.util.spawn("pamixer -d 5",   false)
+    beautiful.update_volume()
+  end),
+  awful.key({}, "XF86AudioRaiseVolume", function()
+    awful.util.spawn("pamixer -i +5",   false)
+    beautiful.update_volume()
+  end),
+  awful.key({}, "XF86AudioMute",        function()
+    awful.util.spawn("pamixer -t",  false)
+    beautiful.update_volume()
+  end),
 })
 
 -- brightness function keys
