@@ -27,6 +27,7 @@ require("awful.hotkeys_popup.keys")
 
 -- modules
 local capture = require("deps.capture")
+local file_exists = require("deps.file_exists")
 -- }}}
 
 -- {{{ Error handling
@@ -60,6 +61,18 @@ theme_name = "dots"
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/" .. theme_name .. "/theme.lua")
 
 beautiful.wallpaper = home .. "/.config/wall.png"
+
+screen.connect_signal("request::wallpaper", function(s)
+  -- wallpaper
+  if beautiful.wallpaper then
+    local wallpaper = beautiful.wallpaper
+    -- if wallpaper is a function, call it with the screen
+    if type(wallpaper) == "function" then
+      wallpaper = wallpaper(s)
+    end
+    gears.wallpaper.maximized(wallpaper, s, true)
+  end
+end)
 
 -- bling
 local bling = require("bling")
@@ -116,20 +129,99 @@ end)
 
 -- Widgets {{{
 
--- create a textclock widget
-mytextclock = wibox.widget.textclock()
-
-screen.connect_signal("request::wallpaper", function(s)
-  -- wallpaper
-  if beautiful.wallpaper then
-    local wallpaper = beautiful.wallpaper
-    -- if wallpaper is a function, call it with the screen
-    if type(wallpaper) == "function" then
-      wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.maximized(wallpaper, s, true)
-  end
+-- cpu usage
+local cpuicon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'"> </span>', beautiful.clr.blue)
+)
+local cpu = awful.widget.watch([[bash -c "echo `top -b -n1 | grep \"Cpu(s)\" | awk '{print $2 + $4}'`%"]], 3, function(widget, stdout)
+		widget:set_markup('<span color="'..beautiful.clr.blue..'" font="'..beautiful.widget_font..'"> ' ..stdout.."%</span> ")
 end)
+
+-- cpu temperature
+local tempicon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'"> </span>', beautiful.clr.yellow)
+)
+local temp = awful.widget.watch([[bash -c "echo `cat /sys/devices/virtual/thermal/thermal_zone0/temp | awk '{print $1 / 1000}'` °C"]], 5, function(widget, stdout)
+		widget:set_markup('<span color="'..beautiful.clr.yellow..'" font="'..beautiful.widget_font..'"> ' ..stdout.."%</span> ")
+end)
+
+-- mem
+local memicon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'"> </span>', beautiful.clr.pink)
+)
+local mem = awful.widget.watch([[bash -c "echo `free -m | grep Mem | awk '{print $3}'` MiB"]], 3, function(widget, stdout)
+		widget:set_markup('<span color="'..beautiful.clr.pink..'" font="'..beautiful.widget_font..'"> ' ..stdout.."%</span> ")
+end)
+
+-- battery
+local batfile = "/sys/class/power_supply/BAT0/capacity"
+local baticon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'">  </span>', beautiful.clr.green)
+)
+local bat = awful.widget.watch([[bash -c "echo $(cat ]] ..batfile.. [[)%"]], 60, function(widget, stdout)
+		widget:set_markup('<span color="'..beautiful.clr.green..'" font="'..beautiful.widget_font..'"> ' ..stdout.."%</span> ")
+end)
+
+-- clock
+local clockicon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'"> </span>', beautiful.clr.purple)
+)
+local clock = wibox.widget.textclock(
+	'<span font="'..beautiful.widget_font..'" color="'..beautiful.clr.purple..'"> %R</span>'
+)
+
+-- volume control
+local vol = wibox.widget {
+		max_value     = 100,
+		value         = 25,
+		forced_width  = 100,
+		forced_height = 2,
+		border_width  = 2,
+		color         = beautiful.clr.cyan,
+		background_color = "#565c64",
+		shape     = gears.shape.rounded_bar,
+		margins       = {
+				top    = 8,
+				bottom = 8,
+		},
+		widget        = wibox.widget.progressbar,
+}
+local volicon = wibox.widget.textbox(
+	string.format('<span color="%s" font="'..beautiful.icon_font..'">墳 </span>', beautiful.clr.cyan)
+)
+beautiful.update_volume = function()
+  awful.spawn.easy_async_with_shell([[
+    printf "%s" $(pamixer --get-mute)]], function(stdout)
+    if stdout == "true\n" then
+			volicon:set_markup('<span color="'..beautiful.clr.cyan..'" font="'..beautiful.icon_font..'">婢 </span>')
+    end
+    awful.spawn.easy_async_with_shell([[
+      printf "%s" $(pamixer --get-volume)]], function(stdout2)
+      if stdout2 == "0%" then
+        if stdout == "false\n" then
+          volicon:set_markup('<span color="'..beautiful.clr.cyan..'" font="'..beautiful.icon_font..'"> </span>')
+        end
+        vol:set_markup('<span color="'..beautiful.clr.cyan..'" font="'..beautiful.widget_font..'"> '..stdout2.."</span> ")
+      else
+        if stdout == "false\n" then
+          volicon:set_markup('<span color="'..beautiful.clr.cyan..'" font="'..beautiful.icon_font..'">墳 </span>')
+        end
+        vol:set_value(tonumber(stdout2))
+      end
+    end)
+  end)
+end
+
+-- TODO: move into connect_signal function and test if updates immediately
+beautiful.update_volume()
+
+-- separators
+local spr = wibox.widget.textbox('     ')
+local half_spr = wibox.widget.textbox('  ')
+
+-- }}}
+
+-- {{{ Wibar
 
 screen.connect_signal("request::desktop_decoration", function(s)
   -- each screen has its own tag table.
@@ -186,34 +278,108 @@ screen.connect_signal("request::desktop_decoration", function(s)
     }
   }
 
-  -- create a systray widget
-  s.systray = wibox.widget.systray()
-
-  -- create cpu widget
-  local cpu_widget = require("deps.awesome-wm-widgets.cpu-widget.cpu-widget")
-  s.mycpu = cpu_widget()
-
-  -- create right widgets list
-  s.r_widgets = { -- right widgets
-    layout = wibox.layout.fixed.horizontal,
-    s.systray,
-    s.mycpu,
+  s.systray = {
+    {
+      layout = wibox.layout.fixed.horizontal,
+      half_spr,
+      wibox.widget.systray(),
+      half_spr,
+    },
+    bg = beautiful.bg_normal,
+    shape = gears.shape.rounded_bar,
+    widget = wibox.container.background,
+    -- visible = false
   }
 
-  -- laptop specific widgets
-  local hostname = capture("hostname")
-  if (hostname == "laptop") then
-    -- create a battery widget
-    local battery_widget = require("deps.awesome-wm-widgets.batteryarc-widget.batteryarc")
-    s.mybattery = battery_widget()
+  s.mywidgets = {
+    s.systray,
+    half_spr,
+    {
+      {
+        layout = wibox.layout.fixed.horizontal,
+        half_spr,
+        volicon,
+        vol,
+        half_spr,
+      },
+      bg = beautiful.bg_light,
+      shape = gears.shape.rounded_bar,
+      widget = wibox.container.background,
+    },
+    half_spr,
+    {
+      {
+        layout = wibox.layout.fixed.horizontal,
+        half_spr,
+        cpuicon,
+        cpu,
+        half_spr,
+      },
+      bg = beautiful.bg_light,
+      shape = gears.shape.rounded_bar,
+      widget = wibox.container.background,
+    },
+    half_spr,
+    {
+      {
+        layout = wibox.layout.fixed.horizontal,
+        half_spr,
+        tempicon,
+        temp,
+        half_spr,
+      },
+      bg = beautiful.bg_light,
+      shape = gears.shape.rounded_bar,
+      widget = wibox.container.background,
+    },
+    half_spr,
+    {
+      {
+        layout = wibox.layout.fixed.horizontal,
+        half_spr,
+        memicon,
+        mem,
+        half_spr,
+      },
+      bg = beautiful.bg_light,
+      shape = gears.shape.rounded_bar,
+      widget = wibox.container.background,
+    },
+    layout = wibox.layout.fixed.horizontal,
+  }
 
-    -- add it to the widgets
-    table.insert(s.r_widgets, s.mybattery)
+  -- if the battery file exists, add a battery widget
+  if (file_exists(batfile)) then
+    table.insert(s.mywidgets, half_spr)
+    table.insert(s.mywidgets, {
+      {
+        layout = wibox.layout.fixed.horizontal,
+        half_spr,
+        baticon,
+        bat,
+        half_spr,
+      },
+      bg = beautiful.bg_light,
+      shape = gears.shape.rounded_bar,
+      widget = wibox.container.background,
+    })
   end
 
-  -- add default widgets
-  table.insert(s.r_widgets, mytextclock)
-  table.insert(s.r_widgets, s.mylayoutbox)
+  -- insert the end widgets
+  table.insert(s.mywidgets, half_spr)
+  table.insert(s.mywidgets, {
+    {
+      layout = wibox.layout.fixed.horizontal,
+      half_spr,
+      clockicon,
+      clock,
+      half_spr
+    },
+    bg = beautiful.bg_light,
+    shape = gears.shape.rounded_bar,
+    widget = wibox.container.background,
+  })
+  table.insert(s.mywidgets, half_spr)
 
   -- create the wibox
   s.mywibox = awful.wibar({
@@ -227,13 +393,24 @@ screen.connect_signal("request::desktop_decoration", function(s)
   s.mywibox.widget = {
     layout = wibox.layout.align.horizontal,
     { -- left widgets
-      layout = wibox.layout.fixed.horizontal,
-      mylauncher,
-      s.mytaglist,
-      s.mypromptbox,
+      widget = wibox.container.margin,
+      {
+        layout = wibox.layout.fixed.horizontal,
+        {
+          -- mylauncher,
+          s.mytaglist,
+          s.mypromptbox,
+          bg = beautiful.bg_light,
+          shape = gears.shape.rounded_bar,
+          widget = wibox.container.background,
+        }
+      }
     },
     s.mytasklist, -- middle widget
-    s.r_widgets,  -- right widgets
+		{
+			s.mywidgets,
+			widget = wibox.container.margin,
+		},
   }
 end)
 -- }}}
