@@ -251,7 +251,7 @@ fi
 # =====================================================================================
 
 # symlink to ~/.config/wall
-ln -sf "$3" "$HOME/.config/wall.png"
+ln -sfT "$3" "$HOME/.config/wall.png"
 
 # run pywal
 sh ~/.local/bin/pywal
