@@ -471,6 +471,8 @@ awful.keyboard.append_global_keybindings({
               {description = "open media player", group = "launcher"}),
     awful.key( altmod, "d", function() awful.spawn("discord") end,
               {description = "open discord", group = "launcher"}),
+    awful.key( altmod, "a", function() awful.spawn("authy") end,
+              {description = "open authenticator", group = "launcher"}),
 })
 
 -- system keybinds
