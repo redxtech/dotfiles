@@ -8,6 +8,9 @@ alias grep="grep --color"
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
+# reload the session
+alias src="exec zsh"
+
 # fix hors engine
 alias hors="hors -e google"
 

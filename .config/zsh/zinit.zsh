@@ -50,7 +50,6 @@ zinit wait lucid for \
   OMZP::man \
   OMZP::systemd \
   OMZP::transfer \
-  OMZP::zsh_reload \
   redxtech/zsh-fzf-utils \
   wait"2" atload="__kitty_complete" \
     redxtech/zsh-kitty \
