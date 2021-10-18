@@ -789,11 +789,35 @@ ruled.client.connect_signal("request::rules", function()
   }
 
   -- set plex to always map on the second tag on screen 2 (if exists)
-  if (#screen > 1) then
+  if (screen:count() > 1) then
     ruled.client.append_rule {
       rule       = { class = "plexmediaplayer"     },
       properties = {
+        tag = screen[2].tags[3],
+        switch_to_tags = true,
+      }
+    }
+
+    ruled.client.append_rule {
+      rule       = { class = "spotify"     },
+      properties = {
         tag = screen[2].tags[2],
+        switch_to_tags = true,
+      }
+    }
+  else
+    ruled.client.append_rule {
+      rule       = { class = "plexmediaplayer"     },
+      properties = {
+        tag = screen[1].tags[4],
+        switch_to_tags = true,
+      }
+    }
+
+    ruled.client.append_rule {
+      rule       = { class = "spotify"     },
+      properties = {
+        tag = screen[1].tags[4],
         switch_to_tags = true,
       }
     }
