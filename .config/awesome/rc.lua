@@ -385,7 +385,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
   s.mywibox = awful.wibar({
     position = "top",
     screen = s,
-    height = dpi(30),
+    height = dpi(25),
     opacity = 0.8
   })
 
