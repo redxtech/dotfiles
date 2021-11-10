@@ -461,7 +461,7 @@ awful.keyboard.append_global_keybindings({
               {description = "show the power menu", group = "launcher"}),
     awful.key( altmod, "s", function() awful.spawn(home .. "/.config/rofi/bin/launcher_ssh") end,
               {description = "open ssh launcher", group = "launcher"}),
-    awful.key( altmod, "m", function() awful.spawn(terminal .. " -e " .. home .. "/.zinit/plugins/ClementTsang---bottom/btm") end,
+    awful.key( altmod, "m", function() awful.spawn(terminal .. " -e " .. "btop") end,
               {description = "open resource monitor", group = "launcher"}),
     awful.key( altmod, "f", function() awful.spawn(terminal .. " -e ranger") end,
               {description = "open resource monitor", group = "launcher"}),
