@@ -13,12 +13,12 @@ sudo pacman -S \
   zsh
 
 # pull in yadm for dotfiles
-curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
-chmod a+x /usr/local/bin/yadm
+sudo curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
+sudo chmod a+x /usr/local/bin/yadm
 
 # clone in the dotfiles
 /usr/local/bin/yadm clone git@github.com:redxtech/dotfiles.git
 
 # remove the yadm binary
-rm /usr/local/bin/yadm
+sudo rm /usr/local/bin/yadm
 
