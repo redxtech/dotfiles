@@ -64,7 +64,7 @@ zinit wait lucid for \
   voronkovich/gitignore.plugin.zsh \
   zpm-zsh/ssh
 
-# can't load this one in turbo mode
+# can't load this one in turbo mode, abbr is used in aliases.zsh
 zinit light olets/zsh-abbr
 
 # distro specific plugins
