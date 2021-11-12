@@ -13,6 +13,7 @@ packages:
   - gzip
   - htop
   - jq
+  - keychain
   - lsof
   - neofetch
   - neovim
