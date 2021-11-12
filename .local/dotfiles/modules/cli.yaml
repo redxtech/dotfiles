@@ -34,6 +34,6 @@ packages:
   - tree
   - ucollage
   - youtube-dl
-  - xlcip
+  - xclip
 npm:
   - speed-test
