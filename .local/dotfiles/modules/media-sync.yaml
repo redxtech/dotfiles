@@ -1,8 +1,0 @@
-name: Media Sync
-packages:
-  - rclone
-  - tmux
-commands:
-  - systemctl --user enable --now media-sync.servide
-  - systemctl --user enable --now media-sync.timer
-

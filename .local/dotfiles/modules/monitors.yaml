@@ -1,3 +1,0 @@
-name: Monitors
-commands:
-  - sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/

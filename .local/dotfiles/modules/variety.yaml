@@ -1,9 +1,0 @@
-name: Variety
-packages:
-  - variety
-  - python-pywal
-  - pywal-discord-git
-pip:
-  - colorz
-  - colorthief
-  - haishoku
