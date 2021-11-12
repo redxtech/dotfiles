@@ -28,5 +28,6 @@ sudo chmod a+x /usr/local/bin/yadm
 /usr/local/bin/yadm clone git@github.com:redxtech/dotfiles.git
 
 # remove the yadm binary
-sudo rm /usr/local/bin/yadm
+ echo remember to remove the yadm binary with:
+ echo sudo rm /usr/local/bin/yadm
 
