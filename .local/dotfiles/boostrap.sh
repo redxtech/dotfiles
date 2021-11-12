@@ -12,6 +12,9 @@ sudo pacman -S \
   vim \
   zsh
 
+# generate new ssh key
+ssh-keygen -t ed25519 -C "gabe@sent.at"
+
 # pull in yadm for dotfiles
 sudo curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
 sudo chmod a+x /usr/local/bin/yadm
