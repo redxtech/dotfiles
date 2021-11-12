@@ -76,7 +76,11 @@ alias excuse-cow="fortune bofh-excuses | cowsay"
 ## abbreviations
 
 # default to session and quiet
-alias abbr="abbr -S --quiet"
+if command -v abbr >/dev/null; then
+  alias abbr="abbr -S --quiet"
+else
+  alias abbr="alias"
+fi
 
 # i often spell yadm as yamd
 abbr yamd="yadm"
