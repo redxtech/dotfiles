@@ -10,6 +10,9 @@ sudo pacman -S \
   htop \
   keychain \
   neovim \
+  nodejs \
+  npm \
+  python \
   vim \
   zsh
 
