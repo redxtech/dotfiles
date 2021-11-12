@@ -23,7 +23,6 @@ zinit skip'cargo-extensions git-open git-recent git-my git-quick-stats git-now g
   annexes \
   console-tools \
   ext-git \
-  fuzzy \
   molovo \
   rust-utils \
   zsh-users+fast
