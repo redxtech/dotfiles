@@ -6,7 +6,9 @@ depends:
   - spotify
 packages:
   - discord
+  - feh
   - plex-media-player
+  - sxiv
   - variety
   - vivaldi
   - vivaldi-ffmpeg-codecs
