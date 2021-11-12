@@ -17,6 +17,9 @@ sudo pacman -S \
 ssh-keygen -t ed25519 -C "gabe@sent.at"
 eval $(keychain --eval id_ed25519)
 
+# wait to add keychain to github
+read -p "Add your ssh key to github, then press enter to continue" </dev/tty
+
 # pull in yadm for dotfiles
 sudo curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
 sudo chmod a+x /usr/local/bin/yadm
