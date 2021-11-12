@@ -49,7 +49,7 @@ export AUTO_NOTIFY_EXPIRE_TIME=10000
 source "$ZSH_CUSTOM/zinit.zsh" 
 
 # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
 
 # source the custom zsh environment
 # shellcheck source=.config/zsh/init.zsh
