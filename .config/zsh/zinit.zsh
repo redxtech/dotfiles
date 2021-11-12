@@ -2,9 +2,9 @@
 
 # install zinit if it isn't already installed
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
   command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
     print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -186,24 +186,24 @@ zinit as"command" wait lucid for \
 # binaries from npm
 zinit wait lucid as"command" nocompletions for \
   node"!add-gitignore" id-as"add-gitignore-bin" \
-    zdharma/null \
+    zdharma-continuum/null \
   node"!gtop" id-as"gtop-bin" \
-    zdharma/null \
+    zdharma-continuum/null \
   node"!mklicense" id-as"mklicense-bin" \
-    zdharma/null \
+    zdharma-continuum/null \
   node"!speed-test" id-as"speed-test-bin" \
-    zdharma/null \
+    zdharma-continuum/null \
   node"!vtop" id-as"vtop-npm" \
-    zdharma/null \
+    zdharma-continuum/null \
   node"!yo" id-as"yeoman-bin" \
-    zdharma/null
+    zdharma-continuum/null
 
 # binaries from pip
 zinit wait lucid as"command" nocompletions for \
   pip"!asciinema" id-as"asciinema-bin" \
-    zdharma/null \
+    zdharma-continuum/null \
   pip"!thefuck" id-as"thefuck-bin" \
-    zdharma/null
+    zdharma-continuum/null
 
 # programs compiled with make
 zinit wait lucid as"command" make"PREFIX=$ZPFX" for \
