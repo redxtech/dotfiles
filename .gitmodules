@@ -4,12 +4,3 @@
 [submodule ".config/ranger/plugins/devicons2"]
 	path = .config/ranger/plugins/devicons2
 	url = https://github.com/cdump/ranger-devicons2
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule ".config/awesome/bling"]
-	path = .config/awesome/bling
-	url = git@github.com:BlingCorp/bling.git
-[submodule ".config/awesome/deps/awesome-wm-widgets"]
-	path = .config/awesome/deps/awesome-wm-widgets
-	url = git@github.com:streetturtle/awesome-wm-widgets.git
