@@ -1,0 +1,9 @@
+name: Pywal
+packages:
+  - python-pywal
+  - pywal-discord-git
+pip:
+  - colorz
+  - colorthief
+  - haishoku
+

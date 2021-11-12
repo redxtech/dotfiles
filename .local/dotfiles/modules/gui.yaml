@@ -1,0 +1,14 @@
+name: GUI
+depends:
+  - base
+  - fonts
+  - pywal
+  - spotify
+packages:
+  - discord
+  - plex-media-player
+  - variety
+  - vivaldi
+  - vivaldi-ffmpeg-codecs
+commands:
+  - sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/

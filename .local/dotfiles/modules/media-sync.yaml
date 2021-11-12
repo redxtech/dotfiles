@@ -1,0 +1,8 @@
+name: Media Sync
+packages:
+  - rclone
+  - tmux
+commands:
+  - systemctl --user enable --not media-sync.service
+  - systemctl --user enable --not media-sync.timer
+

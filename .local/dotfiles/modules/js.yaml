@@ -1,0 +1,7 @@
+name: JS
+packages:
+  - nodejs
+  - npm
+  - yarn
+npm:
+  - speed-test

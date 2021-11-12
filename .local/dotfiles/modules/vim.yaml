@@ -1,0 +1,14 @@
+name: Vim
+packages:
+  - neovim
+  - nodejs
+  - npm
+  - python
+  - python-pip
+  - xclip
+  - yarn
+npm:
+  - neovim
+pip:
+  - pynvim
+

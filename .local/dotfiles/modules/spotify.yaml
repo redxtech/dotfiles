@@ -1,0 +1,6 @@
+name: Spotify
+packages:
+  - spotify
+  - kdocker
+  - playerctl
+  # - papirus icon theme

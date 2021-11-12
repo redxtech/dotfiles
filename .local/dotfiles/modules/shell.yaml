@@ -1,0 +1,9 @@
+name: Shell
+packages:
+  - zsh
+  - dash
+  - dashbinsh
+  - keychain
+  - playerctl
+  - thefuck
+  - tmux

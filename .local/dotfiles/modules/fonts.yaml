@@ -1,0 +1,17 @@
+name: Fonts
+packages:
+  - fontforge
+  - adobe-source-code-pro-fonts
+  - adobe-source-sans-pro-fonts
+  - font-inter
+  - nerd-fonts-fira-code
+  - noto-fonts
+  - otf-fira-sans
+  - ttf-dejavu
+  - ttf-font-awesome
+  - ttf-humor-sans
+  - ttf-ms-fonts
+  - ttf-roboto
+  - ttf-twemoji
+  - ttf-ubuntu-font-family
+  - ttf-weather-icons

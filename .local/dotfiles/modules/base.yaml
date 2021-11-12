@@ -1,0 +1,34 @@
+name: Base Module
+depends:
+  - cli
+  - fortune
+  - js
+packages:
+  - atool
+  - btop
+  - bzip2
+  - ccache
+  - curl
+  - git
+  - gzip
+  - htop
+  - jq
+  - lsof
+  - neofetch
+  - neovim
+  - p7zip
+  - pacman-contrib
+  - pkgstats
+  - python
+  - rclone
+  - tar
+  - transcrypt
+  - unrar
+  - unzip
+  - wget
+  - xz
+  - yadm
+  - zip
+commands:
+  - base-add-herecura.sh
+  - base-configuration.sh

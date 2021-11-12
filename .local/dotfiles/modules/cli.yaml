@@ -1,0 +1,39 @@
+name: CLI
+depends:
+  - ranger
+  - shell
+  - vim
+packages:
+  - bandwhich
+  - bat
+  - diskus
+  - git-delta
+  - exa
+  - fd
+  - fzf
+  - htop
+  - httpie
+  - hub
+  - mediainfo
+  - mktorrent
+  - neofetch
+  - prettyping
+  - procs
+  - progress
+  - ps_mem
+  - rclone
+  - ripgrep
+  - shellcheck
+  - sl
+  - slurm
+  - source-highlight
+  - time
+  - tldr
+  - tokei
+  - tre-command
+  - tree
+  - ucollage
+  - youtube-dl
+  - xlcip
+npm:
+  - speed-test
