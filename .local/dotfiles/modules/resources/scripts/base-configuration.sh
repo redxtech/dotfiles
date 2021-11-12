@@ -2,7 +2,7 @@
 
 main () {
     # passwordless sudo
-    sudo EDITOR="$(which nvim)" visudo
+    sudo EDITOR="$(nvim)" visudo
     
     # remove files that prevent pwless sudo
     local rm_dropins=(
@@ -44,13 +44,6 @@ main () {
         echo "Configure ILoveCandy secret"
         sudo sed -i -e '/# Misc options/a ILoveCandy' /etc/pacman.conf
     fi
-
-    # remove mirrors (random, brazil) from chaotic mirrorlist
-    echo "Editing chaotic-mirrorlist"
-    sudo sed -i \
-        -e 's/^Server = https:\/\/random/# Server = https:\/\/random/' \
-        -e 's/^Server = https:\/\/br-sp/# Server = https:\/\/br-sp/' \
-        /etc/pacman.d/chaotic-mirrorlist
 
     # enable ssh
     echo "Configuring & enabling sshd"
