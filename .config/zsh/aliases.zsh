@@ -20,6 +20,9 @@ alias shit='sudo $(fc -ln -1)'
 # clipboard alias
 alias xclip="xclip -selection c"
 
+# unarchive with atool
+alias expand-dong="aunpack"
+
 # show remaining progress with `sync` command
 alias dirties="watch -d grep -e Dirty: -e Writeback: /proc/meminfo"
 
