@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# wallpaper setting script
+
+usage () {
+  cat<<EOF
+usage:
+  set-wp <path-to-wallpaper>
+EOF
+}
+
+use_nitrogen () {
+  nitrogen --set-auto --head="$1" --save "$2"
+}
+
+main () {
+
+  if ! test -f "$1"; then
+    echo Given path "$1" does not exist!
+    return 1
+  fi
+
+  # get number of monitors
+  local monitor_count="$(xrandr --query | grep '\bconnected\b' | wc -l)"
+
+  # run the wallpaper setter for each monitor
+  i=0
+  while [ "$i" -ne "$monitor_count" ]; do
+    use_nitrogen "$i" "$1" &
+    i=$((i + 1))
+  done
+}
+
+main "$@"
+
