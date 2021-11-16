@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify Docked
+GenericName=Music Player
+Icon=spotify-client
+TryExec=spotify
+Exec=kdocker -q -d 20 -i /usr/share/icons/Papirus-Dark/22x22/apps/spotify-client.svg -n Spotify spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify

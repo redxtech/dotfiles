@@ -1,0 +1,29 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Actions=Configure;Capture;Launcher;
+Categories=Graphics;
+Comment=Powerful yet simple to use screenshot software.
+Exec=flameshot
+GenericName=Screenshot tool
+Icon=org.flameshot.Flameshot
+Keywords=flameshot;screenshot;capture;shutter;
+Name=Flameshot
+StartupNotify=false
+Terminal=false
+TryExec=flameshot
+Type=Application
+X-DBUS-ServiceName=org.flameshot.Flameshot
+X-DBUS-StartupType=Unique
+X-KDE-DBUS-Restricted-Interfaces=org_kde_kwin_effect-screenshot
+
+[Desktop Action Configure]
+Exec=flameshot config
+Name=Configure
+
+[Desktop Action Capture]
+Exec=flameshot gui --delay 500
+Name=Take screenshot
+
+[Desktop Action Launcher]
+Exec=flameshot launcher
+Name=Open launcher
