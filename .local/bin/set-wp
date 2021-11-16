@@ -10,13 +10,15 @@ EOF
 }
 
 use_nitrogen () {
-  nitrogen --set-auto --head="$1" --save "$2"
+  nitrogen --set-auto --head="$1" --save "$2" &
 }
 
 main () {
-
-  if ! test -f "$1"; then
-    echo Given path "$1" does not exist!
+  if test "$1" = "-h"; then
+    usage
+    return 0
+  elif ! test -f "$1"; then
+    echo Given path "\"$1\"" does not exist!
     return 1
   fi
 
