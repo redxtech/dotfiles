@@ -245,7 +245,7 @@ fi
 # As such, the theme's wallpaper will briefly appear before being replaced with Variety's wallpaper.
 if [[ "$XDG_SESSION_DESKTOP $DESKTOP_STARTUP_ID $DESKTOP_SESSION $XDG_CURRENT_DESKTOP" == *"awesome"* ]]; then
 	# echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", nil)" | awesome-client
-  feh --bg-fill --no-fehbg "$WP" 2> /dev/null
+  feh --bg-fill "$WP" 2> /dev/null
 fi
 
 # =====================================================================================
