@@ -49,6 +49,3 @@ bspc config active_border_color         "#073642"
 # Run the autostart script
 sh ~/.config/wm/scripts/autorun.sh
 
-# Bar
-~/.config/polybar/launch.sh &
-

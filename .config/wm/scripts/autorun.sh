@@ -22,6 +22,9 @@ function srun {
 # apply proper monitor layour and sizing
 srun ~/.config/wm/scripts/sreenlayout.sh
 
+# bar
+srun ~/.config/polybar/launch.sh
+
 # notification agent
 run dunst
 
@@ -41,6 +44,21 @@ run picom -b
 run nm-applet --indicator
 run blueman-applet
 
+# user apps
+run discord
+run variety
+run flameshot
+
+# host specific apps
+if test "$(hostname)" = "desktop"; then
+  run qbittorrent
+  run megasync
+  run headset-charge-indicator
+fi
+
+# apps from local desktop files
+drun spotify
+ 
 # cursor
 xsetroot -cursor_name left_ptr &
 
@@ -55,16 +73,3 @@ if test "$(hostname)" = "laptop"; then
   srun ~/.config/awesome/scripts/natural-scrolling.sh
 fi
 
-# user apps
-run discord
-run variety
-
-# host specific apps
-if test "$(hostname)" = "desktop"; then
-  run qbittorrent
-  run megasync
-fi
-
-# apps from local desktop files
-drun spotify
- 
