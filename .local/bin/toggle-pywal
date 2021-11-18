@@ -22,20 +22,38 @@ disable_vim () {
 	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
 }
 
+enable_kitty () {
+	# comment out theme and uncomment wal theme
+	sed -i \
+		-e "s/^include theme.conf/# include theme.conf/" \
+		-e "s/^# include ~\/\.cache\/wal\/colors-kitty\.conf/include ~\/.cache\/wal\/colors-kitty\.conf/" \
+		~/.config/kitty/kitty.conf
+}
+
+disable_kitty () {
+	# comment out wal theme and uncomment theme
+	sed -i \
+		-e "s/^# include theme.conf/include theme.conf/" \
+		-e "s/^include ~\/\.cache\/wal\/colors-kitty\.conf/# include ~\/.cache\/wal\/colors-kitty\.conf/" \
+		~/.config/kitty/kitty.conf
+}
+
 # TODO:
-# - kitty
 # - bspwm
 # - discord
 # - tmux
 # - rofi
 # - vscode
+# - zsh
 
 main () {
 	# TODO: detect current status and then toggle without need for $1
 	if test "$1" = "on"; then
 		enable_vim
+		enable_kitty
 	else
 		disable_vim
+		disable_kitty
 	fi
 }
 
