@@ -2,5 +2,28 @@ name: WM
 depends:
   - gui
 packages:
+  - arandr
   - betterlockscreen
+  - bspwm
+  - dex
+  - dunst
+  - feh
+  - i3lock
+  - network-manager-applet
+  - picom-jonaburg-git
+  - polkit-gnome
+  - polybar
+  - rofi
+  - scrot
+  - sxhkd
+  - sysstat
+  - thunar
+  - thunar-archive-plugin
+  - thunar-media-tags-plugin
+  - thunar-volman-plugin
+  - ttf-nerd-font-symbols
+  - xbindkeys
+  - xclip
+    xfce4-terminal
   - xautolock
+
