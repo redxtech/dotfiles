@@ -5,6 +5,7 @@ depends:
   - pywal
   - spotify
 packages:
+  - betterdiscord-installer
   - discord
   - feh
   - plex-media-player
@@ -14,3 +15,4 @@ packages:
   - vivaldi-ffmpeg-codecs
 commands:
   - sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
+  - betterdiscord-installer
