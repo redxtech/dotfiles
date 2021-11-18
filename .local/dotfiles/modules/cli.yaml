@@ -6,6 +6,7 @@ depends:
 packages:
   - bandwhich
   - bat
+  - command-not-found
   - diskus
   - git-delta
   - exa
@@ -37,3 +38,4 @@ packages:
   - xclip
 npm:
   - speed-test
+  - yosay

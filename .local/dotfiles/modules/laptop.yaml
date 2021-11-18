@@ -1,4 +1,4 @@
 name: Laptop
 depends:
-  - gui
+  - wm
 

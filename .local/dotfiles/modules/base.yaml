@@ -14,6 +14,7 @@ packages:
   - htop
   - jq
   - keychain
+  - lsb_release
   - lsof
   - neofetch
   - neovim
