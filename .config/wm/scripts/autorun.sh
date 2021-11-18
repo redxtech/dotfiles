@@ -22,43 +22,48 @@ function srun {
 # apply proper monitor layour and sizing
 srun ~/.config/wm/scripts/sreenlayout.sh
 
-# start notification agent
+# notification agent
 run dunst
 
 # start polkit
 srun /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# restore wallpaper
+# restore allpaper
 srun ~/.fehbg
 
-# run autostart desktop files
+# autostart desktop files
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # compositor
 run picom -b
+
+# connectivity applets
+run nm-applet --indicator
+run blueman-applet
+
+# cursor
+xsetroot -cursor_name left_ptr &
+
+# low battery notifier
+srun ~/.config/bspwm/scripts/low_bat_notifier.sh
+
+# autolock screen
+srun ~/.config/awesome/scripts/autolock.sh
 
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
   srun ~/.config/awesome/scripts/natural-scrolling.sh
 fi
 
-# connectivity applets
-run nm-applet
-run blueman-applet
-
-# apply previous wallpaper
-# commented out because i've handled this in deco/theme.lua
-# feh --bg-fill --no-fehbg "$(realpath ~/.config/wall.png)" &
-
-# autolock screen
-srun ~/.config/awesome/scripts/autolock.sh
-
 # user apps
 run discord
-run qbittorrent
-run megasync
 run variety
-run virt-manager
+
+# host specific apps
+if test "$(hostname)" = "desktop"; then
+  run qbittorrent
+  run megasync
+fi
 
 # apps from local desktop files
 drun spotify

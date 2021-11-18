@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Headset Charge Indicator
-GenericName=Headset Charge Indicator
-Icon=audio-headset
-TryExec=headset-charge-indicator
-Exec=headset-charge-indicator
-Terminal=false
-Categories=Audio;Settings;Utility;TrayIcon;
