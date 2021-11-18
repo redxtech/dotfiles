@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+enable_vim () {
+	# comment out main colourscheme and uncomment wal
+	sed -i \
+		-e "s/^vim\.cmd('colo/-- vim\.cmd('colo/" \
+		-e "s/^-- vim.cmd('colo wal')/vim\.cmd('colo wal')/" \
+		~/.config/nvim/lua/init.lua
+
+	# comment out airline theme setting
+	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
+}
+
+disable_vim () {
+	# comment out wal and uncomment main colourscheme 
+	sed -i \
+		-e "s/^-- vim\.cmd('colo/vim\.cmd('colo/" \
+		-e "s/^vim.cmd('colo wal')/-- vim\.cmd('colo wal')/" \
+		~/.config/nvim/lua/init.lua
+
+	# uncomment airline theme setting
+	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
+}
+
+# TODO:
+# - kitty
+# - bspwm
+# - discord
+# - tmux
+# - rofi
+# - vscode
+
+main () {
+	if test "$1" = "on"; then
+		enable_vim
+	else
+		disable_vim
+	fi
+}
+
+main $1
+
