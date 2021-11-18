@@ -31,6 +31,7 @@ disable_vim () {
 # - vscode
 
 main () {
+	# TODO: detect current status and then toggle without need for $1
 	if test "$1" = "on"; then
 		enable_vim
 	else
