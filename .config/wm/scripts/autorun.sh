@@ -62,8 +62,11 @@ drun spotify
 # cursor
 xsetroot -cursor_name left_ptr &
 
+# power manager
+run xfce4-power-manager
+
 # low battery notifier
-srun ~/.config/bspwm/scripts/low_bat_notifier.sh
+# srun ~/.config/bspwm/scripts/low_bat_notifier.sh
 
 # autolock screen
 srun ~/.config/awesome/scripts/autolock.sh

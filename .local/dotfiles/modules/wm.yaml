@@ -22,8 +22,9 @@ packages:
   - thunar-media-tags-plugin
   - thunar-volman-plugin
   - ttf-nerd-font-symbols
+  - xautolock
   - xbindkeys
   - xclip
-    xfce4-terminal
-  - xautolock
+  - xfce4-power-manager
+  - xfce4-terminal
 
