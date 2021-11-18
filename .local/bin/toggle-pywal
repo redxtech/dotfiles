@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# script to change the theme of certain applications affected by pywal
+# in order to easily toggle between pywal theme and any other theme
+
 enable_vim () {
 	# comment out main colourscheme and uncomment wal
 	sed -i \
