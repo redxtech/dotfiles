@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # apply proper monitor layour and sizing
 if test "$(hostname)" = "desktop"; then
   xrandr --output DVI-I-0 --off \

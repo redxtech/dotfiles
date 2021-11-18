@@ -68,7 +68,7 @@ zinit light olets/zsh-abbr
 
 # distro specific plugins
 local CURRENT_DISTRO="$(lsb_release -is)"
-if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "Garuda"; then
+if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "EndeavourOS" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit wait lucid for \
     redxtech/zsh-aur-install \
     OMZP::archlinux

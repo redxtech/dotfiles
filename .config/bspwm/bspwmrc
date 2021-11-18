@@ -46,41 +46,9 @@ bspc config active_border_color         "#073642"
 # Autostart
 #
 
-# Set display from arandr saved script
-sh ~/.screenlayout/monitor.sh &
-# sh ~/.config/wm/scripts/screenlayout.sh
+# Run the autostart script
+sh ~/.config/wm/scripts/autorun.sh
 
 # Bar
 ~/.config/polybar/launch.sh &
-
-# Notifications
-/usr/bin/dunst &
-
-# Polkit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# Wallpaper
-~/.fehbg &
-# nitrogen --restore &
-
-# Dex
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
-
-# Compositor
-picom -CGb --experimental-backend &
-
-# Network Applet
-nm-applet --indicator &
-
-# Bluetooth Applet
-blueman-applet &
-
-# Cursor
-xsetroot -cursor_name left_ptr &
-
-# Trackpad
-sh ~/.config/wm/scripts/natural-scrolling.sh
-
-# Low battery notifier
-~/.config/bspwm/scripts/low_bat_notifier.sh
 
