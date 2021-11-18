@@ -12,25 +12,25 @@ super + shift + Return
 # run prompt
 super + r
 	rofi -modi drun -show run -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
 # program launcher
 super + d
 	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
 # show open windows
 super + ctrl + d
 	rofi -modi drun -show window -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
 # show ssh sesssions
 super + shift + d
 	rofi -modi drun -show ssh -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
 # power-menu 
@@ -201,7 +201,7 @@ super
 
 # open terminal apps
 super + shift + {m,r,u}
-  xfce4-terminal -e {btop,ranger,'zsh -c "pacaur -Syu; echo Done - Press enter to exit; read"'}
+  kitty -e {btop,ranger,'zsh -c "pacaur -Syu; echo Done - Press enter to exit; read"'}
 
 # Show keybinds
 super + F1
