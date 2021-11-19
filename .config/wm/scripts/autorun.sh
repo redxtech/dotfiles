@@ -1,21 +1,23 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # check if a program is running, and if not, run it
-function run {
-  if ! pgrep -f $1; then
+run () {
+  if ! pgrep -f "$1"; then
+    # shellcheck disable=SC2068
     $@&
   fi
 }
 
 # run from local desktop file
-function drun {
-  if ! pgrep -f $1; then
-    dex ~/.local/share/applications/$1.desktop
+drun () {
+  if ! pgrep -f "$1"; then
+    dex ~/.local/share/applications/"$1".desktop
   fi
 }
 
 # run shell script
-function srun {
+srun () {
+  # shellcheck disable=SC2068
   $@&
 }
 
