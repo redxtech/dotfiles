@@ -75,6 +75,6 @@ srun ~/.config/awesome/scripts/autolock.sh
 
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
-  srun ~/.config/awesome/scripts/natural-scrolling.sh
+  srun ~/.config/wm/scripts/natural-scrolling.sh
 fi
 
