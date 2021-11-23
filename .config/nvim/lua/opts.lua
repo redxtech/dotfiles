@@ -11,6 +11,7 @@ vim.o.scrolloff             = 5
 vim.o.showmode              = true
 vim.o.sidescrolloff         = 5
 vim.o.smartcase             = true
+vim.o.inccommand            = "split"
 vim.o.splitbelow            = true
 vim.o.splitright            = true
 vim.o.termguicolors         = true

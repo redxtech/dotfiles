@@ -24,10 +24,13 @@ map('n', '<C-h>',           '<C-w>h')             -- navigate windows (left)
 map('n', '<C-j>',           '<C-w>j')             -- navigate windows (down)
 map('n', '<C-k>',           '<C-w>k')             -- navigate windows (up)
 map('n', '<C-l>',           '<C-w>l')             -- navigate windows (right)
-map('n', 'sv',              ':vsplit<CR>')            -- vertical split
-map('n', 'sg',              ':split<CR>')             -- horizontal split
-map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')
-map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')
+map('n', 'sv',              ':vsplit<CR>')        -- vertical split
+map('n', 'sg',              ':split<CR>')         -- horizontal split
+map('n', '<C-w>',           'daw')                -- delete word
+map('n', 'S',               ':%s//g<Left><Left>') -- replace all
+map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
+map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
+map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
 
 -- telescope binds
 map('n', '<leader>ff',      '<cmd>Telescope find_files<cr>')  -- find files
