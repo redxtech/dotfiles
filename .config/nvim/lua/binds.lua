@@ -28,6 +28,8 @@ map('n', 'sv',              ':vsplit<CR>')        -- vertical split
 map('n', 'sg',              ':split<CR>')         -- horizontal split
 map('n', '<C-w>',           'daw')                -- delete word
 map('n', 'S',               ':%s//g<Left><Left>') -- replace all
+map('n', '<leader>-',       ":wincmd _<cr>:wincmd \\|<cr>")
+map('n', '<leader>=',       ":wincmd =<cr>")
 map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
@@ -45,6 +47,6 @@ map('n', '[b',  ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
 map('n', 'b]',  ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
 
 -- which key
-map('n', '<leader>', ":WhichKey '<Space>'<CR>", {silent = true})  --k
+map('n', '<leader>', ":WhichKey '<Space>'<CR>", {silent = true})  -- open whichkey
 
 -- TODO
