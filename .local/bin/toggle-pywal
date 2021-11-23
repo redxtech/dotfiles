@@ -8,7 +8,7 @@ enable_vim () {
 	sed -i \
 		-e "s/^vim\.cmd('colo/-- vim\.cmd('colo/" \
 		-e "s/^-- vim.cmd('colo wal')/vim\.cmd('colo wal')/" \
-		~/.config/nvim/lua/init.lua
+		~/.config/nvim/lua/opts.lua
 
 	# comment out airline theme setting
 	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
@@ -19,7 +19,7 @@ disable_vim () {
 	sed -i \
 		-e "s/^-- vim\.cmd('colo/vim\.cmd('colo/" \
 		-e "s/^vim.cmd('colo wal')/-- vim\.cmd('colo wal')/" \
-		~/.config/nvim/lua/init.lua
+		~/.config/nvim/lua/opts.lua
 
 	# uncomment airline theme setting
 	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
@@ -41,22 +41,37 @@ disable_kitty () {
 		~/.config/kitty/kitty.conf
 }
 
+enable_zsh () {
+	# comment out theme and uncomment wal theme
+	sed -i \
+		-e "s/^# \[\[ -f ~\/.cache\/wal\/sequences \]\]/\[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
+		~/.zshrc
+}
+
+disable_zsh () {
+	# comment out wal theme and uncomment theme
+	sed -i \
+		-e "s/^\[\[ -f ~\/.cache\/wal\/sequences \]\]/# \[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
+		~/.zshrc
+}
+
 # TODO:
 # - bspwm
 # - discord
 # - tmux
 # - rofi
 # - vscode
-# - zsh
 
 main () {
 	# TODO: detect current status and then toggle without need for $1
 	if test "$1" = "on"; then
 		enable_vim
 		enable_kitty
+		enable_zsh
 	else
 		disable_vim
 		disable_kitty
+		disable_zsh
 	fi
 }
 
