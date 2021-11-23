@@ -59,5 +59,8 @@ return require('packer').startup(function()
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
 	use 'yegappan/mru'												-- most recently used files
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
+}
 end)
 

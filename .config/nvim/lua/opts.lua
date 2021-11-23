@@ -1,19 +1,21 @@
 -- options
 
 -- globals
-vim.o.ruler                 = true
-vim.o.splitright            = true
-vim.o.splitbelow            = true
-vim.o.smartcase             = true
-vim.o.hlsearch              = true
 vim.o.background            = "dark"
-vim.o.termguicolors         = true
-vim.o.hidden                = true
-vim.o.scrolloff             = 5
-vim.o.sidescrolloff         = 5
 vim.o.completeopt           = "menu,menuone,noselect"
-vim.o.showmode              = true
+vim.o.hidden                = true
+vim.o.hlsearch              = true
 vim.o.mouse                 = "a"
+vim.o.ruler                 = true
+vim.o.scrolloff             = 5
+vim.o.showmode              = true
+vim.o.sidescrolloff         = 5
+vim.o.smartcase             = true
+vim.o.splitbelow            = true
+vim.o.splitright            = true
+vim.o.termguicolors         = true
+vim.o.undofile              = true
+
 
 -- window
 vim.wo.number               = true

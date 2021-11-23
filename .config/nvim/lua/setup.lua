@@ -14,6 +14,10 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- telescope native fzf
+require("telescope").setup{}
+require("telescope").load_extension('fzf')
+
 -- set up bufferline
 vim.opt.termguicolors = true
 require("bufferline").setup{}
