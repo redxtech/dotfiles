@@ -26,6 +26,8 @@ map('n', '<C-k>',           '<C-w>k')             -- navigate windows (up)
 map('n', '<C-l>',           '<C-w>l')             -- navigate windows (right)
 map('n', 'sv',              ':vsplit<CR>')            -- vertical split
 map('n', 'sg',              ':split<CR>')             -- horizontal split
+map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')
+map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')
 
 -- telescope binds
 map('n', '<leader>ff',      '<cmd>Telescope find_files<cr>')  -- find files
