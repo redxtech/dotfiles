@@ -17,7 +17,7 @@ export BROWSER
 
 # program specific
 export RANGER_LOAD_DEFAULT_RC="FALSE"
-export BAT_THEME=TwoDark
+export BAT_THEME=Dracula
 
 # TODO: see if plugin for this
 # source local env file
