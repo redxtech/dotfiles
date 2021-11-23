@@ -191,11 +191,9 @@ super + n
 super + shift + {p,o,a}
   {plexmediaplayer,discord,authy}
 
-super
-
 # open terminal apps
-super + shift + {m,r,u}
-  kitty -e {btop,ranger,'zsh -c "pacaur -Syu; echo Done - Press enter to exit; read"'}
+super + shift + {m,r,u,n}
+  kitty -e {btop,ranger,zsh -c "pacaur -Syu && echo Done - Press enter to exit; read",zsh -c "neofetch && exec zsh"}
 
 # Show keybinds
 super + F1
