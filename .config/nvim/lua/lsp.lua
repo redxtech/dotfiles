@@ -89,7 +89,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- set up lsp servers
-local servers = { 'bashls' }
+local servers = { 'bashls',  'clangd', 'cmake', 'dockerls', 'eslint', 'pyright', 'tailwindcss', 'tsserver', 'vimls' }
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities

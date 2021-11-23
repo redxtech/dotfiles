@@ -13,3 +13,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- fix eslint errors on save
+-- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
+-- vim.api.nvim_command('autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>')
