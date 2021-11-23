@@ -1,10 +1,17 @@
 #!/usr/bin/env zsh
 
+# some ls shortcuts
+alias la="ls -al"
+alias ll="ls -l"
+
+
 # new makedir command
 alias mkd="mkdir -pv"
 
 # make various commands use colour
 alias grep="grep --color"
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
@@ -34,25 +41,21 @@ alias todo="$EDITOR ~/.todo.md"
 
 # vim -> nvim
 if command -v nvim >/dev/null; then
-  alias vvim="$(which vim)"
   alias vim="nvim"
 fi
 
 # ls -> exa
 if command -v exa >/dev/null; then
-  alias lls="$(which ls)"
   alias ls="exa --group-directories-first"
 fi
 
 # cat -> bat
 if command -v bat >/dev/null; then
-  alias ccat="$(which cat)"
   alias cat="bat"
 fi
 
 # ping -> prettyping
 if command -v prettyping >/dev/null; then
-  alias pping="$(which ping)"
   alias ping="prettyping --nolegend"
 fi
 
