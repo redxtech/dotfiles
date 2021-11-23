@@ -175,15 +175,9 @@ XF86MonBrightnessDown
 
 # Screenshot
 Print
-  scrot ~/Pictures/Screenshot-$(date +%F_%T).png
-
-super+Print
-  ~/.config/bspwm/scripts/screenshot.sh
-
-shift + Print
   flameshot screen -p ~/Pictures/Screenshots
 
-super + shift + Print
+super + Print
   flameshot gui -p ~/Pictures/Screenshots
 
 # Shortcuts
