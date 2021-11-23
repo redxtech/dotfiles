@@ -36,7 +36,10 @@ map('n', '<leader>gf',      '<cmd>Telescope git_files<cr>')   -- find git files
 map('n', '<leader>bf',      '<cmd>Telescope file_browser<cr>')   -- find git files
 
 -- bufferline binds
-map('n', '[b',  ':BufferLineCycleNext<CR>', {silent = true})       -- next tab
-map('n', 'b]',  ':BufferLineCyclePrev<CR>', {silent = true})       -- prev tab
+map('n', '[b',  ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
+map('n', 'b]',  ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
+
+-- which key
+map('n', '<leader>', ":WhichKey '<Space>'<CR>", {silent = true})  --k
 
 -- TODO

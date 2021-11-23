@@ -29,6 +29,7 @@ return require('packer').startup(function()
 	use 'kana/vim-textobj-line'								-- text object for line (al, il)
 	use 'kana/vim-textobj-user'								-- allow user defined text objects
 	use 'kovetskiy/sxhkd-vim'									-- syntax highlighting
+	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
 	use 'mhinz/vim-signify'										-- show git changes in gutter
