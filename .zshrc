@@ -43,7 +43,7 @@ zstyle :plugins:not-vim say yosay
 export AUTO_NOTIFY_EXPIRE_TIME=10000
 
 # load colour scheme
-[[ -f ~/.cache/wal/sequences ]] && (/usr/bin/cat ~/.cache/wal/sequences &)
+# [[ -f ~/.cache/wal/sequences ]] && (/usr/bin/cat ~/.cache/wal/sequences &)
 
 # all zinit config here
 source "$ZSH_CUSTOM/zinit.zsh" 

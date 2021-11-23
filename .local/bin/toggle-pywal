@@ -28,17 +28,21 @@ disable_vim () {
 enable_kitty () {
 	# comment out theme and uncomment wal theme
 	sed -i \
-		-e "s/^include theme.conf/# include theme.conf/" \
+		-E "s/^include (.+).conf/# include \1.conf/" \
+		~/.config/kitty/theme.conf
+	sed -i \
 		-e "s/^# include ~\/\.cache\/wal\/colors-kitty\.conf/include ~\/.cache\/wal\/colors-kitty\.conf/" \
-		~/.config/kitty/kitty.conf
+		~/.config/kitty/theme.conf
 }
 
 disable_kitty () {
 	# comment out wal theme and uncomment theme
 	sed -i \
-		-e "s/^# include theme.conf/include theme.conf/" \
+		-E "s/^# include (.+).conf/include \1.conf/" \
+		~/.config/kitty/theme.conf
+	sed -i \
 		-e "s/^include ~\/\.cache\/wal\/colors-kitty\.conf/# include ~\/.cache\/wal\/colors-kitty\.conf/" \
-		~/.config/kitty/kitty.conf
+		~/.config/kitty/theme.conf
 }
 
 enable_zsh () {
@@ -62,16 +66,52 @@ disable_zsh () {
 # - rofi
 # - vscode
 
+# store state
+enable_wal () {
+	sed -i \
+		-e 's/^enabled=false/enabled=true/' \
+		~/.config/wal/pywal.conf
+}
+
+disable_wal () {
+	sed -i \
+		-e 's/^enabled=true/enabled=false/' \
+		~/.config/wal/pywal.conf
+}
+
+# overall enable/disable functions
+enable () {
+	echo "Enabling pywal theme..."
+	enable_vim
+	enable_kitty
+	enable_zsh
+	
+	enable_wal
+}
+
+disable () {
+	echo "Disabling pywal theme..."
+	disable_vim
+	disable_kitty
+	disable_zsh
+
+	disable_wal
+}
+
 main () {
-	# TODO: detect current status and then toggle without need for $1
+	# if specified turn pywal on
 	if test "$1" = "on"; then
-		enable_vim
-		enable_kitty
-		enable_zsh
+		enable
+	# if specified turn pywal off
+	elif test "$1" = "off"; then
+		disable
 	else
-		disable_vim
-		disable_kitty
-		disable_zsh
+		# detect current status and toggle
+		if grep -q 'enabled=true' ~/.config/wal/pywal.conf; then
+			disable
+		else
+			enable
+		fi
 	fi
 }
 
