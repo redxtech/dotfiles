@@ -14,6 +14,10 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- set up bufferline
+vim.opt.termguicolors = true
+require("bufferline").setup{}
+
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
 -- vim.api.nvim_command('autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>')

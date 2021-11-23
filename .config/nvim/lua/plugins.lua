@@ -9,7 +9,6 @@ return require('packer').startup(function()
 	-- use 'honza/vim-snippets'									-- snippets
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
 
-	-- use 'ryanoasis/vim-devicons'							-- file icons
 	use 'ap/vim-css-color'										-- highlight hex colours with their colour
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
@@ -34,6 +33,7 @@ return require('packer').startup(function()
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
 	use 'mhinz/vim-signify'										-- show git changes in gutter
 	use 'mhinz/vim-startify'									-- vim startup page
+	use 'miyakogi/conoline.vim'								-- highlight current line
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
