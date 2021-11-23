@@ -19,6 +19,7 @@ sudo pacman -S \
 # generate new ssh key
 ssh-keygen -t ed25519 -C "gabe@sent.at"
 eval $(keychain --eval id_ed25519)
+echo "Run xclip with xclip -selection c"
 
 # wait to add keychain to github
 read -p "Add your ssh key to github, then press enter to continue" </dev/tty
