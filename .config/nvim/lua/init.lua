@@ -4,6 +4,6 @@ require('opts')
 require('lsp')
 
 require('setup')
---require('binds')
+require('binds')
 --TODO: set fzf keybinds
 
