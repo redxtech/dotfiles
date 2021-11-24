@@ -15,3 +15,5 @@ packages:
   - ttf-twemoji
   - ttf-ubuntu-font-family
   - ttf-weather-icons
+commands:
+  - fc-cache -f -v
