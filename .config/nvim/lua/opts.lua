@@ -44,4 +44,8 @@ vim.b.mapleader             = " "
 -- colours
 vim.cmd('colo dracula')
 -- vim.cmd('colo wal')
+vim.g.airline_theme         = "dracula"
+
+-- syntax highlighting
 vim.cmd('syntax on')
+

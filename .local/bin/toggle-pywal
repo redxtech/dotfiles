@@ -3,15 +3,18 @@
 # script to change the theme of certain applications affected by pywal
 # in order to easily toggle between pywal theme and any other theme
 
+# some variables for config file locations
+VIM_COLOURSCHEME_FILE="$HOME/.config/nvim/lua/opts.lua"
+
 enable_vim () {
 	# comment out current colourscheme and uncomment the wal colourscheme
 	sed -i \
 		-e "s/^vim\.cmd('colo/-- vim\.cmd('colo/" \
 		-e "s/^-- vim.cmd('colo wal')/vim\.cmd('colo wal')/" \
-		~/.config/nvim/lua/opts.lua
+		"$VIM_COLOURSCHEME_FILE"
 
 	# comment out airline theme setting
-	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
+	sed -i -e 's/^vim\.g\.airline_theme/-- vim\.g.airline_theme/' "$VIM_COLOURSCHEME_FILE"
 }
 
 disable_vim () {
@@ -19,10 +22,10 @@ disable_vim () {
 	sed -i \
 		-e "s/^-- vim\.cmd('colo/vim\.cmd('colo/" \
 		-e "s/^vim.cmd('colo wal')/-- vim\.cmd('colo wal')/" \
-		~/.config/nvim/lua/opts.lua
+		"$VIM_COLOURSCHEME_FILE"
 
 	# uncomment airline theme setting
-	sed -i -e 's/^let g:airline_theme/" let g:airline_theme/' ~/.config/nvim/init.vim
+	sed -i -e 's/^-- vim\.g\.airline_theme/vim\.g.airline_theme/' "$VIM_COLOURSCHEME_FILE"
 }
 
 enable_kitty () {
