@@ -253,6 +253,11 @@ fi
 # symlink to ~/.config/wall
 ln -sfT "$3" "$HOME/.config/wall.png"
 
+# generate lockscreen image
+if command -v betterlockscreen >/dev/null; then
+    betterlockscreen -u "$WP" &
+fi
+
 # run pywal
 sh ~/.local/bin/pywal
 
