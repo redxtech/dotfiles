@@ -45,20 +45,6 @@ disable_kitty () {
 		~/.config/kitty/theme.conf
 }
 
-enable_zsh () {
-	# uncomment wal sequences script
-	sed -i \
-		-e "s/^# \[\[ -f ~\/.cache\/wal\/sequences \]\]/\[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
-		~/.zshrc
-}
-
-disable_zsh () {
-	# comment out wal sequences script
-	sed -i \
-		-e "s/^\[\[ -f ~\/.cache\/wal\/sequences \]\]/# \[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
-		~/.zshrc
-}
-
 # TODO:
 # - bspwm
 # - discord
@@ -84,7 +70,6 @@ enable () {
 	echo "Enabling pywal theme..."
 	enable_vim
 	enable_kitty
-	enable_zsh
 	
 	enable_wal
 }
@@ -93,7 +78,6 @@ disable () {
 	echo "Disabling pywal theme..."
 	disable_vim
 	disable_kitty
-	disable_zsh
 
 	disable_wal
 }
