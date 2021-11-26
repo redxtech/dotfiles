@@ -5,6 +5,8 @@
 
 # some variables for config file locations
 VIM_COLOURSCHEME_FILE="$HOME/.config/nvim/lua/opts.lua"
+KITTY_THEME_FILE="$HOME/.config/kitty/theme.conf"
+PYWAL_STATUS_FILE="$HOME/.config/wal/pywal.conf"
 
 enable_vim () {
 	# comment out current colourscheme and uncomment the wal colourscheme
@@ -32,20 +34,20 @@ enable_kitty () {
 	# comment out current theme and uncomment wal theme
 	sed -i \
 		-E "s/^include (.+).conf/# include \1.conf/" \
-		~/.config/kitty/theme.conf
+		"$KITTY_THEME_FILE"
 	sed -i \
 		-e "s/^# include ~\/\.cache\/wal\/colors-kitty\.conf/include ~\/.cache\/wal\/colors-kitty\.conf/" \
-		~/.config/kitty/theme.conf
+		"$KITTY_THEME_FILE"
 }
 
 disable_kitty () {
 	# comment out wal theme and uncomment current theme
 	sed -i \
 		-E "s/^# include (.+).conf/include \1.conf/" \
-		~/.config/kitty/theme.conf
+		"$KITTY_THEME_FILE"
 	sed -i \
 		-e "s/^include ~\/\.cache\/wal\/colors-kitty\.conf/# include ~\/.cache\/wal\/colors-kitty\.conf/" \
-		~/.config/kitty/theme.conf
+		"$KITTY_THEME_FILE"
 }
 
 # TODO:
@@ -59,13 +61,13 @@ disable_kitty () {
 enable_wal () {
 	sed -i \
 		-e 's/^enabled=false/enabled=true/' \
-		~/.config/wal/pywal.conf
+		"$PYWAL_STATUS_FILE"
 }
 
 disable_wal () {
 	sed -i \
 		-e 's/^enabled=true/enabled=false/' \
-		~/.config/wal/pywal.conf
+		"$PYWAL_STATUS_FILE"
 }
 
 # overall enable/disable functions
@@ -94,7 +96,7 @@ main () {
 		disable
 	else
 		# detect current status and toggle
-		if grep -q 'enabled=true' ~/.config/wal/pywal.conf; then
+		if grep -q 'enabled=true' "$PYWAL_STATUS_FILE"; then
 			disable
 		else
 			enable
