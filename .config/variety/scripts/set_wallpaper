@@ -258,8 +258,10 @@ if command -v betterlockscreen >/dev/null; then
     betterlockscreen -u "$WP" &
 fi
 
-# run pywal
-sh ~/.local/bin/pywal
+# run pywal if enabled
+if grep -q 'enabled=true' ~/.config/wal/pywal.conf; then
+    sh ~/.local/bin/pywal
+fi
 
 # =====================================================================================
 
