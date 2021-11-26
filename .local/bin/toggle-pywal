@@ -4,7 +4,7 @@
 # in order to easily toggle between pywal theme and any other theme
 
 enable_vim () {
-	# comment out main colourscheme and uncomment wal
+	# comment out current colourscheme and uncomment the wal colourscheme
 	sed -i \
 		-e "s/^vim\.cmd('colo/-- vim\.cmd('colo/" \
 		-e "s/^-- vim.cmd('colo wal')/vim\.cmd('colo wal')/" \
@@ -15,7 +15,7 @@ enable_vim () {
 }
 
 disable_vim () {
-	# comment out wal and uncomment main colourscheme 
+	# comment out the wal colourscheme and uncomment current colourscheme 
 	sed -i \
 		-e "s/^-- vim\.cmd('colo/vim\.cmd('colo/" \
 		-e "s/^vim.cmd('colo wal')/-- vim\.cmd('colo wal')/" \
@@ -26,7 +26,7 @@ disable_vim () {
 }
 
 enable_kitty () {
-	# comment out theme and uncomment wal theme
+	# comment out current theme and uncomment wal theme
 	sed -i \
 		-E "s/^include (.+).conf/# include \1.conf/" \
 		~/.config/kitty/theme.conf
@@ -36,7 +36,7 @@ enable_kitty () {
 }
 
 disable_kitty () {
-	# comment out wal theme and uncomment theme
+	# comment out wal theme and uncomment current theme
 	sed -i \
 		-E "s/^# include (.+).conf/include \1.conf/" \
 		~/.config/kitty/theme.conf
@@ -46,14 +46,14 @@ disable_kitty () {
 }
 
 enable_zsh () {
-	# comment out theme and uncomment wal theme
+	# uncomment wal sequences script
 	sed -i \
 		-e "s/^# \[\[ -f ~\/.cache\/wal\/sequences \]\]/\[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
 		~/.zshrc
 }
 
 disable_zsh () {
-	# comment out wal theme and uncomment theme
+	# comment out wal sequences script
 	sed -i \
 		-e "s/^\[\[ -f ~\/.cache\/wal\/sequences \]\]/# \[\[ -f ~\/.cache\/wal\/sequences \]\]/" \
 		~/.zshrc
