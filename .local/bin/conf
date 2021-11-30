@@ -103,6 +103,9 @@ main () {
     b|bspwm) # bspwm
       $EDITOR "$HOME/.config/bspwm/bspwmrc"
       ;;
+    s|sxhkd) # sxhkd config
+      $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
+      ;;
     ar|autorun) # autorun script
       $EDITOR "$HOME/.config/wm/scripts/autorun.sh"
       ;;
