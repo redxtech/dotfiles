@@ -182,7 +182,7 @@ super + Print
 
 # Shortcuts
 super + w 
-  firefox
+  vivaldi-stable
 
 super + n 
   thunar  
