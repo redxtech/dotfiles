@@ -1,3 +1,10 @@
+-- packer bootstrap
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'							-- package manager
 	use {'dracula/vim', as = 'dracula'}				-- colourscheme
@@ -63,7 +70,11 @@ return require('packer').startup(function()
 	use 'yegappan/mru'												-- most recently used files
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
-}
+	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+
+	-- if just bootstrapped, run sync
+	if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
 
