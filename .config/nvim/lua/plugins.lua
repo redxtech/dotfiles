@@ -30,7 +30,6 @@ return require('packer').startup(function()
 	use 'kana/vim-textobj-user'								-- allow user defined text objects
 	use 'kovetskiy/sxhkd-vim'									-- syntax highlighting
 	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
-	use 'tyru/open-browser.vim'								-- allow opening browser
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
 	use 'mhinz/vim-signify'										-- show git changes in gutter
@@ -57,8 +56,10 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'									-- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'								-- navigate between pairs
 	use 'tpope/vim-vinegar'										-- extra tools for working with netrw
+	use 'tyru/open-browser.vim'								-- allow opening browser
 	use 'vim-airline/vim-airline'							-- statusline
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
+	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
 	use 'yegappan/mru'												-- most recently used files
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
