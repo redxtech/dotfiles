@@ -16,29 +16,17 @@ main () {
     ###############
     # User Config #
     ###############
-    a|awesome|wm) # awesome
-      $EDITOR "$HOME/.config/awesome/rc.lua"
-      ;;
-    aa|autorun) # autorun script
-      $EDITOR "$HOME/.config/awesome/scripts/autorun.sh"
-      ;;
-    ap|picom) # compositor
-      $EDITOR "$HOME/.config/picom/picom.conf"
-      ;;
-    ar|rofi) # launcher
+    ro|rofi) # launcher
       $EDITOR "$HOME/.config/rofi/config.rasi"
       ;;
-    alacritty) # alacritty
-      $EDITOR "$HOME/.config/alacritty/alacritty.yml"
-      ;;
-    k|kitty) # kitty
+    k|kitty|term) # kitty
       $EDITOR "$HOME/.config/kitty/kitty.conf"
+      ;;
+    kt|kittytheme) # kitty theme
+      $EDITOR "$HOME/.config/kitty/theme.conf"
       ;;
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
-      ;;
-    p|p10k) # powerlevel10k config
-      $EDITOR "$HOME/.p10k.zsh"
       ;;
     r|ranger) # ranger config
       $EDITOR "$HOME/.config/ranger/rc.conf"
@@ -49,21 +37,45 @@ main () {
     rs|rscope) # ranger scope config
       $EDITOR "$HOME/.config/ranger/scope.sh"
       ;;
-    s|ssh) # ssh
+    ssh) # ssh
       $EDITOR "$HOME/.ssh/config"
       ;;
-    t|tmux) # tmux
+    tmux) # tmux
       $EDITOR "$HOME/.tmux.conf"
       ;;
-    v|vim|nvim|sv|space|spacevim) # vim
-      $EDITOR "$HOME/.SpaceVim.d/init.toml"
-      ;;
-    vb|vboot|vbootstrap)
-      $EDITOR "$HOME/.SpaceVim.d/autoload/bootstrap.vim"
-      ;;
-    w|wal|pywal) # pywal
+    wal|pywal) # pywal
       $EDITOR "$HOME/.local/bin/pywal"
       ;;
+    ##############
+    # Vim Config #
+    ##############
+    v|vim|nvim) # vim
+      $EDITOR "$HOME/.config/nvim//lua/init.lua"
+      ;;
+    va|vauto) # vim autocommands
+      $EDITOR "$HOME/.config/nvim/lua/auto.lua"
+      ;;
+    vb|vbinds) # vim keybinds
+      $EDITOR "$HOME/.config/nvim/lua/binds.lua"
+      ;;
+    vi|vinit) # vim init
+      $EDITOR "$HOME/.config/nvim/init.vim"
+      ;;
+    vl|vlsp) # vim language server protocol
+      $EDITOR "$HOME/.config/nvim/lua/lsp.lua"
+      ;;
+    vo|vopts) # vim options
+      $EDITOR "$HOME/.config/nvim/lua/opts.lua"
+      ;;
+    vp|vplug|vplugins) # vim plugins
+      $EDITOR "$HOME/.config/nvim/lua/plugins.lua"
+      ;;
+    vs|vsetup) # vim plugin setup
+      $EDITOR "$HOME/.config/nvim/lua/setup.lua"
+      ;;
+    ################
+    # Shell Config #
+    ################
     z|zsh) # zsh
       $EDITOR "$HOME/.zshrc"
       ;;
@@ -82,6 +94,21 @@ main () {
     zinit) # zinit config
       $EDITOR "$HOME/.config/zsh/zinit.zsh"
       ;;
+    p10k|prompt) # powerlevel10k config
+      $EDITOR "$HOME/.config/zsh/p10k.zsh"
+      ;;
+    #########################
+    # Window Manager Config #
+    #########################
+    b|bspwm) # bspwm
+      $EDITOR "$HOME/.config/bspwm/bspwmrc"
+      ;;
+    ar|autorun) # autorun script
+      $EDITOR "$HOME/.config/wm/scripts/autorun.sh"
+      ;;
+    p|picom) # compositor
+      $EDITOR "$HOME/.config/picom/picom.conf"
+      ;;
     ###############
     # Root Config #
     ###############
@@ -92,13 +119,13 @@ main () {
       sudoedit /etc/makepkg.conf
       ;;
     pacman) # pacman
-      sudoedit /etc/pacman.confDefault to Error 
+      sudoedit /etc/pacman.conf
       ;;
     sshd) # ssh daemon
       sudoedit /etc/ssh/sshd_config
       ;;
     sudo|sudoers|visudo) # sudoers
-      sudo EDITOR="$EDITOR" visudo
+      sudo -E visudo
       ;;
     ###################
     # Script Specific #
