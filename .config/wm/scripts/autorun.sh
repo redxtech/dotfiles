@@ -50,6 +50,7 @@ run blueman-applet
 run discord
 run variety
 run flameshot
+run spotify
 
 # host specific apps
 if test "$(hostname)" = "desktop"; then
@@ -58,9 +59,6 @@ if test "$(hostname)" = "desktop"; then
   run headset-charge-indicator
 fi
 
-# apps from local desktop files
-drun spotify
- 
 # cursor
 xsetroot -cursor_name left_ptr &
 
