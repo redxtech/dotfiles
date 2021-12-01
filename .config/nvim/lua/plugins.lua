@@ -24,10 +24,12 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
 	use 'hrsh7th/cmp-cmdline'									-- cmdline source for nvim-cmp
 	use 'hrsh7th/cmp-nvim-lsp'								-- lsp integration for nvim-cmp
+	use 'hrsh7th/cmp-nvim-lua'								-- source for nvim lua api
 	use 'hrsh7th/cmp-path'										-- path source for nvim-cmp
 	use 'hrsh7th/cmp-vsnip'										-- snippet source for nvim-cmp
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'hrsh7th/vim-vsnip'										-- snippet provider
+	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
 	use 'jiangmiao/auto-pairs'								-- auto close pairs
 	use 'junegunn/fzf.vim'										-- configure fzf

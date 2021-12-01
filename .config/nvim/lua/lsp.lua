@@ -50,9 +50,12 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'vsnip' }, -- For vsnip users.
   }, {
     { name = 'buffer' },
+    { name = 'path' },
+    { name = 'treesitter' },
   }),
 	formatting = {
   	format = require("lspkind").cmp_format({
