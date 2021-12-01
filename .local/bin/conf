@@ -109,7 +109,13 @@ main () {
     ar|autorun) # autorun script
       $EDITOR "$HOME/.config/wm/scripts/autorun.sh"
       ;;
-    p|picom) # compositor
+    pb|polybar|bar) # polybar config
+      $EDITOR "$HOME/.config/polybar/config.ini"
+      ;;
+    pbl) # polybar launch script
+      $EDITOR "$HOME/.config/polybar/launch.sh"
+      ;;
+    p|picom|compositor) # compositor
       $EDITOR "$HOME/.config/picom/picom.conf"
       ;;
     ###############
