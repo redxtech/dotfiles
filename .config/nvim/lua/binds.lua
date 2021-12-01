@@ -34,6 +34,10 @@ map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
 
+-- lsp binds
+map('n', '<leader>gd',      '<cmd>lua vim.lsp.buf.definition()<CR>')      -- goto definition
+map('n', '<leader>gD',      '<cmd>lua vim.lsp.buf.declaration()<CR>')     -- goto declaration
+
 -- telescope binds
 map('n', '<leader>ff',      '<cmd>Telescope find_files<cr>')  -- find files
 map('n', '<leader>fg',      '<cmd>Telescope live_grep<cr>')   -- live live_grep
@@ -42,9 +46,12 @@ map('n', '<leader>fh',      '<cmd>Telescope help_tags<cr>')   -- search help tag
 map('n', '<leader>gf',      '<cmd>Telescope git_files<cr>')   -- find git files
 map('n', '<leader>bf',      '<cmd>Telescope file_browser<cr>')   -- find git files
 
+-- packer binds
+map('n', '<leader>ps',      '<cmd>PackerSync<cr>')    -- sync packages
+
 -- bufferline binds
-map('n', '[b',  ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
-map('n', 'b]',  ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
+map('n', 'b]',  ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
+map('n', 'b[',  ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
 
 -- which key
 map('n', '<leader>', ":WhichKey '<Space>'<CR>", {silent = true})  -- open whichkey
