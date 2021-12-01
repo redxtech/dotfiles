@@ -37,7 +37,7 @@ srun /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 srun ~/.fehbg
 
 # autostart desktop files
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+# dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # compositor
 run picom -b
@@ -69,7 +69,7 @@ run xfce4-power-manager
 # srun ~/.config/bspwm/scripts/low_bat_notifier.sh
 
 # autolock screen
-srun ~/.config/awesome/scripts/autolock.sh
+srun ~/.config/wm/scripts/autolock.sh
 
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
