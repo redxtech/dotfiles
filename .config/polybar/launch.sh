@@ -8,3 +8,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar
 polybar top -c ~/.config/polybar/config.ini &
+
+if test "$(bspc query -M --names | wc -l)" = "2"; then
+  SECOND_MONITOR="HDMI-2" polybar top_second -c ~/.config/polybar/config.ini &
+fi
