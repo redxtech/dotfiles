@@ -31,8 +31,8 @@ cat ~/.ssh/*.pub | xclip -selection c
 echo "SSH key copied to clipboard!"
 
 # wait to add keychain to github
-# shellcheck disable=SC2162
-read "Add your ssh key to github, then press enter to continue" </dev/tty
+echo "Add your ssh key to github, then press enter to continue"
+read
 
 # clone in the dotfiles
 echo "Cloning dotfiles repo..."
