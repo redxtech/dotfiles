@@ -30,6 +30,7 @@ packages:
   - wget
   - xz
   - yadm
+  - yq
   - zip
 commands:
   - base-add-herecura.sh

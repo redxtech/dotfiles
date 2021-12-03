@@ -18,12 +18,9 @@ autoload -Uz _zinit
 zinit light redxtech/z-a-meta-plugins
 
 # load the meta plugins
-# TODO: use annexes+con
 zinit skip'cargo-extensions git-open git-recent git-my git-quick-stats git-now git-extras peco skim' for \
   annexes \
   console-tools \
-  ext-git \
-  molovo \
   rust-utils \
   zsh-users+fast
 
@@ -36,18 +33,14 @@ zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
   Aloxaf/fzf-tab \
   hlissner/zsh-autopair \
+  le0me55i/zsh-systemd \
   wait"1" \
     laggardkernel/zsh-thefuck \
-  le0me55i/zsh-extract \
   LucasLarson/gunstage \
   OMZP::command-not-found \
   OMZP::copybuffer \
-  OMZP::docker-compose \
-  OMZP::encode64 \
   OMZP::github \
-  OMZP::httpie \
   OMZP::man \
-  OMZP::systemd \
   OMZP::transfer \
   redxtech/zsh-fzf-utils \
   wait"2" atload="__kitty_complete" \
@@ -93,29 +86,16 @@ fi
 
 # binaries from github releases
 zinit wait lucid from"gh-r" as"command" for \
-  sbin"zoxide-*/zoxide" dl"https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/_zoxide" \
-    atload"eval \"\$(zoxide init zsh)\"" \
-      ajeetdsouza/zoxide \
-  sbin"deploy/figurine" \
-    arsham/figurine \
   sbin"deploy/rainbow" \
     atload"alias lolcat=\"rainbow\"" \
       arsham/rainbow \
-  sbin"ctop" mv"ctop* -> ctop" \
-    bcicen/ctop \
   sbin"dust-*/dust" \
     bootandy/dust \
   sbin \
     atload"eval \"\$(mcfly init zsh)\"" \
       cantino/mcfly \
-  sbin \
-    casey/just \
   sbin"glow" bpick"*linux_x86_64.tar*" \
     charmbracelet/glow \
-  sbin mv"sd-* -> sd" \
-    chmln/sd \
-  sbin"btm" \
-    ClementTsang/bottom \
   sbin bpick"*lnx*" \
     dalance/procs \
   sbin"delta-*/delta" \
@@ -124,14 +104,8 @@ zinit wait lucid from"gh-r" as"command" for \
     dbrgn/tealdeer \
   sbin \
     dduan/tre \
-  sbin"xh-*/xh" mv"xh-*/completions/_xh -> _xh" \
-    ducaale/xh \
   sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
     @github/hub \
-  sbin mv"**/yq* -> yq" \
-    mikefarah/yq \
-  sbin bpick"*linux*zip" \
-    ms-jpq/sad \
   sbin bpick"*linux_x86_64*" \
     muesli/duf \
   sbin"**/bin/nvim" mv"nvim* -> nvim" nocompletions \
@@ -141,78 +115,27 @@ zinit wait lucid from"gh-r" as"command" for \
   sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
     ogham/dog \
   sbin \
-    orf/gping \
-  sbin \
     pemistahl/grex \
   sbin"rclone-*/rclone" bpick"*amd64.zip*" \
     rclone/rclone \
-  sbin"spt" \
-    Rigellute/spotify-tui \
-  sbin"spotifyd" bpick"*linux-full*" atclone"curl https://raw.githubusercontent.com/Spotifyd/spotifyd/master/contrib/spotifyd.service --output ~/.config/systemd/user/spotifyd.service" \
-    Spotifyd/spotifyd \
-  sbin mv"jq-* -> jq" \
-    stedolan/jq \
-  sbin bpick"choose" \
-    theryangeary/choose \
   sbin"sn" \
     vmchale/tin-summer \
-  sbin bpick"*ubuntu*" \
-    WindSoilder/hors \
   sbin bpick"*unknown-linux-gnu*" \
-    XAMPPRocky/tokei \
-  sbin"micro-*/micro" \
-    zyedidia/micro
+    XAMPPRocky/tokei
 
 # binaries from github repos
 zinit as"command" wait lucid for \
-  sbin"bin/git-fuzzy" \
-    bigH/git-fuzzy \
   sbin \
     denilsonsa/prettyping \
   sbin \
     dylanaraps/neofetch \
   sbin \
     elasticdog/transcrypt \
-  sbin \
-    funtoo/keychain \
-  sbin \
-    LuRsT/hr \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
 
-# binaries from npm
-zinit wait lucid as"command" nocompletions for \
-  node"!add-gitignore" id-as"add-gitignore-bin" \
-    zdharma-continuum/null \
-  node"!gtop" id-as"gtop-bin" \
-    zdharma-continuum/null \
-  node"!mklicense" id-as"mklicense-bin" \
-    zdharma-continuum/null \
-  node"!speed-test" id-as"speed-test-bin" \
-    zdharma-continuum/null \
-  node"!vtop" id-as"vtop-npm" \
-    zdharma-continuum/null \
-  node"!yo" id-as"yeoman-bin" \
-    zdharma-continuum/null
-
-# binaries from pip
-zinit wait lucid as"command" nocompletions for \
-  pip"!asciinema" id-as"asciinema-bin" \
-    zdharma-continuum/null \
-  pip"!thefuck" id-as"thefuck-bin" \
-    zdharma-continuum/null
-
-# programs compiled with make
-zinit wait lucid as"command" make"PREFIX=$ZPFX" for \
-  sbin"pv" atclone"./configure" atpull"%atclone" \
-    icetee/pv \
-  sbin \
-    Xfennec/progress
-
 # completions packages
-zinit ice as"completion" wait lucid
-zinit snippet https://raw.githubusercontent.com/gantsign/zsh-plugins/master/ctop/_ctop
 zinit ice as"completion" wait lucid
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
 zinit ice as"completion" mv"completion.zsh -> _delta" wait lucid

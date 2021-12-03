@@ -39,3 +39,6 @@ packages:
 npm:
   - speed-test
   - yosay
+pip:
+  - asciinema
+  - thefuck
