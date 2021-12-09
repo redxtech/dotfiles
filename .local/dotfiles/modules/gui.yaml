@@ -11,6 +11,11 @@ packages:
   - flameshot
   - plex-media-player
   - sxiv
+  - thunar
+  - thunar-archive-plugin
+  - thunar-media-tags-plugin
+  - thunar-volman-plugin
+  - tumbler
   - variety
   - vivaldi
   - vivaldi-ffmpeg-codecs

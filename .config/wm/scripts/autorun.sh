@@ -51,6 +51,7 @@ run discord
 run variety
 run flameshot
 run spotify
+run thunar --daemon
 
 # host specific apps
 if test "$(hostname)" = "desktop"; then
