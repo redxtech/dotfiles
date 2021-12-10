@@ -46,6 +46,8 @@ map('n', '<leader>sg',      '<cmd>Telescope live_grep<cr>')     -- live live_gre
 
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<cr>')    -- sync packages
+map('n', '<leader>pu',      '<cmd>PackerUpdate<cr>')    -- sync packages
+map('n', '<leader>pc',      '<cmd>PackerCompile<cr>')    -- sync packages
 
 -- bufferline binds
 map('n', ']b',              ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
