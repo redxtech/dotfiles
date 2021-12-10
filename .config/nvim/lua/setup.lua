@@ -20,7 +20,12 @@ require("telescope").load_extension('fzf')
 
 -- set up bufferline
 vim.opt.termguicolors = true
-require("bufferline").setup{}
+require("bufferline").setup {
+  options = {
+    numbers = "ordinal",
+    diagnostics = "nvim_lsp"
+  }
+}
 
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
