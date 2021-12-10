@@ -3,6 +3,7 @@
 # some ls shortcuts
 alias la="ls -al"
 alias ll="ls -l"
+alias l="ls -l"
 
 
 # new makedir command
