@@ -29,7 +29,6 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-vsnip'										-- snippet source for nvim-cmp
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'hrsh7th/vim-vsnip'										-- snippet provider
-	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
 	use 'junegunn/fzf.vim'										-- configure fzf
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
@@ -47,10 +46,11 @@ return require('packer').startup(function()
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
+	use 'preservim/nerdcommenter'							-- commenting plugin
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
+	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting
-	use 'tpope/vim-commentary'								-- comments (gcc, gc<object>)
 	use 'tpope/vim-dispatch'									-- compile wrapper (:Make)
 	use 'tpope/vim-dotenv'										-- load dotenv file into vim
 	use 'tpope/vim-endwise'										-- pair do->end, if->fi, etc.
@@ -72,6 +72,7 @@ return require('packer').startup(function()
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
 	use 'windwp/nvim-autopairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
+
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
