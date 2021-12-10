@@ -31,7 +31,6 @@ return require('packer').startup(function()
 	use 'hrsh7th/vim-vsnip'										-- snippet provider
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
-	use 'jiangmiao/auto-pairs'								-- auto close pairs
 	use 'junegunn/fzf.vim'										-- configure fzf
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
@@ -41,6 +40,7 @@ return require('packer').startup(function()
 	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
+	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
 	use 'mhinz/vim-signify'										-- show git changes in gutter
 	use 'mhinz/vim-startify'									-- vim startup page
 	use 'miyakogi/conoline.vim'								-- highlight current line
@@ -57,6 +57,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-eunuch'										-- unix helpers
 	use 'tpope/vim-fugitive'									-- git wrapper commands
 	use 'tpope/vim-jdaddy'										-- json objects (aj), actions (gqaj: clean, gwaj, insert)
+	use 'tpope/vim-obsession'									-- session management
 	use 'tpope/vim-repeat'										-- <.> repeats plugin stuff too
 	use 'tpope/vim-rhubarb'										-- github integration for fugitive
 	use 'tpope/vim-sensible'									-- sensible defaults everyone can agree on
@@ -69,6 +70,7 @@ return require('packer').startup(function()
 	use 'vim-airline/vim-airline'							-- statusline
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
+	use 'windwp/nvim-autopairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
