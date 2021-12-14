@@ -57,6 +57,16 @@ map('n', ']b',              ':BufferLineCycleNext<CR>', {silent = true})      --
 map('n', '[b',              ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
 map('n', ']B',              ':BufferLineMoveNext<CR>', {silent = true})      -- prev tab
 map('n', '[B',              ':BufferLineCyclePrev<CR>', {silent = true})      -- prev tab
+map('n', '<leader>1',       '<Cmd>BufferLineGoToBuffer 1<CR>', {noremap=true, silent=true})
+map('n', '<leader>2',       '<Cmd>BufferLineGoToBuffer 2<CR>', {noremap=true, silent=true})
+map('n', '<leader>3',       '<Cmd>BufferLineGoToBuffer 3<CR>', {noremap=true, silent=true})
+map('n', '<leader>4',       '<Cmd>BufferLineGoToBuffer 4<CR>', {noremap=true, silent=true})
+map('n', '<leader>5',       '<Cmd>BufferLineGoToBuffer 5<CR>', {noremap=true, silent=true})
+map('n', '<leader>6',       '<Cmd>BufferLineGoToBuffer 6<CR>', {noremap=true, silent=true})
+map('n', '<leader>7',       '<Cmd>BufferLineGoToBuffer 7<CR>', {noremap=true, silent=true})
+map('n', '<leader>8',       '<Cmd>BufferLineGoToBuffer 8<CR>', {noremap=true, silent=true})
+map('n', '<leader>9',       '<Cmd>BufferLineGoToBuffer 9<CR>', {noremap=true, silent=true})
+map('n', '<leader>0',       '<Cmd>BufferLineGoToBuffer 10<CR>', {noremap=true, silent=true})
 
 -- which key
 map('n', '<leader>',        ":WhichKey '<Space>'<CR>", {silent = true})  -- open whichkey
