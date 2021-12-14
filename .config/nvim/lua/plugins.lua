@@ -30,12 +30,14 @@ return require('packer').startup(function()
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'hrsh7th/vim-vsnip'										-- snippet provider
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
+	use 'jiangmiao/auto-pairs'								-- autopairs
 	use 'junegunn/fzf.vim'										-- configure fzf
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'								-- text object for line (al, il)
 	use 'kana/vim-textobj-user'								-- allow user defined text objects
 	use 'kovetskiy/sxhkd-vim'									-- syntax highlighting
+	use 'kyazdani42/nvim-tree.lua'						-- file browser
 	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
@@ -72,7 +74,6 @@ return require('packer').startup(function()
 	use 'vim-airline/vim-airline'							-- statusline
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
-	use 'jiangmiao/auto-pairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
 
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}

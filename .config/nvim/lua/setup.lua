@@ -32,6 +32,9 @@ require('Comment').setup({
   ignore = '^$'
 })
 
+-- nvim-tree setup
+require('nvim-tree').setup()
+
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
 -- vim.api.nvim_command('autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>')

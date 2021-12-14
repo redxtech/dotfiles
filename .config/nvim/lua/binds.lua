@@ -27,6 +27,9 @@ map('n', 'sv',              ':vsplit<CR>')        -- vertical split
 map('n', 'sg',              ':split<CR>')         -- horizontal split
 map('n', '<C-w>',           'daw')                -- delete word
 map('n', 'S',               ':%s//g<Left><Left>') -- replace all
+map('n', '<C-n>',           '<cmd>NvimTreeToggle<CR>') -- open nvim tree
+map('n', '<leader>r',       '<cmd>NvimTreeRefresh<CR>') -- open nvim tree
+map('n', '<leader>n',       '<cmd>NvimTreeFindFile<CR>') -- open nvim tree
 map('n', '<leader>-',       ":wincmd _<cr>:wincmd \\|<cr>")
 map('n', '<leader>=',       ":wincmd =<cr>")
 map('n', '<leader>cl',      'gcc', {noremap=false})                             -- toggle comment
