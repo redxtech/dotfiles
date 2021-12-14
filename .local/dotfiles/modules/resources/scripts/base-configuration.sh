@@ -2,18 +2,18 @@
 
 main () {
     # passwordless sudo
-    sudo EDITOR="$(nvim)" visudo
+    # sudo EDITOR="$(nvim)" visudo
     
     # remove files that prevent pwless sudo
-    local rm_dropins=(
-      "/etc/sudoers.d/10-installer"
-      "/etc/sudoers.d/pwfeedback"
-    )
-    for dropin in $rm_dropins; do
-      if test -f "$dropin"; then
-        sudo rm -f "$dropin"
-      fi
-    done
+    # local rm_dropins=(
+    #   "/etc/sudoers.d/10-installer"
+    #   "/etc/sudoers.d/pwfeedback"
+    # )
+    # for dropin in $rm_dropins; do
+    #   if test -f "$dropin"; then
+    #     sudo rm -f "$dropin"
+    #   fi
+    # done
 
     # make changes to makepkg.conf:
     # - use all cores for compilation
