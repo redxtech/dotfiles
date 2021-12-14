@@ -30,6 +30,9 @@ require("bufferline").setup {
 -- autopairs setup
 require('nvim-autopairs').setup{}
 
+-- comment setup
+require('Comment').setup()
+
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
 -- vim.api.nvim_command('autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>')

@@ -19,7 +19,6 @@ return require('packer').startup(function()
 	use 'ap/vim-css-color'										-- highlight hex colours with their colour
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
-	use 'matze/vim-move'											-- move selections
 	use 'editorconfig/editorconfig-vim'				-- editorconfig support
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
@@ -40,14 +39,15 @@ return require('packer').startup(function()
 	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
+	use 'matze/vim-move'											-- move selections
 	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
 	use 'mhinz/vim-signify'										-- show git changes in gutter
 	use 'mhinz/vim-startify'									-- vim startup page
 	use 'miyakogi/conoline.vim'								-- highlight current line
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
+	use 'numToStr/Comment.nvim'								-- commenting plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
-	use 'preservim/nerdcommenter'							-- commenting plugin
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
