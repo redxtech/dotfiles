@@ -48,6 +48,7 @@ return require('packer').startup(function()
 	use 'numToStr/Comment.nvim'								-- commenting plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
+	use 'quangnguyen30192/cmp-nvim-tags'			-- tags completion for cmp
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
@@ -71,7 +72,7 @@ return require('packer').startup(function()
 	use 'vim-airline/vim-airline'							-- statusline
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
-	use 'windwp/nvim-autopairs'								-- autopairs
+	use 'jiangmiao/auto-pairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
 
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}

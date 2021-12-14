@@ -11,10 +11,6 @@ end
 -- setup nvim-cmp
 local cmp = require('cmp')
 
--- auto pair, bracket to next line
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-
 cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -60,6 +56,7 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
     { name = 'treesitter' },
+    { name = 'tags' },
   }),
 	formatting = {
   	format = require("lspkind").cmp_format({

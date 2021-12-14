@@ -27,11 +27,10 @@ require("bufferline").setup {
   }
 }
 
--- autopairs setup
-require('nvim-autopairs').setup{}
-
 -- comment setup
-require('Comment').setup()
+require('Comment').setup({
+  ignore = '^$'
+})
 
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
