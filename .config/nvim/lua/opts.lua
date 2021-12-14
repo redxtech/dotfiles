@@ -23,6 +23,7 @@ vim.wo.number               = true
 vim.wo.relativenumber       = true
 vim.wo.signcolumn           = "number"
 vim.wo.wrap                 = false
+vim.wo.cursorcolumn         = true
 
 -- buffer
 local indent                = 2
