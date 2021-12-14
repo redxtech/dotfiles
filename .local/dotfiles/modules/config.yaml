@@ -1,0 +1,4 @@
+name: Config
+commands:
+  - base-add-herecura.sh
+  - base-configuration.sh

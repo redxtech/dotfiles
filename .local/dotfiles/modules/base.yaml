@@ -1,5 +1,6 @@
 name: Base Module
 depends:
+  - config
   - cli
   - fortune
   - js
@@ -32,6 +33,3 @@ packages:
   - yadm
   - yq
   - zip
-commands:
-  - base-add-herecura.sh
-  - base-configuration.sh
