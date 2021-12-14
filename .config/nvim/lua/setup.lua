@@ -1,6 +1,6 @@
 -- setup for plugins
 
--- treesitter config
+-- treesitter setup
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -12,6 +12,12 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  context_commentstring = {
+    enable = true
+  },
+  matchup = {
+    enable = true
+  }
 }
 
 -- telescope native fzf
@@ -35,12 +41,9 @@ require("bufferline").setup {
   }
 }
 
--- treesitter setup
-require'nvim-treesitter.configs'.setup {
-  context_commentstring = {
-    enable = true
-  },
-  matchup = {
+-- gitsigns setup
+require('gitsigns').setup {
+  yadm = {
     enable = true
   }
 }
@@ -59,13 +62,24 @@ require('nvim-tree').setup({
 })
 
 -- autopairs setup
-require('nvim-autopairs').setup{}
+require('nvim-autopairs').setup {}
+
+-- better escape setup
+require("better_escape").setup {
+  clear_empty_lines = true
+}
+
+-- neoscroll setup
+require('neoscroll').setup {}
+
+-- stabilize setup
+require("stabilize").setup {}
 
 -- toggleterm setup
-require("toggleterm").setup{}
+require("toggleterm").setup {}
 
 -- colourizer setup
-require('colorizer').setup()
+require('colorizer').setup {}
 
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>

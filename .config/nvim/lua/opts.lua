@@ -43,7 +43,7 @@ vim.g.mapleader             = " "
 vim.b.mapleader             = " "
 vim.g.AutoPairsShortcutToggle = ""
 
---config
+-- some config
 vim.g.dashboard_default_executive = 'telescope'
 
 -- colours

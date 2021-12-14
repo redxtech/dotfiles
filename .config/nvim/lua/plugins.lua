@@ -38,14 +38,17 @@ return require('packer').startup(function()
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'								-- text object for line (al, il)
 	use 'kana/vim-textobj-user'								-- allow user defined text objects
+	use 'karb94/neoscroll.nvim'								-- smooth scrolling
 	use 'kovetskiy/sxhkd-vim'									-- syntax highlighting
 	use 'kyazdani42/nvim-tree.lua'						-- file browser
+	use 'lewis6991/gitsigns.nvim'							-- git signs
 	use 'liuchengxu/vim-which-key'						-- show which keybinds are available
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
+	use 'luukvbaal/stabilize.nvim'						-- stabilize buffer content on window open/close
 	use 'matze/vim-move'											-- move selections
+	use 'max397574/better-escape.nvim'				-- escape insert mode quickly
 	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
-	use 'mhinz/vim-signify'										-- show git changes in gutter
 	use 'miyakogi/conoline.vim'								-- highlight current line
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
 	use 'norcalli/nvim-colorizer.lua'					-- highlight hex colours with their colour
@@ -63,11 +66,9 @@ return require('packer').startup(function()
 	use 'tpope/vim-dotenv'										-- load dotenv file into vim
 	use 'tpope/vim-endwise'										-- pair do->end, if->fi, etc.
 	use 'tpope/vim-eunuch'										-- unix helpers
-	use 'tpope/vim-fugitive'									-- git wrapper commands
 	use 'tpope/vim-jdaddy'										-- json objects (aj), actions (gqaj: clean, gwaj, insert)
 	use 'tpope/vim-obsession'									-- session management
 	use 'tpope/vim-repeat'										-- <.> repeats plugin stuff too
-	use 'tpope/vim-rhubarb'										-- github integration for fugitive
 	use 'tpope/vim-sensible'									-- sensible defaults everyone can agree on
 	use 'tpope/vim-sleuth'										-- autodetect indents
 	use 'tpope/vim-speeddating'								-- ctrl+(a/x) works properly on dates and times
