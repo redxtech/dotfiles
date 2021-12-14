@@ -10,5 +10,9 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar top -c ~/.config/polybar/config.ini &
 
 if test "$(bspc query -M --names | wc -l)" = "2"; then
-  SECOND_MONITOR="HDMI-2" polybar top_second -c ~/.config/polybar/config.ini &
+  if test "$(hostname)" = "desktop"; then
+    SECOND_MONITOR="HDMI-0" polybar top_second -c ~/.config/polybar/config.ini &
+  else
+    SECOND_MONITOR="HDMI-2" polybar top_second -c ~/.config/polybar/config.ini &
+  fi
 fi

@@ -4,10 +4,10 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # get number of monitors
 if test "$(hostname)" = "desktop"; then
-	bspc monitor -d I II III IV V VI VII VIII IX X
+	# bspc monitor -d I II III IV V VI VII VIII IX X
 	# fix when i get list of monitor names
-	# bspc monitor DP-1 -d I II III IV V VI
-	# bspc monitor HDMI-1 -d VII VIII IX X
+	bspc monitor DP-0 -d I II III IV V VI
+	bspc monitor HDMI-0 -d VII VIII IX X
 elif test "$(hostname)" = "laptop"; then
 	bspc monitor -d I II III IV V VI VII VIII IX X
 elif test "$(hostname)" = "localhost.localdomain"; then
