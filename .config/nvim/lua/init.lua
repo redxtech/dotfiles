@@ -1,10 +1,9 @@
 -- pull in config modules
-require('plugins')
-require('opts')
-require('lsp')
 
-require('setup')
-require('binds')
-require('auto')
---TODO: set fzf keybinds
+require('opts')     -- set options for vim and vim plugins
+require('plugins')  -- plugin management
+require('setup')    -- additional plugin config
+require('lsp')      -- language server setup
+require('binds')    -- keybinds
+require('auto')     -- autocmds
 
