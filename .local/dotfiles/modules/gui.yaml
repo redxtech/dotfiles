@@ -14,7 +14,7 @@ packages:
   - thunar
   - thunar-archive-plugin
   - thunar-media-tags-plugin
-  - thunar-volman-plugin
+  - thunar-volman
   - tumbler
   - variety
   - vivaldi

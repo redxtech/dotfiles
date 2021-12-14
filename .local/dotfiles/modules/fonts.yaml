@@ -1,9 +1,9 @@
 name: Fonts
 packages:
-  - fontforge
   - adobe-source-code-pro-fonts
   - adobe-source-sans-pro-fonts
-  - font-inter
+  - fontforge
+  - inter-font
   - nerd-fonts-fira-code
   - noto-fonts
   - otf-fira-sans

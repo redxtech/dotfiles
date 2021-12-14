@@ -2,4 +2,4 @@ name: Desktop
 depends:
   - wm
 packages:
-  - headset-charge-indicator
+  - headset-charge-indicator-git
