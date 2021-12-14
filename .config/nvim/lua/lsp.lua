@@ -9,7 +9,9 @@ local feedkey = function(key, mode)
 end
 
 -- setup nvim-cmp
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 cmp.setup({
 	snippet = {
@@ -27,7 +29,7 @@ cmp.setup({
       								i = cmp.mapping.abort(),
       								c = cmp.mapping.close(),
     								}),
-    ['<CR>']				= cmp.mapping.confirm({ select = true }),
+    ['<CR>']				= cmp.mapping.confirm(),
     ["<Tab>"]       = cmp.mapping(function(fallback)
                       if cmp.visible() then
                         cmp.select_next_item()

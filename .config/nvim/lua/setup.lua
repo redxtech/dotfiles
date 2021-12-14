@@ -55,6 +55,16 @@ require('nvim-tree').setup({
   }
 })
 
+-- autopairs setup
+require('nvim-autopairs').setup{}
+
+-- toggleterm setup
+require("toggleterm").setup{}
+
+-- colourizer setup
+require('colorizer').setup()
+
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
 -- vim.api.nvim_command('autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>')
+

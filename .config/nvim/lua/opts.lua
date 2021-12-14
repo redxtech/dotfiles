@@ -43,6 +43,9 @@ vim.g.mapleader             = " "
 vim.b.mapleader             = " "
 vim.g.AutoPairsShortcutToggle = ""
 
+--config
+vim.g.dashboard_default_executive = 'telescope'
+
 -- colours
 vim.cmd('colo dracula')
 -- vim.cmd('colo wal')

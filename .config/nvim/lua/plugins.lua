@@ -16,11 +16,12 @@ return require('packer').startup(function()
 	-- use 'honza/vim-snippets'									-- snippets
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
 
-	use 'ap/vim-css-color'										-- highlight hex colours with their colour
+	use 'akinsho/toggleterm.nvim'							-- toggleable terminal
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
 	use 'editorconfig/editorconfig-vim'				-- editorconfig support
 	use 'famiu/bufdelete.nvim'								-- better buffer deletion support
+	use 'glepnir/dashboard-nvim'							-- dashboard startup screen
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
 	use 'hrsh7th/cmp-cmdline'									-- cmdline source for nvim-cmp
@@ -31,7 +32,6 @@ return require('packer').startup(function()
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'hrsh7th/vim-vsnip'										-- snippet provider
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
-	use 'jiangmiao/auto-pairs'								-- autopairs
 	use 'junegunn/fzf.vim'										-- configure fzf
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
@@ -45,9 +45,9 @@ return require('packer').startup(function()
 	use 'matze/vim-move'											-- move selections
 	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
 	use 'mhinz/vim-signify'										-- show git changes in gutter
-	use 'mhinz/vim-startify'									-- vim startup page
 	use 'miyakogi/conoline.vim'								-- highlight current line
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
+	use 'norcalli/nvim-colorizer.lua'					-- highlight hex colours with their colour
 	use 'numToStr/Comment.nvim'								-- commenting plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
@@ -55,6 +55,7 @@ return require('packer').startup(function()
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
+	use 'simrat39/symbols-outline.nvim'				-- code outline sidebar
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting
 	use 'tpope/vim-dispatch'									-- compile wrapper (:Make)
 	use 'tpope/vim-dotenv'										-- load dotenv file into vim
@@ -75,6 +76,7 @@ return require('packer').startup(function()
 	use 'vim-airline/vim-airline'							-- statusline
 	use 'vim-airline/vim-airline-themes'			-- statusline themes
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
+	use 'windwp/nvim-autopairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
 
 	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
