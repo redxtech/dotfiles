@@ -100,7 +100,7 @@ main () {
     #########################
     # Window Manager Config #
     #########################
-    b|bspwm) # bspwm
+    b|bspwm|wm) # bspwm
       $EDITOR "$HOME/.config/bspwm/bspwmrc"
       ;;
     s|sxhkd) # sxhkd config
@@ -112,7 +112,7 @@ main () {
     pb|polybar|bar) # polybar config
       $EDITOR "$HOME/.config/polybar/config.ini"
       ;;
-    pbl) # polybar launch script
+    pbl|barl|polybarlaunch) # polybar launch script
       $EDITOR "$HOME/.config/polybar/launch.sh"
       ;;
     p|picom|compositor) # compositor
