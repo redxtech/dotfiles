@@ -17,6 +17,7 @@ return require('packer').startup(function()
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
 
 	use 'akinsho/toggleterm.nvim'							-- toggleable terminal
+	use 'andymass/vim-matchup'								-- better matching wiht % key
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
 	use 'editorconfig/editorconfig-vim'				-- editorconfig support
@@ -54,6 +55,7 @@ return require('packer').startup(function()
 	use 'quangnguyen30192/cmp-nvim-tags'			-- tags completion for cmp
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
+	use 'ray-x/lsp_signature.nvim'						-- shows funciton signature
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
 	use 'simrat39/symbols-outline.nvim'				-- code outline sidebar
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting
