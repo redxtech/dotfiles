@@ -76,6 +76,7 @@ return require('packer').startup(function()
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
 	use 'yegappan/mru'												-- most recently used files
 
+	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }

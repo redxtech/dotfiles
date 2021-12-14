@@ -35,6 +35,13 @@ require("bufferline").setup {
   }
 }
 
+-- treesitter setup
+require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true
+  }
+}
+
 -- comment setup
 require('Comment').setup({
   ignore = '^$'
@@ -42,7 +49,10 @@ require('Comment').setup({
 
 -- nvim-tree setup
 require('nvim-tree').setup({
-  auto_close          = true
+  auto_close          = true,
+  view = {
+    auto_resize         = true
+  }
 })
 
 -- fix eslint errors on save
