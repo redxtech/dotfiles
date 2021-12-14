@@ -37,7 +37,9 @@ map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
 
--- lsp binds (moved to lsp.lua)
+-- buffer binds
+map('n', '<leader>bd',      '<cmd>Bdelete<CR>')        -- close current buffer
+map('n', '<leader>bD',      '<cmd>Bdelete!<CR>')       -- close current buffer
 
 -- telescope binds
 map('n', '<leader><space>', '<cmd>Telescope buffers<cr>')       -- find buffer

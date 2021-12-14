@@ -41,6 +41,7 @@ vim.bo.expandtab            = true
 -- binds?
 vim.g.mapleader             = " "
 vim.b.mapleader             = " "
+vim.g.AutoPairsShortcutToggle = ""
 
 -- colours
 vim.cmd('colo dracula')

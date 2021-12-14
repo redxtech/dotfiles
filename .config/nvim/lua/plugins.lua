@@ -20,6 +20,7 @@ return require('packer').startup(function()
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
 	use 'editorconfig/editorconfig-vim'				-- editorconfig support
+	use 'famiu/bufdelete.nvim'								-- better buffer deletion support
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
 	use 'hrsh7th/cmp-cmdline'									-- cmdline source for nvim-cmp
