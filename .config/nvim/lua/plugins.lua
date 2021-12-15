@@ -16,6 +16,7 @@ return require('packer').startup(function()
 	-- use 'honza/vim-snippets'									-- snippets
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
 
+	use 'L3MON4D3/LuaSnip'										-- snippet engine
 	use 'akinsho/toggleterm.nvim'							-- toggleable terminal
 	use 'andymass/vim-matchup'								-- better matching wiht % key
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
@@ -29,9 +30,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'								-- lsp integration for nvim-cmp
 	use 'hrsh7th/cmp-nvim-lua'								-- source for nvim lua api
 	use 'hrsh7th/cmp-path'										-- path source for nvim-cmp
-	use 'hrsh7th/cmp-vsnip'										-- snippet source for nvim-cmp
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
-	use 'hrsh7th/vim-vsnip'										-- snippet provider
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
 	use 'junegunn/fzf.vim'										-- configure fzf
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
@@ -59,6 +58,7 @@ return require('packer').startup(function()
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'ray-x/lsp_signature.nvim'						-- shows funciton signature
+	use 'saadparwaiz1/cmp_luasnip'						-- luasnip cmp source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
 	use 'simrat39/symbols-outline.nvim'				-- code outline sidebar
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting

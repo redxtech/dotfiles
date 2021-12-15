@@ -20,6 +20,10 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+-- luasnip setup
+-- require('luasnip.config.snippets')
+require("luasnip/loaders/from_vscode").lazy_load()
+
 -- telescope native fzf
 require("telescope").setup{}
 require("telescope").load_extension('fzf')
