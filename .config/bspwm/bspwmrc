@@ -41,7 +41,7 @@ bspc rule -a discord desktop='^3'
 # Computer Specific Rules
 if test "$(hostname)" = "desktop"; then
 	# bspc rule -a Spotify desktop='^12'
-	bspc rule -a plexmediaplayer desktop='^13'
+	bspc rule -a plexmediaplayer desktop='^9'
 elif test "$(hostname)" = "laptop"; then
 	# bspc rule -a spotify desktop='^4'
 	bspc rule -a plexmediaplayer desktop='^4'
