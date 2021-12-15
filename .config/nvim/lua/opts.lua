@@ -21,7 +21,7 @@ vim.o.undofile              = true
 -- window
 vim.wo.number               = true
 vim.wo.relativenumber       = true
-vim.wo.signcolumn           = "number"
+vim.wo.signcolumn           = "yes"
 vim.wo.wrap                 = false
 vim.wo.cursorcolumn         = true
 
