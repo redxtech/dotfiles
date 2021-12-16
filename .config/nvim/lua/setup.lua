@@ -27,6 +27,7 @@ require("luasnip/loaders/from_vscode").lazy_load()
 -- telescope native fzf
 require("telescope").setup{}
 require("telescope").load_extension('fzf')
+require('telescope').load_extension('projects')
 
 -- set up bufferline
 vim.opt.termguicolors = true
@@ -44,6 +45,19 @@ require("bufferline").setup {
     }
   }
 }
+
+-- toggleterm setup
+require("toggleterm").setup {}
+function _G.set_terminal_keymaps()
+  local opts = {noremap = true}
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+end
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- gitsigns setup
 require('gitsigns').setup {
@@ -79,11 +93,23 @@ require('neoscroll').setup {}
 -- stabilize setup
 require("stabilize").setup {}
 
--- toggleterm setup
-require("toggleterm").setup {}
-
 -- colourizer setup
 require('colorizer').setup {}
+
+-- numb setup
+require('numb').setup {}
+
+-- goto-preview setup
+require('goto-preview').setup {}
+
+-- nvim lastplace setup
+require('nvim-lastplace').setup {}
+
+-- todo comments setup
+ require("todo-comments").setup {}
+
+-- project setup
+require("project_nvim").setup {}
 
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>

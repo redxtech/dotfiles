@@ -22,7 +22,12 @@ return require('packer').startup(function()
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
 	use 'dense-analysis/ale'									-- async lint engine
 	use 'editorconfig/editorconfig-vim'				-- editorconfig support
+	use 'ethanholz/nvim-lastplace'						-- reopen files in last used place
 	use 'famiu/bufdelete.nvim'								-- better buffer deletion support
+	use 'felipec/vim-sanegx'									-- open link under cursor
+	use 'folke/lsp-colors.nvim'								-- give lsp colours to unsuported themes
+	use 'folke/todo-comments.nvim'						-- higlight special comments
+	use 'ahmedkhalf/project.nvim'							-- project management
 	use 'glepnir/dashboard-nvim'							-- dashboard startup screen
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
@@ -45,10 +50,12 @@ return require('packer').startup(function()
 	use 'ludovicchabant/vim-gutentags'				-- auto manage tags
 	use 'lukas-reineke/indent-blankline.nvim'	-- show indent guides
 	use 'luukvbaal/stabilize.nvim'						-- stabilize buffer content on window open/close
+	use 'mattn/vim-gist'											-- post buffer as gist
 	use 'matze/vim-move'											-- move selections
 	use 'max397574/better-escape.nvim'				-- escape insert mode quickly
 	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
 	use 'miyakogi/conoline.vim'								-- highlight current line
+	use 'nacro90/numb.nvim'										-- preview line before jump
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
 	use 'norcalli/nvim-colorizer.lua'					-- highlight hex colours with their colour
 	use 'numToStr/Comment.nvim'								-- commenting plugin
@@ -58,9 +65,11 @@ return require('packer').startup(function()
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
 	use 'ray-x/cmp-treesitter'								-- treesitter completion source
 	use 'ray-x/lsp_signature.nvim'						-- shows funciton signature
+	use 'rmagatti/goto-preview'								-- show preview of definition
 	use 'saadparwaiz1/cmp_luasnip'						-- luasnip cmp source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
 	use 'simrat39/symbols-outline.nvim'				-- code outline sidebar
+	use 'terryma/vim-expand-region'           -- expand selection based on text objects
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting
 	use 'tpope/vim-dispatch'									-- compile wrapper (:Make)
 	use 'tpope/vim-dotenv'										-- load dotenv file into vim

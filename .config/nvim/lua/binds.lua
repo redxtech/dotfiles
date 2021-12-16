@@ -12,6 +12,10 @@ local function map(mode, combo, mapping, opts)
   vim.api.nvim_set_keymap(mode, combo, mapping, options)
 end
 
+-- simple maps
+map('n', ';',               ':')                  -- easier command 
+map('n', '<C-w>',           'daw')                -- delete word
+
 map('n', '<leader>fs',      ':w<CR>')             -- write file
 map('n', '<leader>fS',      ':SudoWrite<CR>')     -- write file
 map('n', '<leader>y',       '"+y')                -- yank to system clip
@@ -22,43 +26,44 @@ map('n', '<C-k>',           '<C-w>k')             -- navigate windows (up)
 map('n', '<C-l>',           '<C-w>l')             -- navigate windows (right)
 map('n', 'sv',              ':vsplit<CR>')        -- vertical split
 map('n', 'sg',              ':split<CR>')         -- horizontal split
-map('n', '<C-w>',           'daw')                -- delete word
-map('n', 'S',               ':%s//g<Left><Left>') -- replace all
-map('n', '<leader>-',       ":wincmd _<cr>:wincmd \\|<cr>")
-map('n', '<leader>=',       ":wincmd =<cr>")
+map('n', '<leader>sa',               ':%s//g<left><left>', {noremap=false}) -- replace all
 map('n', '<leader>cl',      'gcc', {noremap=false})                             -- toggle comment
 map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
 
+-- indent lines better
+-- vnoremap < <gv
+-- vnoremap > >gv
+
 -- buffer binds
-map('n', '<leader>qq',      ':q<CR>')             -- close buffer
-map('n', '<leader>qQ',      ':q!<CR>')            -- close buffer (force)
-map('n', '<leader>bd',      '<cmd>Bdelete<CR>')   -- close current buffer without closing window
-map('n', '<leader>bD',      '<cmd>Bdelete!<CR>')  -- force close current buffer without closing window
+map('n', '<leader>qq',      ':q<CR>')                         -- close buffer
+map('n', '<leader>qQ',      ':q!<CR>')                        -- close buffer (force)
+map('n', '<leader>bd',      '<cmd>Bdelete<CR>')               -- close current buffer without closing window
+map('n', '<leader>bD',      '<cmd>Bdelete!<CR>')              -- close current buffer without closing window (force)
+map('n', '<leader><space>', '<cmd>Telescope buffers<CR>')     -- find buffer
 
 -- misc general binds
 map('n', '<leader>h',       ':noh<CR>')           -- remove highlight
 map('n', '<leader>tt',       '<cmd>ToggleTerm<CR>')           -- remove highlight
 map('n', '<leader>so',       '<cmd>SymbolsOutline<CR>')           -- remove highlight
 
--- termtoggle binds
+-- nvim tree binds
 map('n', '<C-n>',           '<cmd>NvimTreeToggle<CR>')    -- open nvim tree
 map('n', '<leader>r',       '<cmd>NvimTreeRefresh<CR>')   -- open nvim tree
 map('n', '<leader>n',       '<cmd>NvimTreeFindFile<CR>')  -- open nvim tree
 
 -- telescope binds
-map('n', '<leader><space>', '<cmd>Telescope buffers<cr>')       -- find buffer
-map('n', '<leader>ff',      '<cmd>Telescope find_files<cr>')    -- find files
-map('n', '<leader>fg',      '<cmd>Telescope git_files<cr>')     -- find git files
-map('n', '<leader>fb',      '<cmd>Telescope file_browser<cr>')  -- find git files
-map('n', '<leader>fh',      '<cmd>Telescope help_tags<cr>')     -- search help tags
-map('n', '<leader>sg',      '<cmd>Telescope live_grep<cr>')     -- live live_grep
-
+map('n', '<leader>ff',      '<cmd>Telescope find_files<CR>')    -- find files
+map('n', '<leader>fg',      '<cmd>Telescope git_files<CR>')     -- find git files
+map('n', '<leader>fb',      '<cmd>Telescope file_browser<CR>')  -- find git files
+map('n', '<leader>fh',      '<cmd>Telescope help_tags<CR>')     -- search help tags
+map('n', '<leader>sg',      '<cmd>Telescope live_grep<CR>')     -- live live_grep
+map('n', '<leader>op',      '<cmd>Telescope projects<CR>')
 -- packer binds
-map('n', '<leader>ps',      '<cmd>PackerSync<cr>')    -- sync packages
-map('n', '<leader>pu',      '<cmd>PackerUpdate<cr>')    -- sync packages
-map('n', '<leader>pc',      '<cmd>PackerCompile<cr>')    -- sync packages
+map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages
+map('n', '<leader>pu',      '<cmd>PackerUpdate<CR>')    -- sync packages
+map('n', '<leader>pc',      '<cmd>PackerCompile<CR>')    -- sync packages
 
 -- bufferline binds
 map('n', ']b',              ':BufferLineCycleNext<CR>', {silent = true})      -- next tab
