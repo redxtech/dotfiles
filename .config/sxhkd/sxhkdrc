@@ -188,8 +188,8 @@ super + n
   thunar  
 
 # Secondary Apps
-super + shift + {p,o,a}
-  {plexmediaplayer,discord,authy}
+super + shift + {p,o,a,v}
+  {plexmediaplayer,discord,authy,pavucontrol,}
 
 # open terminal apps
 super + shift + {m,r,u,n}
