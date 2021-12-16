@@ -53,6 +53,9 @@ run flameshot
 run spotify
 run thunar --daemon
 
+# move spotify to proper workspace
+sleep 6 && wmctrl -r spotify -t 7
+
 # host specific apps
 if test "$(hostname)" = "desktop"; then
   run qbittorrent
