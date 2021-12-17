@@ -79,6 +79,11 @@ require('nvim-tree').setup({
   }
 })
 
+-- goto-preview setup
+require('goto-preview').setup {
+  default_mappings = true
+}
+
 -- autopairs setup
 require('nvim-autopairs').setup {}
 
@@ -98,9 +103,6 @@ require('colorizer').setup {}
 
 -- numb setup
 require('numb').setup {}
-
--- goto-preview setup
-require('goto-preview').setup {}
 
 -- nvim lastplace setup
 require('nvim-lastplace').setup {}
