@@ -45,6 +45,13 @@ if command -v nvim >/dev/null; then
   alias vim="nvim"
 fi
 
+# goneovim -> gvim
+if command -v goneovim >/dev/null; then
+  alias gvim="goneovim"
+  alias gnvim="gvim"
+fi
+
+
 # ls -> exa
 if command -v exa >/dev/null; then
   alias ls="exa --group-directories-first"
