@@ -16,6 +16,7 @@ vim.o.splitbelow            = true
 vim.o.splitright            = true
 vim.o.termguicolors         = true
 vim.o.undofile              = true
+vim.o.foldlevelstart        = 99
 
 
 -- window
@@ -24,6 +25,8 @@ vim.wo.relativenumber       = true
 vim.wo.signcolumn           = "yes"
 vim.wo.wrap                 = false
 vim.wo.cursorcolumn         = true
+vim.wo.foldmethod           = "expr"
+vim.wo.foldexpr             = "nvim_treesitter#foldexpr()"
 
 -- buffer
 local indent                = 2
