@@ -1,0 +1,7 @@
+[Editor]
+Transparent = 0.7
+FontFamily = "DankMono Nerd Font"
+
+[Cursor]
+SmoothMove = true
+
