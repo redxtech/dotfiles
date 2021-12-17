@@ -60,6 +60,10 @@ map('n', '<leader>fb',      '<cmd>Telescope file_browser<CR>')  -- find git file
 map('n', '<leader>fh',      '<cmd>Telescope help_tags<CR>')     -- search help tags
 map('n', '<leader>sg',      '<cmd>Telescope live_grep<CR>')     -- live live_grep
 map('n', '<leader>op',      '<cmd>Telescope projects<CR>')
+
+-- dashboard commands
+map('n', '<leader>cn',      '<cmd>DashboardNewFile<CR>')  -- new file
+
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages
 map('n', '<leader>pu',      '<cmd>PackerUpdate<CR>')    -- sync packages

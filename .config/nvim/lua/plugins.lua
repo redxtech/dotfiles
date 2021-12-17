@@ -17,6 +17,7 @@ return require('packer').startup(function()
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
 
 	use 'L3MON4D3/LuaSnip'										-- snippet engine
+	use 'ahmedkhalf/project.nvim'							-- project management
 	use 'akinsho/toggleterm.nvim'							-- toggleable terminal
 	use 'andymass/vim-matchup'								-- better matching wiht % key
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
@@ -27,7 +28,6 @@ return require('packer').startup(function()
 	use 'felipec/vim-sanegx'									-- open link under cursor
 	use 'folke/lsp-colors.nvim'								-- give lsp colours to unsuported themes
 	use 'folke/todo-comments.nvim'						-- higlight special comments
-	use 'ahmedkhalf/project.nvim'							-- project management
 	use 'glepnir/dashboard-nvim'							-- dashboard startup screen
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp

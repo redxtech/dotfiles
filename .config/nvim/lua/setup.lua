@@ -79,6 +79,12 @@ require('nvim-tree').setup({
   }
 })
 
+-- indent blankline setup
+require("indent_blankline").setup {
+  buftype_exclude = { "terminal" },
+  filetype_exclude = { "dashboard" },
+}
+
 -- goto-preview setup
 require('goto-preview').setup {
   default_mappings = true
