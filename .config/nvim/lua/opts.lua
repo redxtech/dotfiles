@@ -3,43 +3,44 @@
 -- globals
 vim.o.background     = "dark"
 vim.o.completeopt    = "menu,menuone,noselect"
+vim.o.foldlevelstart = 99
+vim.o.guifont        = "DankMono Nerd Font"
 vim.o.hidden         = true
 vim.o.hlsearch       = true
+vim.o.inccommand     = "split"
 vim.o.mouse          = "a"
 vim.o.ruler          = true
 vim.o.scrolloff      = 5
 vim.o.showmode       = true
 vim.o.sidescrolloff  = 5
 vim.o.smartcase      = true
-vim.o.inccommand     = "split"
 vim.o.splitbelow     = true
 vim.o.splitright     = true
 vim.o.termguicolors  = true
 vim.o.undofile       = true
-vim.o.foldlevelstart = 99
 
 
 -- window
+vim.wo.cursorcolumn   = true
+vim.wo.foldexpr       = "nvim_treesitter#foldexpr()"
+vim.wo.foldmethod     = "expr"
 vim.wo.number         = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn     = "yes"
 vim.wo.wrap           = false
-vim.wo.cursorcolumn   = true
-vim.wo.foldmethod     = "expr"
-vim.wo.foldexpr       = "nvim_treesitter#foldexpr()"
 
 -- buffer
 local indent       = 2
-vim.o.tabstop      = indent
-vim.bo.tabstop     = indent
-vim.o.softtabstop  = indent
-vim.bo.softtabstop = indent
-vim.o.shiftwidth   = indent
-vim.bo.shiftwidth  = indent
-vim.o.autoindent   = true
 vim.bo.autoindent  = true
-vim.o.expandtab    = true
 vim.bo.expandtab   = true
+vim.bo.shiftwidth  = indent
+vim.bo.softtabstop = indent
+vim.bo.tabstop     = indent
+vim.o.autoindent   = true
+vim.o.expandtab    = true
+vim.o.shiftwidth   = indent
+vim.o.softtabstop  = indent
+vim.o.tabstop      = indent
 
 -- binds?
 vim.g.mapleader               = " "
@@ -47,8 +48,8 @@ vim.b.mapleader               = " "
 vim.g.AutoPairsShortcutToggle = ""
 
 -- some config
-vim.g.dashboard_default_executive = 'telescope'
 vim.g.ale_fixers                  = {'prettier', 'eslint'}
+vim.g.dashboard_default_executive = 'telescope'
 
 -- colours
 vim.cmd('colo dracula')
