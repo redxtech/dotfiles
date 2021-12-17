@@ -79,6 +79,16 @@ require('nvim-tree').setup({
   }
 })
 
+-- project setup
+vim.g.nvim_tree_respect_buf_cwd = 1
+require("project_nvim").setup {
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true
+  }
+}
+
 -- indent blankline setup
 require("indent_blankline").setup {
   buftype_exclude = { "terminal" },
@@ -115,9 +125,6 @@ require('nvim-lastplace').setup {}
 
 -- todo comments setup
  require("todo-comments").setup {}
-
--- project setup
-require("project_nvim").setup {}
 
 -- fix eslint errors on save
 -- autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
