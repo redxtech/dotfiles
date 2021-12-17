@@ -38,6 +38,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
 	use 'junegunn/fzf.vim'										-- configure fzf
+	use 'junegunn/vim-easy-align'							-- align on characters
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'								-- text object for line (al, il)
@@ -60,6 +61,7 @@ return require('packer').startup(function()
 	use 'norcalli/nvim-colorizer.lua'					-- highlight hex colours with their colour
 	use 'numToStr/Comment.nvim'								-- commenting plugin
 	use 'nvim-treesitter/nvim-treesitter' 		-- better syntax highlighting
+	use 'ojroques/vim-oscyank'								-- yank to clip over ssh
 	use 'onsails/lspkind-nvim'								-- show icons for lsp type
 	use 'quangnguyen30192/cmp-nvim-tags'			-- tags completion for cmp
 	use 'rafamadriz/friendly-snippets'				-- snippet collection
