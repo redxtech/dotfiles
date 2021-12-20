@@ -76,6 +76,7 @@ fi
 alias e='$EDITOR'
 alias v='$EDITOR'
 alias ss="sudo systemctl"
+alias svim="sudo -e"
 
 # docker aliases
 # alias docker="sudo docker"
@@ -98,6 +99,7 @@ fi
 
 # i often spell yadm as yamd
 abbr yamd="yadm"
+abbr yand="yadm"
 
 # my common misspellings
 abbr ecoh="echo"
