@@ -5,6 +5,11 @@ alias la="ls -al"
 alias ll="ls -l"
 alias l="ls -l"
 
+# make rm safer
+alias rm="rm -Iv"
+
+# mv is now verbose
+alias mv="mv -v"
 
 # new makedir command
 alias mkd="mkdir -pv"
@@ -18,9 +23,6 @@ alias ip='ip -color=auto'
 
 # reload the session
 alias src="exec zsh"
-
-# fix hors engine
-alias hors="hors -e google"
 
 # redo last command as sudo
 alias shit='sudo $(fc -ln -1)'

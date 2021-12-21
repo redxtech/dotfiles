@@ -80,7 +80,7 @@ unset CURRENT_DISTRO
 # only if notify-send
 if (( $+commands[notify-send] )); then
   zinit wait lucid for \
-    atload"AUTO_NOTIFY_IGNORE+=(btm conf docker hors kitty micro ranger spotifyd spt tmux yadm zsh)" \
+    atload"AUTO_NOTIFY_IGNORE+=(btm conf docker kitty micro ranger spotifyd spt tmux yadm zsh)" \
       MichaelAquilina/zsh-auto-notify
 fi
 
