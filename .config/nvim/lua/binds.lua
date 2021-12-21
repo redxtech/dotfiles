@@ -28,6 +28,7 @@ map('n', '<leader>sv',      ':vsplit<CR>')        -- vertical split
 map('n', '<leader>sg',      ':split<CR>')         -- horizontal split
 map('n', '<leader>sa',      ':%s//g<left><left>', {noremap=false}) -- replace all
 map('n', '<leader>cl',      'gcc', {noremap=false})                             -- toggle comment
+map('v', '<leader>cl',      'gc', {noremap=false})                              -- toggle comment (visual mode)
 map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session

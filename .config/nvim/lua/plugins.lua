@@ -38,7 +38,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-path'										-- path source for nvim-cmp
 	use 'hrsh7th/nvim-cmp'										-- autocompete for nvim
 	use 'itspriddle/vim-shellcheck'						-- shell script validation
-	use 'junegunn/fzf.vim'										-- configure fzf
+	use 'ibhagwan/fzf-lua'										-- fzf but lua
 	use 'junegunn/vim-easy-align'							-- align on characters
 	use 'kana/vim-textobj-entire'							-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'							-- text object for indent (ai, ii, aI, iI)
