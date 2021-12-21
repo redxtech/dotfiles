@@ -28,6 +28,7 @@ return require('packer').startup(function()
 	use 'felipec/vim-sanegx'									-- open link under cursor
 	use 'folke/lsp-colors.nvim'								-- give lsp colours to unsuported themes
 	use 'folke/todo-comments.nvim'						-- higlight special comments
+	use 'ggandor/lightspeed.nvim'							-- jump to place in file
 	use 'glepnir/dashboard-nvim'							-- dashboard startup screen
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
@@ -54,7 +55,6 @@ return require('packer').startup(function()
 	use 'mattn/vim-gist'											-- post buffer as gist
 	use 'matze/vim-move'											-- move selections
 	use 'max397574/better-escape.nvim'				-- escape insert mode quickly
-	use 'maxbrunsfeld/vim-yankstack'					-- yank stack cycling
 	use 'miyakogi/conoline.vim'								-- highlight current line
 	use 'nacro90/numb.nvim'										-- preview line before jump
 	use 'neovim/nvim-lspconfig'								-- LSP plugin
