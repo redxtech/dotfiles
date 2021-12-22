@@ -14,19 +14,17 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# load zinit meta plugin
-zinit light redxtech/z-a-meta-plugins
 
-# load the meta plugins
-zinit skip'cargo-extensions git-open git-recent git-my git-quick-stats git-now git-extras peco skim' for \
-  annexes \
-  console-tools \
-  rust-utils \
-  zsh-users+fast
+# load annexes
+zinit light zdharma-continuum/zinit-annex-bin-gem-node
+zinit light zdharma-continuum/zinit-annex-patch-dl
 
 # zsh prompt
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
+
+# can't load this one in turbo mode, abbr is used in aliases.zsh
+zinit light olets/zsh-abbr
 
 # lazy-load plugins with turbo mode
 zinit wait lucid for \
@@ -38,26 +36,23 @@ zinit wait lucid for \
     laggardkernel/zsh-thefuck \
   LucasLarson/gunstage \
   OMZP::command-not-found \
-  OMZP::copybuffer \
   OMZP::github \
   OMZP::man \
   OMZP::transfer \
-  redxtech/zsh-fzf-utils \
   wait"2" atload="__kitty_complete" \
     redxtech/zsh-kitty \
   redxtech/zsh-load-module \
-  redxtech/zsh-media-sync \
   redxtech/zsh-not-vim \
-  redxtech/zsh-show-path \
-  redxtech/zsh-tre \
   redxtech/zsh-unix-simple \
-  redxtech/zsh-yup \
   unixorn/fzf-zsh-plugin \
   voronkovich/gitignore.plugin.zsh \
   zpm-zsh/ssh
 
-# can't load this one in turbo mode, abbr is used in aliases.zsh
-zinit light olets/zsh-abbr
+# currently unused plugins
+#   redxtech/zsh-media-sync \
+#   redxtech/zsh-show-path \
+#   redxtech/zsh-tre \
+#   redxtech/zsh-yup \
 
 # distro specific plugins
 local CURRENT_DISTRO="$(lsb_release -is)"
@@ -80,59 +75,32 @@ unset CURRENT_DISTRO
 # only if notify-send
 if (( $+commands[notify-send] )); then
   zinit wait lucid for \
-    atload"AUTO_NOTIFY_IGNORE+=(btm conf docker kitty micro ranger spotifyd spt tmux yadm zsh)" \
+    atload"AUTO_NOTIFY_IGNORE+=(btm btop conf docker kitty micro ranger spotifyd spt tmux yadm zsh)" \
       MichaelAquilina/zsh-auto-notify
 fi
 
 # binaries from github releases
-zinit wait lucid from"gh-r" as"command" for \
-  sbin"Goneovim-*/goneovim" \
-    akiyosi/goneovim \
-  sbin"deploy/rainbow" \
-    atload"alias lolcat=\"rainbow\"" \
-      arsham/rainbow \
-  sbin"dust-*/dust" \
-    bootandy/dust \
-  sbin \
-    atload"eval \"\$(mcfly init zsh)\"" \
-      cantino/mcfly \
-  sbin"glow" bpick"*linux_x86_64.tar*" \
-    charmbracelet/glow \
-  sbin bpick"*lnx*" \
-    dalance/procs \
-  sbin"delta-*/delta" \
-    dandavison/delta \
-  sbin"tldr" mv"tldr* -> tldr" dl"https://raw.githubusercontent.com/dbrgn/tealdeer/master/zsh_tealdeer -> _tldr" \
-    dbrgn/tealdeer \
-  sbin \
-    dduan/tre \
-  sbin"hub-linux-*/bin/hub" mv"hub-linux-*/etc/hub.zsh_completion -> _hub" \
-    @github/hub \
-  sbin bpick"*linux_x86_64*" \
-    muesli/duf \
-  sbin"**/bin/nvim" mv"nvim* -> nvim" nocompletions \
-    neovim/neovim \
-  sbin \
-    o2sh/onefetch \
-  sbin"bin/dog" mv"completions/dog.zsh -> _dog" \
-    ogham/dog \
-  sbin \
-    pemistahl/grex \
-  sbin"rclone-*/rclone" bpick"*amd64.zip*" \
-    rclone/rclone \
-  sbin"sn" \
-    vmchale/tin-summer \
-  sbin bpick"*unknown-linux-gnu*" \
-    XAMPPRocky/tokei
+# TODO add atclone command to move completions for all entries?
+zinit wait lucid from'gh-r' as"command" for \
+  mv'fd* fd' sbin'**/fd(.exe|) -> fd' \
+    @sharkdp/fd \
+  mv'bat* bat' sbin'**/bat(.exe|) -> bat' \
+    @sharkdp/bat \
+  sbin'**/exa -> exa' atclone'cp -vf completions/exa.zsh _exa' \
+    ogham/exa \
+  mv'rip* ripgrep' sbin'**/rg(.exe|) -> rg' \
+    BurntSushi/ripgrep \
+  sbin"**/bin/nvim -> nvim" \
+    neovim/neovim
+  
+  # unused entries
+  # sbin"rclone-*/rclone" bpick"*amd64.zip*" \
+  #   rclone/rclone
 
 # binaries from github repos
 zinit as"command" wait lucid for \
   sbin \
-    denilsonsa/prettyping \
-  sbin \
     dylanaraps/neofetch \
-  sbin \
-    elasticdog/transcrypt \
   dl"https://gist.githubusercontent.com/redxtech/67f2fd16a8240b4a1d85574e4fd34b1a/raw/2d01835e2e78c3bb33401b2799982f7ca2f81542/bspswallow.patch" \
   patch"bspswallow.patch" atclone"ln -sf \"$HOME/.zinit/plugins/JopStro---bspswallow/bspswallow\" ~/.local/bin/bspswallow && echo Symlink successful" \
     JopStro/bspswallow \
@@ -141,16 +109,23 @@ zinit as"command" wait lucid for \
     TheLocehiliosan/yadm.git
 
 # completions packages
-zinit ice as"completion" wait lucid
-zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
 zinit ice as"completion" mv"completion.zsh -> _delta" wait lucid
 zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
 zinit wait lucid nocd depth=1 \
-    atinit"ZSH_BASH_COMPLETIONS_FALLBACK_LAZYLOAD_DISABLE=true" for \
-      3v1n0/zsh-bash-completions-fallback
+  atinit"ZSH_BASH_COMPLETIONS_FALLBACK_LAZYLOAD_DISABLE=true" for \
+    3v1n0/zsh-bash-completions-fallback
 zinit wait lucid for \
   atclone"./zplug.zsh" \
     g-plane/zsh-yarn-autocompletions \
   greymd/docker-zsh-completion \
   ryutok/rust-zsh-completions
+
+# completions, syntax highlighting, and autosuggestions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 

@@ -8,16 +8,23 @@ packages:
   - bat
   - command-not-found
   - diskus
-  - git-delta
+  - dog
+  - duf
+  - dust
   - exa
   - fd
   - fzf
+  - git-delta
+  - glow
   - htop
   - httpie
   - hub
+  - lolcat
   - mediainfo
   - mktorrent
   - neofetch
+  - onefetch
+  - pkgfile
   - prettyping
   - procs
   - progress
@@ -25,20 +32,26 @@ packages:
   - rclone
   - ripgrep
   - shellcheck
+  - skim
   - sl
   - slurm
   - source-highlight
   - tealdeer
   - time
+  - tin-summer
   - tokei
+  - transcrypt
   - tre-command
   - tree
   - ucollage
-  - youtube-dl
   - xclip
+  - youtube-dl
 npm:
   - speed-test
   - yosay
 pip:
   - asciinema
   - thefuck
+commands:
+  - sudo pkgfile --update
+
