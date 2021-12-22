@@ -9,9 +9,9 @@ packages:
   - xclip
   - yarn
 npm:
-  - neovim
   - "@tailwindcss/language-server"
   - dockerfile-language-server-nodejs
+  - neovim
   - typescript
   - typescript-language-server
   - vim-language-server

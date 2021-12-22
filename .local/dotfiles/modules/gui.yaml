@@ -6,6 +6,7 @@ depends:
   - spotify
 packages:
   - betterdiscord-installer
+  - devour
   - discord
   - feh
   - flameshot
