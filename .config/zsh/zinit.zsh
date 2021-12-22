@@ -91,7 +91,9 @@ zinit wait lucid from'gh-r' as"command" for \
   mv'rip* ripgrep' sbin'**/rg(.exe|) -> rg' \
     BurntSushi/ripgrep \
   sbin"**/bin/nvim -> nvim" \
-    neovim/neovim
+    neovim/neovim \
+  mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
+    mikefarah/yq
   
   # unused entries
   # sbin"rclone-*/rclone" bpick"*amd64.zip*" \
