@@ -19,6 +19,7 @@ packages:
   - htop
   - httpie
   - hub
+  - hub
   - lolcat
   - mediainfo
   - mktorrent
