@@ -6,6 +6,7 @@ depends:
   - spotify
 packages:
   - betterdiscord-installer
+  - devour
   - discord
   - feh
   - flameshot
@@ -19,6 +20,7 @@ packages:
   - variety
   - vivaldi
   - vivaldi-ffmpeg-codecs
+  - xprop
 commands:
   - sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
   - betterdiscord-installer

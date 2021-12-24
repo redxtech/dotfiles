@@ -91,7 +91,9 @@ zinit wait lucid from'gh-r' as"command" for \
   mv'rip* ripgrep' sbin'**/rg(.exe|) -> rg' \
     BurntSushi/ripgrep \
   sbin"**/bin/nvim -> nvim" \
-    neovim/neovim
+    neovim/neovim \
+  mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
+    mikefarah/yq
   
   # unused entries
   # sbin"rclone-*/rclone" bpick"*amd64.zip*" \
@@ -101,9 +103,6 @@ zinit wait lucid from'gh-r' as"command" for \
 zinit as"command" wait lucid for \
   sbin \
     dylanaraps/neofetch \
-  dl"https://gist.githubusercontent.com/redxtech/67f2fd16a8240b4a1d85574e4fd34b1a/raw/2d01835e2e78c3bb33401b2799982f7ca2f81542/bspswallow.patch" \
-  patch"bspswallow.patch" atclone"ln -sf \"$HOME/.zinit/plugins/JopStro---bspswallow/bspswallow\" ~/.local/bin/bspswallow && echo Symlink successful" \
-    JopStro/bspswallow \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git

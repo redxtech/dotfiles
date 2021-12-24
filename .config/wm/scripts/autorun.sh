@@ -22,7 +22,7 @@ srun () {
 }
 
 # apply proper monitor layour and sizing
-srun ~/.config/wm/scripts/screenlayout.sh
+srun ~/.screenlayout.sh
 
 # bar
 srun ~/.config/polybar/launch.sh

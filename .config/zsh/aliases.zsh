@@ -80,6 +80,15 @@ alias v='$EDITOR'
 alias ss="sudo systemctl"
 alias svim="sudo -e"
 
+# swallow windows for certain apps
+if command -v devour >/dev/null; then
+  local swallowed=(mpv sxiv)
+
+  for app in $swallowed; do
+    alias $app="devour $app"
+  done
+fi
+
 # docker aliases
 # alias docker="sudo docker"
 # alias docker-compose="sudo docker-compose"

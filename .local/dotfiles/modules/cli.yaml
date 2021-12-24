@@ -1,12 +1,14 @@
 name: CLI
 depends:
   - ranger
+  - rust
   - shell
   - vim
 packages:
   - bandwhich
   - bat
   - command-not-found
+  - cowsay
   - diskus
   - dog
   - duf

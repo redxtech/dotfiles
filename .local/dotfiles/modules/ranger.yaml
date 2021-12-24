@@ -1,6 +1,5 @@
 name: Ranger
 packages:
-  - ranger
   - atool
   - ffmpegthumbnailer
   - highlight
@@ -8,5 +7,6 @@ packages:
   - mediainfo
   - odt2txt
   - poppler
+  - ranger
   - transmission-cli
   - w3m
