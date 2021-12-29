@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 main () {
     KEYMAP="redxtech"
     QMK_HOME="$HOME/qmk_firmware"
@@ -24,11 +26,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
     return true;
 }
-EOF
-    ) | xclip -selection c
 
-    echo "Opening vim to add rotary encoder to keymap.c..."
-    vim "$QMK_HOME/keyboards/gmmk/pro/ansi/keymaps/$KEYMAP/keymap.c"
+EOF
+    ) | sudo tee -a "$QMK_HOME/keyboards/gmmk/pro/ansi/keymaps/$KEYMAP/keymap.c" >/dev/null
 
     echo "Keymap ready to flash!"
 
@@ -51,7 +51,7 @@ EOF
         sleep 1
 
         echo "Flashing board..."
-        qmk flash
+        qmk flash -km "$KEYMAP"
 
         echo "Flashing complete!"
     fi
