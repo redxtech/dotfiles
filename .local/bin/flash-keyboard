@@ -36,20 +36,6 @@ EOF
         echo "Compiling firmware..."
         qmk compile
 
-        echo "Starting countdown before flash..."
-        # echo "Flashing in 10 seconds..."
-        # sleep 5
-        echo "Flashing in 5 seconds..."
-        sleep 1
-        echo "Flashing in 4 seconds..."
-        sleep 1
-        echo "Flashing in 3 seconds..."
-        sleep 1
-        echo "Flashing in 2 seconds..."
-        sleep 1
-        echo "Flashing in 1 second..."
-        sleep 1
-
         echo "Flashing board..."
         qmk flash -km "$KEYMAP"
 
