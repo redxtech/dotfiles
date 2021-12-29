@@ -48,10 +48,12 @@ run blueman-applet
 
 # user apps
 run discord
-run variety
 run flameshot
 run spotify
 run thunar --daemon
+
+# variety wont work with the run command
+variety &
 
 # move spotify to proper workspace
 sleep 6 && wmctrl -r spotify -t 7
