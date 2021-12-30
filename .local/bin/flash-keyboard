@@ -3,41 +3,34 @@
 main () {
     KEYMAP="redxtech"
     QMK_HOME="$HOME/qmk_firmware"
+    KBD_PROFILE="gmmk/pro/ansi"
+    KEYMAP_DIR="$QMK_HOME/keyboards/$KBD_PROFILE/keymaps/$KEYMAP"
 
-    echo "Moving $KEYMAP.json from downloads..."
-    mv "$HOME/Downloads/$KEYMAP.json" "$QMK_HOME/qmmk_pro_ansi_layout_$KEYMAP.json" || echo return 1
+    if test -f "$HOME/Downloads/$KEYMAP.json"; then
+        echo "Keymap found in downloads! Using that..."
+
+        echo "Moving $KEYMAP.json from downloads..."
+        cp "$HOME/Downloads/$KEYMAP.json" "$HOME/Downloads/$KEYMAP-installed.json" || return 1
+        mv "$HOME/Downloads/$KEYMAP.json" "$KEYMAP_DIR/$KEYMAP.json" || return 1
+    fi
 
     echo "Compiling $KEYMAP.json to keymap.c..."
-    qmk json2c -o "$QMK_HOME/keyboards/gmmk/pro/ansi/keymaps/$KEYMAP/keymap.c" \
-        "$QMK_HOME/gmmk_pro_ansi_layout_$KEYMAP.json" | return 1
+    qmk json2c -o "$KEYMAP_DIR/keymap.c" "$KEYMAP_DIR/$KEYMAP.json" || return 1
 
     echo "Taking overship of keymap.c..."
-    sudo chown gabe "$QMK_HOME/keyboards/gmmk/pro/ansi/keymaps/$KEYMAP/keymap.c"
+    sudo chown gabe "$KEYMAP_DIR/keymap.c"
 
     echo "Appending rotary encoder to $KEYMAP/keymap.c..."
-    (
-    cat << EOF
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (clockwise) {
-        tap_code(KC_VOLU);
-    } else {
-        tap_code(KC_VOLD);
-    }
-
-    return true;
-}
-
-EOF
-    ) | sudo tee -a "$QMK_HOME/keyboards/gmmk/pro/ansi/keymaps/$KEYMAP/keymap.c" >/dev/null
+    cat "$KEYMAP_DIR/rotary.c" | sudo tee -a "$KEYMAP_DIR/keymap.c" >/dev/null
 
     echo "Keymap ready to flash!"
 
     if test "$1" = "flash"; then
         echo "Compiling firmware..."
-        qmk compile
+        qmk compile || (echo "Compiling firmware failed, exiting..." && return 1)
 
         echo "Flashing board..."
-        qmk flash -km "$KEYMAP"
+        qmk flash -km "$KEYMAP" || (echo "Flashing firmware failed, exiting..." && return 1)
 
         echo "Flashing complete!"
     fi
