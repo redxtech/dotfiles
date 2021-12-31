@@ -2,7 +2,7 @@
 
 main () {
     KEYMAP="redxtech"
-    QMK_HOME="$HOME/qmk_firmware"
+    QMK_HOME="$HOME/Code/qmk_firmware"
     KBD_PROFILE="gmmk/pro/ansi"
     KEYMAP_DIR="$QMK_HOME/keyboards/$KBD_PROFILE/keymaps/$KEYMAP"
 
@@ -20,7 +20,8 @@ main () {
     echo "Taking overship of keymap.c..."
     sudo chown gabe "$KEYMAP_DIR/keymap.c"
 
-    echo "Appending rotary encoder to $KEYMAP/keymap.c..."
+    echo "Appending C code to $KEYMAP/keymap.c..."
+    cat "$KEYMAP_DIR/macros.c" | sudo tee -a "$KEYMAP_DIR/keymap.c" >/dev/null
     cat "$KEYMAP_DIR/rotary.c" | sudo tee -a "$KEYMAP_DIR/keymap.c" >/dev/null
 
     echo "Keymap ready to flash!"
