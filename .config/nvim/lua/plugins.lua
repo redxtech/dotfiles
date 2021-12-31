@@ -18,6 +18,7 @@ return require('packer').startup(function()
 
 	use 'L3MON4D3/LuaSnip'										-- snippet engine
 	use 'ahmedkhalf/project.nvim'							-- project management
+	use 'prettier/vim-prettier'								-- formatting
 	use 'akinsho/toggleterm.nvim'							-- toggleable terminal
 	use 'andymass/vim-matchup'								-- better matching wiht % key
 	use 'christoomey/vim-sort-motion'					-- sort lines (gs*)
