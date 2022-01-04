@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+main () {
+  # assuming only two enabled sinks, get the number of the sink that isn't the currently enabled one
+  other_sink="$(pactl list short sinks | grep -v "$(pactl get-default-sink)" | awk '{ print $1 }')"
+
+  # set the default sink to the other sink
+  pactl set-default-sink "$other_sink"
+}
+
+main
+
