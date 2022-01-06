@@ -150,9 +150,9 @@ super + {Left,Down,Up,Right}
 # Special hotkeys
 #
 
-#
+#################
 # Multimedia keys
-#
+#################
 
 XF86AudioPlay
 	playerctl --player=spotify,chromium play-pause
@@ -172,9 +172,6 @@ XF86AudioLowerVolume
 XF86AudioMute
   pamixer --toggle-mute
   
-# amixer -q set Master toggle
-# Simple amixer command seems to have problems unmuting device
-
 # Brightness up
 XF86MonBrightnessUp
   xbacklight -inc 5
@@ -194,16 +191,25 @@ super + Print
 super + w 
   vivaldi-stable
 
-super + n 
-  thunar  
-
 # Secondary Apps
-super + shift + {p,o,a,v}
-  {plexmediaplayer,discord,authy,pavucontrol,}
+hyper + {p,d,a,v,n}
+  {plexmediaplayer,discord,authy,pavucontrol,thunar}
 
 # open terminal apps
-super + shift + {m,r,u,n}
-  kitty -e {btop,ranger,zsh -c "pacaur -Syu && echo Done - Press enter to exit; read",zsh -c "neofetch && exec zsh"}
+hyper + shift + {m,r,n}
+  kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
+
+# upgrade packages
+hyper + u
+	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
+
+# toggle audio output device
+hyper + o
+	~/.local/bin/toggle-output
+
+# choose audio output device
+hyper + shift + o
+	~/.local/bin/toggle-output choose
 
 # Show keybinds
 super + F1
