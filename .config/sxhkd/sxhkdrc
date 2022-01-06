@@ -164,13 +164,13 @@ XF86AudioPrev
 	playerctl --player=spotify,chromium previous
 
 XF86AudioRaiseVolume
-  amixer -q set Master 5%+ unmute
+  pamixer --increase 5
 
 XF86AudioLowerVolume
-  amixer -q set Master 5%- unmute
+  pamixer --decrease 5
 
 XF86AudioMute
-  amixer -D pulse sset Master toggle-mute
+  pamixer --toggle-mute
   
 # amixer -q set Master toggle
 # Simple amixer command seems to have problems unmuting device
