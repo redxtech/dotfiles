@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-main () {
+# option to toggle the output between two available sinks
+toggle () {
   # assuming only two enabled sinks, get the number of the sink that isn't the currently enabled one
   other_sink="$(pactl list short sinks | grep -v "$(pactl get-default-sink)" | awk '{ print $1 }')"
 
@@ -8,5 +9,29 @@ main () {
   pactl set-default-sink "$other_sink"
 }
 
-main
+# option to choose which sink will be selected
+choose () {
+  # use rofi to choose which sink is selected
+  selected="$(pactl list short sinks | \
+    awk '{ print $2 }' | \
+    sed -E 's/alsa_output\.(.*)\..*/\1/g' | \
+    rofi -dmenu -line-padding 4  -columns 2 -padding 50 -hide-scrollbar -terminal kitty -show-icons -font "Droid Sans Regular 10")"
+
+  # find the sink number with grep
+  sink="$(pactl list short sinks | grep "$selected" | awk '{ print $1}')"
+
+  # set the default sink
+  pactl set-default-sink "$sink"
+}
+
+# main function to choose between toggle or choose functionality
+main () {
+  if test -z "$1"; then
+    toggle
+  else
+    choose
+  fi
+}
+
+main "$1"
 
