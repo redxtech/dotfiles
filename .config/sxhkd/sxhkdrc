@@ -81,6 +81,14 @@ super + ctrl + {m,x,y,z}
 # focus/swap
 #
 
+# switch windows
+alt + Tab
+	bspc node -f last
+
+# focus the next/previous desktop in the current monitor
+hyper + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -171,7 +179,11 @@ XF86AudioLowerVolume
 
 XF86AudioMute
   pamixer --toggle-mute
-  
+
+# copy current track information
+hyper + XF86AudioPlay
+	playerctl --player=spotify,chromium metadata --format "\{\{ artist \}\} - \{\{ title \}\}" | xclip -sel clip
+
 # Brightness up
 XF86MonBrightnessUp
   xbacklight -inc 5
@@ -192,8 +204,12 @@ super + w
   vivaldi-stable
 
 # Secondary Apps
-hyper + {p,d,a,v,n}
-  {plexmediaplayer,discord,authy,pavucontrol,thunar}
+hyper + {d,s,a,n,p,v}
+  {discord,spotify,authy,thunar,plexmediaplayer,pavucontrol}
+
+# focus secondary apps
+hyper + alt + {w,d,s,p}
+  wmctrl -a {vivaldi,discord,spotify,plex}
 
 # open terminal apps
 hyper + shift + {m,r,n}
