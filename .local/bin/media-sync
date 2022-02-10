@@ -3,15 +3,16 @@
 main () {
   # config options
   bwlimit="50M"
+  transfers="20"
 
   # command line args
-  name="$1"
+  session="$1"
   src="$2"
   dest="$3"
   cron="$4"
 
   # make sure command line args were passed
-  if test -z "$name"; then
+  if test -z "$session"; then
     echo "you need to specify a name for the session"
     return 1
   fi
@@ -26,19 +27,22 @@ main () {
     return 1
   fi
 
-  tmux_session="ms-$name"
-
   # populate variables
+  session="ms-$session"
   if test -n "$bwlimit"; then
     bwlimit="--bwlimit=$bwlimit"
   fi
+  if test -n "$transfers"; then
+    transfers="--transfers=$transfers"
+  fi
 
-  rclone_command="rclone sync -P --transfers=20 $bwlimit \"$src\" \"$dest\""
+  # build the rclone command
+  rclone_command="rclone sync -P $transfers $bwlimit \"$src\" \"$dest\""
 
-  
-  if tmux has-session -t "$tmux_session" 2>/dev/null; then
+  # if session exists, attach to it, otherwise, spawn a new session with the rclone command
+  if tmux has-session -t "$session" 2>/dev/null; then
     echo "session already exists, attaching..."
-    tmux attach -t "$tmux_session"
+    tmux attach -t "$session"
   else
     # make sure tmux is able to run
     if test -n "$TMUX"; then
@@ -47,11 +51,11 @@ main () {
 
     # create a new tmux session and run the rclone command
     echo "$rclone_command"
-    tmux new-session -d -s "$tmux_session" "$rclone_command"
+    tmux new-session -d -s "$session" "$rclone_command"
 
     # connect to tmux session if not from cron
     if test -z "$cron"; then
-      tmux attach -t "$tmux_session"
+      tmux attach -t "$session"
     fi
   fi
 
