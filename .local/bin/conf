@@ -46,6 +46,9 @@ main () {
     wal|pywal) # pywal
       $EDITOR "$HOME/.local/bin/pywal"
       ;;
+    qmk|kb) # keyboard qmk
+      $EDITOR "$HOME/Code/qmk_firmware/keyboards/gmmk/pro/ansi/keymaps/redxtech/keymap.c"
+      ;;
     ##############
     # Vim Config #
     ##############
