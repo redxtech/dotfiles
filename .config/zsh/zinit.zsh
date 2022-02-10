@@ -52,7 +52,6 @@ zinit wait lucid for \
   zpm-zsh/ssh
 
 # currently unused plugins
-#   redxtech/zsh-media-sync \
 #   redxtech/zsh-show-path \
 #   redxtech/zsh-tre \
 #   redxtech/zsh-yup \
