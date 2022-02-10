@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-fpath+=("$HOME/.zinit/plugins/redxtech---zsh-media-sync/functions")
-
-autoload -Uz media-sync
-
-. "$HOME/.config/zsh/media-sync.zsh"
-
-media-sync

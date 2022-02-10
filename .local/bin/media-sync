@@ -50,7 +50,6 @@ main () {
     fi
 
     # create a new tmux session and run the rclone command
-    echo "$rclone_command"
     tmux new-session -d -s "$session" "$rclone_command"
 
     # connect to tmux session if not from cron

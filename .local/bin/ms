@@ -3,10 +3,10 @@
 main () {
   case "$1" in
     tv|sonarr)
-      media-sync sonarr "sonarr:/" "$HOME/Drives/Big Goober/Media/TV/"
+      media-sync sonarr "sonarr:/" "$HOME/Drives/Big Goober/Media/TV/" "$2"
       ;;
     movies|radarr)
-      media-sync radarr "radarr:/" "$HOME/Drives/Big Goober/Media/Movies/"
+      media-sync radarr "radarr:/" "$HOME/Drives/Big Goober/Media/Movies/" "$2"
       ;;
     *)
       echo "not an option buddy"
@@ -14,4 +14,4 @@ main () {
 
 }
 
-main "$1"
+main "$@"
