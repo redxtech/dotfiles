@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+main () {
+  case "$1" in
+    tv|sonarr)
+      media-sync sonarr "sonarr:/" "$HOME/Drives/Big Goober/Media/TV/"
+      ;;
+    movies|radarr)
+      media-sync radarr "radarr:/" "$HOME/Drives/Big Goober/Media/Movies/"
+      ;;
+    *)
+      echo "not an option buddy"
+  esac
+
+}
+
+main "$1"

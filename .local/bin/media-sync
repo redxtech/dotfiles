@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+main () {
+  # config options
+  bwlimit="50M"
+
+  # command line args
+  name="$1"
+  src="$2"
+  dest="$3"
+  cron="$4"
+
+  # make sure command line args were passed
+  if test -z "$name"; then
+    echo "you need to specify a name for the session"
+    return 1
+  fi
+
+  if test -z "$src"; then
+    echo "you need to specify a source"
+    return 1
+  fi
+
+  if test -z "$dest"; then
+    echo "you need to specify a destination"
+    return 1
+  fi
+
+  tmux_session="ms-$name"
+
+  # populate variables
+  if test -n "$bwlimit"; then
+    bwlimit="--bwlimit=$bwlimit"
+  fi
+
+  rclone_command="rclone sync -P --transfers=20 $bwlimit \"$src\" \"$dest\""
+
+  
+  if tmux has-session -t "$tmux_session" 2>/dev/null; then
+    echo "session already exists, attaching..."
+    tmux attach -t "$tmux_session"
+  else
+    # make sure tmux is able to run
+    if test -n "$TMUX"; then
+      TMUX=""
+    fi
+
+    # create a new tmux session and run the rclone command
+    echo "$rclone_command"
+    tmux new-session -d -s "$tmux_session" "$rclone_command"
+
+    # connect to tmux session if not from cron
+    if test -z "$cron"; then
+      tmux attach -t "$tmux_session"
+    fi
+  fi
+
+}
+
+main "$@"
+
