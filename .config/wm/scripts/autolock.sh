@@ -4,7 +4,7 @@
 main () {
   if ! pgrep -f "xautolock"; then
     xautolock \
-      -corners ++-- \
+      -corners --++ \
       -locker "betterlockscreen -l dimblur"
   fi
 }
