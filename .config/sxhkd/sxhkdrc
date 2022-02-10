@@ -163,13 +163,31 @@ super + {Left,Down,Up,Right}
 #################
 
 XF86AudioPlay
-	playerctl --player=spotify,chromium play-pause
+	playerctl --player=spotify play-pause
 
 XF86AudioNext
-	playerctl --player=spotify,chromium next
+	playerctl --player=spotify next
 
 XF86AudioPrev
-	playerctl --player=spotify,chromium previous
+	playerctl --player=spotify previous
+
+shift + XF86AudioPlay
+	playerctl --player=chromium play-pause
+
+shift + XF86AudioNext
+	playerctl --player=chromium next
+
+shift + XF86AudioPrev
+	playerctl --player=chromium previous
+
+ctrl + XF86AudioPlay
+	playerctl --player=Plexamp play-pause
+
+ctrl + XF86AudioNext
+	playerctl --player=Plexamp next
+
+ctrl + XF86AudioPrev
+	playerctl --player=Plexamp previous
 
 XF86AudioRaiseVolume
   pamixer --increase 5
@@ -194,10 +212,10 @@ XF86MonBrightnessDown
 
 # Screenshot
 Print
-  flameshot screen -p ~/Pictures/Screenshots
+  flameshot gui -p ~/Pictures/Screenshots
 
 super + Print
-  flameshot gui -p ~/Pictures/Screenshots
+  flameshot screen -p ~/Pictures/Screenshots
 
 # Shortcuts
 super + w 
