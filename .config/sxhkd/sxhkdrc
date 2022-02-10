@@ -162,32 +162,14 @@ super + {Left,Down,Up,Right}
 # Multimedia keys
 #################
 
-XF86AudioPlay
-	playerctl --player=spotify play-pause
+{_,shift,ctrl} + XF86AudioPlay
+	playerctl --player={spotify,chromium,Plexamp} play-pause
 
-XF86AudioNext
-	playerctl --player=spotify next
+{_,shift,ctrl} + XF86AudioNext
+	playerctl --player={spotify,chromium,Plexamp} next
 
-XF86AudioPrev
-	playerctl --player=spotify previous
-
-shift + XF86AudioPlay
-	playerctl --player=chromium play-pause
-
-shift + XF86AudioNext
-	playerctl --player=chromium next
-
-shift + XF86AudioPrev
-	playerctl --player=chromium previous
-
-ctrl + XF86AudioPlay
-	playerctl --player=Plexamp play-pause
-
-ctrl + XF86AudioNext
-	playerctl --player=Plexamp next
-
-ctrl + XF86AudioPrev
-	playerctl --player=Plexamp previous
+{_,shift,ctrl} + XF86AudioPrev
+	playerctl --player={spotify,chromium,Plexamp} previous
 
 XF86AudioRaiseVolume
   pamixer --increase 5
