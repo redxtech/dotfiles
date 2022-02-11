@@ -194,7 +194,7 @@ XF86MonBrightnessDown
 
 # Screenshot
 Print
-  flameshot gui -p ~/Pictures/Screenshots
+  flameshot gui
 
 super + Print
   flameshot screen -p ~/Pictures/Screenshots
