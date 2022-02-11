@@ -10,6 +10,7 @@ echo "Installing required packages..."
 sudo pacman -S \
   git \
   htop \
+  hub \
   keychain \
   neovim \
   nodejs \
