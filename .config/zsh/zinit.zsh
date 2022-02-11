@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-
 # TODO fix autocomplete issue (\*)
 
 # install zinit if it isn't already installed
@@ -16,7 +15,6 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-
 
 # load annexes
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
@@ -61,16 +59,9 @@ local CURRENT_DISTRO="$(lsb_release -is)"
 if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "EndeavourOS" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit wait lucid for \
     OMZP::archlinux
-elif test "$CURRENT_DISTRO" = "openSUSE"; then
-  zinit wait lucid for \
-    OMZP::suse
 elif test "$CURRENT_DISTRO" = "Ubuntu"; then
   zinit wait lucid for \
     OMZP::ubuntu
-elif test "$CURRENT_DISTRO" = "Debian"; then
-  zinit wait lucid for \
-    OMZP::debian \
-    redxtech/zsh-sb-upgrade
 fi
 unset CURRENT_DISTRO
 
@@ -112,9 +103,6 @@ zinit as"command" wait lucid for \
 # completions packages
 zinit ice as"completion" mv"completion.zsh -> _delta" wait lucid
 zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
-zinit wait lucid nocd depth=1 \
-  atinit"ZSH_BASH_COMPLETIONS_FALLBACK_LAZYLOAD_DISABLE=true" for \
-    3v1n0/zsh-bash-completions-fallback
 zinit wait lucid for \
   atclone"./zplug.zsh" \
     g-plane/zsh-yarn-autocompletions \
