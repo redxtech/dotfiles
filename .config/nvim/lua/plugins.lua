@@ -3,6 +3,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	vim.cmd 'packadd packer.nvim'
 end
 
 return require('packer').startup(function()
@@ -15,6 +16,7 @@ return require('packer').startup(function()
 	-- use 'fvictorio/vim-textobj-backticks'			-- backtick object (a`, i`)
 	-- use 'honza/vim-snippets'									-- snippets
 	-- use 'tpope/vim-tbone'											-- run tmux commands through vim
+	-- use 'simrat39/symbols-outline.nvim'				-- code outline sidebar (BROKEN in nvim 0.7)
 
 	use 'L3MON4D3/LuaSnip'										-- snippet engine
 	use 'ahmedkhalf/project.nvim'							-- project management
@@ -71,7 +73,6 @@ return require('packer').startup(function()
 	use 'rmagatti/goto-preview'								-- show preview of definition
 	use 'saadparwaiz1/cmp_luasnip'						-- luasnip cmp source
 	use 'sheerun/vim-polyglot'								-- syntax highlighting for many langs
-	use 'simrat39/symbols-outline.nvim'				-- code outline sidebar
 	use 'terryma/vim-expand-region'           -- expand selection based on text objects
 	use 'tmux-plugins/vim-tmux'								-- syntax highlighting
 	use 'tpope/vim-dispatch'									-- compile wrapper (:Make)
