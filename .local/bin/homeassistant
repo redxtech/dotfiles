@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+main () {
+  if test -z "$1"; then
+    echo "you need to specify an action"
+    return 1
+  fi
+
+  homeassistant_url="http://192.168.50.20:8123"
+  entity=""
+  endpoint=""
+
+  # choose which action to run
+  case $1 in
+    light) # toggle bedroom light
+      echo "toggling light..."
+      entity="light.bedroom_light"
+      endpoint="/services/light/toggle"
+      ;;
+    *)
+      echo "unkown action"
+      return 1
+      ;;
+  esac
+
+  # pull in home assistant token
+  # shellcheck source=../dotfiles/secrets.sh
+  . ~/.local/dotfiles/secrets.sh
+
+  # run the command
+  curl -S -s -o /dev/null -X POST \
+    -H "Authorization: Bearer $HOMEASSISTANT_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d "{\"entity_id\": \"$entity\"}" \
+    "$homeassistant_url/api$endpoint"
+}
+
+main "$@"
+

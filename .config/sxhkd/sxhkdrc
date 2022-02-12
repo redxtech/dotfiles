@@ -227,6 +227,10 @@ hyper + o
 hyper + shift + o
 	~/.local/bin/toggle-output choose
 
+# toggle light with home assistant
+hyper + BackSpace
+	~/.local/bin/homeassistant light
+
 # Show keybinds
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh

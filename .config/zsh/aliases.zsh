@@ -6,7 +6,7 @@ alias ll="ls -l"
 alias l="ls -l"
 
 # make rm safer
-alias rm="rm -Iv"
+alias rm="rm -I"
 
 # mv is now verbose
 alias mv="mv -v"
