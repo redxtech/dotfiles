@@ -29,6 +29,7 @@ return require('packer').startup(function()
 	use 'ethanholz/nvim-lastplace'						-- reopen files in last used place
 	use 'famiu/bufdelete.nvim'								-- better buffer deletion support
 	use 'felipec/vim-sanegx'									-- open link under cursor
+	use 'filipdutescu/renamer.nvim'		      -- rename variables
 	use 'folke/lsp-colors.nvim'								-- give lsp colours to unsuported themes
 	use 'folke/todo-comments.nvim'						-- higlight special comments
 	use 'ggandor/lightspeed.nvim'							-- jump to place in file
