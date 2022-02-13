@@ -92,7 +92,7 @@ require("project_nvim").setup {
 -- indent blankline setup
 require("indent_blankline").setup {
   buftype_exclude = { "terminal" },
-  filetype_exclude = { "dashboard" },
+  filetype_exclude = { "startup" },
 }
 
 -- goto-preview setup

@@ -32,7 +32,6 @@ return require('packer').startup(function()
 	use 'folke/lsp-colors.nvim'								-- give lsp colours to unsuported themes
 	use 'folke/todo-comments.nvim'						-- higlight special comments
 	use 'ggandor/lightspeed.nvim'							-- jump to place in file
-	use 'glepnir/dashboard-nvim'							-- dashboard startup screen
 	use 'glts/vim-textobj-comment'						-- comment object (ac, ic, aC)
 	use 'hrsh7th/cmp-buffer'									-- buffer source for nvim-cmp
 	use 'hrsh7th/cmp-cmdline'									-- cmdline source for nvim-cmp
@@ -94,6 +93,16 @@ return require('packer').startup(function()
 	use 'williamboman/nvim-lsp-installer'			-- auto install language servers
 	use 'windwp/nvim-autopairs'								-- autopairs
 	use 'yegappan/mru'												-- most recently used files
+
+	use {
+		'startup-nvim/startup.nvim',
+		requires = {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim'},
+		config = function()
+			require('startup').setup {
+				theme = 'dashboard'
+			}
+		end
+	}
 
 	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
