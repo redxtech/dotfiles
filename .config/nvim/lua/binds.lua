@@ -32,6 +32,7 @@ map('v', '<leader>cl',      'gc', {noremap=false})                              
 map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
+map('n', '<leader>rn',      '<cmd>lua require("renamer").rename()<CR>')
 
 map('v', '<leader>cc',       ':OSCYank<CR>')   -- yank over ssh
 -- indent lines better
@@ -55,24 +56,17 @@ map('n', '<leader>so',       '<cmd>SymbolsOutline<CR>')           -- remove high
 
 -- nvim tree binds
 map('n', '<C-n>',           '<cmd>NvimTreeToggle<CR>')    -- open nvim tree
-map('n', '<leader>r',       '<cmd>NvimTreeRefresh<CR>')   -- open nvim tree
-map('n', '<leader>n',       '<cmd>NvimTreeFindFile<CR>')  -- open nvim tree
+map('n', '<leader>r',       '<cmd>NvimTreeRefresh<CR>')   -- refresh nvim tree
+map('n', '<leader>n',       '<cmd>NvimTreeFindFile<CR>')  -- nvim tree find file
 
 -- telescope binds
 map('n', '<leader>ff',      '<cmd>Telescope find_files<CR>')    -- find files
 map('n', '<leader>fg',      '<cmd>Telescope git_files<CR>')     -- find git files
 map('n', '<leader>fh',      '<cmd>Telescope help_tags<CR>')     -- search help tags
-map('n', '<leader>sg',      '<cmd>Telescope live_grep<CR>')     -- live live_grep
-map('n', '<leader>op',      '<cmd>Telescope projects<CR>')
-
--- dashboard commands
-map('n', '<leader>fb',      '<cmd>DashboardJumpMark<CR>', {silent=true})  -- new file
-map('n', '<leader>tc',      '<cmd>DashboardChangeColorscheme<CR>', {silent=true})  -- new file
-map('n', '<leader>ff',      '<cmd>DashboardFindFile<CR>', {silent=true})  -- new file
-map('n', '<leader>fh',      '<cmd>DashboardFindHistory<CR>', {silent=true})  -- new file
-map('n', '<leader>fa',      '<cmd>DashboardFindWord<CR>', {silent=true})  -- new file
-map('n', '<leader>sl',      '<cmd>DashboardSessionLoad<CR>', {silent=true})  -- new file
-map('n', '<leader>cn',      '<cmd>DashboardNewFile<CR>', {silent=true})  -- new file
+map('n', '<leader>lg',      '<cmd>Telescope live_grep<CR>')     -- live live_grep
+map('n', '<leader>op',      '<cmd>Telescope projects<CR>')      -- find project
+map('n', '<leader>cs',      '<cmd>Telescope colorscheme<CR>')   -- change colourscheme
+map('n', '<leader>of',      '<cmd>Telescope oldfiles<CR>')      -- recent files
 
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages
