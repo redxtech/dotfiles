@@ -73,9 +73,6 @@ main () {
     vp|vplug|vplugins) # vim plugins
       $EDITOR "$HOME/.config/nvim/lua/plugins.lua"
       ;;
-    vs|vsetup) # vim plugin setup
-      $EDITOR "$HOME/.config/nvim/lua/setup.lua"
-      ;;
     ################
     # Shell Config #
     ################
