@@ -35,9 +35,14 @@ return require('packer').startup(function()
 	use 'mattn/vim-gist'				-- post buffer as gist
 	use 'matze/vim-move'				-- move selections
 	use 'miyakogi/conoline.vim'			-- highlight current line
+	use 'monaqa/dial.nvim'				-- increment works on other things too
+	use 'nvim-telescope/telescope-packer.nvim' -- packer integration for telescope
+	use 'nvim-telescope/telescope-github.nvim' -- github integration for telescope
 	use 'ojroques/vim-oscyank'			-- yank to clip over ssh
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
+	use 'Pocco81/TrueZen.nvim'			-- zen mode
 	use 'rafamadriz/friendly-snippets'		-- snippet collection
+	use 'romainl/vim-cool' -- auto :noh when moving away from search
 	use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
 	use 'terryma/vim-expand-region'			-- expand selection based on text objects
 	use 'tmux-plugins/vim-tmux'			-- syntax highlighting
@@ -50,7 +55,6 @@ return require('packer').startup(function()
 	use 'tpope/vim-repeat'				-- <.> repeats plugin stuff too
 	use 'tpope/vim-sensible'			-- sensible defaults everyone can agree on
 	use 'tpope/vim-sleuth'				-- autodetect indents
-	use 'tpope/vim-speeddating'			-- ctrl+(a/x) works properly on dates and times
 	use 'tpope/vim-surround'			-- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'			-- navigate between pairs
 	use 'tpope/vim-vinegar'				-- extra tools for working with netrw
@@ -205,6 +209,8 @@ return require('packer').startup(function()
 			-- require('telescope').load_extension('fzy_native')
 			require('telescope').load_extension('zf-native')
 			require('telescope').load_extension('projects')
+			require('telescope').load_extension('packer')
+			require('telescope').load_extension('gh')
 		end
 	}
 	use {	-- better syntax highlighting
@@ -267,6 +273,7 @@ return require('packer').startup(function()
 	-- use 'christoomey/vim-tmux-runner'		-- navigate tmux panes
 	-- use 'fvictorio/vim-textobj-backticks'	-- backtick object (a`, i`)
 	-- use 'honza/vim-snippets'			-- snippets
+	-- use 'tpope/vim-speeddating'			-- ctrl+(a/x) works properly on dates and times
 	-- use 'tpope/vim-tbone'			-- run tmux commands through vim
 	-- use 'simrat39/symbols-outline.nvim'		-- code outline sidebar (BROKEN in nvim 0.7)
 

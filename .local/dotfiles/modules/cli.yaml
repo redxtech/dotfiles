@@ -16,6 +16,7 @@ packages:
   - exa
   - fd
   - fzf
+  - github-cli
   - git-delta
   - glow
   - htop
