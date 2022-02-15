@@ -60,10 +60,6 @@ return require('packer').startup(function()
 	use 'yegappan/mru'				-- most recently used files
 
 	-- inline setup
-	use { -- snippet engine
-		'L3MON4D3/LuaSnip',
-		config = function () require("luasnip/loaders/from_vscode").lazy_load() end
-	}
 	use {	-- project management
 		'ahmedkhalf/project.nvim',
 		config = function() require("project_nvim").setup {} end
@@ -144,6 +140,10 @@ return require('packer').startup(function()
 			})
 		end
 	}
+	use { -- snippet engine
+		'L3MON4D3/LuaSnip',
+		config = function () require("luasnip/loaders/from_vscode").lazy_load() end
+	}
 	use { -- git signs
 		'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
@@ -155,15 +155,15 @@ return require('packer').startup(function()
 			}
 		end
 	}
-	-- use { -- show indent guides
-	-- 	'lukas-reineke/indent-blankline.nvim',
-	-- 	config = function ()
-	-- 		require('indent_blankline').setup {
-	-- 			buftype_exclude = { 'terminal' },
-	-- 			filetype_exclude = { 'startup' },
-	-- 		}
-	-- 	end
-	-- }
+	use { -- show indent guides
+		'lukas-reineke/indent-blankline.nvim',
+		config = function ()
+			require('indent_blankline').setup {
+				buftype_exclude = { 'terminal' },
+				filetype_exclude = { 'startup' },
+			}
+		end
+	}
 	use { -- stabilize buffer content on window open/close
 		'luukvbaal/stabilize.nvim',
 		config = function() require('stabilize').setup {} end
@@ -192,8 +192,9 @@ return require('packer').startup(function()
 	}
 	use { -- fzf for telescope
 		-- 'nvim-telescope/telescope-fzf-native.nvim',
-		'nvim-telescope/telescope-fzy-native.nvim',
-		run = 'make'
+		-- 'nvim-telescope/telescope-fzy-native.nvim',
+		'natecraddock/telescope-zf-native.nvim',
+		-- run = 'make'
 	}
 	use { -- telescope selector thing
 		'nvim-telescope/telescope.nvim',
@@ -201,7 +202,8 @@ return require('packer').startup(function()
 		config = function ()
 			require('telescope').setup {}
 			-- require('telescope').load_extension('fzf')
-			require('telescope').load_extension('fzy_native')
+			-- require('telescope').load_extension('fzy_native')
+			require('telescope').load_extension('zf-native')
 			require('telescope').load_extension('projects')
 		end
 	}
