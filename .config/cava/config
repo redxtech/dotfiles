@@ -54,8 +54,8 @@ bar_width = 4
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
 ; method = pulse
-; source = auto
-source = alsa_output.pci-0000_2e_00.4.iec958-stereo.monitor
+source = auto
+# source = alsa_output.pci-0000_2e_00.4.iec958-stereo.monitor
 
 ; method = alsa
 ; source = hw:Loopback,1
