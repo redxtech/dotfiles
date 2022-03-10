@@ -41,6 +41,7 @@ return require('packer').startup(function()
 	use 'ojroques/vim-oscyank'			-- yank to clip over ssh
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
 	use 'Pocco81/TrueZen.nvim'			-- zen mode
+	use 'posva/vim-vue'							-- vim vue
 	use 'rafamadriz/friendly-snippets'		-- snippet collection
 	use 'romainl/vim-cool' -- auto :noh when moving away from search
 	use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
