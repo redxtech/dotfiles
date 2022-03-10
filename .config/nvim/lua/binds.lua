@@ -67,6 +67,7 @@ map('n', '<leader>lg',      '<cmd>Telescope live_grep<CR>')     -- live live_gre
 map('n', '<leader>op',      '<cmd>Telescope projects<CR>')      -- find project
 map('n', '<leader>cs',      '<cmd>Telescope colorscheme<CR>')   -- change colourscheme
 map('n', '<leader>of',      '<cmd>Telescope oldfiles<CR>')      -- recent files
+map('n', '<leader>?',       '<cmd>:Cheatsheet<CR>')             -- recent files
 
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages

@@ -250,6 +250,14 @@ return require('packer').startup(function()
 			}
 		end
 	}
+	use {
+		'sudormrfbin/cheatsheet.nvim',
+		requires = {
+			{'nvim-telescope/telescope.nvim'},
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'},
+		}
+	}
 	use {	-- autopairs
 		'windwp/nvim-autopairs',
 		config = function () require('nvim-autopairs').setup {} end
