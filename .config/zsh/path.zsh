@@ -13,8 +13,8 @@ contains () {
 
 # list of directories to add to path
 local paths_to_add=(
-  "$HOME/.SpaceVim/bin"
   "$HOME/.config/yarn/global/node_modules/.bin"
+  "$HOME/.deno/bin"
   "$HOME/.local/bin"
 )
 
