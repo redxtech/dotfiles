@@ -56,16 +56,13 @@ main () {
     # Vim Config #
     ##############
     v|vim|nvim) # vim
-      $EDITOR "$HOME/.config/nvim//lua/init.lua"
+      $EDITOR "$HOME/.config/nvim/lua/init.lua"
       ;;
     va|vauto) # vim autocommands
       $EDITOR "$HOME/.config/nvim/lua/auto.lua"
       ;;
     vb|vbinds) # vim keybinds
       $EDITOR "$HOME/.config/nvim/lua/binds.lua"
-      ;;
-    vi|vinit) # vim init
-      $EDITOR "$HOME/.config/nvim/init.vim"
       ;;
     vl|vlsp) # vim language server protocol
       $EDITOR "$HOME/.config/nvim/lua/lsp.lua"
