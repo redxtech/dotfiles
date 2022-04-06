@@ -1,11 +1,15 @@
 name: Vim
 packages:
   - neovim
+  - nginxbeautifier
   - nodejs
   - npm
   - python
   - python-neovim
   - python-pip
+  - shellcheck
+  - shellharden
+  - stylua
   - xclip
   - yarn
 npm:
@@ -18,5 +22,7 @@ npm:
   - vscode-langservers-extracted
 pip:
   - cmake-language-server
+  - codespell
+  - pylint
   - pyright
 

@@ -1,7 +1,12 @@
 name: JS
 packages:
+  - deno
+  - eslint
   - nodejs
   - npm
   - yarn
 npm:
+  - jsonlint
+  - rustywind
   - speed-test
+  - xo
