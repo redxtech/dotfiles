@@ -16,6 +16,9 @@ main () {
     ###############
     # User Config #
     ###############
+    btop) # monitor
+      $EDITOR "$HOME/.config/btop/btop.conf"
+      ;;
     ro|rofi) # launcher
       $EDITOR "$HOME/.config/rofi/config.rasi"
       ;;
