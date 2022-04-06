@@ -1,6 +1,6 @@
-#
-# wm independent hotkeys
-#
+##########################
+# wm independent hotkeys #
+##########################
 
 # terminal emulator
 super + Return
@@ -9,27 +9,9 @@ super + Return
 super + shift + Return
 	xfce4-terminal
 
-# run prompt
-super + r
-	rofi -modi drun -show run -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-# program launcher
-super + d
-	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-# show open windows
-super + ctrl + d
-	rofi -modi drun -show window -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-# show ssh sesssions
-super + shift + d
-	rofi -modi drun -show ssh -line-padding 4 \
+# run prompt, program launcher, open windows, & ssh sessions
+super + {r,d,ctrl + d,shift + d}
+	rofi -modi drun -show {run,drun,window,ssh} -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
@@ -37,13 +19,13 @@ super + shift + d
 super + shift + e
      ~/.config/rofi/powermenu.sh
 
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
+#################
+# bspwm hotkeys #
+#################
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -154,28 +136,22 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-#
-# Special hotkeys
-#
 
-#################
-# Multimedia keys
-#################
+###################
+# Multimedia Keys #
+###################
 
-{_,shift,ctrl} + XF86AudioPlay
-	playerctl --player={spotify,chromium,Plexamp} play-pause
+# player specific
+{_,shift,ctrl} + XF86Audio{Play,Next,Prev}
+	playerctl --player={spotify,chromium,Plexamp} {play-pause,next,previous}
 
-{_,shift,ctrl} + XF86AudioNext
-	playerctl --player={spotify,chromium,Plexamp} next
+# general
+alt + XF86Audio{Play,Next,Prev}
+	playerctl {play-pause,next,previous}
 
-{_,shift,ctrl} + XF86AudioPrev
-	playerctl --player={spotify,chromium,Plexamp} previous
-
-XF86AudioRaiseVolume
-  pamixer --increase 5
-
-XF86AudioLowerVolume
-  pamixer --decrease 5
+# volume
+XF86Audio{Raise,Lower}Volume
+  pamixer --{in,de}crease 5
 
 XF86AudioMute
   pamixer --toggle-mute
@@ -184,54 +160,59 @@ XF86AudioMute
 hyper + XF86AudioPlay
 	playerctl --player=spotify,chromium metadata --format "\{\{ artist \}\} - \{\{ title \}\}" | xclip -sel clip
 
-# Brightness up
-XF86MonBrightnessUp
-  xbacklight -inc 5
+#################
+# Function Keys #
+#################
 
-# And brightness down
-XF86MonBrightnessDown
-  xbacklight -dec 5
+# brightness
+XF86MonBrightness{Up,Down}
+  xbacklight -{inc,dec} 5
 
-# Screenshot
-Print
-  flameshot gui
+# screenshot
+{_,shift,super} + Print
+  flameshot {gui,screen -c,screen -p ~/Pictures/Screenshots}
 
-super + Print
-  flameshot screen -p ~/Pictures/Screenshots
+#################
+# Shortcut Keys #
+#################
 
-# Shortcuts
+# browser
 super + w 
   vivaldi-stable
 
-# Secondary Apps
-hyper + {d,s,a,n,p,v}
-  {discord,spotify,authy,thunar,plexmediaplayer,pavucontrol}
+# secondary apps
+hyper + {d,s,a,f,p,v,y}
+  {discord,spotify,authy,thunar,plexmediaplayer,pavucontrol,yuzu}
 
-# focus secondary apps
-hyper + alt + {w,d,s,p}
-  wmctrl -a {vivaldi,discord,spotify,plex}
+# focus apps
+hyper + alt + {w,d,s,a,f,p,y}
+  wmctrl -a {vivaldi,discord,spotify,authy,thunar,plex,yuzu}
 
-# open terminal apps
-hyper + shift + {m,r,n}
+# terminal apps
+hyper + {m,r,n}
   kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
+
+######################
+# Various Miscellany #
+######################
 
 # upgrade packages
 hyper + u
 	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
 
-# toggle audio output device
-hyper + o
-	~/.local/bin/toggle-output
-
-# choose audio output device
-hyper + shift + o
-	~/.local/bin/toggle-output choose
+# toggle/choose audio output device
+hyper + {_,shift} + o
+	~/.local/bin/toggle-output {_,choose}
 
 # toggle light with home assistant
 hyper + BackSpace
 	~/.local/bin/homeassistant light
 
-# Show keybinds
+# next/previous wallpapers with variety
+hyper + shift + bracket{left,right}
+	variety --{previous,next}
+
+# show keybinds
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
 
