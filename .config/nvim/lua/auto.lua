@@ -23,6 +23,13 @@ vim.cmd [[
  augroup end
 ]]
 
+-- eslint fix on save
+-- vim.cmd [[
+--   augroup eslint_fix_save
+--     autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+--   augroup
+-- ]]
+
 -- resize split to 85%
 -- vim.cmd [[
 --   function! ResizeSplits()
