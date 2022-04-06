@@ -50,6 +50,7 @@ vim.g.AutoPairsShortcutToggle = ""
 -- some config
 vim.g.ale_fixers                  = {'prettier', 'eslint'}
 vim.g.dashboard_default_executive = 'telescope'
+vim.g.markdown_fenced_languages = {'ts=typescript'}
 
 -- colours
 vim.cmd('colo dracula')

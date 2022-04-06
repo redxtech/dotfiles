@@ -129,11 +129,31 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- set up lsp servers
-local servers = { 'bashls',  'clangd', 'cmake', 'dockerls', 'eslint', 'pyright', 'tailwindcss', 'tsserver', 'vimls' }
+nvim_lsp = require("lspconfig")
+
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("deno.json"),
+  init_options = {
+    lint = true,
+  },
+}
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  init_options = {
+    lint = true,
+  },
+}
+
+-- loop through remaining server
+local servers = { 'bashls', 'dockerls', 'eslint', 'pyright', 'tailwindcss', 'vimls' }
 for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
+  nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities
   }
