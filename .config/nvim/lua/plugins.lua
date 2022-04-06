@@ -12,7 +12,7 @@ return require('packer').startup(function()
 	-- oob plugins
 	use {'dracula/vim', as = 'dracula'}		-- colourscheme
 	use 'dylanaraps/wal.vim'			-- pywal colourscheme
-	use 'prettier/vim-prettier'			-- formatting
+	-- use 'prettier/vim-prettier'			-- formatting
 	use 'andymass/vim-matchup'			-- better matching with % key
 	use 'christoomey/vim-sort-motion'		-- sort lines (gs*)
 	use 'dense-analysis/ale'			-- async lint engine
@@ -41,7 +41,7 @@ return require('packer').startup(function()
 	use 'ojroques/vim-oscyank'			-- yank to clip over ssh
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
 	use 'Pocco81/TrueZen.nvim'			-- zen mode
-	use 'posva/vim-vue'							-- vim vue
+	-- use 'posva/vim-vue'							-- vim vue
 	use 'rafamadriz/friendly-snippets'		-- snippet collection
 	use 'romainl/vim-cool' -- auto :noh when moving away from search
 	use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
@@ -123,17 +123,16 @@ return require('packer').startup(function()
 		'ibhagwan/fzf-lua',
 		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
-	use {	-- smooth scrolling
-		'karb94/neoscroll.nvim',
-		config = function () require('neoscroll').setup {} end
-	}
+	-- use {	-- smooth scrolling
+	-- 	'karb94/neoscroll.nvim',
+	-- 	config = function () require('neoscroll').setup {} end
+	-- }
 	use { -- file browser
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			vim.g.nvim_tree_respect_buf_cwd = 1
 			require('nvim-tree').setup ({
-				auto_close = true,
 				update_cwd = true,
 				update_focused_file = {
 					enable = true,
