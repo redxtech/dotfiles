@@ -11,16 +11,16 @@ return require('packer').startup(function()
 
 	-- oob plugins
 	use {'dracula/vim', as = 'dracula'}		-- colourscheme
+	use({'catppuccin/nvim', as = 'catppuccin'}) -- colourscheme
 	use 'dylanaraps/wal.vim'			-- pywal colourscheme
 	-- use 'prettier/vim-prettier'			-- formatting
 	use 'andymass/vim-matchup'			-- better matching with % key
 	use 'christoomey/vim-sort-motion'		-- sort lines (gs*)
-	use 'dense-analysis/ale'			-- async lint engine
-	use 'editorconfig/editorconfig-vim'		-- editorconfig support
+	-- use 'dense-analysis/ale'			-- async lint engine
 	use 'famiu/bufdelete.nvim'			-- better buffer deletion support
 	use 'felipec/vim-sanegx'			-- open link under cursor
-	use 'folke/lsp-colors.nvim'			-- give lsp colours to unsuported themes
 	use 'ggandor/lightspeed.nvim'			-- jump to place in file
+	use 'gpanders/editorconfig.nvim' -- editorconfig
 	use 'glts/vim-textobj-comment'			-- comment object (ac, ic, aC)
 	use 'itspriddle/vim-shellcheck'			-- shell script validation
 	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
@@ -31,7 +31,6 @@ return require('packer').startup(function()
 	use 'kana/vim-textobj-user'			-- allow user defined text objects
 	use 'kovetskiy/sxhkd-vim'			-- syntax highlighting
 	use 'liuchengxu/vim-which-key'			-- show which keybinds are available
-	use 'ludovicchabant/vim-gutentags'		-- auto manage tags
 	use 'mattn/vim-gist'				-- post buffer as gist
 	use 'matze/vim-move'				-- move selections
 	use 'miyakogi/conoline.vim'			-- highlight current line
@@ -62,7 +61,7 @@ return require('packer').startup(function()
 	use 'tyru/open-browser.vim'			-- allow opening browser
 	use 'vim-airline/vim-airline'			-- statusline
 	use 'vim-airline/vim-airline-themes'		-- statusline themes
-	use 'yegappan/mru'				-- most recently used files
+	-- use 'yegappan/mru'				-- most recently used files
 
 	-- inline setup
 	use {	-- project management
@@ -123,10 +122,57 @@ return require('packer').startup(function()
 		'ibhagwan/fzf-lua',
 		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
-	-- use {	-- smooth scrolling
-	-- 	'karb94/neoscroll.nvim',
-	-- 	config = function () require('neoscroll').setup {} end
-	-- }
+	use({
+		'jose-elias-alvarez/null-ls.nvim',
+		requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup({
+					sources = {
+						-- code actions
+						-- null_ls.builtins.code_actions.eslint -- linter
+						-- null_ls.builtins.code_actions.xo, -- nice linter
+
+						-- completions
+						-- null_ls.builtins.completion.luasnip, -- snippet engine
+						null_ls.builtins.completion.spell, -- spelling mistakes
+						-- null_ls.builtins.completion.tags, -- tags
+
+						-- diagnostics
+						-- null_ls.builtins.diagnostics.alex
+						null_ls.builtins.diagnostics.codespell.with({
+								args = { "--builtin", "clear,rare,code", "-" },
+						}),
+						-- null_ls.builtins.diagnostics.eslint, -- js linter
+						-- null_ls.builtins.diagnostics.flake8, -- python
+						null_ls.builtins.diagnostics.markdownlint, -- markdown
+						-- null_ls.builtins.diagnostics.pylint, -- python
+						null_ls.builtins.diagnostics.shellcheck, -- shell scripts
+						-- null_ls.builtins.diagnostics.standardjs, -- js standard style
+						-- null_ls.builtins.diagnostics.xo, -- nice linter
+
+						-- formatting
+						null_ls.builtins.formatting.codespell, -- common code misspellings
+						null_ls.builtins.formatting.deno_fmt, -- deno
+						-- null_ls.builtins.formatting.eslint, -- js linter
+						null_ls.builtins.formatting.markdownlint, -- markdown
+						-- null_ls.builtins.formatting.nginx_beautifier, -- nginx
+						-- null_ls.builtins.formatting.prettier, -- js yaml html markdown
+						-- null_ls.builtins.formatting.prettier_standard,
+						null_ls.builtins.formatting.rustfmt, -- rust
+						-- null_ls.builtins.formatting.rustywind, -- tailwind classes
+						null_ls.builtins.formatting.shellharden, -- harden shell scripts
+						-- null_ls.builtins.formatting.standardjs, -- js standard style
+						-- null_ls.builtins.formatting.prettier_standard,
+						null_ls.builtins.formatting.stylua,
+
+					},
+					on_attach = function()
+						vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+					end,
+				})
+		end,
+	})
 	use { -- file browser
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
@@ -209,7 +255,7 @@ return require('packer').startup(function()
 			-- require('telescope').load_extension('fzy_native')
 			require('telescope').load_extension('zf-native')
 			require('telescope').load_extension('projects')
-			require('telescope').load_extension('packer')
+			-- require('telescope').load_extension('packer')
 			require('telescope').load_extension('gh')
 		end
 	}
