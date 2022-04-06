@@ -21,6 +21,9 @@ alias fgrep='fgrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
+# show info on rsync
+alias rsync="rsync --info=progress2"
+
 # reload the session
 alias src="exec zsh"
 
