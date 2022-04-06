@@ -16,6 +16,12 @@ vim.cmd [[
   augroup end
 ]]
 
+-- auto close NvimTree if last window
+vim.cmd [[
+ augroup nvim_auto_close
+  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+ augroup end
+]]
 
 -- resize split to 85%
 -- vim.cmd [[
