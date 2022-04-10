@@ -1,4 +1,4 @@
--- packer bootstrap
+--  packer bootstrap
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -98,7 +98,8 @@ return require('packer').startup(function()
 	use { -- rename variables
 		'filipdutescu/renamer.nvim',
 		branch = 'master',
-		requires = { 'nvim-lua/plenary.nvim' }
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function () require('renamer').setup {} end
 	}
 	use { -- highlight special comments
 		'folke/todo-comments.nvim',
