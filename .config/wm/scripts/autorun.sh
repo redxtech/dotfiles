@@ -52,7 +52,7 @@ run flameshot
 run spotify
 run thunar --daemon
 
-# variety wont work with the run command
+# variety won't work with the run command
 variety &
 
 # move spotify to proper workspace
