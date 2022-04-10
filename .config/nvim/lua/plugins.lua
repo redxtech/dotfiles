@@ -20,10 +20,10 @@ return require('packer').startup(function()
 	use 'famiu/bufdelete.nvim'			-- better buffer deletion support
 	use 'felipec/vim-sanegx'			-- open link under cursor
 	use 'ggandor/lightspeed.nvim'			-- jump to place in file
-	use 'gpanders/editorconfig.nvim' -- editorconfig
 	use 'glts/vim-textobj-comment'			-- comment object (ac, ic, aC)
+	use 'gpanders/editorconfig.nvim' -- editorconfig
 	use 'itspriddle/vim-shellcheck'			-- shell script validation
-	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
+	use 'joosepalviste/nvim-ts-context-commentstring' -- context based commentstring setting
 	use 'kana/vim-textobj-entire'			-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'			-- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'			-- text object for line (al, il)
@@ -34,6 +34,7 @@ return require('packer').startup(function()
 	use 'miyakogi/conoline.vim'			-- highlight current line
 	use 'monaqa/dial.nvim'				-- increment works on other things too
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
+	use 'rafamadriz/friendly-snippets'		-- snippet collection
 	use 'romainl/vim-cool' -- auto :noh when moving away from search
 	use 'tmux-plugins/vim-tmux'			-- syntax highlighting
 	use 'tpope/vim-dotenv'				-- load dotenv file into vim
@@ -335,7 +336,6 @@ return require('packer').startup(function()
 	-- use 'junegunn/vim-easy-align'			-- align on characters
 	-- use 'posva/vim-vue'							-- vim vue
 	-- use 'prettier/vim-prettier'			-- formatting
-	-- use 'rafamadriz/friendly-snippets'		-- snippet collection
 	-- use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
 	-- use 'simrat39/symbols-outline.nvim'		-- code outline sidebar (BROKEN in nvim 0.7)
 	-- use 'terryma/vim-expand-region'			-- expand selection based on text objects
