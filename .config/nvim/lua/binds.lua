@@ -32,7 +32,11 @@ map('v', '<leader>cl',      'gc', {noremap=false})                              
 map('n', '<leader>ts',      ':setlocal spell! spelllang=en_us<CR>')             -- toggle spellcheck
 map('n', '<leader>ss',      ':wa<CR>:mksession! $HOME/.cache/nvim/sessions/')   -- save session
 map('n', '<leader>rs',      ':wa<CR>:source $HOME/.cache/nvim/sessions/')       -- restore session
-map('n', '<leader>rn',      '<cmd>lua require("renamer").rename()<CR>')
+
+-- renamer
+map('n', '<leader>rn',      '<cmd>lua require("renamer").rename()<CR>', {silent=true})
+map('v', '<leader>rn',      '<cmd>lua require("renamer").rename()<CR>', {silent=true})
+map('i', '<F2>',            '<cmd>lua require("renamer").rename()<CR>', {silent=true})
 
 map('v', '<leader>cc',       ':OSCYank<CR>')   -- yank over ssh
 -- indent lines better

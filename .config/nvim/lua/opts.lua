@@ -8,7 +8,6 @@ vim.o.guifont        = "DankMono Nerd Font"
 vim.o.hidden         = true
 vim.o.hlsearch       = true
 vim.o.inccommand     = "split"
-vim.o.mouse          = "a"
 vim.o.ruler          = true
 vim.o.scrolloff      = 5
 vim.o.showmode       = true
