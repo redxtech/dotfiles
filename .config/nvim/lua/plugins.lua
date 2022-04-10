@@ -2,21 +2,21 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 	vim.cmd 'packadd packer.nvim'
 end
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'			-- package manager
 
+
 	-- oob plugins
 	use {'dracula/vim', as = 'dracula'}		-- colourscheme
-	use({'catppuccin/nvim', as = 'catppuccin'}) -- colourscheme
+	use {'catppuccin/nvim', as = 'catppuccin'} -- colourscheme
 	use 'dylanaraps/wal.vim'			-- pywal colourscheme
-	-- use 'prettier/vim-prettier'			-- formatting
-	use 'andymass/vim-matchup'			-- better matching with % key
+
+	use 'andymass/vim-matchup'			-- better matching with % key - language specific keywords, not just single chars
 	use 'christoomey/vim-sort-motion'		-- sort lines (gs*)
-	-- use 'dense-analysis/ale'			-- async lint engine
 	use 'famiu/bufdelete.nvim'			-- better buffer deletion support
 	use 'felipec/vim-sanegx'			-- open link under cursor
 	use 'ggandor/lightspeed.nvim'			-- jump to place in file
@@ -24,49 +24,35 @@ return require('packer').startup(function()
 	use 'glts/vim-textobj-comment'			-- comment object (ac, ic, aC)
 	use 'itspriddle/vim-shellcheck'			-- shell script validation
 	use 'JoosepAlviste/nvim-ts-context-commentstring' -- context based commentstring setting
-	use 'junegunn/vim-easy-align'			-- align on characters
 	use 'kana/vim-textobj-entire'			-- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'			-- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'			-- text object for line (al, il)
 	use 'kana/vim-textobj-user'			-- allow user defined text objects
 	use 'kovetskiy/sxhkd-vim'			-- syntax highlighting
 	use 'liuchengxu/vim-which-key'			-- show which keybinds are available
-	use 'mattn/vim-gist'				-- post buffer as gist
 	use 'matze/vim-move'				-- move selections
 	use 'miyakogi/conoline.vim'			-- highlight current line
 	use 'monaqa/dial.nvim'				-- increment works on other things too
-	use 'nvim-telescope/telescope-packer.nvim' -- packer integration for telescope
-	use 'nvim-telescope/telescope-github.nvim' -- github integration for telescope
-	use 'ojroques/vim-oscyank'			-- yank to clip over ssh
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
-	use 'Pocco81/TrueZen.nvim'			-- zen mode
-	-- use 'posva/vim-vue'							-- vim vue
-	use 'rafamadriz/friendly-snippets'		-- snippet collection
 	use 'romainl/vim-cool' -- auto :noh when moving away from search
-	use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
-	use 'terryma/vim-expand-region'			-- expand selection based on text objects
 	use 'tmux-plugins/vim-tmux'			-- syntax highlighting
-	use 'tpope/vim-dispatch'			-- compile wrapper (:Make)
 	use 'tpope/vim-dotenv'				-- load dotenv file into vim
 	use 'tpope/vim-endwise'				-- pair do->end, if->fi, etc.
 	use 'tpope/vim-eunuch'				-- unix helpers
 	use 'tpope/vim-jdaddy'				-- json objects (aj), actions (gqaj: clean, gwaj, insert)
-	use 'tpope/vim-obsession'			-- session management
 	use 'tpope/vim-repeat'				-- <.> repeats plugin stuff too
 	use 'tpope/vim-sensible'			-- sensible defaults everyone can agree on
 	use 'tpope/vim-sleuth'				-- autodetect indents
 	use 'tpope/vim-surround'			-- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'			-- navigate between pairs
-	use 'tpope/vim-vinegar'				-- extra tools for working with netrw
 	use 'tyru/open-browser.vim'			-- allow opening browser
 	use 'vim-airline/vim-airline'			-- statusline
 	use 'vim-airline/vim-airline-themes'		-- statusline themes
-	-- use 'yegappan/mru'				-- most recently used files
 
 	-- inline setup
 	use {	-- project management
 		'ahmedkhalf/project.nvim',
-		config = function() require("project_nvim").setup {} end
+		config = function() require('project_nvim').setup {} end
 	}
 	use { -- buffer line
 		'akinsho/bufferline.nvim',
@@ -111,9 +97,10 @@ return require('packer').startup(function()
 	}
 	use { -- rename variables
 		'filipdutescu/renamer.nvim',
+		branch = 'master',
 		requires = { 'nvim-lua/plenary.nvim' }
 	}
-	use { -- higlight special comments
+	use { -- highlight special comments
 		'folke/todo-comments.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 		config = function() require('todo-comments').setup {} end
@@ -126,7 +113,7 @@ return require('packer').startup(function()
 		'jose-elias-alvarez/null-ls.nvim',
 		requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
 		config = function()
-			local null_ls = require("null-ls")
+			local null_ls = require('null-ls')
 			null_ls.setup({
 					sources = {
 						-- code actions
@@ -140,9 +127,9 @@ return require('packer').startup(function()
 
 						-- diagnostics
 						-- null_ls.builtins.diagnostics.alex
-						null_ls.builtins.diagnostics.codespell.with({
-								args = { "--builtin", "clear,rare,code", "-" },
-						}),
+						-- null_ls.builtins.diagnostics.codespell.with({
+						-- 		args = { '--builtin', 'clear,rare,code', '-' },
+						-- }),
 						-- null_ls.builtins.diagnostics.eslint, -- js linter
 						-- null_ls.builtins.diagnostics.flake8, -- python
 						null_ls.builtins.diagnostics.markdownlint, -- markdown
@@ -192,7 +179,7 @@ return require('packer').startup(function()
 	}
 	use { -- snippet engine
 		'L3MON4D3/LuaSnip',
-		config = function () require("luasnip/loaders/from_vscode").lazy_load() end
+		config = function () require('luasnip/loaders/from_vscode').lazy_load() end
 	}
 	use { -- git signs
 		'lewis6991/gitsigns.nvim',
@@ -223,6 +210,11 @@ return require('packer').startup(function()
 		config = function() require('better_escape').setup {
 				clear_empty_lines = true
 		} end,
+	}
+	use { -- dim unused functions & variables
+		'narutoxy/dim.lua',
+		requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
+		config = function() require('dim').setup {} end
 	}
 	use { -- preview line before jump
 		'nacro90/numb.nvim',
@@ -255,8 +247,6 @@ return require('packer').startup(function()
 			-- require('telescope').load_extension('fzy_native')
 			require('telescope').load_extension('zf-native')
 			require('telescope').load_extension('projects')
-			-- require('telescope').load_extension('packer')
-			require('telescope').load_extension('gh')
 		end
 	}
 	use {	-- better syntax highlighting
@@ -303,6 +293,20 @@ return require('packer').startup(function()
 			{'nvim-lua/plenary.nvim'},
 		}
 	}
+	use { -- dim inactive windows
+		'sunjon/shade.nvim',
+		config = function ()
+			require'shade'.setup {
+					overlay_opacity = 60,
+					opacity_step = 5,
+					keys = {
+						brightness_up    = '<C-Up>',
+						brightness_down  = '<C-Down>',
+						toggle           = '<Leader>ds'
+					}
+				}
+		end
+	}
 	use {	-- autopairs
 		'windwp/nvim-autopairs',
 		config = function () require('nvim-autopairs').setup {} end
@@ -318,21 +322,32 @@ return require('packer').startup(function()
 	use 'neovim/nvim-lspconfig'			-- LSP plugin
 	use 'quangnguyen30192/cmp-nvim-tags'		-- tags completion for cmp
 	use 'ray-x/cmp-treesitter'			-- treesitter completion source
-	use 'ray-x/lsp_signature.nvim'			-- shows funciton signature
+	use 'ray-x/lsp_signature.nvim'			-- shows function signature
 	use 'saadparwaiz1/cmp_luasnip'			-- luasnip cmp source
-	use 'williamboman/nvim-lsp-installer'		-- auto install language servers
 
 	-- unused plugins
 	-- use 'christoomey/vim-tmux-navigator'		-- navigate tmux panes
 	-- use 'christoomey/vim-tmux-runner'		-- navigate tmux panes
+	-- use 'dense-analysis/ale'			-- async lint engine
 	-- use 'fvictorio/vim-textobj-backticks'	-- backtick object (a`, i`)
 	-- use 'honza/vim-snippets'			-- snippets
+	-- use 'junegunn/vim-easy-align'			-- align on characters
+	-- use 'posva/vim-vue'							-- vim vue
+	-- use 'prettier/vim-prettier'			-- formatting
+	-- use 'rafamadriz/friendly-snippets'		-- snippet collection
+	-- use 'sheerun/vim-polyglot'			-- syntax highlighting for many langs
+	-- use 'simrat39/symbols-outline.nvim'		-- code outline sidebar (BROKEN in nvim 0.7)
+	-- use 'terryma/vim-expand-region'			-- expand selection based on text objects
+	-- use 'tpope/vim-dispatch'			-- compile wrapper (:Make)
+	-- use 'tpope/vim-obsession'			-- session management
 	-- use 'tpope/vim-speeddating'			-- ctrl+(a/x) works properly on dates and times
 	-- use 'tpope/vim-tbone'			-- run tmux commands through vim
-	-- use 'simrat39/symbols-outline.nvim'		-- code outline sidebar (BROKEN in nvim 0.7)
+	-- use 'tpope/vim-vinegar'				-- extra tools for working with netrw
+	-- use 'williamboman/nvim-lsp-installer'		-- auto install language servers
+	-- use 'yegappan/mru'				-- most recently used files
 
 	-- if just bootstrapped, run sync
-	if packer_bootstrap then
+	if Packer_bootstrap then
     require('packer').sync()
   end
 end)
