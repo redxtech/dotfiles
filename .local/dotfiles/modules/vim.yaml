@@ -1,6 +1,7 @@
 name: Vim
 packages:
   - neovim
+  - lua-language-server
   - nginxbeautifier
   - nodejs
   - npm
@@ -13,15 +14,13 @@ packages:
   - xclip
   - yarn
 npm:
-  - "@tailwindcss/language-server"
+  - bash-language-server
   - dockerfile-language-server-nodejs
   - neovim
   - typescript
-  - typescript-language-server
   - vim-language-server
   - vscode-langservers-extracted
 pip:
-  - cmake-language-server
   - codespell
   - pylint
   - pyright

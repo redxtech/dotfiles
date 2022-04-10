@@ -6,9 +6,14 @@ packages:
   - npm
   - yarn
 npm:
+  - eslint-language-server
   - jsonlint
   - rustywind
   - speed-test
+  - typescript
   - xo
-commands:
-  - deno install -qAn vr https://deno.land/x/velociraptor@1.4.0/cli.ts
+  - "@tailwindcss/language-server"
+  - "@volar/vue-language-server"
+# commands:
+  # broken for some reason - breaks command on https //...
+  # - deno install -qAn vr 'https://deno.land/x/velociraptor@1.4.0/cli.ts'
