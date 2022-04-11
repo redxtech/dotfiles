@@ -255,7 +255,7 @@ return require('packer').startup(function()
 		'nvim-treesitter/nvim-treesitter',
 		config = function ()
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = 'maintained',
+				ensure_installed = 'all',
 				sync_install = false,
 				highlight = {
 					enable = true,
@@ -269,6 +269,10 @@ return require('packer').startup(function()
 				}
 			}
 		end
+	}
+	use {	-- shows function signature
+			'ray-x/lsp_signature.nvim',
+			config = function() require('lsp_signature').setup {} end
 	}
 	use {	-- show preview of definition
 		'rmagatti/goto-preview',
@@ -324,7 +328,6 @@ return require('packer').startup(function()
 	use 'neovim/nvim-lspconfig'			-- LSP plugin
 	use 'quangnguyen30192/cmp-nvim-tags'		-- tags completion for cmp
 	use 'ray-x/cmp-treesitter'			-- treesitter completion source
-	use 'ray-x/lsp_signature.nvim'			-- shows function signature
 	use 'saadparwaiz1/cmp_luasnip'			-- luasnip cmp source
 
 	-- unused plugins
