@@ -8,6 +8,7 @@ vim.o.guifont        = "DankMono Nerd Font"
 vim.o.hidden         = true
 vim.o.hlsearch       = true
 vim.o.inccommand     = "split"
+vim.o.laststatus     = 3
 vim.o.ruler          = true
 vim.o.scrolloff      = 5
 vim.o.showmode       = true
@@ -29,15 +30,15 @@ vim.wo.signcolumn     = "yes"
 vim.wo.wrap           = false
 
 -- buffer
-local indent       = 2
+local indent       = 4
 vim.bo.autoindent  = true
-vim.bo.expandtab   = true
-vim.bo.shiftwidth  = indent
+vim.bo.expandtab   = false
+vim.bo.shiftwidth  = 0
 vim.bo.softtabstop = indent
 vim.bo.tabstop     = indent
 vim.o.autoindent   = true
-vim.o.expandtab    = true
-vim.o.shiftwidth   = indent
+vim.o.expandtab    = false
+vim.o.shiftwidth   = 0
 vim.o.softtabstop  = indent
 vim.o.tabstop      = indent
 
@@ -47,14 +48,11 @@ vim.b.mapleader               = " "
 vim.g.AutoPairsShortcutToggle = ""
 
 -- some config
-vim.g.ale_fixers                  = {'prettier', 'eslint'}
-vim.g.dashboard_default_executive = 'telescope'
 vim.g.markdown_fenced_languages = {'ts=typescript'}
 
 -- colours
 vim.cmd('colo dracula')
 -- vim.cmd('colo wal')
-vim.g.airline_theme = "dracula"
 
 -- syntax highlighting
 vim.cmd('syntax on')

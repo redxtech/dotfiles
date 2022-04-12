@@ -13,7 +13,7 @@ local function map(mode, combo, mapping, opts)
 end
 
 -- simple maps
-map('n', ';',               ':')                  -- easier command 
+map('n', ';',               ':')                  -- easier command
 map('n', '<C-w>',           'daw')                -- delete word
 
 map('n', '<leader>fs',      ':w<CR>')             -- write file

@@ -11,8 +11,8 @@ return require('packer').startup(function()
 
 
 	-- oob plugins
-	use {'dracula/vim', as = 'dracula'}		-- colourscheme
-	use {'catppuccin/nvim', as = 'catppuccin'} -- colourscheme
+	use 'mofiqul/dracula.nvim'			-- colourscheme
+	use {'catppuccin/nvim', as = 'catppuccin'}	-- colourscheme
 	use 'dylanaraps/wal.vim'			-- pywal colourscheme
 
 	use 'andymass/vim-matchup'			-- better matching with % key - language specific keywords, not just single chars
@@ -21,7 +21,7 @@ return require('packer').startup(function()
 	use 'felipec/vim-sanegx'			-- open link under cursor
 	use 'ggandor/lightspeed.nvim'			-- jump to place in file
 	use 'glts/vim-textobj-comment'			-- comment object (ac, ic, aC)
-	use 'gpanders/editorconfig.nvim' -- editorconfig
+	use 'gpanders/editorconfig.nvim'		-- editorconfig
 	use 'itspriddle/vim-shellcheck'			-- shell script validation
 	use 'joosepalviste/nvim-ts-context-commentstring' -- context based commentstring setting
 	use 'kana/vim-textobj-entire'			-- text object for entire buffer (ae, ie)
@@ -35,7 +35,7 @@ return require('packer').startup(function()
 	use 'monaqa/dial.nvim'				-- increment works on other things too
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
 	use 'rafamadriz/friendly-snippets'		-- snippet collection
-	use 'romainl/vim-cool' -- auto :noh when moving away from search
+	use 'romainl/vim-cool'				-- auto :noh when moving away from search
 	use 'tmux-plugins/vim-tmux'			-- syntax highlighting
 	use 'tpope/vim-dotenv'				-- load dotenv file into vim
 	use 'tpope/vim-endwise'				-- pair do->end, if->fi, etc.
@@ -43,12 +43,9 @@ return require('packer').startup(function()
 	use 'tpope/vim-jdaddy'				-- json objects (aj), actions (gqaj: clean, gwaj, insert)
 	use 'tpope/vim-repeat'				-- <.> repeats plugin stuff too
 	use 'tpope/vim-sensible'			-- sensible defaults everyone can agree on
-	use 'tpope/vim-sleuth'				-- autodetect indents
 	use 'tpope/vim-surround'			-- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'			-- navigate between pairs
 	use 'tyru/open-browser.vim'			-- allow opening browser
-	use 'vim-airline/vim-airline'			-- statusline
-	use 'vim-airline/vim-airline-themes'		-- statusline themes
 
 	-- inline setup
 	use {	-- project management
@@ -240,6 +237,19 @@ return require('packer').startup(function()
 		'natecraddock/telescope-zf-native.nvim',
 		-- run = 'make'
 	}
+	use { -- statusline
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function()
+			require('lualine').setup {
+				options = {
+					theme = 'dracula-nvim',
+					globalstatus = true
+				},
+				extensions = {'fugitive', 'nvim-tree', 'toggleterm'}
+			}
+		end
+}
 	use { -- telescope selector thing
 		'nvim-telescope/telescope.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
@@ -344,6 +354,7 @@ return require('packer').startup(function()
 	-- use 'terryma/vim-expand-region'			-- expand selection based on text objects
 	-- use 'tpope/vim-dispatch'			-- compile wrapper (:Make)
 	-- use 'tpope/vim-obsession'			-- session management
+	-- use 'tpope/vim-sleuth'				-- autodetect indents
 	-- use 'tpope/vim-speeddating'			-- ctrl+(a/x) works properly on dates and times
 	-- use 'tpope/vim-tbone'			-- run tmux commands through vim
 	-- use 'tpope/vim-vinegar'				-- extra tools for working with netrw
