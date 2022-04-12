@@ -11,7 +11,7 @@ return require('packer').startup(function()
 
 
 	-- oob plugins
-	use 'mofiqul/dracula.nvim'			-- colourscheme
+	use 'mofiqul/dracula.nvim'			-- colourscheme TODO: maybe go back to original dracula theme??
 	use {'catppuccin/nvim', as = 'catppuccin'}	-- colourscheme
 	use 'dylanaraps/wal.vim'			-- pywal colourscheme
 
@@ -103,6 +103,25 @@ return require('packer').startup(function()
 		'folke/todo-comments.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 		config = function() require('todo-comments').setup {} end
+	}
+	use {
+		'folke/trouble.nvim',
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function()
+			require('trouble').setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+			}
+		end
+	}
+	use {
+		'goolord/alpha-nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = function ()
+			require'alpha'.setup(require'alpha.themes.dashboard'.config)
+			-- TODO: add custom buttons to theme
+		end
 	}
 	use {	-- fzf but lua
 		'ibhagwan/fzf-lua',
@@ -196,7 +215,7 @@ return require('packer').startup(function()
 		config = function ()
 			require('indent_blankline').setup {
 				buftype_exclude = { 'terminal' },
-				filetype_exclude = { 'startup' },
+				filetype_exclude = { 'alpha' },
 			}
 		end
 	}
@@ -297,15 +316,6 @@ return require('packer').startup(function()
 		config = function ()
 			require('goto-preview').setup {
 				default_mappings = true
-			}
-		end
-	}
-	use { -- startup page
-		'startup-nvim/startup.nvim',
-		requires = {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim'},
-		config = function()
-			require('startup').setup {
-				theme = 'dashboard'
 			}
 		end
 	}
