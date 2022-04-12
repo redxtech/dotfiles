@@ -246,7 +246,15 @@ return require('packer').startup(function()
 					theme = 'dracula-nvim',
 					globalstatus = true
 				},
-				extensions = {'fugitive', 'nvim-tree', 'toggleterm'}
+				sections = {
+					lualine_a = { 'mode' },
+					lualine_b = { 'branch' },
+					lualine_c = { 'filename' },
+					lualine_x = { 'diagnostics', 'diff' },
+					lualine_y = { 'filetype', 'encoding', 'fileformat', 'filesize', 'progress' },
+					lualine_z = {'location' }
+				},
+				extensions = { 'fugitive', 'nvim-tree', 'toggleterm' }
 			}
 		end
 }
