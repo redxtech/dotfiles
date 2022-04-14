@@ -33,6 +33,7 @@ return require('packer').startup(function()
 	use 'matze/vim-move'				-- move selections
 	use 'miyakogi/conoline.vim'			-- highlight current line
 	use 'monaqa/dial.nvim'				-- increment works on other things too
+	use 'nvim-telescope/telescope-ui-select.nvim' -- telescope picker for vim.ui.select
 	use 'onsails/lspkind-nvim'			-- show icons for lsp type
 	use 'rafamadriz/friendly-snippets'		-- snippet collection
 	use 'romainl/vim-cool'				-- auto :noh when moving away from search
@@ -281,11 +282,16 @@ return require('packer').startup(function()
 		'nvim-telescope/telescope.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function ()
-			require('telescope').setup {}
+			require('telescope').setup {
+				extensions = {
+					['ui-select'] = {require('telescope.themes').get_dropdown {}}
+				}
+			}
 			-- require('telescope').load_extension('fzf')
 			-- require('telescope').load_extension('fzy_native')
 			require('telescope').load_extension('zf-native')
 			require('telescope').load_extension('projects')
+			require('telescope').load_extension('ui-select')
 		end
 	}
 	use {	-- better syntax highlighting
@@ -316,6 +322,15 @@ return require('packer').startup(function()
 		config = function ()
 			require('goto-preview').setup {
 				default_mappings = true
+			}
+		end
+	}
+	use {
+		'shatur/neovim-session-manager',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('session_manager').setup {
+				autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
 			}
 		end
 	}
