@@ -73,6 +73,14 @@ map('n', '<leader>cs',      '<cmd>Telescope colorscheme<CR>')   -- change colour
 map('n', '<leader>of',      '<cmd>Telescope oldfiles<CR>')      -- recent files
 map('n', '<leader>?',       '<cmd>:Cheatsheet<CR>')             -- recent files
 
+-- trouble binds
+map('n', '<leader>xx',		'<cmd>Trouble<cr>')
+map('n', '<leader>xw',		'<cmd>Trouble workspace_diagnostics<cr>')
+map('n', '<leader>xd',		'<cmd>Trouble document_diagnostics<cr>')
+map('n', '<leader>xl',		'<cmd>Trouble loclist<cr>')
+map('n', '<leader>xq',		'<cmd>Trouble quickfix<cr>')
+map('n', 'gR',				'<cmd>Trouble lsp_references<cr>')
+
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages
 map('n', '<leader>pu',      '<cmd>PackerUpdate<CR>')    -- sync packages
