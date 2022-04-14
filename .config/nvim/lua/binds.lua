@@ -5,11 +5,11 @@ vim.g.mapleader = ' '
 
 -- a mapping function to make it easier to apply
 local function map(mode, combo, mapping, opts)
-  local options = {noremap = true}
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, combo, mapping, options)
+	local options = {noremap = true}
+	if opts then
+		options = vim.tbl_extend('force', options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, combo, mapping, options)
 end
 
 -- simple maps
@@ -74,12 +74,12 @@ map('n', '<leader>of',      '<cmd>Telescope oldfiles<CR>')      -- recent files
 map('n', '<leader>?',       '<cmd>:Cheatsheet<CR>')             -- recent files
 
 -- trouble binds
-map('n', '<leader>xx',		'<cmd>Trouble<cr>')
-map('n', '<leader>xw',		'<cmd>Trouble workspace_diagnostics<cr>')
-map('n', '<leader>xd',		'<cmd>Trouble document_diagnostics<cr>')
-map('n', '<leader>xl',		'<cmd>Trouble loclist<cr>')
-map('n', '<leader>xq',		'<cmd>Trouble quickfix<cr>')
-map('n', 'gR',				'<cmd>Trouble lsp_references<cr>')
+map('n', '<leader>xx',      '<cmd>Trouble<cr>')
+map('n', '<leader>xw',      '<cmd>Trouble workspace_diagnostics<cr>')
+map('n', '<leader>xd',      '<cmd>Trouble document_diagnostics<cr>')
+map('n', '<leader>xl',      '<cmd>Trouble loclist<cr>')
+map('n', '<leader>xq',      '<cmd>Trouble quickfix<cr>')
+map('n', 'gR',              '<cmd>Trouble lsp_references<cr>')
 
 -- packer binds
 map('n', '<leader>ps',      '<cmd>PackerSync<CR>')    -- sync packages
@@ -103,6 +103,6 @@ map('n', '<leader>9',       '<Cmd>BufferLineGoToBuffer 9<CR>', {noremap=true, si
 map('n', '<leader>0',       '<Cmd>BufferLineGoToBuffer 10<CR>', {noremap=true, silent=true})
 
 -- which key
-map('n', '<leader>',        ":WhichKey '<Space>'<CR>", {silent = true})  -- open whichkey
+map('n', '<leader>',        ':WhichKey "<Space>"<CR>', {silent = true})  -- open whichkey
 
 -- TODO

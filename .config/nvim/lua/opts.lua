@@ -29,18 +29,12 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn     = "yes"
 vim.wo.wrap           = false
 
--- buffer
-local indent       = 4
-vim.bo.autoindent  = true
-vim.bo.expandtab   = false
-vim.bo.shiftwidth  = 0
-vim.bo.softtabstop = indent
-vim.bo.tabstop     = indent
+-- indentation
 vim.o.autoindent   = true
 vim.o.expandtab    = false
 vim.o.shiftwidth   = 0
-vim.o.softtabstop  = indent
-vim.o.tabstop      = indent
+vim.o.softtabstop  = 0
+vim.o.tabstop      = 2
 
 -- binds?
 vim.g.mapleader               = " "
