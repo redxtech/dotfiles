@@ -6,7 +6,7 @@ main () {
     return 1
   fi
 
-  homeassistant_url="http://192.168.50.20:8123"
+  homeassistant_url="http://192.168.50.208:8123"
   entity=""
   endpoint=""
 
@@ -14,7 +14,7 @@ main () {
   case $1 in
     light) # toggle bedroom light
       echo "toggling light..."
-      entity="light.bedroom_light"
+      entity="light.gabes_light"
       endpoint="/services/light/toggle"
       ;;
     *)
