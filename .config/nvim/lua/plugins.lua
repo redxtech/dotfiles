@@ -9,8 +9,8 @@ end
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'                     -- package manager
 
-	use 'mofiqul/dracula.nvim'                       -- colourscheme TODO: maybe go back to original dracula theme??
-	use {'catppuccin/nvim', as = 'catppuccin'}       -- colourscheme
+	use { 'dracula/vim', as = 'dracula' }            -- colourscheme
+	use { 'catppuccin/nvim', as = 'catppuccin' }     -- colourscheme
 	use 'dylanaraps/wal.vim'                         -- pywal colourscheme
 
 	use 'andymass/vim-matchup'                       -- better matching with % key - language specific keywords, not just single chars
@@ -32,6 +32,7 @@ return require('packer').startup(function()
 	use 'miyakogi/conoline.vim'                      -- highlight current line
 	use 'monaqa/dial.nvim'                           -- increment works on other things too
 	use 'nvim-telescope/telescope-ui-select.nvim'    -- telescope picker for vim.ui.select
+	use 'nvim-lua/lsp-status.nvim'                   -- lsp status utility commands
 	use 'onsails/lspkind-nvim'                       -- show icons for lsp type
 	use 'rafamadriz/friendly-snippets'               -- snippet collection
 	use 'romainl/vim-cool'                           -- auto :noh when moving away from search
@@ -255,14 +256,14 @@ return require('packer').startup(function()
 		config = function()
 			require('lualine').setup {
 				options = {
-					theme = 'dracula-nvim',
+					theme = 'dracula',
 					globalstatus = true
 				},
 				sections = {
 					lualine_a = { 'mode' },
 					lualine_b = { 'branch' },
 					lualine_c = { 'filename' },
-					lualine_x = { 'diagnostics', 'diff' },
+					lualine_x = { 'diagnostics', 'diff', 'require("lsp-status").status()' },
 					lualine_y = { 'filetype', 'encoding', 'fileformat', 'filesize', 'progress' },
 					lualine_z = {'location' }
 				},

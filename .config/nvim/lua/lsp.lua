@@ -101,13 +101,15 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- On attach function to only run when attached to LSP
----@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+	-- set up lsp status
+	require('lsp-status').on_attach(client)
 
 	-- Mappings.
 	local opts = { noremap=true, silent=true }
