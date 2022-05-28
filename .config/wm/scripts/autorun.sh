@@ -63,6 +63,7 @@ if test "$(hostname)" = "desktop"; then
   run qbittorrent
   run megasync
   run headset-charge-indicator
+	run hexchat
 fi
 
 # cursor
@@ -76,6 +77,9 @@ run xfce4-power-manager
 
 # autolock screen
 srun ~/.config/wm/scripts/autolock.sh
+
+# autolock disabler
+# srun ~/.config/wm/scripts/beans
 
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
