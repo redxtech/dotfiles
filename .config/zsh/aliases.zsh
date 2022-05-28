@@ -22,7 +22,7 @@ alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
 # show info on rsync
-alias rsync="rsync --info=progress2"
+alias rsync="rsync --info=progress2 -r"
 
 # reload the session
 alias src="exec zsh"
