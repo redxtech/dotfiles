@@ -137,6 +137,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# snap current window to an aspect ratio
+hyper + r
+	jgmenu --simple --at-pointer --csv-file=~/.config/bspwm/scripts/aspect-menu.csv
+
 ###################
 # Multimedia Keys #
 ###################

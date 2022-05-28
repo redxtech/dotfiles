@@ -9,6 +9,7 @@ packages:
   - dunst
   - feh
   - i3lock-color
+  - jgmenu
   - network-manager-applet
   - picom-jonaburg-git
   - polkit-gnome
