@@ -38,9 +38,11 @@ bspc rule -a Plexamp state=floating
 # Computer Specific Rules
 if test "$(hostname)" = "desktop"; then
 	# bspc rule -a Spotify desktop='^12'
+	bspc rule -a Plex desktop='^9'
 	bspc rule -a plexmediaplayer desktop='^9'
 elif test "$(hostname)" = "laptop"; then
 	# bspc rule -a spotify desktop='^4'
+	bspc rule -a Plex desktop='^4'
 	bspc rule -a plexmediaplayer desktop='^4'
 fi
 
