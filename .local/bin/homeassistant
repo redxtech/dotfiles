@@ -17,6 +17,11 @@ main () {
       entity="light.gabes_light"
       endpoint="/services/light/toggle"
       ;;
+		desklights) # toggle desk lights
+			echo "toggling desk lights..."
+			entity="switch.desk_lights"
+			endpoint="/services/switch/toggle"
+			;;
     *)
       echo "unkown action"
       return 1

@@ -213,8 +213,8 @@ hyper + {_,shift} + o
 	~/.local/bin/toggle-output {_,choose}
 
 # toggle light with home assistant
-hyper + BackSpace
-	~/.local/bin/homeassistant light
+hyper + {_, shift +} BackSpace
+	~/.local/bin/homeassistant {light,desklights}
 
 # next/previous wallpapers with variety
 hyper + shift + bracket{left,right}
