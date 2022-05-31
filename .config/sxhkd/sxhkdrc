@@ -145,6 +145,10 @@ super + {Left,Down,Up,Right}
 hyper + r
 	jgmenu --simple --at-pointer --csv-file=~/.config/bspwm/scripts/aspect-menu.csv
 
+# toggle third monitor on and off
+hyper + t
+	~/.config/wm/scripts/toggle-third-display.sh
+
 ###################
 # Multimedia Keys #
 ###################
