@@ -28,6 +28,12 @@ main () {
     kt|kittytheme) # kitty theme
       $EDITOR "$HOME/.config/kitty/theme.conf"
       ;;
+		m|mpv) # mpv config
+			$EDITOR "$HOME/.config/mpv/mpv.conf"
+			;;
+		ma|mpvautoload) # mpv autoload plugin config
+			$EDITOR "$HOME/.config/mpv/autoload.conf"
+			;;
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
       ;;
