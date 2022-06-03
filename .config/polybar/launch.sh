@@ -10,5 +10,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar top -c ~/.config/polybar/config.ini &
 
 # if a second monitor exists, run a second polbar on the next monitor
-m=$(bspc query -M -m 'primary#next' --names) && { SECOND_MONITOR=$m polybar top_second -c ~/.config/polybar/config.ini & }
-
+# m=$(bspc query -M -m 'primary#next' --names) && { SECOND_MONITOR=$m polybar top_second -c ~/.config/polybar/config.ini & }
+if test "$(bspc query -M | wc -l)" -gt "1"; then
+	SECOND_MONITOR="DisplayPort-1" polybar top_second -c ~/.config/polybar/config.ini
+fi
