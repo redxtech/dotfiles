@@ -1,10 +1,10 @@
 --  packer bootstrap
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-	vim.cmd 'packadd packer.nvim'
-end
+-- local fn = vim.fn
+-- local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+-- if fn.empty(fn.glob(install_path)) > 0 then
+-- 	Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+-- 	vim.cmd 'packadd packer.nvim'
+-- end
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'                     -- package manager
@@ -46,6 +46,8 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'                         -- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'                       -- navigate between pairs
 	use 'tyru/open-browser.vim'                      -- allow opening browser
+	-- TODO: enable and configure nvim-nontify
+	-- use 'rcarriga/nvim-notify'                       -- notifications !
 
 	use { -- project management
 		'ahmedkhalf/project.nvim',
@@ -85,7 +87,8 @@ return require('packer').startup(function()
 				vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
 				vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 			end
-			vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+			-- TODO: uncomment and move to lua autocmd
+			-- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 		end
 	}
 	use { -- reopen files in last used place
@@ -167,7 +170,8 @@ return require('packer').startup(function()
 					null_ls.builtins.formatting.stylua,
 				},
 				on_attach = function()
-					vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+					-- TODO: uncomment and move to native lua
+					-- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 				end,
 			})
 		end,
@@ -176,12 +180,12 @@ return require('packer').startup(function()
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
-			vim.g.nvim_tree_respect_buf_cwd = 1
 			require('nvim-tree').setup ({
+				respect_buf_cwd = true,
 				update_cwd = true,
 				update_focused_file = {
 					enable = true,
-					undate_cwd = true
+					update_cwd = true
 				},
 				view = {
 					auto_resize = true
@@ -283,6 +287,8 @@ return require('packer').startup(function()
 			-- require('telescope').load_extension('fzf')
 			-- require('telescope').load_extension('fzy_native')
 			require('telescope').load_extension('zf-native')
+			-- TODO: enable nvim notify
+			-- require('telescope').load_extension('notify')
 			require('telescope').load_extension('projects')
 			require('telescope').load_extension('ui-select')
 		end
