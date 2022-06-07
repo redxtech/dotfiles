@@ -212,8 +212,12 @@ hyper + u
 	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
 
 # toggle/choose audio output device
-hyper + {_,shift} + o
-	~/.local/bin/toggle-output {_,choose}
+hyper + o
+	~/.local/bin/toggle-output
+
+# show audio device selector
+hyper + shift + o
+	~/.config/rofi/scripts/audio-out.sh
 
 # toggle light with home assistant
 hyper + {_, shift +} BackSpace
