@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 # basic environment
-EDITOR="$(command -v vim)"
+EDITOR="nvim"
+VISUAL="nvim"
 TERMINAL="$(command -v kitty)"
 BROWSER="$(command -v vivaldi-stable)"
 
