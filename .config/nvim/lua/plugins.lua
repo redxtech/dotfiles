@@ -114,6 +114,10 @@ return require('packer').startup(function()
 		end
 	}
 	use {
+		'fymyte/rasi.vim',
+		ft = 'rasi'
+	}
+	use {
 		'goolord/alpha-nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function ()

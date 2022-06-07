@@ -10,10 +10,8 @@ super + shift + Return
 	xfce4-terminal
 
 # run prompt, program launcher, open windows, & ssh sessions
-super + {r,d,ctrl + d,shift + d}
-	rofi -modi drun -show {run,drun,window,ssh} -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+super + {r,d,ctrl + d,shift + d,space}
+	rofi -modi drun -show {run,drun,window,ssh,drun} -terminal kitty
 
 # power-menu 
 super + shift + e

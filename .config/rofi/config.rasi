@@ -4,9 +4,9 @@
  *******************************************************/
 
 configuration {
-    font:				"Sourcecode Pro Regular 10";
+    // font:				"NotoSans Nerd Font 14";
     show-icons:				true;
-    icon-theme:				"Arc-X-D";
+    icon-theme:				"Papirus";
     display-drun:			"Apps";
     drun-display-format:		"{name}";
     scroll-method:			0;
@@ -134,3 +134,6 @@ textbox-prompt-colon {
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
 }
+
+@theme "dracula"
+
