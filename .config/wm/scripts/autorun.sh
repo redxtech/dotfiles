@@ -21,6 +21,9 @@ srun () {
   $@&
 }
 
+# apply env variables
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 # apply proper monitor layour and sizing
 srun ~/.screenlayout/desktop.sh
 
@@ -60,10 +63,10 @@ sleep 6 && wmctrl -r spotify -t 7
 
 # host specific apps
 if test "$(hostname)" = "desktop"; then
-  run qbittorrent
   run megasync
-  run headset-charge-indicator
-	run hexchat
+	run element-desktop
+  run hexchat
+	# run qbittorrent
 fi
 
 # cursor
@@ -71,9 +74,6 @@ xsetroot -cursor_name left_ptr &
 
 # power manager
 run xfce4-power-manager
-
-# low battery notifier
-# srun ~/.config/bspwm/scripts/low_bat_notifier.sh
 
 # autolock screen
 srun ~/.config/wm/scripts/autolock.sh
