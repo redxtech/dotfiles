@@ -1,8 +1,0 @@
-[user]
-    name = Gabe Dunn
-    email = gdunn@pipewise.ca
-    signingkey = 51E68D7A769B00DC
-[commit]
-	gpgSign = true
-[tag]
-	forceSignAnnotated = true

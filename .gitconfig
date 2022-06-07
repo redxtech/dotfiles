@@ -1,5 +1,11 @@
-[include]
-  path = ~/.config/git/gitconfig.local
+[user]
+	name = Gabe Dunn
+	email = gabe@sent.at
+	signingkey = 3CF62DDF7CE67FB9
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
 [push]
   default = matching
 [init]
