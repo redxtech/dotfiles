@@ -2,6 +2,7 @@
 #
 # script name: powermenu
 # description: choose from power options and enact the choice
+# usage: powermenu.sh
 
 # available options for powermenu
 lock="    Lock"

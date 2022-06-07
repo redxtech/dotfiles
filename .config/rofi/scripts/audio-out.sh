@@ -2,6 +2,7 @@
 # 
 # script name: audio out
 # description: choose from available audio sinks and switch to whichever is chosen
+# usage: audio-out.sh
 
 # get device full name given a substring
 get_device () {
@@ -22,5 +23,5 @@ main () {
 	pactl set-default-sink "$selected"
 }
 
-main "$@"
+main
 

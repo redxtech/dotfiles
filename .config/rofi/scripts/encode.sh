@@ -2,6 +2,7 @@
 #
 # script name: encode
 # description: choose from some preset options to encode a video file
+# usage: encode.sh <input>
 
 main () {
 	input="$1"
