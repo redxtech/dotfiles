@@ -2,26 +2,32 @@
 
 # option to toggle the output between two available sinks
 toggle () {
-	# assuming only two enabled sinks, get the number of the sink that isn't the currently enabled one
-	other_sink="$(pactl list short sinks | grep -v "$(pactl get-default-sink)" | awk '{ print $1 }')"
+	# specify two options to toggle through
+	option_main="Arctis" # headset
+	option_secondary="pci-0000_2e_00" # optical out
 
-  # set the default sink to the other sink
-  pactl set-default-sink "$other_sink"
+	# get currently enabled output
+	current="$(pactl get-default-sink)"
+	
+	# check if main output is selected, if so, select secondary
+	# otherwise, select main
+	if echo "$current" | grep -q "$option_main"; then
+		option_selected="$option_secondary"
+	else
+		option_selected="$option_main"
+	fi
+
+	# use the selected option to find the desired output name
+	selection="$(pactl list short sinks | awk '{ print $2 }' | grep "$option_selected")"
+
+	# change the output
+	pactl set-default-sink "$selection"
 }
 
 # option to choose which sink will be selected
 choose () {
-  # use rofi to choose which sink is selected
-  selected="$(pactl list short sinks | \
-    awk '{ print $2 }' | \
-    sed -E 's/alsa_output\.(.*)\..*/\1/g' | \
-    rofi -dmenu -line-padding 4  -columns 2 -padding 50 -hide-scrollbar -terminal kitty -show-icons -font "Droid Sans Regular 10")"
-
-  # find the sink number with grep
-  sink="$(pactl list short sinks | grep "$selected" | awk '{ print $1}')"
-
-  # set the default sink
-  pactl set-default-sink "$sink"
+  # use rofi script to choose which sink is selected
+	~/.config/rofi/scripts/audio-out.sh
 }
 
 # main function to choose between toggle or choose functionality

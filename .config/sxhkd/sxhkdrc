@@ -16,7 +16,6 @@ super + {r,d,ctrl + d,shift + d,space}
 # power-menu 
 super + shift + e
 	~/.config/rofi/scripts/powermenu.sh
-	# ~/.config/rofi/powermenu.sh
 
 # make sxhkd reload its configuration files
 super + Escape
@@ -212,12 +211,10 @@ hyper + u
 	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
 
 # toggle/choose audio output device
-hyper + o
-	~/.local/bin/toggle-output
+hyper + {_,shift} + o
+	~/.local/bin/toggle-output {_,choose}
 
-# show audio device selector
-hyper + shift + o
-	~/.config/rofi/scripts/audio-out.sh
+# show audio device chooser
 
 # toggle light with home assistant
 hyper + {_, shift +} BackSpace
