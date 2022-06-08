@@ -1,13 +1,20 @@
 #!/usr/bin/env sh
 #
-# script name: encode
+# script name: rofi-encode
 # description: choose from some preset options to encode a video file
-# usage: encode.sh <input>
+# usage: rofi-encode <input>
 
 # some safety precautions
-set -eu
+set -e
 
 main () {
+	# make sure you've specified the args
+	if test -z "$1"; then
+		echo "you need to specify a file"
+		return 1
+	fi
+
+	# the input file should be the only passed arg
 	input="$1"
 
 	# see if a preset can be selected

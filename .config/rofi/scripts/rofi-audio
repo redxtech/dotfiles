@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 # 
-# script name: audio out
+# script name: rofi-audio
 # description: choose from available audio sinks and switch to whichever is chosen
-# usage: audio-out.sh
+# usage: rofi-audio
+
+# some safety precautions
+set -e
 
 # get device full name given a substring
 get_device () {

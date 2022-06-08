@@ -27,7 +27,7 @@ toggle () {
 # option to choose which sink will be selected
 choose () {
   # use rofi script to choose which sink is selected
-	~/.config/rofi/scripts/audio-out.sh
+	~/.config/rofi/scripts/rofi-audio
 }
 
 # main function to choose between toggle or choose functionality

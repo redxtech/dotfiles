@@ -47,7 +47,7 @@
 	<icon>video-x-generic</icon>
 	<name>Encode video...</name>
 	<unique-id>1654603048016562-1</unique-id>
-	<command>~/.config/rofi/scripts/encode.sh %n</command>
+	<command>~/.config/rofi/scripts/rofi-encode %n</command>
 	<description>Encode a video with selectable options.</description>
 	<patterns>*</patterns>
 	<video-files/>
@@ -56,7 +56,7 @@
 	<icon>archive</icon>
 	<name>Create archive...</name>
 	<unique-id>1654596275298475-5</unique-id>
-	<command>~/.config/rofi/scripts/archive.sh pack %N</command>
+	<command>~/.config/rofi/scripts/rofi-archive pack %N</command>
 	<description>Compresses files with atool.</description>
 	<patterns>*</patterns>
 	<directories/>
@@ -70,7 +70,7 @@
 	<icon>cm_extractfiles</icon>
 	<name>Unpack archive...</name>
 	<unique-id>1654596052635533-4</unique-id>
-	<command>~/.config/rofi/scripts/archive.sh unpack %F</command>
+	<command>~/.config/rofi/scripts/rofi-archive unpack %N</command>
 	<description>Uses atool to unpack the selected files.</description>
 	<patterns>*.gz;*.tgz;*.bz;*.tbz;*.bz2;*.tbz2;*.Z;*.tZ;*.lzo;*.tzo;*.lz;*.tlz;*.xz;*.txz;*.7z;*.t7z;*.tar;*.zip;*.jar;*.war;*.rar;*.lha;*.lhz;*.alz;*.ace;*.a;*.;*.arj;*.arc;*.rpm;*.deb;*.cab;*.lzma;*.rz;*.lrz;*.cpio</patterns>
 	<other-files/>

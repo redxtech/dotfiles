@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 # 
-# script name: archive
+# script name: rofi-archive
 # description: archives files or unpacks archives
-# usage: archive.sh <pack|unpack> <archive|files>
+# usage: rofi-archive <pack|unpack> <archive|files>
 
 # some safety precautions
-set -eu
+set -e
 
 # create an archive with the files passed as arguments
 create_archive () {
@@ -24,7 +24,7 @@ create_archive () {
 	archive_status="$?"
 
 	# time for notification to stay present
-	timeout="120000" # 120 seconds
+	timeout="10000" # 10 seconds
 
 	# if the archival was successful, send a notification
 	if test "$archive_status" = "0"; then
@@ -61,7 +61,7 @@ unpack_archive () {
 	unpack_status="$?"
 
 	# time for notification to stay present
-	timeout="60000" # 60 seconds
+	timeout="10000" # 10 seconds
 
 	# if the unarchival was successful, send a notification
 	if test "$unpack_status" = "0"; then
@@ -90,8 +90,17 @@ unpack_archive () {
 }
 
 main () {
+	# make sure you've specified the args
+	if test -z "$1"; then
+		echo "you need to specify an action"
+		return 1
+	elif test -z "$2"; then
+		echo "you need to specify at least one file"
+		return 1
+	fi
+
 	# choose the proper action to take
-	case "$1" in
+	case $1 in
 		pack) # create an archive file
 			echo "creating archive..."
 

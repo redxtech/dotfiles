@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 #
-# script name: powermenu
+# script name: rofi-powermenu
 # description: choose from power options and enact the choice
-# usage: powermenu.sh
+# usage: rofi-powermenu
 
 # available options for powermenu
 lock="    Lock"
