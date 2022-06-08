@@ -19,9 +19,9 @@ main () {
     btop) # monitor
       $EDITOR "$HOME/.config/btop/btop.conf"
       ;;
-    ro|rofi) # launcher
-      $EDITOR "$HOME/.config/rofi/config.rasi"
-      ;;
+		d|dunst|notif) # dunst config
+			$EDITOR "$HOME/.config/dunst/dunstrc"
+			;;
     k|kitty|term) # kitty
       $EDITOR "$HOME/.config/kitty/kitty.conf"
       ;;
@@ -37,6 +37,9 @@ main () {
     n|fetch|neofetch) # neofetch
       $EDITOR "$HOME/.config/neofetch/config.conf"
       ;;
+		ro|rofi) # launcher
+			$EDITOR "$HOME/.config/rofi/config.rasi"
+			;;
     r|ranger) # ranger config
       $EDITOR "$HOME/.config/ranger/rc.conf"
       ;;
