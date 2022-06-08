@@ -4,6 +4,9 @@
 # description: choose from some preset options to encode a video file
 # usage: encode.sh <input>
 
+# some safety precautions
+set -eu
+
 main () {
 	input="$1"
 
@@ -14,7 +17,8 @@ main () {
 	case $preset in
 		Discord) # embed in discord: decent quality vp9 & opus in a webm
 			vid_codec="vpx-vp9"
-			quality="-crf 25 -b:v 0"
+			quality="25"
+			quality_args="-crf $quality -b:v 0"
 			vid_preset=""
 			audio_codec="libopus"
 			audio_bitrate="256k"
@@ -24,17 +28,21 @@ main () {
 			;;
 		High) # high quality x264 & opus in an mkv
 			vid_codec="x264"
-			quality="-crf 22"
+			quality="22"
+			quality_args="-crf $quality"
 			vid_preset="-preset medium"
 			audio_codec="libopus"
 			audio_bitrate="320k"
 			container="mkv"
 
+
+
 			output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
 			;;
 		Medium) # decent quality x265 & opus in an mkv
 			vid_codec="x265"
-			quality="-crf 26"
+			quality="26"
+			quality_args="-crf $quality"
 			vid_preset="-preset veryfast"
 			audio_codec="libopus"
 			audio_bitrate="256k"
@@ -44,7 +52,8 @@ main () {
 			;;
 		Low) # conservative quality x265 & opus in an mkv
 			vid_codec="x265"
-			quality="-crf 32"
+			quality="32"
+			quality_args="-crf $quality"
 			vid_preset="-preset veryfast"
 			audio_codec="libopus"
 			audio_bitrate="128k"
@@ -56,7 +65,8 @@ main () {
 
 			# all other options rely on the video codec
 			vid_codec="$(printf 'x264\nx265\nvpx-vp9' | rofi -dmenu -p 'Video Codec:')"
-			quality="-crf $(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality:')"
+			quality="$(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality:')"
+			quality_args="-crf $quality"
 			audio_bitrate="$(printf '128k\n256k\n320k' | rofi -dmenu -p 'Audio Birate:')"
 
 			# if not vp9, choose a preset, audio codec, and container.
@@ -77,17 +87,20 @@ main () {
 	esac
 
 	# encode the file with ffmpeg
-	ffmpeg -i "$input" -c:v "lib$vid_codec" $quality $vid_preset -c:a "$audio_codec" -b:a "$audio_bitrate" "$output"
+	ffmpeg -i "$input" -c:v "lib$vid_codec" $quality_args $vid_preset -c:a "$audio_codec" -b:a "$audio_bitrate" "$output"
 
 	# get status of encode command
 	encode_status="$?"
+
+	# time for notification to stay present
+	timeout="120000" # 120 seconds
 
 	# if the encode was successful, send a notification
 	if test "$encode_status" = "0"; then
 		should_view="$(dunstify \
 			--appname=FFmpeg \
 			--action=yes,"View result" \
-			--timeout=0 \
+			--timeout="$timeout" \
 			--icon=videoclip-amarok \
 			"Video encode completed" \
 			"$output has finished encoding.")"
@@ -97,9 +110,15 @@ main () {
 		if test "$should_view" = "yes"; then
 			thunar "$output"
 		fi
+	else
+		# send a failure notification if it doesn't work
+		dunstify \
+			--appname=FFmpeg \
+			--timeout="$timeout" \
+			--icon=videoclip-amarok \
+			"Video encode failed" \
+			"Encoding $output has failed."
 	fi
-
-
 }
 
 main "$@"
