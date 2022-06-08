@@ -3,6 +3,7 @@
 # script name: rofi-audio
 # description: choose from available audio sinks and switch to whichever is chosen
 # usage: rofi-audio
+# dependencies: pactl (libpulse), rofi, awk, grep, sed
 
 # some safety precautions
 set -e

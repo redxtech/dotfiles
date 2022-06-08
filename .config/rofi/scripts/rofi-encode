@@ -3,6 +3,7 @@
 # script name: rofi-encode
 # description: choose from some preset options to encode a video file
 # usage: rofi-encode <input>
+# dependencies: rofi, ffmpeg, dunst, sed, coreutils
 
 # some safety precautions
 set -e

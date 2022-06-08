@@ -3,6 +3,7 @@
 # script name: rofi-powermenu
 # description: choose from power options and enact the choice
 # usage: rofi-powermenu
+# dependencies: rofi, systemd, betterlockscreen, bspwm
 
 # available options for powermenu
 lock="    Lock"

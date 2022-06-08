@@ -1,0 +1,72 @@
+#!/usr/bin/env sh
+#
+# script name: rofi-youtube
+# description: simple client to stream and download youtube videos
+# usage: rofi-youtube <mode>
+# dependencies: rofi, yt-dlp, jq, urlencode, curl
+
+# some safeguards
+set -e
+
+main () {
+	# grab the mode
+	mode="$1"
+
+	# make sure a mode is specified
+	if test -z "$mode"; then
+		echo "you need to specify a mode"
+		return 1
+	fi
+
+	# get the query
+	if test -z "$2"; then
+		query="$(rofi -dmenu -p "Search YT:" -theme textinput)"
+	else
+		shift 1
+		query="$*"
+	fi
+
+	# turn the query into a url
+	YT_API_KEY="$(cat "$HOME/.config/api_keys/YT_API_KEY")"
+	query="$(printf "%s" "$query" | urlencode)"
+	urlstring="https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=20&key=${YT_API_KEY}"
+	
+	# fetch and parse the result
+	search_result="$(curl -s "$urlstring" \
+		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
+		| rofi -dmenu -i -p 'Select Video:' -l 10 \
+		| awk '{print $NF}')"
+
+	# url of the youtube video
+	url="https://$search_result"
+
+	# select the mode and play the file with mpv or download it with yt-dlp
+	case $mode in 
+		watch)
+			mpv "$url"
+			;;
+		download|dl)
+			yt-dlp \
+				--output "[%(uploader)s] %(upload_date>%Y-%m-%d)s - %(title)s (%(id)s).%(ext)s" \
+				--audio-quality 0 \
+				--embed-sub \
+				--embed-thumbnail \
+				--embed-chapters \
+				--embed-info-json \
+				--sponsorblock-mark all \
+				"$url"
+			dunstify \
+				--appname=YT-DLP \
+				--icon=download \
+				"YouTube video downloaded" \
+				"The YouTube video has been downloaded to $(cwd)"
+			;;
+		*)
+			echo "not a valid subcommand"
+			return 1
+			;;
+	esac
+}
+
+main "$@"
+

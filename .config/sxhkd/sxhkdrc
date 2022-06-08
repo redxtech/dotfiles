@@ -191,12 +191,12 @@ super + w
   vivaldi-stable
 
 # secondary apps
-hyper + {d,s,a,f,p,v,y}
-  {discord,spotify,authy,thunar,plex-desktop,pavucontrol,yuzu}
+hyper + {d,s,a,f,p,v}
+  {discord,spotify,authy,thunar,plex-desktop,pavucontrol}
 
 # focus apps
-hyper + alt + {w,d,s,a,f,p,y}
-  wmctrl -a {vivaldi,discord,spotify,authy,thunar,plex,yuzu}
+hyper + alt + {w,d,s,a,f,p}
+  wmctrl -a {vivaldi,discord,spotify,authy,thunar,plex}
 
 # terminal apps
 hyper + {m,r,n}
@@ -217,6 +217,14 @@ hyper + {_,shift} + o
 # show most recent notification
 hyper + {_,shift} + h
 	dunstctl {history-pop,close-all}
+
+# search/download from youtube
+hyper + {_,shift} + y
+	~/.config/rofi/scripts/rofi-youtube {watch,download}
+
+# show webcam
+hyper + shift + i
+	~/.local/bin/mpvcam
 
 # toggle light with home assistant
 hyper + {_, shift +} BackSpace

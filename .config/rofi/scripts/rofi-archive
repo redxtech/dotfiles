@@ -3,6 +3,8 @@
 # script name: rofi-archive
 # description: archives files or unpacks archives
 # usage: rofi-archive <pack|unpack> <archive|files>
+# dependencies: rofi, atool, dunst, thunar (optional), at least one zip program
+# todo: filter formats based on installed compressors
 
 # some safety precautions
 set -e
