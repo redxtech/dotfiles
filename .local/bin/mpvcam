@@ -1,0 +1,35 @@
+#!/bin/sh
+
+main () {
+    if [ -n "$1" ]; then
+	if [ "$1" = "--help" -o "$1" = "-h" ]; then
+	    help
+	elif [ "$1" = "-t" -o "$1" = "--toggle" ]; then
+	    if [ $(ps axh | grep "mpv --pause=no --profile=low-latency --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0 --untimed --cache=no --force-seekable=no --no-osc --title=Webcam --vf=hflip" | wc -l) -le 1 ]; then
+		cmd
+	    elif [ $(xdotool search --onlyvisible --name Webcam | wc -l) -ge 1 ]; then
+		xdotool windowunmap $(xdotool search --name Webcam)
+	    else
+		xdotool windowmap $(xdotool search --name Webcam)
+	    fi
+	else
+	    pkill -f /dev/video$@ || mpv --pause=no --profile=low-latency --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video$@ --untimed --cache=no --force-seekable=no --no-osc --title=Webcam
+    fi
+    else
+	cmd
+    fi
+}
+
+cmd() {
+   pkill -f /dev/video0 || mpv --pause=no --profile=low-latency --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0 --untimed --cache=no --force-seekable=no --no-osc --title=Webcam
+}
+
+help() {
+    printf "Usage: mpvcam [#] (defaults to 0 if not specified)
+
+Options:
+-t|--toggle │ hide/unhide mpvcam
+\n"
+}
+
+main "$@"

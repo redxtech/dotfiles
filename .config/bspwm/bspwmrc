@@ -35,6 +35,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a discord desktop='^3'
 bspc rule -a Element desktop='^3'
 bspc rule -a Plexamp state=floating
+bspc rule -a mpv:\*:Webcam state=floating
 
 # Computer Specific Rules
 if test "$(hostname)" = "desktop"; then
