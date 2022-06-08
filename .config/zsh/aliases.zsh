@@ -85,10 +85,12 @@ alias svim="sudo -e"
 
 # swallow windows for certain apps
 if command -v devour >/dev/null; then
-  local swallowed=(mpv sxiv)
+  local swallowed=(feh mpv sxiv)
 
   for app in $swallowed; do
-    alias $app="devour $app"
+		if command -v $app >/dev/null; then
+			alias $app="devour $app"
+		fi
   done
 fi
 

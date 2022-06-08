@@ -168,7 +168,7 @@ XF86AudioMute
 
 # copy current track information
 hyper + XF86AudioPlay
-	playerctl --player=spotify,chromium metadata --format "\{\{ artist \}\} - \{\{ title \}\}" | xclip -sel clip
+	playerctl --player=spotify,chromium metadata --format "\{\{ artist \}\} - \{\{ title \}\}" | tr -d '\n' | xclip -sel clip
 
 #################
 # Function Keys #
