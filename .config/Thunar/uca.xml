@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open terminal here</name>
+	<unique-id>1654248846109487-1</unique-id>
+	<command>kitty --directory %f</command>
+	<description>Opens a terminal in the selected directory.</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open terminal here</name>
+	<unique-id>1654595233060299-2</unique-id>
+	<command>kitty --directory %d</command>
+	<description>Opens a terminal in the current directory.</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-adwaita-script</icon>
+	<name>Open folder as root</name>
+	<unique-id>1654600062096257-1</unique-id>
+	<command>pkexec thunar %f</command>
+	<description>Opens the folder with root privileges.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>clipboard</icon>
+	<name>Copy contents</name>
+	<unique-id>1654595051238529-1</unique-id>
+	<command>cat %F | xclip -i -selection c</command>
+	<description>Copies the contents of selected files to clipboard.</description>
+	<patterns>*</patterns>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>video-x-generic</icon>
+	<name>Encode video...</name>
+	<unique-id>1654603048016562-1</unique-id>
+	<command>~/.config/rofi/scripts/encode.sh %n</command>
+	<description>Encode a video with selectable options.</description>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon>archive</icon>
+	<name>Create archive...</name>
+	<unique-id>1654596275298475-5</unique-id>
+	<command>~/.config/rofi/scripts/archive.sh pack %N</command>
+	<description>Compresses files with atool.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>cm_extractfiles</icon>
+	<name>Unpack archive...</name>
+	<unique-id>1654596052635533-4</unique-id>
+	<command>~/.config/rofi/scripts/archive.sh unpack %F</command>
+	<description>Uses atool to unpack the selected files.</description>
+	<patterns>*.gz;*.tgz;*.bz;*.tbz;*.bz2;*.tbz2;*.Z;*.tZ;*.lzo;*.tzo;*.lz;*.tlz;*.xz;*.txz;*.7z;*.t7z;*.tar;*.zip;*.jar;*.war;*.rar;*.lha;*.lhz;*.alz;*.ace;*.a;*.;*.arj;*.arc;*.rpm;*.deb;*.cab;*.lzma;*.rz;*.lrz;*.cpio</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>edit-select-text</icon>
+	<name>Rename to lower case</name>
+	<unique-id>1654595577242192-3</unique-id>
+	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr &apos;[:upper:]&apos; &apos;[:lower:]&apos;)&quot;; done</command>
+	<description>Rename all selected files to lower case.</description>
+	<patterns>*</patterns>
+</action>
+</actions>
