@@ -8,10 +8,6 @@
  */
 
 configuration {
-	dmenu {
-		display-name: " Archive Name:";
-	}
-
   timeout {
     delay: 10;
     action: "kb-cancel";
