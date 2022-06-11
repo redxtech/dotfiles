@@ -80,7 +80,7 @@ main () {
 			# if not vp9, choose a preset, audio codec, and container.
 			# otherwise default to opus & webm
 			if ! test "$vid_codec" = "vpx-vp9"; then
-				vid_preset="-preset $(printf 'ultrafast\nveryfast\nmedium\nveryslow' | rofi -dmenu -p 'Preset:')"
+				vid_preset="-preset $(printf 'ultrafast\nsuperfast\nveryfast\nfaster\nfast\nmedium\nslow\nslower\nveryslow\nplacebo' | rofi -dmenu -p 'Preset:')"
 				audio_codec="$(printf 'libopus\naac\ncopy' | rofi -dmenu -p 'Audio Codec:')"
 				container="$(printf 'webm\nmkv' | rofi -dmenu -p 'Container:')"
 			else
