@@ -3,7 +3,7 @@
 # script name: rofi-youtube
 # description: simple client to stream and download youtube videos
 # usage: rofi-youtube <mode>
-# dependencies: rofi, yt-dlp, jq, urlencode, curl
+# dependencies: rofi, yt-dlp, dunstify, jq, choose, urlencode, curl
 
 # some safeguards
 set -e
@@ -32,13 +32,18 @@ main () {
 	urlstring="https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=20&key=${YT_API_KEY}"
 	
 	# fetch and parse the result
-	search_result="$(curl -s "$urlstring" \
+	search_selection="$(curl -s "$urlstring" \
 		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
-		| rofi -dmenu -i -p 'Select Video:' -l 10 \
-		| awk '{print $NF}')"
+		| rofi -dmenu -i -p 'Select Video:' -l 10)"
+
+	# selected result
+	search_result="$(echo "$search_selection" | awk '{print $NF}')"
 
 	# url of the youtube video
 	url="https://$search_result"
+
+	# grab the name of the video
+	selection_name="$(echo "$search_selection" | choose -f " => " 1)"
 
 	# select the mode and play the file with mpv or download it with yt-dlp
 	case $mode in 
@@ -46,8 +51,13 @@ main () {
 			mpv "$url"
 			;;
 		download|dl)
+			if test "$(pwd)" = "$HOME"; then
+				dl_path="$HOME/Drives/Big Goober/Videos/YT/%(uploader)s/%(upload_date>%Y-%m-%d)s - %(title)s (%(id)s).%(ext)s"
+			else
+				dl_path="[%(uploader)s] - %(upload_date>%Y-%m-%d)s - %(title)s (%(id)s).%(ext)s"
+			fi
 			yt-dlp \
-				--output "[%(uploader)s] %(upload_date>%Y-%m-%d)s - %(title)s (%(id)s).%(ext)s" \
+				--output "$dl_path" \
 				--audio-quality 0 \
 				--embed-sub \
 				--embed-thumbnail \
@@ -59,7 +69,7 @@ main () {
 				--appname=YT-DLP \
 				--icon=download \
 				"YouTube video downloaded" \
-				"The YouTube video has been downloaded to $(cwd)"
+				"The YouTube video ($selection_name) has been downloaded."
 			;;
 		*)
 			echo "not a valid subcommand"
