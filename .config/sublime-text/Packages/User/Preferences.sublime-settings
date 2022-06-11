@@ -1,0 +1,10 @@
+{
+	"theme": "auto",
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
+	"font_face": "DankMono Nerd Font",
+	"font_size": 14,
+	"hardware_acceleration": "opengl",
+	"remember_workspace": false,
+	"ignored_packages": [
+	],
+}
