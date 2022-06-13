@@ -8,7 +8,6 @@ if test "$(hostname)" = "desktop"; then
 	bspc monitor DisplayPort-0 -d I II III IV V VI
 	bspc monitor DisplayPort-1 -d VII VIII IX X
 	bspc monitor HDMI-A-0 -d XI
-	bspc wm --reorder-monitors DisplayPort-0 DisplayPort-1 HDMI-A-0
 elif test "$(hostname)" = "laptop"; then
 	bspc monitor -d I II III IV V VI VII VIII IX X
 else
@@ -24,7 +23,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config pointer_follows_focus false
 bspc config focus_follows_pointer true
-bspc config ignore_ewmh_focus true
+# bspc config ignore_ewmh_focus true
 
 # Global Rules
 bspc rule -a Gimp desktop='^8' state=floating follow=on
@@ -36,8 +35,9 @@ bspc rule -a Yad state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a discord desktop='^3' follow=off
-bspc rule -a Element desktop='^3'
+bspc rule -a Element desktop='^3' follow=off
 bspc rule -a Plexamp state=floating
+bspc rule -a Subl desktop="*"
 bspc rule -a "mpv:*:Webcam" state=floating
 bspc rule -a "*:*:Picture in picture" state=floating
 bspc rule -a "*:*:Open Files" desktop="*" state=floating
@@ -68,6 +68,13 @@ bspc config active_border_color         "#073642"
 #
 # Autostart
 #
+
+# arange monitors
+if test "$(hostname)" = "desktop"; then
+	sh ~/.screenlayout/desktop.sh
+	bspc wm --reorder-monitors DisplayPort-0 DisplayPort-1 HDMI-A-0
+fi
+
 
 # Run the autostart script
 sh ~/.config/wm/scripts/autorun.sh
