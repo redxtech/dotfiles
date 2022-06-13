@@ -82,10 +82,11 @@ alias e='$EDITOR'
 alias v='$EDITOR'
 alias ss="sudo systemctl"
 alias svim="sudo -e"
+alias rcp="rclone copy -P --transfers=70"
 
 # swallow windows for certain apps
 if command -v devour >/dev/null; then
-  local swallowed=(feh mpv sxiv)
+  local swallowed=(mpv sxiv)
 
   for app in $swallowed; do
 		if command -v $app >/dev/null; then

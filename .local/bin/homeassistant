@@ -29,8 +29,7 @@ main () {
   esac
 
   # pull in home assistant token
-  # shellcheck source=../dotfiles/secrets.sh
-  . ~/.local/dotfiles/secrets.sh
+	HOMEASSISTANT_TOKEN="$(cat ~/.config/api_keys/HOMEASSISTANT_TOKEN)"
 
   # run the command
   curl -S -s -o /dev/null -X POST \

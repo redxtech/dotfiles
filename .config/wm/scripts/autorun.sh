@@ -63,7 +63,6 @@ sleep 6 && wmctrl -r spotify -t 7
 if test "$(hostname)" = "desktop"; then
 	run spotify
   run megasync
-	run element-desktop
   run hexchat
 	# run qbittorrent
 fi
