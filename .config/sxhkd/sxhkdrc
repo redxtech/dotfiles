@@ -153,7 +153,7 @@ hyper + t
 
 # player specific
 {_,shift,ctrl} + XF86Audio{Play,Next,Prev}
-	playerctl --player={spotify,chromium,Plexamp} {play-pause,next,previous}
+	playerctl --player={spotify,chromium,mpv} {play-pause,next,previous}
 
 # general
 alt + XF86Audio{Play,Next,Prev}
@@ -166,9 +166,9 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
   pamixer --toggle-mute
 
-# copy current track information
+# copy current track link
 hyper + XF86AudioPlay
-	playerctl --player=spotify,chromium metadata --format "\{\{ artist \}\} - \{\{ title \}\}" | tr -d '\n' | xclip -sel clip
+	~/.local/bin/copy-spotify-share
 
 #################
 # Function Keys #
@@ -179,8 +179,8 @@ XF86MonBrightness{Up,Down}
   xbacklight -{inc,dec} 5
 
 # screenshot
-{_,shift,super} + Print
-  flameshot {gui,screen -c,screen -p ~/Pictures/Screenshots}
+{_,shift,super,super + shift} + Print
+  flameshot {gui,screen -c,screen -p ~/Pictures/Screenshots,screen -u}
 
 #################
 # Shortcut Keys #
@@ -221,6 +221,9 @@ hyper + {_,shift} + h
 # search/download from youtube
 hyper + {_,shift} + y
 	~/.config/rofi/scripts/rofi-youtube {watch,download}
+
+hyper + {_,shift} + c
+	~/.config/rofi/scripts/rofi-clipboard {_,paste}
 
 # show webcam
 hyper + shift + i
