@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+playerctl --player=spotify metadata \
+	| rg 'xesam:url' \
+	| choose 2 \
+	| xclip -selection clipboard

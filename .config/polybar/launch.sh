@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
-killall -q polybar
+# choose theme here
+theme="dracula"
 
-# Wait until the processes have been shut down
+# kill polybar if it's running
+killall polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch Polybar
-polybar top -c ~/.config/polybar/config.ini &
-
+# start main polybar instance
+polybar main -c "$HOME/.config/polybar/themes/$theme/config.ini" &
+#
 # if a second monitor exists, run a second polbar on the next monitor
-# m=$(bspc query -M -m 'primary#next' --names) && { SECOND_MONITOR=$m polybar top_second -c ~/.config/polybar/config.ini & }
 if test "$(bspc query -M | wc -l)" -gt "1"; then
-	SECOND_MONITOR="DisplayPort-1" polybar top_second -c ~/.config/polybar/config.ini
+	MONITOR="DisplayPort-1" polybar secondary -c "$HOME/.config/polybar/themes/$theme/config.ini" &
 fi
+
+# alternate method of above, doesn't work as well
+# m=$(bspc query -M -m 'primary#next' --names) && { MONITOR=$m polybar top_second -c "$HOME/.config/polybar/themes/$theme/config.ini" & }
+

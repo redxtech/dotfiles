@@ -24,9 +24,6 @@ srun () {
 # apply env variables
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-# apply proper monitor layour and sizing
-srun ~/.screenlayout/desktop.sh
-
 # bar
 srun ~/.config/polybar/launch.sh
 
@@ -52,17 +49,19 @@ run blueman-applet
 # user apps
 run discord
 run flameshot
-run spotify
 run thunar --daemon
 
 # variety won't work with the run command
-variety &
+if ! pgrep variety; then
+	variety &
+fi
 
 # move spotify to proper workspace
 sleep 6 && wmctrl -r spotify -t 7
 
 # host specific apps
 if test "$(hostname)" = "desktop"; then
+	run spotify
   run megasync
 	run element-desktop
   run hexchat
