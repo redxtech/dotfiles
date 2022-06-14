@@ -8,7 +8,7 @@ super + {_,shift +,ctrl + }Return
 
 # open {run prompt,app launcher,window chooser,ssh hosts}
 super + {r,d,ctrl + d,shift + d,space}
-	rofi -modi drun -show {run,drun,window,ssh,drun} -terminal kitty
+	rofi -show {run,drun,window,ssh,drun}
 
 # open power-menu 
 super + shift + e
@@ -56,16 +56,15 @@ super + ctrl + {m,x,y,z,v}
 
 # unhide a window
 super + ctrl + shift + v
-	bspc node $(bspc query -N -n .hidden | tail -n1) -g hidden=off
-
+	bspc node $(bspc query -N -n .hidden.local | tail -n1) -g hidden=off
 
 #
 # focus/swap
 #
 
-# switch previous window
+# open window switcher
 alt + Tab
-	bspc node -f last
+	rofi -show window
 
 # {focus,move} the node in the {west,south,north,east} direction
 super + {_,shift + }{h,j,k,l}

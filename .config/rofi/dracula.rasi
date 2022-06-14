@@ -8,7 +8,9 @@
  */
 
 configuration {
-  font: "NotoSans Nerd Font Medium 14";
+  font: "DanoMono Nerd Font Medium 14";
+  show-icons:				true;
+  icon-theme:				"Papirus";
 
   drun {
     display-name: "";
@@ -22,12 +24,8 @@ configuration {
     display-name: "";
   }
 
-	ssh {
-		display-name: "";
-	}
-
   timeout {
-    delay: 10;
+    delay: 15;
     action: "kb-cancel";
   }
 }
@@ -49,8 +47,6 @@ configuration {
 
 window {
   transparency: "real";
-	border: 2px;
-	border-color: @blue;
 }
 
 mainbox {
@@ -74,7 +70,6 @@ prompt {
 
 listview {
   lines: 8;
-	columns: 3;
 }
 
 element {
