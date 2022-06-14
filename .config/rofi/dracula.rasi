@@ -51,6 +51,8 @@ window {
 
 mainbox {
   children: [inputbar, listview];
+	border: 2;
+	border-color: @blue;
 }
 
 inputbar {
