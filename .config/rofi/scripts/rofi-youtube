@@ -34,7 +34,7 @@ main () {
 	# fetch and parse the result
 	search_selection="$(curl -s "$urlstring" \
 		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
-		| rofi -dmenu -i -p 'Select Video:' -l 10)"
+		| rofi -dmenu -i -p 'Select Video:')"
 
 	# selected result
 	search_result="$(echo "$search_selection" | awk '{print $NF}')"

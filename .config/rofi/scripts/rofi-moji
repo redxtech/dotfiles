@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# TODO: write consistent with my code style
+
+LAUNCHER=${LAUNCHER:-"rofi -dmenu -i -l 20 -fn Monospace-18 "}
+# Can be a littl slow
+# LAUNCHER="emenu "
+# The famous "get a menu of emojis to copy" script.
+
+# Must have xclip installed to even show menu.
+if ! command -v xclip >/dev/null; then
+	exit
+fi
+# xclip -h 2>/dev/null || exit
+
+chosen=$(grep -v "#" ~/.config/rofi/scripts/unicode | $LAUNCHER)
+
+[ "$chosen" != "" ] || exit
+
+c=$(echo "$chosen" | sed "s/ .*//")
+echo "$c" | tr -d '\n' | xclip -selection clipboard
+dusntify "'$c' copied to clipboard." &
+
+# hello
+
+s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+echo "$s" | tr -d '\n' | xclip
+dusntify "'$s' copied to primary." &
