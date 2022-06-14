@@ -54,8 +54,13 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+super + ctrl + {m,x,y,z,v}
+	bspc node -g {marked,locked,sticky,private,hidden}
+
+# unhide a window
+super + ctrl + shift + v
+	bspc node $(bspc query -N -n .hidden | tail -n1) -g hidden=off
+
 
 #
 # focus/swap
