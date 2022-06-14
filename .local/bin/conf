@@ -2,6 +2,7 @@
 
 # TODO: move to proper folder
 # TODO: optimize commands
+# TODO: change into rofi script if no args passed
 
 # script to handle configuration file opening
 main () {
@@ -38,6 +39,7 @@ main () {
       $EDITOR "$HOME/.config/neofetch/config.conf"
       ;;
 		ro|rofi) # launcher
+			cd "$HOME/.config/rofi" || return
 			$EDITOR "$HOME/.config/rofi/config.rasi"
 			;;
     r|ranger) # ranger config
@@ -89,6 +91,7 @@ main () {
       $EDITOR "$HOME/.zshrc"
       ;;
     za) # zsh aliases
+			cd  "$HOME/.config/zsh" || return
       $EDITOR "$HOME/.config/zsh/aliases.zsh"
       ;;
     zi) # zsh (init)
@@ -119,7 +122,7 @@ main () {
       $EDITOR "$HOME/.config/wm/scripts/autorun.sh"
       ;;
     pb|polybar|bar) # polybar config
-      $EDITOR "$HOME/.config/polybar/config.ini"
+      $EDITOR "$HOME/.config/polybar/modules.ini"
       ;;
     pbl|barl|polybarlaunch) # polybar launch script
       $EDITOR "$HOME/.config/polybar/launch.sh"
