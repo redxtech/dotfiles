@@ -5,8 +5,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # get number of monitors
 if test "$(hostname)" = "desktop"; then
 	# bspc monitor -d I II III IV V VI VII VIII IX X
-	bspc monitor DisplayPort-0 -d I II III IV V VI
-	bspc monitor DisplayPort-1 -d VII VIII IX X
+	bspc monitor DisplayPort-0 -d shell www chat files five six
+	bspc monitor DisplayPort-1 -d r-www music video 10
 	bspc monitor HDMI-A-0 -d XI
 elif test "$(hostname)" = "laptop"; then
 	bspc monitor -d I II III IV V VI VII VIII IX X
