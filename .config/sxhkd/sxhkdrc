@@ -2,22 +2,19 @@
 # wm independent hotkeys #
 ##########################
 
-# terminal emulator
-super + Return
-	kitty
+# launch {kitty,alacritty,xfce} terminal emulator
+super + {_,shift +,ctrl + }Return
+	{kitty,alacritty,xfce4-terminal}
 
-super + shift + Return
-	xfce4-terminal
-
-# run prompt, program launcher, open windows, & ssh sessions
+# open {run prompt,app launcher,window chooser,ssh hosts}
 super + {r,d,ctrl + d,shift + d,space}
 	rofi -modi drun -show {run,drun,window,ssh,drun} -terminal kitty
 
-# power-menu 
+# open power-menu 
 super + shift + e
 	~/.config/rofi/scripts/rofi-powermenu
 
-# make sxhkd reload its configuration files
+# reload sxhkd configuration
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -25,12 +22,12 @@ super + Escape
 # bspwm hotkeys #
 #################
 
-# quit/restart bspwm
+# {quit,restart} bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close current window and kill all instances
-super + {_,shift + }q
+# {close current window,kill all instances of app}
+super + {_,shift+ }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -49,11 +46,11 @@ super + g
 # state/flags
 #
 
-# set the window state
+# set the window mode to {tiled,pseudo_tiled,floating,fullscreen}
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# toggle the node flag {marked,locked,sticky,private,hidden}
 super + ctrl + {m,x,y,z,v}
 	bspc node -g {marked,locked,sticky,private,hidden}
 
@@ -66,31 +63,27 @@ super + ctrl + shift + v
 # focus/swap
 #
 
-# switch windows
+# switch previous window
 alt + Tab
 	bspc node -f last
 
-# focus the next/previous desktop in the current monitor
-hyper + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
-# focus the node in the given direction
+# {focus,move} the node in the {west,south,north,east} direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# focus the {parent,brother,first,second} node
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous window in the current desktop
+# focus the {next,previous} window in the current desktop
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor
+# focus the {next,previous} desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
+# focus the last {node,desktop}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
@@ -100,7 +93,7 @@ super + {grave,Tab}
 # 	bspc node {older,newer} -f; \
 # 	bspc wm -h on
 
-# focus or send to the given desktop
+# {focus,send node to} desktop {1,2,3,4,5,6,7,8,9,10}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
@@ -112,11 +105,11 @@ super + o
 # preselect
 #
 
-# preselect the direction
+# preselect the direction {west,south,north,east}
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
+# preselect the ratio {1-9}
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
@@ -132,15 +125,15 @@ super + ctrl + shift + space
 # move/resize
 #
 
-# expand a window by moving one of its side outward
+# expand a window by moving one its {left,bottom,top,right} side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+# contract a window by moving its {left,bottom,top,right} side inward
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# move a floating window
+# move a floating window {left,down,up,right}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
@@ -156,22 +149,19 @@ hyper + t
 # Multimedia Keys #
 ###################
 
-# player specific
-{_,shift,ctrl} + XF86Audio{Play,Next,Prev}
-	playerctl --player={spotify,chromium,mpv} {play-pause,next,previous}
+# playerctl {play/pause,skip,skip back} {spotify,chromium,mpv,general}
+{_,shift,ctrl,alt} + XF86Audio{Play,Next,Prev}
+	playerctl --player={spotify,chromium,mpv,""} {play-pause,next,previous}
 
-# general
-alt + XF86Audio{Play,Next,Prev}
-	playerctl {play-pause,next,previous}
-
-# volume
+# volume {up,down}
 XF86Audio{Raise,Lower}Volume
   pamixer --{in,de}crease 5
 
+# toggle mute
 XF86AudioMute
   pamixer --toggle-mute
 
-# copy current track link
+# copy current spotify track link
 hyper + XF86AudioPlay
 	~/.local/bin/copy-spotify-share
 
@@ -179,11 +169,11 @@ hyper + XF86AudioPlay
 # Function Keys #
 #################
 
-# brightness
+# brightness {up,down}
 XF86MonBrightness{Up,Down}
   xbacklight -{inc,dec} 5
 
-# screenshot
+# screenshot {gui,screen (clip),screen (folder),screen (upload)}
 {_,shift,super,super + shift} + Print
   flameshot {gui,screen -c,screen -p ~/Pictures/Screenshots,screen -u}
 
@@ -191,19 +181,20 @@ XF86MonBrightness{Up,Down}
 # Shortcut Keys #
 #################
 
-# browser
+# launch browser
 super + w 
   vivaldi-stable
 
 # secondary apps
+# launch {discord,spotify,authy,thunar,plex,pulseaudio}
 hyper + {d,s,a,f,p,v}
   {discord,spotify,authy,thunar,plex-desktop,pavucontrol}
 
-# focus apps
+# focus {vivaldi,discord,spotify,authy,thunar,plex,pulseaudio}
 hyper + alt + {w,d,s,a,f,p}
   wmctrl -a {vivaldi,discord,spotify,authy,thunar,plex}
 
-# terminal apps
+# terminal exec {btop,ranger,neofetch}
 hyper + {m,r,n}
   kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
 
@@ -215,18 +206,19 @@ hyper + {m,r,n}
 hyper + u
 	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
 
-# toggle/choose audio output device
-hyper + {_,shift} + o
+# {toggle,choose} audio output device
+hyper + {_,shift + }o
 	~/.local/bin/toggle-output {_,choose}
 
-# show most recent notification
-hyper + {_,shift} + h
+# {pop most recent,close all} notification
+hyper + {_,shift + }h
 	dunstctl {history-pop,close-all}
 
-# search/download from youtube
-hyper + {_,shift} + y
+# {stream,download} from youtube
+hyper + {_,shift + }y
 	~/.config/rofi/scripts/rofi-youtube {watch,download}
 
+# {copy,paste} from clipboard history
 hyper + {_,shift} + c
 	~/.config/rofi/scripts/rofi-clipboard {_,paste}
 
@@ -234,15 +226,15 @@ hyper + {_,shift} + c
 hyper + shift + i
 	~/.local/bin/mpvcam
 
-# toggle light with home assistant
+# toggle {light,desk lights} with home assistant
 hyper + {_, shift +} BackSpace
 	~/.local/bin/homeassistant {light,desklights}
 
-# next/previous wallpapers with variety
-hyper + shift + bracket{left,right}
+# go to {previous,next} wallpapers with variety
+hyper + bracket{left,right}
 	variety --{previous,next}
 
 # show keybinds
 super + F1
-  ~/.config/bspwm/scripts/keybindings_rofi.sh
+	sxhkhmenu --opt-args="-dmenu -i -p Keybinds:"
 
