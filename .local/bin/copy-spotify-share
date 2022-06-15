@@ -3,4 +3,5 @@
 playerctl --player=spotify metadata \
 	| rg 'xesam:url' \
 	| choose 2 \
+	| tr -d '\n' \
 	| xclip -selection clipboard

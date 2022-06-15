@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+#
+# script name: rofi-web
+# description: choose from a list of search engines and search it
+# usage: rofi-web [default]
+# dependencies: rofi, xdg-open
+
+# exit on first error
+set -e
+
+# list of search engines
+declare -A ENGINES
+ENGINES=(
+	["searx"]="https://search.bus-hit.me/search?q="
+	["google"]="https://www.google.com/search?q="
+	["bing"]="https://www.bing.com/search?q="
+	["yahoo"]="https://search.yahoo.com/search?p="
+	["duckduckgo"]="https://www.duckduckgo.com/?q="
+	["yandex"]="https://yandex.ru/yandsearch?text="
+	["github"]="https://github.com/search?q="
+	["goodreads"]="https://www.goodreads.com/search?q="
+	["stackoverflow"]="http://stackoverflow.com/search?q="
+	["symbolhound"]="http://symbolhound.com/?q="
+	["searchcode"]="https://searchcode.com/?q="
+	["openhub"]="https://www.openhub.net/p?ref=homepage&query="
+	["superuser"]="http://superuser.com/search?q="
+	["askubuntu"]="http://askubuntu.com/search?q="
+	["imdb"]="http://www.imdb.com/find?ref_=nv_sr_fn&q="
+	["rottentomatoes"]="https://www.rottentomatoes.com/search/?search="
+	["piratebay"]="https://thepiratebay.org/search/"
+	["youtube"]="https://www.youtube.com/results?search_query="
+	["vimawesome"]="http://vimawesome.com/?q="
+)
+
+# make list for rofi
+gen_list() {
+	# choose from snaller selection of search engines (in proper order...)
+		echo "searx"
+		echo "duckduckgo"
+		echo "google"
+		echo "youtube"
+		echo "github"
+		echo "stackoverflow"
+
+		# for i in "${!ENGINES[@]}"
+    # do
+    #   echo "$i"
+    # done
+}
+
+gen_list
+
+main () {
+	# pass the list to rofi
+	if test "$1" = "default"; then
+		platform="searx"
+	else
+		platform=$( (gen_list) | rofi -dmenu -matching fuzzy -no-custom -p "Search" )
+	fi
+
+	if [[ -n "$platform" ]]; then
+		query=$( (echo ) | rofi  -dmenu -no-sort -matching fuzzy -p "Query" )
+
+		if [[ -n "$query" ]]; then
+			url=${ENGINES[$platform]}$query
+			xdg-open "$url"
+		else
+			exit
+		fi
+
+	else
+		exit
+	fi
+}
+
+main "$@"
+

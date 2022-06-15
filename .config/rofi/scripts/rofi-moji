@@ -1,28 +1,29 @@
 #!/usr/bin/env sh
+#
+# script name: rofi-moji
+# description: select from a list of emojis
+# usage rofi-moji
+# dependencies: rofi, xclip, dunst, grep, sed, tr
+# todo: generate a better, more complete, list of emojis
 
-# TODO: write consistent with my code style
+# exit on first error
+set -e
 
-LAUNCHER=${LAUNCHER:-"rofi -dmenu -i -l 20 -fn Monospace-18 "}
-# Can be a littl slow
-# LAUNCHER="emenu "
-# The famous "get a menu of emojis to copy" script.
+# the famous "get a menu of emojis to copy" script.
+main () {
+	# choose an emoji the list
+	chosen=$(grep -v "#" ~/.config/rofi/scripts/unicode | rofi -theme yellow-dracula -dmenu -i -l 20 -p "Emoji ")
 
-# Must have xclip installed to even show menu.
-if ! command -v xclip >/dev/null; then
-	exit
-fi
-# xclip -h 2>/dev/null || exit
+	# copy to clipboard
+	c=$(echo "$chosen" | sed "s/ .*//")
+	echo "$c" | tr -d '\n' | xclip -selection clipboard
+	dunstify "'$c' copied to clipboard." &
 
-chosen=$(grep -v "#" ~/.config/rofi/scripts/unicode | $LAUNCHER)
+	# copy to primary
+	# s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+	# echo "$s" | tr -d '\n' | xclip
+	# dunstify "'$s' copied to primary." &
+}
 
-[ "$chosen" != "" ] || exit
+main
 
-c=$(echo "$chosen" | sed "s/ .*//")
-echo "$c" | tr -d '\n' | xclip -selection clipboard
-dusntify "'$c' copied to clipboard." &
-
-# hello
-
-s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-echo "$s" | tr -d '\n' | xclip
-dusntify "'$s' copied to primary." &

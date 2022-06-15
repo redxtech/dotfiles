@@ -6,7 +6,7 @@
 # dependencies: rofi, atool, dunst, thunar (optional), at least one zip program
 # todo: filter formats based on installed compressors
 
-# some safety precautions
+# exit on first error
 set -e
 
 # create an archive with the files passed as arguments
@@ -17,13 +17,13 @@ create_archive () {
 		# includes formats that only work with one file
 		archive_formats=".xz\n.txz\n.gz\n.tgz\n.bz\n.tbz\n.bz2\n.tbz2\n.Z\n.tZ\n.lzo\n.tzo\n.lz\n.tlz\n.7z\n.t7z\n.tar\n.zip\n.jar\n.war\n.rar\n.a\n.arj\n.lzma\n.rz\n.lrz\n.cpio"
 	else
-		name="$(rofi -dmenu -l 0 -p 'Archive Name:')"
+		name="$(rofi -dmenu -l 0 -p 'Archive Name')"
 		# only formats that can handle multiple files
 		archive_formats=".txz\n.tgz\n.tbz\n.tbz2\n.tZ\n.tzo\n.tlz\n.7z\n.t7z\n.tar\n.zip\n.jar\n.war\n.rar\n.lhz\n.a\n.arj\n.cpio"
 	fi
 
 	# select from any of the filetypes atool can work with
-	filetype="$(echo "$archive_formats" | rofi -dmenu -theme dracula -p 'Archive Type:')"
+	filetype="$(echo "$archive_formats" | rofi -dmenu -p 'Archive Type')"
 
 	output="$name$filetype"
 

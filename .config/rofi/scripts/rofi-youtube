@@ -2,7 +2,7 @@
 #
 # script name: rofi-youtube
 # description: simple client to stream and download youtube videos
-# usage: rofi-youtube <mode>
+# usage: rofi-youtube <watch|download>
 # dependencies: rofi, yt-dlp, dunstify, jq, choose, urlencode, curl
 
 # exit on first error
@@ -44,7 +44,7 @@ main () {
 	# fetch and parse the result
 	search_selection="$(curl -s "$urlstring" \
 		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
-		| rofi -theme red-dracula -dmenu -i -p 'Select Video:')"
+		| rofi -theme red-dracula -dmenu -i -p 'Pick Video')"
 
 	# selected result
 	search_result="$(echo "$search_selection" | awk '{print $NF}')"

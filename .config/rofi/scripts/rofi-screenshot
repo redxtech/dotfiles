@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# script name: rofi-screenshot
+# description: choose from some screenshot options
+# usage: rofi-screenshot
+# dependencies: rofo, flameshot
+
+# exit on first error
+set -e
+
+# list of screenshot options
+declare -A SCREENSHOTS
+SCREENSHOTS=(
+["selection"]="flameshot gui"
+["selection (copy)"]="flameshot gui --clipboard"
+["current monitor"]="flameshot screen"
+["current monitor (copy)"]="flameshot screen --clipboard"
+["current monitor (upload)"]="flameshot screen --upload"
+["current monitor (save)"]="flameshot screen --path ~/Pictures/Screenshots"
+)
+
+# list of options
+gen_opts () {
+	for o in "${!SCREENSHOTS[@]}"; do
+		echo "$o => ${SCREENSHOTS["$o"]}"
+	done
+}
+
+main () {
+	# get the choice of which screenshot option
+	choice="$( (gen_opts) | rofi -dmenu -no-custom -p "Screenshot" | awk -F ' => ' '{ print $1 }')"
+	
+	# lookup the respective command
+	command=${SCREENSHOTS["$choice"]}
+
+	# run the screenshot command
+	$command
+}
+
+main
+

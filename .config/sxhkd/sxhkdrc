@@ -172,9 +172,13 @@ hyper + XF86AudioPlay
 XF86MonBrightness{Up,Down}
   xbacklight -{inc,dec} 5
 
-# screenshot {gui,screen (clip),screen (folder),screen (upload)}
-{_,shift,super,super + shift} + Print
-  flameshot {gui,screen -c,screen -p ~/Pictures/Screenshots,screen -u}
+# screenshot {gui,screen (clipboard)}
+{_,shift} + Print
+  flameshot {gui,screen -c}
+
+# screenshot selection
+super + Print
+	~/.config/rofi/scripts/rofi-screenshot
 
 #################
 # Shortcut Keys #
@@ -188,6 +192,10 @@ super + w
 # launch {discord,spotify,authy,thunar,plex,pulseaudio}
 hyper + {d,s,a,f,p,v}
   {discord,spotify,authy,thunar,plex-desktop,pavucontrol}
+
+# open notes app
+super + n
+	obsidian
 
 # focus {vivaldi,discord,spotify,authy,thunar,plex,pulseaudio}
 hyper + alt + {w,d,s,a,f,p}
@@ -217,9 +225,17 @@ hyper + {_,shift + }h
 hyper + {_,shift + }y
 	~/.config/rofi/scripts/rofi-youtube {watch,download}
 
-# {copy,paste} from clipboard history
+# copy & paste from clipboard history
 hyper + c
-	~/.config/rofi/scripts/rofi-gpaste
+	~/.config/rofi/scripts/rofi-clipboard
+
+# make a {web,searx} search
+hyper + {_,shift + }b
+	~/.config/rofi/scripts/rofi-web {_,default}
+
+# pull up emoji selector
+hyper + e
+	~/.config/rofi/scripts/rofi-moji
 
 # show webcam
 hyper + shift + i
