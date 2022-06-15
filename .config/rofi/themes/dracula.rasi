@@ -34,7 +34,16 @@ configuration {
   bg: #282a36;
   fg: #f8f8f2;
   blue: #6272a4;
+	cyan: #8be9fd;
+	green: #50fa7b;
+	orange: #ffb86c;
+	pink: #ff79c6;
   purple: #bd93f9;
+	red: #ff5555;
+	yellow: #f1fa8c;
+
+	black: #000000;
+	white: #ffffff;
 
   background-color: @bg;
   text-color: @fg;
@@ -47,11 +56,11 @@ window {
 mainbox {
   children: [inputbar, listview];
 	border: 2;
-	border-color: @blue;
+	border-color: @purple;
 }
 
 inputbar {
-  background-color: @blue;
+  background-color: @purple;
   children: [prompt, entry];
 }
 

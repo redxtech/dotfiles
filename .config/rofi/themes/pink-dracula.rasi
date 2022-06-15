@@ -1,0 +1,34 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Something Found in the Internet
+ *
+ * User: Contributors
+ * Copyright: *!
+ */
+
+@theme "dracula"
+
+mainbox {
+	border-color: @pink;
+}
+
+inputbar {
+  background-color: @pink;
+}
+
+prompt {
+	text-color: @blue;
+}
+
+entry {
+	text-color: @blue;
+}
+
+element-icon {
+  padding: 0 0;
+}
+
+element-text selected {
+  text-color: @pink;
+}

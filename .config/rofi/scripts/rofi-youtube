@@ -5,7 +5,7 @@
 # usage: rofi-youtube <mode>
 # dependencies: rofi, yt-dlp, dunstify, jq, choose, urlencode, curl
 
-# some safeguards
+# exit on first error
 set -e
 
 main () {
@@ -17,10 +17,20 @@ main () {
 		echo "you need to specify a mode"
 		return 1
 	fi
+ 
+	# choose a prompt
+	case $1 in
+		watch)
+			prompt="Stream YT"
+			;;
+		download|dl)
+			prompt="Download YT"
+			;;
+	esac
 
 	# get the query
 	if test -z "$2"; then
-		query="$(rofi -dmenu -l 0 -p "Search YT:")"
+		query="$(rofi -theme red-dracula -dmenu -l 0 -p "$prompt")"
 	else
 		shift 1
 		query="$*"
@@ -34,7 +44,7 @@ main () {
 	# fetch and parse the result
 	search_selection="$(curl -s "$urlstring" \
 		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
-		| rofi -dmenu -i -p 'Select Video:')"
+		| rofi -theme red-dracula -dmenu -i -p 'Select Video:')"
 
 	# selected result
 	search_result="$(echo "$search_selection" | awk '{print $NF}')"
