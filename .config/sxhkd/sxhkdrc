@@ -218,8 +218,8 @@ hyper + {_,shift + }y
 	~/.config/rofi/scripts/rofi-youtube {watch,download}
 
 # {copy,paste} from clipboard history
-hyper + {_,shift} + c
-	~/.config/rofi/scripts/rofi-clipboard {_,paste}
+hyper + c
+	~/.config/rofi/scripts/rofi-gpaste
 
 # show webcam
 hyper + shift + i

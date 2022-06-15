@@ -23,11 +23,6 @@ configuration {
   window {
     display-name: "";
   }
-
-  timeout {
-    delay: 15;
-    action: "kb-cancel";
-  }
 }
 
 * {
