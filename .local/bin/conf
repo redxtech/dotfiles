@@ -1,164 +1,113 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+#
+# script name: conf
+# description: select and open a configuration file from a rofi list
+# usage: conf [<config file>]
+# dependencies: rofi
 
-# TODO: move to proper folder
-# TODO: optimize commands
-# TODO: change into rofi script if no args passed
+# exit on first error
+set -e
+
+# list of configuration files
+declare -A CONFIGS
+CONFIGS=(
+	###############
+	# user config #
+	###############
+	["btop"]="$HOME/.config/btop/btop.conf"
+	["dunst"]="$HOME/.config/dunst/dunstrc"
+	["kitty"]="$HOME/.config/kitty/kitty.conf"
+	["kitty theme"]="$HOME/.config/kitty/theme.conf"
+	["mpv"]="$HOME/.config/mpv/mpv.conf"
+	["mpv autoload"]="$HOME/.config/mpv/autoload.conf"
+	["neofetch"]="$HOME/.config/neofetch/config.conf"
+	["rofi"]="$HOME/.config/rofi/config.rasi"
+	["rofi theme"]="$HOME/.config/rofi/themes/dracula.rasi"
+	["ranger"]="$HOME/.config/ranger/rc.conf"
+	["ranger rifle"]="$HOME/.config/ranger/rifle.conf"
+	["ranger scope"]="$HOME/.config/ranger/scope.sh"
+	["ssh"]="$HOME/.ssh/config"
+	["tmux"]="$HOME/.tmux.conf"
+	["pywal"]="$HOME/.local/bin/pywal"
+	["qmk"]="$HOME/Code/qmk_firmware/keyboards/gmmk/pro/ansi/keymaps/redxtech/keymap.c"
+	##############
+	# vim config #
+	##############
+	["vim"]="$HOME/.config/nvim/lua/init.lua"
+	["vim autocommands"]="$HOME/.config/nvim/lua/auto.lua"
+	["vim keybinds"]="$HOME/.config/nvim/lua/binds.lua"
+	["vim lsp"]="$HOME/.config/nvim/lua/lsp.lua"
+	["vim options"]="$HOME/.config/nvim/lua/opts.lua"
+	["vim plugins"]="$HOME/.config/nvim/lua/plugins.lua"
+	################
+	# shell config #
+	################
+	["zsh"]="$HOME/.zshrc"
+	["zsh alias"]="$HOME/.config/zsh/aliases.zsh"
+	["zsh init"]="$HOME/.config/zsh/init.zsh"
+	["zsh env"]="$HOME/.config/zsh/env.zsh"
+	["zsh path"]="$HOME/.config/zsh/path.zsh"
+	["zsh zinit"]="$HOME/.config/zsh/zinit.zsh"
+	["zsh prompt"]="$HOME/.config/zsh/p10k.zsh"
+	#########################
+	# window manager Config #
+	#########################
+	["bspwm"]="$HOME/.config/bspwm/bspwmrc"
+	["sxhkd"]="$HOME/.config/sxhkd/sxhkdrc"
+	["autorun"]="$HOME/.config/wm/scripts/autorun.sh"
+	["polybar"]="$HOME/.config/polybar/themes/dracula/config.ini"
+	["polybar launch"]="$HOME/.config/polybar/launch.sh"
+	["polybar modules"]="$HOME/.config/polybar/modules.ini"
+	["picom"]="$HOME/.config/picom/picom.conf"
+	###############
+	# root config #
+	###############
+	["ddclient"]="/etc/ddclient/ddclient.conf"
+	["makepkg"]="/etc/makepkg.conf"
+	["pacman"]="/etc/pacman.conf"
+	["sshd"]="/etc/ssh/sshd_config"
+	###################
+	# script specific #
+	###################
+	["conf"]="$0"
+)
+
+# make list of config files
+gen_confs () {
+	for c in "${!CONFIGS[@]}"; do
+		echo "$c => ${CONFIGS["$c"]}"
+	done
+}
 
 # script to handle configuration file opening
 main () {
-  # make sure $args exits and has exactly one element
-  if test -z "$1"; then
-    echo "error: specify a config"
-    return 1
-  fi
+	if test -z "$1"; then
+		# get the choice of which config file
+		choice="$( (gen_confs) | rofi -dmenu -no-custom -p "Config" | awk -F ' => ' '{ print $1 }')"
+	else
+		choice="$1"
+	fi
 
-  # open the specified config file with $EDITOR
-  case $1 in
-    ###############
-    # User Config #
-    ###############
-    btop) # monitor
-      $EDITOR "$HOME/.config/btop/btop.conf"
-      ;;
-		d|dunst|notif) # dunst config
-			$EDITOR "$HOME/.config/dunst/dunstrc"
-			;;
-    k|kitty|term) # kitty
-      $EDITOR "$HOME/.config/kitty/kitty.conf"
-      ;;
-    kt|kittytheme) # kitty theme
-      $EDITOR "$HOME/.config/kitty/theme.conf"
-      ;;
-		m|mpv) # mpv config
-			$EDITOR "$HOME/.config/mpv/mpv.conf"
-			;;
-		ma|mpvautoload) # mpv autoload plugin config
-			$EDITOR "$HOME/.config/mpv/autoload.conf"
-			;;
-    n|fetch|neofetch) # neofetch
-      $EDITOR "$HOME/.config/neofetch/config.conf"
-      ;;
-		ro|rofi) # launcher
-			cd "$HOME/.config/rofi" || return
-			$EDITOR "$HOME/.config/rofi/config.rasi"
-			;;
-    r|ranger) # ranger config
-      $EDITOR "$HOME/.config/ranger/rc.conf"
-      ;;
-    rr|rifle) # ranger rifle config
-      $EDITOR "$HOME/.config/ranger/rifle.conf"
-      ;;
-    rs|rscope) # ranger scope config
-      $EDITOR "$HOME/.config/ranger/scope.sh"
-      ;;
-    ssh) # ssh
-      $EDITOR "$HOME/.ssh/config"
-      ;;
-    tmux) # tmux
-      $EDITOR "$HOME/.tmux.conf"
-      ;;
-    wal|pywal) # pywal
-      $EDITOR "$HOME/.local/bin/pywal"
-      ;;
-    qmk|kb) # keyboard qmk
-      $EDITOR "$HOME/Code/qmk_firmware/keyboards/gmmk/pro/ansi/keymaps/redxtech/keymap.c"
-      ;;
-    ##############
-    # Vim Config #
-    ##############
-    v|vim|nvim) # vim
-      $EDITOR "$HOME/.config/nvim/lua/init.lua"
-      ;;
-    va|vauto) # vim autocommands
-      $EDITOR "$HOME/.config/nvim/lua/auto.lua"
-      ;;
-    vb|vbinds) # vim keybinds
-      $EDITOR "$HOME/.config/nvim/lua/binds.lua"
-      ;;
-    vl|vlsp) # vim language server protocol
-      $EDITOR "$HOME/.config/nvim/lua/lsp.lua"
-      ;;
-    vo|vopts) # vim options
-      $EDITOR "$HOME/.config/nvim/lua/opts.lua"
-      ;;
-    vp|vplug|vplugins) # vim plugins
-      $EDITOR "$HOME/.config/nvim/lua/plugins.lua"
-      ;;
-    ################
-    # Shell Config #
-    ################
-    z|zsh) # zsh
-      $EDITOR "$HOME/.zshrc"
-      ;;
-    za) # zsh aliases
-			cd  "$HOME/.config/zsh" || return
-      $EDITOR "$HOME/.config/zsh/aliases.zsh"
-      ;;
-    zi) # zsh (init)
-      $EDITOR "$HOME/.config/zsh/init.zsh"
-      ;;
-    ze) # zsh env
-      $EDITOR "$HOME/.config/zsh/env.zsh"
-      ;;
-    zp) # zsh path
-      $EDITOR "$HOME/.config/zsh/path.zsh"
-      ;;
-    zinit) # zinit config
-      $EDITOR "$HOME/.config/zsh/zinit.zsh"
-      ;;
-    p10k|prompt) # powerlevel10k config
-      $EDITOR "$HOME/.config/zsh/p10k.zsh"
-      ;;
-    #########################
-    # Window Manager Config #
-    #########################
-    b|bspwm|wm) # bspwm
-      $EDITOR "$HOME/.config/bspwm/bspwmrc"
-      ;;
-    s|sxhkd) # sxhkd config
-      $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
-      ;;
-    ar|autorun) # autorun script
-      $EDITOR "$HOME/.config/wm/scripts/autorun.sh"
-      ;;
-    pb|polybar|bar) # polybar config
-      $EDITOR "$HOME/.config/polybar/modules.ini"
-      ;;
-    pbl|barl|polybarlaunch) # polybar launch script
-      $EDITOR "$HOME/.config/polybar/launch.sh"
-      ;;
-    p|picom|compositor) # compositor
-      $EDITOR "$HOME/.config/picom/picom.conf"
-      ;;
-    ###############
-    # Root Config #
-    ###############
-    ddclient|ddns) # dynamic dns - ddclient
-      sudoedit /etc/ddclient/ddclient.conf
-      ;;
-    makepkg) # makepkg
-      sudoedit /etc/makepkg.conf
-      ;;
-    pacman) # pacman
-      sudoedit /etc/pacman.conf
-      ;;
-    sshd) # ssh daemon
-      sudoedit /etc/ssh/sshd_config
-      ;;
-    sudo|sudoers|visudo) # sudoers
-      sudo -E visudo
-      ;;
-    ###################
-    # Script Specific #
-    ###################
-    c|conf) # this file
-      $EDITOR "$0"
-      ;;
-    *) # config doesn't exist
-      echo "error: that config doesn't exist"
-      return 1
-      ;;
-  esac
+	
+	# lookup the respective command
+	config=${CONFIGS["$choice"]}
+
+	# exit if incorrect selection
+	if test -z "$config"; then
+		echo "invalid config"
+		return 1
+	fi
+
+	# if the config path start with /etc/, use sudo to edit
+	if test ! "$(echo "$config" | cut -c 1-5)" = "/etc/"; then
+		# change to the directory for easy navigation
+		cd "$(dirname "$config")" || exit
+
+		# edit the file
+		$EDITOR "$config"
+	else
+		sudoedit "$config"
+	fi
 }
 
 main "$@"
