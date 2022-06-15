@@ -4,6 +4,7 @@
 # description: choose from a list of search engines and search it
 # usage: rofi-web [default]
 # dependencies: rofi, xdg-open
+# source: https://github.com/miroslavvidovic/rofi-scripts/blob/master/web-search.sh
 
 # exit on first error
 set -e
