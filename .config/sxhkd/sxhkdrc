@@ -235,7 +235,7 @@ hyper + {_,shift + }b
 
 # pull up emoji selector
 hyper + e
-	~/.config/rofi/scripts/rofi-moji
+	rofi -modi emoji -show emoji -display-emoji "Emoji"
 
 # show webcam
 hyper + shift + i

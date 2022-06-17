@@ -64,7 +64,7 @@ if test "$(hostname)" = "desktop"; then
 	run spotify
   run megasync
   run hexchat
-	# run qbittorrent
+	run qbittorrent
 fi
 
 # cursor
