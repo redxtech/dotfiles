@@ -20,6 +20,14 @@ configuration {
     display-name: "";
   }
 
+	ssh {
+		display-name: "";
+	}
+
+	emoji {
+		display-name: "";
+	}
+
   window {
     display-name: "";
   }
