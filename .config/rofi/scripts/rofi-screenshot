@@ -3,7 +3,7 @@
 # script name: rofi-screenshot
 # description: choose from some screenshot options
 # usage: rofi-screenshot
-# dependencies: rofo, flameshot
+# dependencies: rofi, flameshot
 
 # exit on first error
 set -e

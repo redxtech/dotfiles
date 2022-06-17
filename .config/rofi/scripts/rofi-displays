@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# script name: rofi-displays
+# description: choose from some display configuration options
+# usage: rofi-displays
+# dependencies: rofi, xrandr
+
+# exit on first error
+set -e
+
+# list of display configuration options
+declare -A DISPLAYS
+DISPLAYS=(
+["default"]="$HOME/.screenlayout/default.sh"
+["default (triple)"]="$HOME/.screenlayout/default.sh third"
+["primary rotated"]="$HOME/.screenlayout/primary-rotated.sh"
+["primary rotated (triple)"]="$HOME/.screenlayout/primary-rotated.sh third"
+["secondary rotated"]="$HOME/.screenlayout/secondary-rotated.sh"
+["secondary rotated (triple)"]="$HOME/.screenlayout/secondary-rotated.sh third"
+["dual rotated"]="$HOME/.screenlayout/dual-rotated.sh"
+["dual rotated (triple)"]="$HOME/.screenlayout/dual-rotated.sh third"
+)
+
+# list of options
+gen_opts () {
+	for o in "${!DISPLAYS[@]}"; do
+		echo "$o => ${DISPLAYS["$o"]}"
+	done
+}
+
+main () {
+	# get the choice of which display configuration
+	choice="$( (gen_opts) | rofi -dmenu -no-custom -p "Display Configuration" | awk -F ' => ' '{ print $1 }')"
+	
+	# lookup the respective command
+	command=${DISPLAYS["$choice"]}
+
+	# run the screenshot command
+	$command
+}
+
+main
+

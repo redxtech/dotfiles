@@ -237,6 +237,10 @@ hyper + {_,shift + }b
 hyper + e
 	rofi -modi emoji -show emoji -display-emoji "Emoji"
 
+# pull up display configuration selection
+hyper + shift + d
+	~/.config/rofi/scripts/rofi-displays
+
 # show webcam
 hyper + shift + i
 	~/.local/bin/mpvcam
