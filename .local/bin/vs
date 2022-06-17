@@ -22,6 +22,14 @@ help () {
 			echo ""
 			echo "usage: vs <command>"
 			;;
+		trim)
+			echo "trim is used to trim a video from either to or starting from a timestamp"
+			echo ""
+			echo "usage: vs trim <input> [-f|--from] <start|end> [output]"
+			echo ""
+			echo "options"
+			echo "-f, --from: start the clip at the timestamp (default trims until timestamp)"
+			;;
 		*)
 			echo "no help available for that command"
 			;;
@@ -49,13 +57,6 @@ clip () {
 	start="$2"
 	finish="$3"
 
-	# if output filename isn't specified, generate one with the timestamp
-	if test -z "$4"; then
-		output="$(echo "$1" | sed 's/\..*$//') [$start-$finish].$(echo "$1" | awk -F . '{ print $NF }')"
-	else
-		output="$4"
-	fi
-
 	# since we specify the input format below, we need to ensure that our timestamps
 	# are properly formatted by padding them with 00: until the have 00:00:xx format
 	while test "$(echo "$start" | grep -o ':' | wc -l)" -lt "2"; do
@@ -79,15 +80,33 @@ clip () {
 
 	# if output filename isn't specified, generate one with the timestamp
 	if test -z "$4"; then
-		output="$(echo "$1" | sed 's/\..*$//') [$start-$finish].$(echo "$1" | awk -F . '{ print $NF }')"
+		filename="${1%.*}"
+		extension="${1##*.}"
+		output="$filename [$start-$finish].$extension"
 	else
 		output="$4"
 	fi
 
 	# finally, extract the clip with ffmpeg
-	echo "ffmpeg -i \"$1\" -ss \"$start\" -t \"$duration\" -c copy \"$output\""
 	ffmpeg -i "$1" -ss "$start" -t "$duration" -c copy "$output"
+}
 
+# trim video
+trim () {
+	# if -s is passed, start from the timestamp
+	if test "$2" = "-f" || test "$2" = "--from"; then
+		start="$3"
+		finish="$(mediainfo --Output="Video;%Duration/String3%" "$1")"
+		output="$4"
+	else
+		start="00:00:00"
+		finish="$2"
+		((finish=finish-1))
+		output="$3"
+	fi
+
+	# ez reuse of clip functionality
+	clip "$1" "$start" "$finish" "$output"
 }
 
 main () {
@@ -105,6 +124,9 @@ main () {
 	case $command in
 		clip)
 			clip "$@"
+			;;
+		trim)
+			trim "$@"
 			;;
 		help)
 			help "$1"
