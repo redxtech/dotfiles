@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+#
+# script name: vs
+# description: suite of video editing scripts
+# usage: vs <command> [options]
+# dependencies: ffmpeg, dateutils, sed, awk
+
+# show how to use the commands
+help () {
+	case $1 in
+		clip)
+			echo "clip is used to extract the segment of a video file from between two timestamps"
+			echo ""
+			echo "usage: vs clip <input> <start> <end> [output]"
+			;;
+		"")
+			echo "commands:"
+			echo " - clip"
+			echo " - help"
+			echo ""
+			echo "for help on a specific command run: vs help <command>"
+			echo ""
+			echo "usage: vs <command>"
+			;;
+		*)
+			echo "no help available for that command"
+			;;
+	esac
+}
+
+# make a clip from video timestamps
+clip () {
+	# ensure all args are passed
+	if test -z "$1"; then
+		echo "you need to specify an input file"
+		return 1
+	elif ! test -f "$1"; then
+		echo "the file specified doesn't exist"
+		return 1
+	fi
+
+	# no need to test for the second arg, both it and the third need to be present
+	if test -z "$3"; then
+		echo "you need to specify a start and end time for the clip"
+		return 1
+	fi
+
+	# convert timestamps to useable values
+	start="$2"
+	finish="$3"
+
+	# if output filename isn't specified, generate one with the timestamp
+	if test -z "$4"; then
+		output="$(echo "$1" | sed 's/\..*$//') [$start-$finish].$(echo "$1" | awk -F . '{ print $NF }')"
+	else
+		output="$4"
+	fi
+
+	# since we specify the input format below, we need to ensure that our timestamps
+	# are properly formatted by padding them with 00: until the have 00:00:xx format
+	while test "$(echo "$start" | grep -o ':' | wc -l)" -lt "2"; do
+		start="00:$start"
+	done
+	while test "$(echo "$finish" | grep -o ':' | wc -l)" -lt "2"; do
+		finish="00:$finish"
+	done
+
+	# convert the end timestamp into a duration for ffmpeg to work with
+	duration="$(datediff --input-format="%H:%M:%S" --format="%S" "$start" "$finish")"
+
+	# add a second to avoid cutting off at the beginning of the second
+	((duration="$duration"+1))
+
+	# if the timestamp is negative, swap the start with the finish
+	# duration between is the same, so no need to recalculate
+	if echo "$duration" | grep -q '-'; then
+		start="$finish"
+	fi
+
+	# if output filename isn't specified, generate one with the timestamp
+	if test -z "$4"; then
+		output="$(echo "$1" | sed 's/\..*$//') [$start-$finish].$(echo "$1" | awk -F . '{ print $NF }')"
+	else
+		output="$4"
+	fi
+
+	# finally, extract the clip with ffmpeg
+	echo "ffmpeg -i \"$1\" -ss \"$start\" -t \"$duration\" -c copy \"$output\""
+	ffmpeg -i "$1" -ss "$start" -t "$duration" -c copy "$output"
+
+}
+
+main () {
+	# fail if no command
+	if test -z "$1"; then
+		echo "you need to specify a command"
+		return 1
+	fi
+
+	# save the command and remove it from args
+	command="$1"
+	shift
+
+	# choose a command
+	case $command in
+		clip)
+			clip "$@"
+			;;
+		help)
+			help "$1"
+			;;
+		*)
+			echo "that is not a valid command"
+			return 1
+			;;
+	esac
+}
+
+main  "$@"
+
