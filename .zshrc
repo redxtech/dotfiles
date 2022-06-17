@@ -12,15 +12,15 @@ ZSH_CUSTOM="$HOME/.config/zsh"
 
 # zsh config
 HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTTIMEFORMAT="[%F %T] "
 
 # zsh options
 setopt auto_cd                    # auto cd into dirs
 setopt append_history             # each shell adds its history on exit
 setopt hist_ignore_dups           # keep duplicates in the histfile, if not consecutive
 setopt hist_ignore_space          # prefix command with space to exclude from history
-setopt share_history              # share history betweeen shells
 setopt extended_glob              # include #, ^, & ~ in globbing
 setopt hist_reduce_blanks         # remove unnecessary spaces
 setopt no_correct                 # don't do corrections

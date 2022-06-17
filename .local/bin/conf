@@ -17,15 +17,15 @@ CONFIGS=(
 	["btop"]="$HOME/.config/btop/btop.conf"
 	["dunst"]="$HOME/.config/dunst/dunstrc"
 	["kitty"]="$HOME/.config/kitty/kitty.conf"
-	["kitty theme"]="$HOME/.config/kitty/theme.conf"
+	["kitty-theme"]="$HOME/.config/kitty/theme.conf"
 	["mpv"]="$HOME/.config/mpv/mpv.conf"
-	["mpv autoload"]="$HOME/.config/mpv/autoload.conf"
+	["mpv-autoload"]="$HOME/.config/mpv/autoload.conf"
 	["neofetch"]="$HOME/.config/neofetch/config.conf"
 	["rofi"]="$HOME/.config/rofi/config.rasi"
-	["rofi theme"]="$HOME/.config/rofi/themes/dracula.rasi"
+	["rofi-theme"]="$HOME/.config/rofi/themes/dracula.rasi"
 	["ranger"]="$HOME/.config/ranger/rc.conf"
-	["ranger rifle"]="$HOME/.config/ranger/rifle.conf"
-	["ranger scope"]="$HOME/.config/ranger/scope.sh"
+	["ranger-rifle"]="$HOME/.config/ranger/rifle.conf"
+	["ranger-scope"]="$HOME/.config/ranger/scope.sh"
 	["ssh"]="$HOME/.ssh/config"
 	["tmux"]="$HOME/.tmux.conf"
 	["pywal"]="$HOME/.local/bin/pywal"
@@ -34,21 +34,21 @@ CONFIGS=(
 	# vim config #
 	##############
 	["vim"]="$HOME/.config/nvim/lua/init.lua"
-	["vim autocommands"]="$HOME/.config/nvim/lua/auto.lua"
-	["vim keybinds"]="$HOME/.config/nvim/lua/binds.lua"
-	["vim lsp"]="$HOME/.config/nvim/lua/lsp.lua"
-	["vim options"]="$HOME/.config/nvim/lua/opts.lua"
-	["vim plugins"]="$HOME/.config/nvim/lua/plugins.lua"
+	["vim-autocommands"]="$HOME/.config/nvim/lua/auto.lua"
+	["vim-keybinds"]="$HOME/.config/nvim/lua/binds.lua"
+	["vim-lsp"]="$HOME/.config/nvim/lua/lsp.lua"
+	["vim-options"]="$HOME/.config/nvim/lua/opts.lua"
+	["vim-plugins"]="$HOME/.config/nvim/lua/plugins.lua"
 	################
 	# shell config #
 	################
 	["zsh"]="$HOME/.zshrc"
-	["zsh alias"]="$HOME/.config/zsh/aliases.zsh"
-	["zsh init"]="$HOME/.config/zsh/init.zsh"
-	["zsh env"]="$HOME/.config/zsh/env.zsh"
-	["zsh path"]="$HOME/.config/zsh/path.zsh"
-	["zsh zinit"]="$HOME/.config/zsh/zinit.zsh"
-	["zsh prompt"]="$HOME/.config/zsh/p10k.zsh"
+	["zsh-alias"]="$HOME/.config/zsh/aliases.zsh"
+	["zsh-init"]="$HOME/.config/zsh/init.zsh"
+	["zsh-env"]="$HOME/.config/zsh/env.zsh"
+	["zsh-path"]="$HOME/.config/zsh/path.zsh"
+	["zsh-zinit"]="$HOME/.config/zsh/zinit.zsh"
+	["zsh-prompt"]="$HOME/.config/zsh/p10k.zsh"
 	#########################
 	# window manager Config #
 	#########################
@@ -56,8 +56,8 @@ CONFIGS=(
 	["sxhkd"]="$HOME/.config/sxhkd/sxhkdrc"
 	["autorun"]="$HOME/.config/wm/scripts/autorun.sh"
 	["polybar"]="$HOME/.config/polybar/themes/dracula/config.ini"
-	["polybar launch"]="$HOME/.config/polybar/launch.sh"
-	["polybar modules"]="$HOME/.config/polybar/modules.ini"
+	["polybar-launch"]="$HOME/.config/polybar/launch.sh"
+	["polybar-modules"]="$HOME/.config/polybar/modules.ini"
 	["picom"]="$HOME/.config/picom/picom.conf"
 	###############
 	# root config #
