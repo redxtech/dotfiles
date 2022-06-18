@@ -241,6 +241,10 @@ hyper + e
 hyper + shift + d
 	~/.config/rofi/scripts/rofi-displays
 
+# show icon picker
+hyper + i
+	~/.config/rofi/scripts/rofi-nerd-icons
+
 # show webcam
 hyper + shift + i
 	~/.local/bin/mpvcam

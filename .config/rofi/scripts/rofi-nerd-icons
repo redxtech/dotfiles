@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+#
+# script name: rofi-nerd-icons
+# description: pick from a list of nerd font icons
+# usage: rofi-nerd-icons [paste]
+# dependencies: rofi, awk
+# TODO: auto-paste the selection
+
+main () {
+	rofi -dmenu -p "Icon " < ~/.config/rofi/scripts/nerd-icons \
+		| awk '{ print $1 }' \
+		| tr -d '\n' \
+		| xclip -selection clip
+}
+
+main
+
