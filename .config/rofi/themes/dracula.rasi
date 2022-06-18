@@ -8,7 +8,7 @@
  */
 
 configuration {
-  font: "DanoMono Nerd Font Medium 14";
+  font: "DankMono Nerd Font Medium 14";
   show-icons:				true;
   icon-theme:				"Papirus";
 
