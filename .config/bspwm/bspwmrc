@@ -9,11 +9,10 @@ if test "$(hostname)" = "desktop"; then
 	bspc monitor DisplayPort-1 -d r-www music video ten
 	bspc monitor HDMI-A-0 -d eleven
 elif test "$(hostname)" = "laptop"; then
-	bspc monitor -d I II III IV V VI VII VIII IX X
+	bspc monitor -d shell www chat files music video seven eight nine ten
 else
 	bspc monitor -d I II III IV V VI VII VIII IX X
 fi
-
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -72,8 +71,14 @@ bspc config active_border_color         "#073642"
 
 # arange monitors
 if test "$(hostname)" = "desktop"; then
-	sh ~/.screenlayout/desktop.sh
+	if test -f ~/.screenlayout/desktop.sh; then
+		sh ~/.screenlayout/desktop.sh
+	fi
 	bspc wm --reorder-monitors DisplayPort-0 DisplayPort-1 HDMI-A-0
+elif test "$(hostname)" = "laptop"; then
+	if test -f ~/.screenlayout/laptop.sh; then
+		sh ~/.screenlayout/laptop.sh
+	fi
 fi
 
 
