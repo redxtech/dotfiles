@@ -140,10 +140,6 @@ super + {Left,Down,Up,Right}
 hyper + r
 	jgmenu --simple --at-pointer --csv-file=~/.config/bspwm/scripts/aspect-menu.csv
 
-# toggle third monitor on and off
-hyper + t
-	~/.config/wm/scripts/toggle-third-display.sh
-
 ###################
 # Multimedia Keys #
 ###################
@@ -190,8 +186,8 @@ super + w
 
 # secondary apps
 # launch {discord,spotify,authy,thunar,plex,pulseaudio}
-hyper + {d,s,a,f,p,v}
-  {discord,spotify,authy,thunar,plex-desktop,pavucontrol}
+hyper + {d,s,a,f,p,v,t}
+  {discord,spotify,authy,thunar,plex-desktop,pavucontrol,pomotroid --disable-gpu-sandbox}
 
 # open notes app
 super + n
