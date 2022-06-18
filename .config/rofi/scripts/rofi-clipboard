@@ -181,7 +181,7 @@ backup_history() {
 
 menu_histories() {
 	HistSelected=$(
-		gpaste-client list-histories | _rofi -p ' Histories' \
+		gpaste-client list-histories | _rofi -p ' Histories ' \
 			-selected-row "${HistIndex:-0}" \
 			-kb-custom-1 "$Kb_Delete" \
 			-kb-custom-2 "$Kb_Hist"
@@ -202,7 +202,7 @@ menu() {
 	HistName=$(gpaste-client get-history)
 
 	Clip=$(
-		print_history | _rofi -p " $HistName" \
+		print_history | _rofi -p " $HistName " \
 			-selected-row "${Index:-0}" \
 			-kb-custom-1 "$Kb_Clear" \
 			-kb-custom-2 "$Kb_Toggle" \

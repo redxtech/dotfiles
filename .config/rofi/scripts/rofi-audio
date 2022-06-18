@@ -19,7 +19,7 @@ main () {
 	selected="$(pactl list short sinks | \
 		awk '{ print $2 }' | \
 		sed -E 's/.*Arctis_7.*/SteelSeries Arctis 7/; s/.*pci-0000_2e_00.*/AV Receiver/; s/.*pci-0000_24_00.*/HDMI Audio/' | \
-		rofi -theme orange-dracula -dmenu -i -p "Output" |  \
+		rofi -theme orange-dracula -dmenu -i -p "Audio Output " |  \
 		sed -E "s/.*Arctis.*/$(get_device Arctis)/; s/AV Receiver/$(get_device pci-0000_2e_00)/; s/HDMI Audio/$(get_device pci-0000_24_00)/"
 	)"
 

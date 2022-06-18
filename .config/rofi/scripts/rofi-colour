@@ -30,7 +30,7 @@ get_colours () {
 }
 
 main () {
-	selection="$(get_colours | rofi -theme pink-dracula -dmenu -p "Color" | awk '{ print $1 }')"
+	selection="$(get_colours | rofi -theme pink-dracula -dmenu -p "Colour " | awk '{ print $1 }')"
 
 	echo "${COLOURS["$selection"]}" | tr -d '\n' | xclip -selection clip
 }

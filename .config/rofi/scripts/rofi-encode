@@ -19,7 +19,7 @@ main () {
 	input="$1"
 
 	# see if a preset can be selected
-	preset="$(printf 'Custom\nDiscord\nHigh\nMedium\nLow' | rofi -dmenu -i -p 'Preset')"
+	preset="$(printf 'Custom\nDiscord\nHigh\nMedium\nLow' | rofi -dmenu -i -p 'Preset ')"
 
 	# fill options based on selected preset
 	case $preset in
@@ -72,17 +72,17 @@ main () {
 		*) # choose your own options with rofi
 
 			# all other options rely on the video codec
-			vid_codec="$(printf 'x264\nx265\nvpx-vp9' | rofi -dmenu -p 'Video Codec')"
-			quality="$(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality')"
+			vid_codec="$(printf 'x264\nx265\nvpx-vp9' | rofi -dmenu -p 'Video Codec ')"
+			quality="$(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality ')"
 			quality_args="-crf $quality"
-			audio_bitrate="$(printf '128k\n256k\n320k' | rofi -dmenu -p 'Audio Birate')"
+			audio_bitrate="$(printf '128k\n256k\n320k' | rofi -dmenu -p 'Audio Birate ')"
 
 			# if not vp9, choose a preset, audio codec, and container.
 			# otherwise default to opus & webm
 			if ! test "$vid_codec" = "vpx-vp9"; then
-				vid_preset="-preset $(printf 'ultrafast\nsuperfast\nveryfast\nfaster\nfast\nmedium\nslow\nslower\nveryslow\nplacebo' | rofi -dmenu -p 'Preset')"
-				audio_codec="$(printf 'libopus\naac\ncopy' | rofi -dmenu -p 'Audio Codec')"
-				container="$(printf 'webm\nmkv' | rofi -dmenu -p 'Container')"
+				vid_preset="-preset $(printf 'ultrafast\nsuperfast\nveryfast\nfaster\nfast\nmedium\nslow\nslower\nveryslow\nplacebo' | rofi -dmenu -p 'Preset ')"
+				audio_codec="$(printf 'libopus\naac\ncopy' | rofi -dmenu -p 'Audio Codec ')"
+				container="$(printf 'webm\nmkv' | rofi -dmenu -p 'Container ')"
 			else
 				vid_preset=""
 				audio_codec="libopus"

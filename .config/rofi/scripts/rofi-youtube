@@ -30,7 +30,7 @@ main () {
 
 	# get the query
 	if test -z "$2"; then
-		query="$(rofi -theme red-dracula -dmenu -l 0 -p "$prompt")"
+		query="$(rofi -theme red-dracula -dmenu -l 0 -p "$prompt ")"
 	else
 		shift 1
 		query="$*"
@@ -44,7 +44,7 @@ main () {
 	# fetch and parse the result
 	search_selection="$(curl -s "$urlstring" \
 		| jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
-		| rofi -theme red-dracula -dmenu -i -p 'Pick Video')"
+		| rofi -theme red-dracula -dmenu -i -p 'Choose Video ')"
 
 	# selected result
 	search_result="$(echo "$search_selection" | awk '{print $NF}')"

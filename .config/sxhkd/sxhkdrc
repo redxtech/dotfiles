@@ -231,7 +231,7 @@ hyper + {_,shift + }b
 
 # pull up emoji selector
 hyper + e
-	rofi -modi emoji -show emoji -display-emoji "Emoji"
+	rofi -modi emoji -show emoji -display-emoji "Emoji "
 
 # pull up display configuration selection
 hyper + shift + d
