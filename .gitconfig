@@ -1,7 +1,8 @@
 [user]
 	name = Gabe Dunn
 	email = gabe@sent.at
-	signingkey = 3CF62DDF7CE67FB9
+[include]
+	path = ~/.config/git/gitconfig.local
 [commit]
 	gpgsign = true
 [tag]
