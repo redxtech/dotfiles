@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+htmlq --text '#glyphCheatSheet .column div' < "$1" \
+	| grep . \
+	| tr '\n' ';' \
+	| sed -E 's/([1-9a-f]{4});/\1\n/g; s/;/ /g' \
+	| awk '{ print $2, $1 }' \
+	| xargs -I {} printf '\u{}\n'
