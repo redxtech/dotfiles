@@ -7,8 +7,15 @@ theme="dracula"
 killall polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+# choose which bar
+if test "$(hostname)" = "desktop"; then
+	barname="main"
+elif test "$(hostname)" = "laptop"; then
+	barname="laptop"
+fi
+
 # start main polybar instance
-polybar main -c "$HOME/.config/polybar/themes/$theme/config.ini" &
+polybar "$barname" -c "$HOME/.config/polybar/themes/$theme/config.ini" &
 #
 # if a second monitor exists, run a second polbar on the next monitor
 if test "$(bspc query -M | wc -l)" -gt "1"; then
