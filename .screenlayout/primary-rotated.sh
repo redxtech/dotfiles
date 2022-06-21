@@ -12,7 +12,7 @@ main () {
 	# set the display configuration
 	xrandr \
 		--output DisplayPort-0 --mode 2560x1440 --pos 0x0 --rotate left --primary \
-		--output DisplayPort-1 --mode 2560x1440 --pos 1440x0 --rotate normal \
+		--output DisplayPort-1 --mode 2560x1440 --pos 1440x560 --rotate normal \
 		--output DisplayPort-2 --off \
 		--output HDMI-A-0 $third_monitor
 
