@@ -20,7 +20,7 @@ main () {
 	~/.fehbg
 
 	# set the current layout script to this script
-	ln -sf "$0" "$HOME/.screenlayout/primary-rotated.sh"
+	# ln -sf "$0" "$HOME/.screenlayout/primary-rotated.sh"
 }
 
 main "$@"
