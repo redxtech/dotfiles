@@ -72,7 +72,7 @@ bspc config active_border_color         "#073642"
 # arange monitors
 if test "$(hostname)" = "desktop"; then
 	if test -f ~/.screenlayout/desktop.sh; then
-		sh ~/.screenlayout/desktop.sh
+		sh ~/.screenlayout/default.sh
 	fi
 	bspc wm --reorder-monitors DisplayPort-0 DisplayPort-1 HDMI-A-0
 elif test "$(hostname)" = "laptop"; then

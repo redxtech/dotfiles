@@ -65,6 +65,7 @@ if test "$(hostname)" = "desktop"; then
   run megasync
   run hexchat
 	run qbittorrent
+	run virt-manager
 fi
 
 # cursor
