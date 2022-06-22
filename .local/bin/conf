@@ -20,6 +20,7 @@ CONFIGS=(
 	["kitty-theme"]="$HOME/.config/kitty/theme.conf"
 	["mpv"]="$HOME/.config/mpv/mpv.conf"
 	["mpv-autoload"]="$HOME/.config/mpv/autoload.conf"
+	["mime"]="$HOME/.config/mimeapps.list"
 	["neofetch"]="$HOME/.config/neofetch/config.conf"
 	["rofi"]="$HOME/.config/rofi/config.rasi"
 	["rofi-theme"]="$HOME/.config/rofi/themes/dracula.rasi"
