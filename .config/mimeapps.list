@@ -1,0 +1,13 @@
+[Added Associations]
+image/jpeg=feh.desktop;
+application/xml=sublime_text.desktop;nvim.desktop;
+text/plain=nvim.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop;
+
+[Default Applications]
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+inode/directory=Thunar.desktop
+text/plain=nvim.desktop
+image/jpeg=feh.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop
