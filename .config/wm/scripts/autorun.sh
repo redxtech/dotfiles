@@ -48,6 +48,7 @@ run blueman-applet
 
 # user apps
 run discord
+run gpaste-client start
 run flameshot
 run thunar --daemon
 
