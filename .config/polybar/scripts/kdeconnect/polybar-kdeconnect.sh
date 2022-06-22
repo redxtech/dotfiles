@@ -54,7 +54,7 @@ show_devices (){
                 show_pmenu2 "$devicename" "$deviceid"
             fi
             icon=$(get_icon -2 "$devicetype")
-            devices+="%{A1:$DIR/polybar-kdeconnect.sh -n $devicename -i $deviceid -p:}$icon%{A}$SEPERATOR"
+            devices+="%{A1:$DIR/polybar-kdeconnect.sh -n \"$devicename\" -i $deviceid -p:}$icon%{A}$SEPERATOR"
 
         fi
     done
