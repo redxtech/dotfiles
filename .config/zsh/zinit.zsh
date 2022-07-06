@@ -59,6 +59,9 @@ local CURRENT_DISTRO="$(lsb_release -is)"
 if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "EndeavourOS" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit wait lucid for \
     OMZP::archlinux
+elif test "$CURRENT_DISTRO" = "Rocky"; then
+	zinit wait lucid for \
+		OMZP::dnf
 elif test "$CURRENT_DISTRO" = "Ubuntu"; then
   zinit wait lucid for \
     OMZP::ubuntu
