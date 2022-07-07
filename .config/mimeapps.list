@@ -1,8 +1,10 @@
 [Added Associations]
-image/jpeg=feh.desktop;
+image/jpeg=org.gnome.gThumb.desktop;feh.desktop;
 application/xml=sublime_text.desktop;nvim.desktop;
 text/plain=nvim.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop;
+application/javascript=sublime_text.desktop;
+image/gif=feh.desktop;vivaldi-stable.desktop;
 
 [Default Applications]
 x-scheme-handler/http=vivaldi-stable.desktop
