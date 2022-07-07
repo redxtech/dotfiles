@@ -37,6 +37,8 @@ zinit wait lucid for \
     laggardkernel/zsh-thefuck \
   LucasLarson/gunstage \
   OMZP::command-not-found \
+	OMZP::docker \
+	OMZP::docker-compose \
   OMZP::github \
   OMZP::man \
   OMZP::transfer \

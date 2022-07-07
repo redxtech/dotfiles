@@ -56,7 +56,6 @@ if command -v goneovim >/dev/null; then
   alias gnvim="gvim"
 fi
 
-
 # ls -> exa
 if command -v exa >/dev/null; then
   alias ls="exa --group-directories-first"
@@ -83,6 +82,7 @@ alias v='$EDITOR'
 alias ss="sudo systemctl"
 alias svim="sudo -e"
 alias rcp="rclone copy -P --transfers=70"
+alias ps_mem="sudo ps_mem"
 
 # swallow windows for certain apps
 if command -v devour >/dev/null; then
@@ -96,6 +96,7 @@ if command -v devour >/dev/null; then
 fi
 
 # docker aliases
+alias docker="podman"
 # alias docker="sudo docker"
 # alias docker-compose="sudo docker-compose"
 # alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
