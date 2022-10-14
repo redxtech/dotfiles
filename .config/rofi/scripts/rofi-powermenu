@@ -34,8 +34,9 @@ case "$selected_option" in
     systemctl reboot
 		;;
 	"$sleep")
-    amixer set Master mute
-    systemctl suspend
+    # amixer set Master mute
+    # systemctl suspend
+		xset -display :0 dpms force off
 		;;
 	*)
 		echo "No match"
