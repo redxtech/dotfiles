@@ -24,6 +24,9 @@ alias ip='ip -color=auto'
 # show info on rsync
 alias rsync="rsync --info=progress2 -r"
 
+# rclone shortcut
+alias rcp="rclone copy -P --transfers=20"
+
 # reload the session
 alias src="exec zsh"
 
@@ -79,10 +82,16 @@ fi
 # some command aliaseviations
 alias e='$EDITOR'
 alias v='$EDITOR'
-alias ss="sudo systemctl"
 alias svim="sudo -e"
-alias rcp="rclone copy -P --transfers=70"
 alias ps_mem="sudo ps_mem"
+
+# systemctl commands
+alias ss="sudo systemctl"
+alias sss="sudo systemctl start"
+alias ssst="sudo systemctl stop"
+alias ssr="sudo systemctl restart"
+alias sse="sudo systemctl enable --now"
+alias ssdr="sudo systemctl daemon-reload"
 
 # swallow windows for certain apps
 if command -v devour >/dev/null; then
