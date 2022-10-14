@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# alias docker and docker compose to podman podman-compose
+main () {
+	if test "$1" = "compose"; then
+		shift
+		podman-compose "$@"
+	else
+		podman "$@"
+	fi
+}
+
+main "$@"
+

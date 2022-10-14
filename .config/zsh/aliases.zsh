@@ -105,7 +105,7 @@ if command -v devour >/dev/null; then
 fi
 
 # docker aliases
-alias docker="podman"
+# alias docker="podman"
 # alias docker="sudo docker"
 # alias docker-compose="sudo docker-compose"
 # alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
