@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# allow sudo alias
+alias sudo="sudo "
+
 # some ls shortcuts
 alias la="ls -al"
 alias ll="ls -l"
