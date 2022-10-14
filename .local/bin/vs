@@ -8,27 +8,37 @@
 # show how to use the commands
 help () {
 	case $1 in
-		clip)
-			echo "clip is used to extract the segment of a video file from between two timestamps"
-			echo ""
-			echo "usage: vs clip <input> <start> <end> [output]"
-			;;
 		"")
 			echo "commands:"
 			echo " - clip"
+			echo " - trim"
+			echo " - concat"
 			echo " - help"
 			echo ""
 			echo "for help on a specific command run: vs help <command>"
 			echo ""
 			echo "usage: vs <command>"
 			;;
+		clip)
+			echo "clip is used to extract the segment of a video file from between two timestamps"
+			echo ""
+			echo "usage: vs clip <input> <start> <end> [output]"
+			;;
 		trim)
 			echo "trim is used to trim a video from either to or starting from a timestamp"
 			echo ""
 			echo "usage: vs trim <input> [-f|--from] <start|end> [output]"
 			echo ""
-			echo "options"
+			echo "options:"
 			echo "-f, --from: start the clip at the timestamp (default trims until timestamp)"
+			;;
+		concat|merge|join)
+			echo "concat is used to merge two video files together"
+			echo ""
+			echo "usage: vs concat [-e|--encode] <output> <input> <input> [inputs...]"
+			echo ""
+			echo "options:"
+			echo "-e, --encode: allow for different codecs to be used"
 			;;
 		*)
 			echo "no help available for that command"
@@ -109,6 +119,68 @@ trim () {
 	clip "$1" "$start" "$finish" "$output"
 }
 
+# join two videos together
+concat () {
+	encode=false
+
+	# check if should account for multiple codecs
+	if test "$1" = "-e" || test "$1" = "--encode"; then
+		encode=true
+		shift
+	fi
+
+	if test -z "$1"; then
+		echo "you need to specify an output filename"
+		return 1
+	elif test -z "$3"; then
+		echo "you need to specify at least two clips"
+		return 1
+	fi
+
+	# save output filename
+	output="$1"
+	shift
+
+	if test encode; then
+		# get list of inputs
+		inputstring=""
+
+		for i in "$@"; do
+			inputstring="$inputstring -i $i"
+		done
+
+		# generate the mapping string
+		numclips="$#"
+		mapstring=""
+		for (( i = 0; i<numclips; i++ )); do
+			mapstring="$mapstring [$i:v] [$i:a]"
+		done
+
+		echo "$mapstring"
+
+		ffmpeg \
+			$inputstring \
+			-filter_complex "$mapstring concat=n=$numclips:v=1:a=1 [v] [a]" \
+			-map "[v]" -map "[a]" "$output"
+	else
+		# generate file list from args
+		for i in "$@"; do
+			echo "file '$i'" >> ./_vs_file_list.txt
+		done
+
+		if test -f "./_vs_file_list.txt"; then
+			# run the command
+			ffmpeg -f concat -safe 0 -i ./_vs_file_list.txt -c copy "$1"
+
+			# cleanup
+			rm ./_vs_file_list.txt
+		else
+			echo "no input files specified"
+			return 1
+		fi
+	fi
+}
+
 main () {
 	# fail if no command
 	if test -z "$1"; then
@@ -127,6 +199,9 @@ main () {
 			;;
 		trim)
 			trim "$@"
+			;;
+		concat|merge|join)
+			concat "$@"
 			;;
 		help)
 			help "$1"
