@@ -19,6 +19,10 @@ main () {
 	# adjust wallpaper
 	~/.fehbg
 
+	if ! pgrep -f picom; then
+		picom&
+	fi
+
 	# set the current layout script to this script
 	# ln -sf "$0" "$HOME/.screenlayout/primary-rotated.sh"
 }
