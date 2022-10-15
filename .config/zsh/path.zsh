@@ -15,6 +15,7 @@ local paths_to_add=(
 	"$HOME/.config/yarn/global/node_modules/.bin"
 	"$HOME/.local/share/gem/ruby/3.0.0/bin"
 	"$HOME/.deno/bin"
+	"$HOME/.cargo/bin"
 	"$HOME/.local/bin"
 	"$HOME/.config/rofi/scripts"
 	"/snap/bin"
