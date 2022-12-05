@@ -12,13 +12,13 @@ set -e
 declare -A DISPLAYS
 DISPLAYS=(
 ["default"]="$HOME/.screenlayout/default.sh"
-["default (triple)"]="$HOME/.screenlayout/default.sh third"
+# ["default (triple)"]="$HOME/.screenlayout/default.sh third"
 ["primary rotated"]="$HOME/.screenlayout/primary-rotated.sh"
-["primary rotated (triple)"]="$HOME/.screenlayout/primary-rotated.sh third"
+# ["primary rotated (triple)"]="$HOME/.screenlayout/primary-rotated.sh third"
 ["secondary rotated"]="$HOME/.screenlayout/secondary-rotated.sh"
-["secondary rotated (triple)"]="$HOME/.screenlayout/secondary-rotated.sh third"
+# ["secondary rotated (triple)"]="$HOME/.screenlayout/secondary-rotated.sh third"
 ["dual rotated"]="$HOME/.screenlayout/dual-rotated.sh"
-["dual rotated (triple)"]="$HOME/.screenlayout/dual-rotated.sh third"
+# ["dual rotated (triple)"]="$HOME/.screenlayout/dual-rotated.sh third"
 )
 
 # list of options

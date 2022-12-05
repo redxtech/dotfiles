@@ -145,8 +145,8 @@ hyper + r
 ###################
 
 # playerctl {play/pause,skip,skip back} {spotify,chromium,mpv,general}
-{_,shift,ctrl,alt} + XF86Audio{Play,Next,Prev}
-	playerctl --player={spotify,chromium,mpv,""} {play-pause,next,previous}
+{_,shift,ctrl,alt,hyper} + XF86Audio{Play,Next,Prev}
+	playerctl --player={spotify,chromium,mpv,Plexamp,""} {play-pause,next,previous}
 
 # volume {up,down}
 XF86Audio{Raise,Lower}Volume
@@ -155,10 +155,6 @@ XF86Audio{Raise,Lower}Volume
 # toggle mute
 XF86AudioMute
   pamixer --toggle-mute
-
-# copy current spotify track link
-hyper + XF86AudioPlay
-	~/.local/bin/copy-spotify-share
 
 #################
 # Function Keys #

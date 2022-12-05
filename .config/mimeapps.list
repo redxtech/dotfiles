@@ -1,20 +1,24 @@
 [Added Associations]
-image/jpeg=org.gnome.gThumb.desktop;feh.desktop;
+image/jpeg=feh.desktop;org.gnome.gThumb.desktop;
+image/png=feh.desktop;org.gnome.gThumb.desktop;
 application/xml=sublime_text.desktop;nvim.desktop;
 text/plain=sublime_text.desktop;nvim.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop;
-application/javascript=sublime_text.desktop;
+application/javascript=sublime_text.desktop;nvim.desktop;
 image/gif=feh.desktop;vivaldi-stable.desktop;
-text/html=vivaldi-stable.desktop;
-application/json=nvim.desktop;
+text/html=vivaldi-stable.desktop;sublime_text.desktop;nvim.desktop;
+application/json=sublime_text.desktop;nvim.desktop;
 application/x-raw-disk-image=7zFM.desktop;
-application/octet-stream=nvim.desktop;
+application/octet-stream=sublime_text.desktop;nvim.desktop;
+application/toml=sublime_text.desktop;nvim.desktop;
+image/svg+xml=sublime_text.desktop;nvim.desktop;vivaldi-stable.desktop;
 
 [Default Applications]
 x-scheme-handler/http=vivaldi-stable.desktop
 x-scheme-handler/https=vivaldi-stable.desktop
 inode/directory=Thunar.desktop
-text/plain=nvim.desktop
+text/plain=sublime_text.desktop
 image/jpeg=feh.desktop;
+image/png=feh.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop
 text/html=vivaldi-stable.desktop
