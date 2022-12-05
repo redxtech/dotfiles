@@ -6,12 +6,11 @@
 -- 	vim.cmd 'packadd packer.nvim'
 -- end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'                     -- package manager
 
 	use { 'dracula/vim', as = 'dracula' }            -- colourscheme
 	use { 'catppuccin/nvim', as = 'catppuccin' }     -- colourscheme
-	use 'dylanaraps/wal.vim'                         -- pywal colourscheme
 
 	use 'andymass/vim-matchup'                       -- better matching with % key - language specific keywords, not just single chars
 	use 'christoomey/vim-sort-motion'                -- sort lines (gs*)
@@ -21,11 +20,14 @@ return require('packer').startup(function()
 	use 'glts/vim-textobj-comment'                   -- comment object (ac, ic, aC)
 	use 'gpanders/editorconfig.nvim'                 -- editorconfig
 	use 'itspriddle/vim-shellcheck'                  -- shell script validation
+	use 'jghauser/mkdir.nvim'                        -- make new directory on save if it doesn't exist
 	use 'joosepalviste/nvim-ts-context-commentstring'-- context based commentstring setting
+	use 'junegunn/vim-easy-align'                    -- align on characters
 	use 'kana/vim-textobj-entire'                    -- text object for entire buffer (ae, ie)
 	use 'kana/vim-textobj-indent'                    -- text object for indent (ai, ii, aI, iI)
 	use 'kana/vim-textobj-line'                      -- text object for line (al, il)
 	use 'kana/vim-textobj-user'                      -- allow user defined text objects
+	use 'kdheepak/lazygit.nvim'                      -- git client
 	use 'kovetskiy/sxhkd-vim'                        -- syntax highlighting
 	use 'liuchengxu/vim-which-key'                   -- show which keybinds are available
 	use 'matze/vim-move'                             -- move selections
@@ -46,13 +48,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'                         -- surround objects with stuff (cs<from><to>)
 	use 'tpope/vim-unimpaired'                       -- navigate between pairs
 	use 'tyru/open-browser.vim'                      -- allow opening browser
-	-- TODO: enable and configure nvim-nontify
-	-- use 'rcarriga/nvim-notify'                       -- notifications !
 
-	use { -- project management
-		'ahmedkhalf/project.nvim',
-		config = function() require('project_nvim').setup {} end
-	}
 	use { -- buffer line
 		'akinsho/bufferline.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' },
@@ -76,24 +72,68 @@ return require('packer').startup(function()
 	}
 	use { -- toggleable terminal
 		'akinsho/toggleterm.nvim',
-		config = function ()
-			require('toggleterm').setup {}
-			function _G.set_terminal_keymaps()
-				local opts = {noremap = true}
-				vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]],       opts)
-				vim.api.nvim_buf_set_keymap(0, 't', 'jk',    [[<C-\><C-n>]],       opts)
-				vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-				vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-				vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-				vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-			end
-			-- TODO: uncomment and move to lua autocmd
-			-- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+		config = function()
+			require('toggleterm').setup {
+				open_mapping = [[<c-\>]],
+				start_in_insert = true,
+				insert_mappings = true,
+				terminal_mappings = true,
+				direction = 'float'
+			}
 		end
+	}
+	use {
+		'andweeb/presence.nvim',
+		config = function()
+			require('presence'):setup({
+				-- general options
+				auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+				neovim_image_text   = 'The One True Text Editor', -- Text displayed when hovered over the Neovim image
+				main_image          = 'neovim',                   -- Main image display (either 'neovim' or 'file')
+				client_id           = '793271441293967371',       -- Use your own Discord application client id (not recommended)
+				log_level           = nil,                        -- Log messages at or above this level (one of the following: 'debug', 'info', 'warn', 'error')
+				debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+				enable_line_number  = false,                      -- Displays the current line number instead of the current project
+				blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+				buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = '<label>', url = '<url>' }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+				file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+				show_time           = true,                       -- Show the timer
+
+				-- rich presence text options
+				editing_text        = 'editing %s',               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+				file_explorer_text  = 'browsing %s',              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+				git_commit_text     = 'committing changes',       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+				plugin_manager_text = 'managing plugins',         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+				reading_text        = 'reading %s',               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+				workspace_text      = 'working on %s',            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+				line_number_text    = 'line %s out of %s',        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+			})
+		end
+	}
+	use { -- use as obsidian editor
+		'epwalsh/obsidian.nvim',
+		config = function() require('obsidian').setup {
+			dir = '~/Documents/Obsidian/Main',
+			use_advanced_uri = true,
+			completion = {
+				nvim_cmp = true
+			}
+		} end
 	}
 	use { -- reopen files in last used place
 		'ethanholz/nvim-lastplace',
 		config = function () require('nvim-lastplace').setup {} end
+	}
+	use { -- task runner
+		'EthanJWright/vs-tasks.nvim',
+		config = function()
+			require('vstask').setup {
+				terminal = 'toggleterm',
+				autodetect = { -- auto load scripts
+					npm = 'on'
+				}
+			}
+		end
 	}
 	use { -- rename variables
 		'filipdutescu/renamer.nvim',
@@ -121,79 +161,64 @@ return require('packer').startup(function()
 		'goolord/alpha-nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function ()
-			require'alpha'.setup(require'alpha.themes.dashboard'.config)
-			-- TODO: add custom buttons to theme
+			local dashboard = require('alpha.themes.dashboard')
+			local button = dashboard.button
+
+			-- choose custom buttons
+			dashboard.config.layout[4].val = {
+				button('e', '  new file', '<cmd>ene <CR>'),
+        button('SPC f f', '  find file'),
+        button('SPC o f', '  recently opened files'),
+				-- button('SPC f m', '  jump to bookmarks'),
+        button('SPC l g', '  find word/live grep'),
+        button('SPC G G', '  open git folders'),
+        button('SPC r s', '  open session'),
+				button('SPC s l', '  last session'),
+				button('q', '  quit', '<cmd>q<CR>'),
+			}
+
+			require('alpha').setup(dashboard.config)
 		end
 	}
-	use { -- fzf but lua
-		'ibhagwan/fzf-lua',
-		requires = { 'kyazdani42/nvim-web-devicons' }
+	use { -- lsp status notification thing
+		'j-hui/fidget.nvim',
+		config = function() require('fidget').setup {} end
 	}
-	use({
-		'jose-elias-alvarez/null-ls.nvim',
-		requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
-		config = function()
-			local null_ls = require('null-ls')
-			null_ls.setup({
-				sources = {
-					-- code actions
-					-- null_ls.builtins.code_actions.eslint -- linter
-					-- null_ls.builtins.code_actions.xo, -- nice linter
-
-					-- completions
-					-- null_ls.builtins.completion.luasnip, -- snippet engine
-					null_ls.builtins.completion.spell, -- spelling mistakes
-					-- null_ls.builtins.completion.tags, -- tags
-
-					-- diagnostics
-					-- null_ls.builtins.diagnostics.alex
-					-- null_ls.builtins.diagnostics.codespell.with({
-					-- 		args = { '--builtin', 'clear,rare,code', '-' },
-					-- }),
-					-- null_ls.builtins.diagnostics.eslint, -- js linter
-					-- null_ls.builtins.diagnostics.flake8, -- python
-					null_ls.builtins.diagnostics.markdownlint, -- markdown
-					-- null_ls.builtins.diagnostics.pylint, -- python
-					null_ls.builtins.diagnostics.shellcheck, -- shell scripts
-					-- null_ls.builtins.diagnostics.standardjs, -- js standard style
-					-- null_ls.builtins.diagnostics.xo, -- nice linter
-
-					-- formatting
-					null_ls.builtins.formatting.codespell, -- common code misspellings
-					null_ls.builtins.formatting.deno_fmt, -- deno
-					-- null_ls.builtins.formatting.eslint, -- js linter
-					null_ls.builtins.formatting.markdownlint, -- markdown
-					-- null_ls.builtins.formatting.nginx_beautifier, -- nginx
-					-- null_ls.builtins.formatting.prettier, -- js yaml html markdown
-					-- null_ls.builtins.formatting.prettier_standard,
-					null_ls.builtins.formatting.rustfmt, -- rust
-					-- null_ls.builtins.formatting.rustywind, -- tailwind classes
-					null_ls.builtins.formatting.shellharden, -- harden shell scripts
-					-- null_ls.builtins.formatting.standardjs, -- js standard style
-					-- null_ls.builtins.formatting.prettier_standard,
-					null_ls.builtins.formatting.stylua,
-				},
-				on_attach = function()
-					-- TODO: uncomment and move to native lua
-					-- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-				end,
-			})
-		end,
-	})
+	use { -- show when code actions available under cursor
+		'kosayoda/nvim-lightbulb',
+		config = function ()
+			require('nvim-lightbulb').setup {
+				autocmd = {
+					enabled = true
+				}
+			}
+		end
+	}
 	use { -- file browser
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('nvim-tree').setup ({
+				auto_reload_on_write = false,
+				reload_on_bufenter = true,
 				respect_buf_cwd = true,
-				update_cwd = true,
+				select_prompts = true,
 				update_focused_file = {
 					enable = true,
 					update_cwd = true
 				},
 				view = {
-					auto_resize = true
-				}
+					adaptive_size = true
+				},
+				log = {
+					enable = true,
+					truncate = true,
+					types = {
+						dev = true,
+						diagnostics = true,
+						watcher = true
+					}
+      	}
 			})
 		end
 	}
@@ -231,20 +256,22 @@ return require('packer').startup(function()
 			clear_empty_lines = true
 		} end,
 	}
-	use { -- dim unused functions & variables
-		'narutoxy/dim.lua',
-		requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
-		config = function() require('dim').setup {} end
-	}
+	-- TODO make this work, wasn't doing anything
+	-- use { 'melkster/modicator.nvim',
+	-- 	after = 'dracula', -- colorscheme
+	-- 	setup = function()
+	-- 		-- required for modicator to work
+	-- 		vim.o.cursorline = true
+	-- 		vim.o.number = true
+	-- 		vim.o.termguicolors = true
+	-- 	end,
+	-- 	config = function() require('modicator').setup {} end
+	-- }
 	use { -- preview line before jump
 		'nacro90/numb.nvim',
 		config = function () require('numb').setup {} end
 	}
-	use { -- highlight hex colours with their colour
-		'norcalli/nvim-colorizer.lua',
-		config = function () require('colorizer').setup {} end
-	}
-	use { -- commenting plugin
+	use { -- commenting plugin (gc* = line, gb* = block)
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup {
@@ -252,11 +279,13 @@ return require('packer').startup(function()
 			}
 		end
 	}
+	use { -- highlight hex colours with their colour
+		'NvChad/nvim-colorizer.lua',
+		config = function() require('colorizer').setup {} end
+	}
 	use { -- fzf for telescope
-		-- 'nvim-telescope/telescope-fzf-native.nvim',
-		-- 'nvim-telescope/telescope-fzy-native.nvim',
-		'natecraddock/telescope-zf-native.nvim',
-		-- run = 'make'
+		'nvim-telescope/telescope-fzf-native.nvim',
+		run = 'make'
 	}
 	use { -- statusline
 		'nvim-lualine/lualine.nvim',
@@ -271,11 +300,20 @@ return require('packer').startup(function()
 					lualine_a = { 'mode' },
 					lualine_b = { 'branch' },
 					lualine_c = { 'filename' },
-					lualine_x = { 'diagnostics', 'diff', 'require("lsp-status").status()' },
+					lualine_x = { 'diagnostics', 'diff', 'require(\'lsp-status\').status()' },
 					lualine_y = { 'filetype', 'encoding', 'fileformat', 'filesize', 'progress' },
 					lualine_z = {'location' }
 				},
 				extensions = { 'fugitive', 'nvim-tree', 'toggleterm' }
+			}
+		end
+	}
+	use {
+		'nvim-pack/nvim-spectre',
+		config = function ()
+			require("spectre").setup {
+				live_update = true,
+				is_insert_mode = false
 			}
 		end
 	}
@@ -288,12 +326,9 @@ return require('packer').startup(function()
 					['ui-select'] = {require('telescope.themes').get_dropdown {}}
 				}
 			}
-			-- require('telescope').load_extension('fzf')
-			-- require('telescope').load_extension('fzy_native')
-			require('telescope').load_extension('zf-native')
-			-- TODO: enable nvim notify
-			-- require('telescope').load_extension('notify')
-			require('telescope').load_extension('projects')
+			require('telescope').load_extension('fzf')
+			require('telescope').load_extension('lazygit')
+			require('telescope').load_extension('notify')
 			require('telescope').load_extension('ui-select')
 		end
 	}
@@ -316,9 +351,22 @@ return require('packer').startup(function()
 			}
 		end
 	}
+	use {
+		'nvim-treesitter/nvim-treesitter-context',
+		config = function () require'treesitter-context'.setup {} end
+	}
 	use { -- shows function signature
 		'ray-x/lsp_signature.nvim',
-		config = function() require('lsp_signature').setup {} end
+		config = function() require('lsp_signature').setup {
+			bind = true, -- This is mandatory, otherwise border config won't get registered.
+			handler_opts = {
+				border = 'rounded'
+			}
+		} end
+	}
+	use { -- notifications !
+		'rcarriga/nvim-notify',
+		config = function() vim.notify = require('notify') end
 	}
 	use { -- show preview of definition
 		'rmagatti/goto-preview',
@@ -328,12 +376,13 @@ return require('packer').startup(function()
 			}
 		end
 	}
-	use {
+	use { -- session management
 		'shatur/neovim-session-manager',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('session_manager').setup {
-				autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir
+				autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+				autosave_only_in_session = true, -- always autosaves session. if true, only autosaves after a session is active.
 			}
 		end
 	}
@@ -345,36 +394,39 @@ return require('packer').startup(function()
 			{'nvim-lua/plenary.nvim'},
 		}
 	}
-	use { -- dim inactive windows
-		'sunjon/shade.nvim',
-		config = function ()
-			require'shade'.setup {
-				overlay_opacity = 60,
-				opacity_step = 5,
-				keys = {
-					brightness_up    = '<C-Up>',
-					brightness_down  = '<C-Down>',
-					toggle           = '<Leader>ds'
-				}
-			}
-		end
+	use {
+		'weilbith/nvim-code-action-menu',
+		cmd = 'CodeActionMenu'
 	}
 	use { -- autopairs
 		'windwp/nvim-autopairs',
 		config = function () require('nvim-autopairs').setup {} end
 	}
 
-	-- lsp plugins
-	use 'hrsh7th/cmp-buffer'                       -- buffer source for nvim-cmp
-	use 'hrsh7th/cmp-cmdline'                      -- cmdline source for nvim-cmp
-	use 'hrsh7th/cmp-nvim-lsp'                     -- lsp integration for nvim-cmp
-	use 'hrsh7th/cmp-nvim-lua'                     -- source for nvim lua api
-	use 'hrsh7th/cmp-path'                         -- path source for nvim-cmp
-	use 'hrsh7th/nvim-cmp'                         -- autocompete for nvim
-	use 'neovim/nvim-lspconfig'                    -- LSP plugin
-	use 'quangnguyen30192/cmp-nvim-tags'           -- tags completion for cmp
-	use 'ray-x/cmp-treesitter'                     -- treesitter completion source
-	use 'saadparwaiz1/cmp_luasnip'                 -- luasnip cmp source
+	-- lsp
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+			-- lsp support
+			{'neovim/nvim-lspconfig'},
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+
+			-- autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-cmdline'},
+			{'hrsh7th/cmp-path'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-nvim-lua'},
+			{'ray-x/cmp-treesitter'},
+			{'saadparwaiz1/cmp_luasnip'},
+
+			-- snippets
+			{'L3MON4D3/LuaSnip'},
+			{'rafamadriz/friendly-snippets'}
+		}
+	}
 
 	-- unused plugins
 	-- use 'christoomey/vim-tmux-navigator'           -- navigate tmux panes
@@ -382,24 +434,19 @@ return require('packer').startup(function()
 	-- use 'dense-analysis/ale'                       -- async lint engine
 	-- use 'fvictorio/vim-textobj-backticks'          -- backtick object (a`, i`)
 	-- use 'honza/vim-snippets'                       -- snippets
-	-- use 'junegunn/vim-easy-align'                  -- align on characters
 	-- use 'posva/vim-vue'                            -- vim vue
 	-- use 'prettier/vim-prettier'                    -- formatting
 	-- use 'sheerun/vim-polyglot'                     -- syntax highlighting for many langs
 	-- use 'simrat39/symbols-outline.nvim'            -- code outline sidebar (BROKEN in nvim 0.7)
-	-- use 'terryma/vim-expand-region'                -- expand selection based on text objects
 	-- use 'tpope/vim-dispatch'                       -- compile wrapper (:Make)
 	-- use 'tpope/vim-obsession'                      -- session management
 	-- use 'tpope/vim-sleuth'                         -- autodetect indents
 	-- use 'tpope/vim-speeddating'                    -- ctrl+(a/x) works properly on dates and times
 	-- use 'tpope/vim-tbone'                          -- run tmux commands through vim
-	-- use 'tpope/vim-vinegar'                        -- extra tools for working with netrw
-	-- use 'williamboman/nvim-lsp-installer'          -- auto install language servers
-	-- use 'yegappan/mru'                             -- most recently used files
 
 	-- if just bootstrapped, run sync
-	if Packer_bootstrap then
-		require('packer').sync()
-	end
+	-- if Packer_bootstrap then
+	-- 	require('packer').sync()
+	-- end
 end)
 

@@ -2,7 +2,7 @@
 
 -- globals
 vim.o.background     = "dark"
-vim.o.completeopt    = "menu,menuone,noselect"
+vim.o.completeopt    = "menu,menuone"
 vim.o.foldlevelstart = 99
 vim.o.guifont        = "DankMono Nerd Font"
 vim.o.hidden         = true
@@ -18,6 +18,7 @@ vim.o.splitbelow     = true
 vim.o.splitright     = true
 vim.o.termguicolors  = true
 vim.o.undofile       = true
+vim.o.updatetime     = 1000
 
 
 -- window
@@ -41,12 +42,16 @@ vim.g.mapleader               = " "
 vim.b.mapleader               = " "
 vim.g.AutoPairsShortcutToggle = ""
 
+-- disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- some config
 vim.g.markdown_fenced_languages = {'ts=typescript'}
 
 -- colours
 vim.cmd('colo dracula')
--- vim.cmd('colo wal')
+-- vim.cmd('colo catppuccin-frappe')
 
 -- syntax highlighting
 vim.cmd('syntax on')
