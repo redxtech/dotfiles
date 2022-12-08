@@ -16,6 +16,7 @@ local paths_to_add=(
 	"$HOME/.local/share/gem/ruby/3.0.0/bin"
 	"$HOME/.deno/bin"
 	"$HOME/.cargo/bin"
+	"$HOME/.local/share/pnpm"
 	"$HOME/.local/bin"
 	"$HOME/.config/rofi/scripts"
 	"/snap/bin"
