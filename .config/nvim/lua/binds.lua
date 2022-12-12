@@ -18,6 +18,8 @@ map('n', '<C-w>',           'daw')                -- delete word
 
 map('n', '<leader>fs',      '<cmd>w<CR>')             -- write file
 map('n', '<leader>fS',      '<cmd>SudoWrite<CR>')     -- write file
+map('v', '<leader>fs',      '<cmd>w<CR>')             -- write file (visual mode)
+map('v', '<leader>fS',      '<cmd>SudoWrite<CR>')     -- write file (visual mode)
 map('n', '<leader>y',       '"+y')                -- yank to system clip
 map('n', '<leader>p',       '"+p')                -- paste from system clip
 map('n', '<C-h>',           '<C-w>h')             -- navigate windows (left)
