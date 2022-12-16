@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
 	use 'monaqa/dial.nvim'                           -- increment works on other things too
 	use 'nvim-telescope/telescope-ui-select.nvim'    -- telescope picker for vim.ui.select
 	use 'nvim-lua/lsp-status.nvim'                   -- lsp status utility commands
+	use 'ojroques/vim-oscyank'                       -- yank from anywhere
 	use 'onsails/lspkind-nvim'                       -- show icons for lsp type
 	use 'rafamadriz/friendly-snippets'               -- snippet collection
 	use 'romainl/vim-cool'                           -- auto :noh when moving away from search
@@ -107,6 +108,11 @@ return require('packer').startup(function(use)
 				line_number_text    = 'line %s out of %s',        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 			})
 		end
+	}
+	use { -- show fold preview on hover
+		'anuvyklack/fold-preview.nvim',
+		requires = 'anuvyklack/keymap-amend.nvim',
+		config = function() require('fold-preview').setup() end
 	}
 	use { -- use as obsidian editor
 		'epwalsh/obsidian.nvim',
