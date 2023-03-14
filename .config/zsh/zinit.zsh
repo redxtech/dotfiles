@@ -88,7 +88,7 @@ zinit wait lucid from'gh-r' as"command" for \
     ogham/exa \
   mv'rip* ripgrep' sbin'**/rg(.exe|) -> rg' \
     BurntSushi/ripgrep \
-  sbin"**/bin/nvim -> nvim" ver"" \
+  sbin"**/bin/nvim -> nvim" ver"nightly" \
     neovim/neovim \
   mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
     mikefarah/yq
