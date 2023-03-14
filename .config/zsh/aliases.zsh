@@ -98,7 +98,7 @@ alias ssdr="sudo systemctl daemon-reload"
 
 # swallow windows for certain apps
 if command -v devour >/dev/null; then
-  local swallowed=(mpv sxiv)
+  local swallowed=(feh mpv sxiv)
 
   for app in $swallowed; do
 		if command -v $app >/dev/null; then
@@ -112,6 +112,9 @@ fi
 # alias docker="sudo docker"
 # alias docker-compose="sudo docker-compose"
 # alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
+
+# lazygit for dotfiles
+alias ly="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"
 
 # for fun
 alias starwars="telnet towel.blinkenlights.nl"
