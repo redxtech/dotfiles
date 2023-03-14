@@ -38,7 +38,7 @@ map('n', '<leader>nl', '<cmd>Neoconf lsp<cr>', { desc = 'Show Neoconf lsp config
 
 -- extra spectre binds
 map('n', '<leader>sp', "<cmd>lua require('spectre').open_file_search()<cr>")
--- map('n', '<leader>sP', "<cmd>lua require('spectre').open_file_search({select_word=true})<cr>")
+map('n', '<leader>sP', "<cmd>lua require('spectre').open_file_search({select_word=true})<cr>")
 
 -- buffer navigation
 map('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<cr>', { desc = 'Goto buffer 1' })
