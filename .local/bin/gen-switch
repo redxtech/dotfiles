@@ -18,7 +18,7 @@ main() {
 	cflag=1
 	dflag=1
 	eflag=
-	fflag=
+	fflag=1
 	gflag=1
 	hflag=
 	kflag=1
@@ -39,7 +39,7 @@ main() {
 			eflag=1
 			;;
 		f)
-			fflag=1
+			fflag=
 			;;
 		g)
 			gflag=
@@ -67,7 +67,7 @@ main() {
       -c: skip cleanup
       -d: omit DBI
       -e: include emuNAND
-      -f: include fastCFWswitch (depends on tesla overlay)
+      -f: omit fastCFWswitch
       -g: omit Goldleaf
       -h: include HDR
       -k: keep folder (if zipping)
@@ -201,8 +201,8 @@ main() {
 			ghr "$tesla" "ovlmenu.zip" "$tmpdir/ovlmenu.zip"
 			unzip -q "$tmpdir/ovlmenu.zip" -d "$out"
 		else
-			ghr "$tesla_fork" "ovlmenu.ovl"
-			mkdir -p "$out/switch/.overlays/ovlmenu.ovl"
+			mkdir -p "$out/switch/.overlays"
+			ghr "$tesla_fork" "ovlmenu.ovl" "$out/switch/.overlays/ovlmenu.ovl"
 		fi
 		ghr "$ovlloader" "nx-ovlloader.zip" "$tmpdir/nx-ovlloader.zip"
 		ghr "$fastcfwswitch" "fastCFWswitch*.zip" "$tmpdir/fastCFWswitch.zip"
