@@ -1,5 +1,6 @@
 return {
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
+	{ 'tpope/vim-endwise', event = 'VeryLazy' },
 	{
 		'rmagatti/goto-preview',
 		opts = {
