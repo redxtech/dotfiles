@@ -1,6 +1,11 @@
 return {
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
 	{ 'tpope/vim-endwise', event = 'VeryLazy' },
+	{ 'andrewradev/tagalong.vim', event = 'VeryLazy' },
+	{ 'ellisonleao/glow.nvim', opts = {}, cmd = 'Glow' },
+	{ 'kovetskiy/sxhkd-vim', event = 'VeryLazy' },
+	{ 'nacro90/numb.nvim', opts = {}, event = 'VeryLazy' },
+	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
 	{
 		'rmagatti/goto-preview',
 		opts = {
@@ -18,16 +23,10 @@ return {
 			autocmd = {
 				enabled = true,
 			},
-			float = {
-				enabled = true,
-			},
 		},
 	},
-	{ 'andrewradev/tagalong.vim', event = 'VeryLazy' },
-	{ 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
 	-- { 'itspriddle/vim-shellcheck', event = 'VeryLazy', },
 	-- { 'jparise/vim-graphql', event = 'VeryLazy', },
-	-- { 'kovetskiy/sxhkd-vim', event = 'VeryLazy', },
 	-- { 'tmux-plugins/vim-tmux', event = 'VeryLazy', },
 	-- {
 	--   'monaqa/dial.nvim',
