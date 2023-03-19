@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+main() {
+	if test -z "$1"; then
+		exit 2
+	fi
+
+	mediainfo "$1"
+	read -r -n 1 -p "Press any key to exit"
+}
+
+main "$@"
