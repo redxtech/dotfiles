@@ -6,6 +6,10 @@
 super + {_,shift +,ctrl + }Return
 	{kitty,alacritty,xfce4-terminal}
 
+# alternative terminal launch key
+hyper + Return
+  kitty
+
 # open {run prompt,app launcher,window chooser,ssh hosts}
 super + {r,d,ctrl + d,shift + d,space}
 	rofi -show {run,drun,window,ssh,drun}
