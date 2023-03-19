@@ -1,25 +1,24 @@
 [Added Associations]
 image/jpeg=feh.desktop;org.gnome.gThumb.desktop;
 image/png=feh.desktop;org.gnome.gThumb.desktop;
-application/xml=sublime_text.desktop;nvim.desktop;
-text/plain=sublime_text.desktop;nvim.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop;
-application/javascript=sublime_text.desktop;nvim.desktop;
-image/gif=feh.desktop;vivaldi-stable.desktop;
-text/html=vivaldi-stable.desktop;sublime_text.desktop;nvim.desktop;
-application/json=sublime_text.desktop;nvim.desktop;
+application/xml=nvim.desktop;sublime_text.desktop;
+text/plain=nvim.desktop;sublime_text.desktop;
+application/javascript=nvim.desktop;sublime_text.desktop;
+image/gif=feh.desktop;
+text/html=vivaldi-stable.desktop;nvim.desktop;sublime_text.desktop;
+application/json=nvim.desktop;sublime_text.desktop;
 application/x-raw-disk-image=7zFM.desktop;
-application/octet-stream=sublime_text.desktop;nvim.desktop;
-application/toml=sublime_text.desktop;nvim.desktop;
-image/svg+xml=sublime_text.desktop;nvim.desktop;vivaldi-stable.desktop;
+application/octet-stream=nvim.desktop;sublime_text.desktop;
+application/toml=nvim.desktop;sublime_text.desktop;
+image/svg+xml=feh.desktop;nvim.desktop;sublime_text.desktop;vivaldi-stable.desktop;
+application/x-shellscript=nvim.desktop;sublime_text.desktop;
 
 [Default Applications]
 x-scheme-handler/http=vivaldi-stable.desktop
 x-scheme-handler/https=vivaldi-stable.desktop
 inode/directory=Thunar.desktop
-text/plain=sublime_text.desktop
+text/plain=nvim.desktop
 image/jpeg=feh.desktop;
 image/png=feh.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-24ZZM1.desktop
 text/html=vivaldi-stable.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
