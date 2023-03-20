@@ -1,7 +1,7 @@
 return {
 	'akinsho/nvim-toggleterm.lua',
 	event = 'VeryLazy',
-	opts = { -- size can be a number or function which is passed the current terminal
+	opts = {
 		open_mapping = [[<c-\>]],
 	},
 	-- {

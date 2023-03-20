@@ -8,6 +8,7 @@ return {
 	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
 	{
 		'rmagatti/goto-preview',
+		event = 'VeryLazy',
 		opts = {
 			default_mappings = true,
 			-- resizing_mappings = true,
