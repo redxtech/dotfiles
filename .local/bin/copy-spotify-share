@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 
-playerctl --player=spotify metadata \
-	| rg 'xesam:url' \
-	| choose 2 \
-	| tr -d '\n' \
-	| xclip -selection clipboard
+COPY_CMD="xclip -selection clipboard"
+
+if test "$XDG_SESSION_TYPE" = "wayland"; then
+	COPY_CMD="wl-copy"
+fi
+
+playerctl --player=spotify metadata |
+	rg 'xesam:url' |
+	choose 2 |
+	tr -d '\n' |
+	$COPY_CMD
