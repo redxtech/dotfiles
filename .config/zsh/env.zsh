@@ -28,3 +28,7 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 if test -f "$HOME/.config/zsh/env.local.zsh"; then
     source "$HOME/.config/zsh/env.local.zsh"
 fi
+
+# kubectl
+export KUBECONFIG="$HOME/.config/kube/config"
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
