@@ -10,6 +10,10 @@ super + {_,shift +,ctrl + }Return
 hyper + Return
   kitty
 
+# alternative app & command launcher
+{hyper,ctrl} + space
+  rofi -show {drun,run}
+
 # open {run prompt,app launcher,window chooser,ssh hosts}
 super + {r,d,ctrl + d,shift + d,space}
 	rofi -show {run,drun,window,ssh,drun}
@@ -186,8 +190,12 @@ super + w
 
 # secondary apps
 # launch {discord,spotify,authy,thunar,plex,pulseaudio}
-hyper + {d,s,a,f,p,v,t}
-  {discord,spotify,authy,thunar,plex-desktop,pavucontrol,pomotroid --disable-gpu-sandbox}
+hyper + {d,a,f,p,v,t}
+  {discord,authy,thunar,plex-desktop,pavucontrol,pomotroid --disable-gpu-sandbox}
+
+# open ssh launcher
+hyper + s
+  rofi -show ssh
 
 # open notes app
 super + n
