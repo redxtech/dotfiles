@@ -1,9 +1,12 @@
 return {
+	{ 'andrewradev/tagalong.vim', event = 'VeryLazy' },
+	{ 'amadeus/vim-convert-color-to', event = 'VeryLazy' },
+	{ 'ellisonleao/glow.nvim', opts = {}, cmd = 'Glow' },
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
 	{ 'tpope/vim-endwise', event = 'VeryLazy' },
-	{ 'andrewradev/tagalong.vim', event = 'VeryLazy' },
-	{ 'ellisonleao/glow.nvim', opts = {}, cmd = 'Glow' },
 	{ 'kovetskiy/sxhkd-vim', event = 'VeryLazy' },
+	{ 'waycrate/swhkd-vim', event = 'VeryLazy' },
+	{ 'theRealCarneiro/hyprland-vim-syntax', event = 'VeryLazy' },
 	{ 'nacro90/numb.nvim', opts = {}, event = 'VeryLazy' },
 	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
 	{
@@ -26,6 +29,7 @@ return {
 			},
 		},
 	},
+	-- { 'edluffy/hologram.nvim', opts = { auto_display = true }, event = 'VeryLazy' },
 	-- { 'itspriddle/vim-shellcheck', event = 'VeryLazy', },
 	-- { 'jparise/vim-graphql', event = 'VeryLazy', },
 	-- { 'tmux-plugins/vim-tmux', event = 'VeryLazy', },

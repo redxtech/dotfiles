@@ -13,3 +13,6 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 		vim.opt_local.spell = false
 	end,
 })
+
+vim.cmd([[autocmd BufRead,BufNewFile ~/.config/waybar/config set syntax=jsonc]])
+vim.cmd([[autocmd BufRead,BufNewFile *.rasi set syntax=css]])
