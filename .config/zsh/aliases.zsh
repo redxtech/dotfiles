@@ -139,5 +139,7 @@ abbr ecoh="echo"
 abbr pacuar="pacaur"
 abbr sudp="sudo"
 abbr yarm="yarn"
+abbr clera="clear"
+abbr claer="clear"
 alias dc="cd"
 
