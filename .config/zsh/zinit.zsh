@@ -91,9 +91,7 @@ zinit wait lucid from'gh-r' as"command" for \
   sbin"**/bin/nvim -> nvim" ver"nightly" \
     neovim/neovim \
   mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
-    mikefarah/yq \
-  mv"tarsplitter* tarsplitter" sbin"tarsplitter" \
-    AQUAOSOTech/tarsplitter
+    mikefarah/yq
   
   # unused entries
   # sbin"rclone-*/rclone" bpick"*amd64.zip*" \
