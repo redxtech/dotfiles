@@ -1,0 +1,22 @@
+@import "config"
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    width: 11%;
+}
+
+listview {
+    columns: 1;
+    lines: 6;
+}
+
+inputbar {
+    enabled: false;
+}
+
+element-text {
+    font: "DankMono Nerd Font 22";
+}

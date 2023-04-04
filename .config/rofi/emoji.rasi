@@ -1,0 +1,9 @@
+@import "config"
+
+configuration {
+    show-icons: false;
+}
+
+listview {
+    columns: 3;
+}

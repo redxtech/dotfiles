@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# script name: rofi-rofi
+# description: choose from rofi scripts and run selection
+# usage: rofi-rofi
+# dependencies: rofi, grep, basename
+
+get_launchers() {
+	launchers=(~/.config/rofi/scripts/rofi-*)
+
+	for launcher in "${launchers[@]}"; do
+		basename "$launcher"
+	done
+
+	if ! test -z "$1"; then
+		session_launchers=(~/.config/rofi/scripts/"$1"/rofi-*)
+		for launcher in "${session_launchers[@]}"; do
+			basename "$launcher"
+		done
+	fi
+}
+
+main() {
+	# rofi -show drun
+	script="$(get_launchers "$XDG_SESSION_TYPE" |
+		grep -v -e 'rofi-rofi' -e 'rofi-archive' -e 'rofi-encode' |
+		rofi -dmenu -no-custom -theme dracula-red -p "Rofi Scripts ")"
+
+	if test -f "$HOME/.config/rofi/scripts/$script"; then
+		~/.config/rofi/scripts/"$script"
+	elif test -f "$HOME/.config/rofi/scripts/$XDG_SESSION_TYPE/$script"; then
+		~/.config/rofi/scripts/"$XDG_SESSION_TYPE/$script"
+	fi
+
+}
+
+main

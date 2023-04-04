@@ -3,12 +3,12 @@
 # script name: rofi-encode
 # description: choose from some preset options to encode a video file
 # usage: rofi-encode <input>
-# dependencies: rofi, ffmpeg, dunst, sed, coreutils
+# dependencies: rofi, ffmpeg, dunst, sed, coreutils, nemo (optional)
 
 # exit on first error
 set -e
 
-main () {
+main() {
 	# make sure you've specified the args
 	if test -z "$1"; then
 		echo "you need to specify a file"
@@ -23,78 +23,76 @@ main () {
 
 	# fill options based on selected preset
 	case $preset in
-		Discord) # embed in discord: decent quality vp9 & opus in a webm
-			vid_codec="vpx-vp9"
-			quality="25"
-			quality_args="-crf $quality -b:v 0"
+	Discord) # embed in discord: decent quality vp9 & opus in a webm
+		vid_codec="vpx-vp9"
+		quality="25"
+		quality_args="-crf $quality -b:v 0"
+		vid_preset=""
+		audio_codec="libopus"
+		audio_bitrate="256k"
+		container="webm"
+
+		output="$(basename "$input" | sed 's/\..*$//') [discord].$container"
+		;;
+	High) # high quality x264 & opus in an mkv
+		vid_codec="x264"
+		quality="22"
+		quality_args="-crf $quality"
+		vid_preset="-preset medium"
+		audio_codec="libopus"
+		audio_bitrate="320k"
+		container="mkv"
+
+		output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
+		;;
+	Medium) # decent quality x265 & opus in an mkv
+		vid_codec="x265"
+		quality="26"
+		quality_args="-crf $quality"
+		vid_preset="-preset veryfast"
+		audio_codec="libopus"
+		audio_bitrate="256k"
+		container="mkv"
+
+		output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
+		;;
+	Low) # conservative quality x265 & opus in an mkv
+		vid_codec="x265"
+		quality="32"
+		quality_args="-crf $quality"
+		vid_preset="-preset veryfast"
+		audio_codec="libopus"
+		audio_bitrate="128k"
+		container="mkv"
+
+		output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
+		;;
+	*) # choose your own options with rofi
+
+		# all other options rely on the video codec
+		vid_codec="$(printf 'x264\nx265\nvpx-vp9' | rofi -dmenu -p 'Video Codec ')"
+		quality="$(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality ')"
+		quality_args="-crf $quality"
+		audio_bitrate="$(printf '128k\n256k\n320k' | rofi -dmenu -p 'Audio Birate ')"
+
+		# if not vp9, choose a preset, audio codec, and container.
+		# otherwise default to opus & webm
+		if ! test "$vid_codec" = "vpx-vp9"; then
+			vid_preset="-preset $(printf 'ultrafast\nsuperfast\nveryfast\nfaster\nfast\nmedium\nslow\nslower\nveryslow\nplacebo' | rofi -dmenu -p 'Preset ')"
+			audio_codec="$(printf 'libopus\naac\ncopy' | rofi -dmenu -p 'Audio Codec ')"
+			container="$(printf 'webm\nmkv' | rofi -dmenu -p 'Container ')"
+		else
 			vid_preset=""
 			audio_codec="libopus"
-			audio_bitrate="256k"
 			container="webm"
+		fi
 
-			output="$(basename "$input" | sed 's/\..*$//') [discord].$container"
-			;;
-		High) # high quality x264 & opus in an mkv
-			vid_codec="x264"
-			quality="22"
-			quality_args="-crf $quality"
-			vid_preset="-preset medium"
-			audio_codec="libopus"
-			audio_bitrate="320k"
-			container="mkv"
-
-
-
-			output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
-			;;
-		Medium) # decent quality x265 & opus in an mkv
-			vid_codec="x265"
-			quality="26"
-			quality_args="-crf $quality"
-			vid_preset="-preset veryfast"
-			audio_codec="libopus"
-			audio_bitrate="256k"
-			container="mkv"
-
-			output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
-			;;
-		Low) # conservative quality x265 & opus in an mkv
-			vid_codec="x265"
-			quality="32"
-			quality_args="-crf $quality"
-			vid_preset="-preset veryfast"
-			audio_codec="libopus"
-			audio_bitrate="128k"
-			container="mkv"
-
-			output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
-			;;
-		*) # choose your own options with rofi
-
-			# all other options rely on the video codec
-			vid_codec="$(printf 'x264\nx265\nvpx-vp9' | rofi -dmenu -p 'Video Codec ')"
-			quality="$(printf '18\n22\n26\n30' | rofi -dmenu -p 'Video Quality ')"
-			quality_args="-crf $quality"
-			audio_bitrate="$(printf '128k\n256k\n320k' | rofi -dmenu -p 'Audio Birate ')"
-
-			# if not vp9, choose a preset, audio codec, and container.
-			# otherwise default to opus & webm
-			if ! test "$vid_codec" = "vpx-vp9"; then
-				vid_preset="-preset $(printf 'ultrafast\nsuperfast\nveryfast\nfaster\nfast\nmedium\nslow\nslower\nveryslow\nplacebo' | rofi -dmenu -p 'Preset ')"
-				audio_codec="$(printf 'libopus\naac\ncopy' | rofi -dmenu -p 'Audio Codec ')"
-				container="$(printf 'webm\nmkv' | rofi -dmenu -p 'Container ')"
-			else
-				vid_preset=""
-				audio_codec="libopus"
-				container="webm"
-			fi
-
-
-			output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
-			;;
+		output="$(basename "$input" | sed 's/\..*$//') [$vid_codec-$quality-$audio_codec-$audio_bitrate].$container"
+		;;
 	esac
 
 	# encode the file with ffmpeg
+	echo ffmpeg -i "$input" -c:v "lib$vid_codec" $quality_args $vid_preset -c:a "$audio_codec" -b:a "$audio_bitrate" "$output"
 	ffmpeg -i "$input" -c:v "lib$vid_codec" $quality_args $vid_preset -c:a "$audio_codec" -b:a "$audio_bitrate" "$output"
 
 	# get status of encode command
@@ -114,9 +112,9 @@ main () {
 			"$output has finished encoding.")"
 
 		# if the user clicks the notification (runs the action)
-		# open the output file in thunar
+		# open the output file in nemo
 		if test "$should_view" = "yes"; then
-			thunar "$output"
+			nemo "$output"
 		fi
 	else
 		# send a failure notification if it doesn't work
@@ -130,4 +128,3 @@ main () {
 }
 
 main "$@"
-

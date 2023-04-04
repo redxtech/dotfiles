@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+#
+# script name: rofi-twitch
+# description: choose from twitch streams and open it in mpv
+# usage: rofi-twitch
+# dependencies: rofi, hyprland/bspwm, mpv, streamlink, chatterino2
+
+# get answer from user via rofi
+selected_option=$(printf "btssmash
+FatalityFalcon
+moistcr1tikal
+FirewallFox100
+shroud
+n0ted
+VALORANT" | rofi -dmenu -i -p "Twitch Channel ")
+
+~/.local/bin/twitcher "$selected_option"

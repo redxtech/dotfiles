@@ -1,0 +1,33 @@
+@import "config"
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    width: 11%;
+}
+
+inputbar {
+    background-color: @bg1;
+    padding: 0;
+}
+
+button {
+    str: "Are you sure?";
+    text-color: @fg0;
+    background-color: @bg1;
+}
+
+entry {
+    enabled: false;
+}
+
+listview {
+    columns: 1;
+    lines: 2;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 14";
+}

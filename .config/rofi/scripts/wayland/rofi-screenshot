@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# script name: rofi-screenshot
+# description: choose from some screenshot options
+# usage: rofi-screenshot
+# dependencies: rofi, grim, slurp, hyprland, wl-clipboard, jq, notify-send
+
+# exit on first error
+set -e
+
+# set some commands
+GRIM_CMD="grimblast --notify"
+SWAPPY_CMD="SWAPPY -f -"
+
+# list of screenshot options
+declare -A SCREENSHOTS
+SCREENSHOTS=(
+	["selection"]="$GRIM_CMD copy area"
+	["selection (save)"]="$GRIM_CMD save area"
+	["selection (edit)"]="$GRIM_CMD save area - | $SWAPPY_CMD"
+	# ["selection (upload)"]="$GRIM_CMD save area - | wl-copy"
+	["current monitor"]="$GRIM_CMD copy output"
+	["current monitor (save)"]="$GRIM_CMD save output"
+	["current monitor (edit)"]="$GRIM_CMD save output - | $SWAPPY_CMD"
+	# ["current monitor (upload)"]="$GRIM_CMD"
+)
+
+# list of options
+gen_opts() {
+	for o in "${!SCREENSHOTS[@]}"; do
+		echo "$o => ${SCREENSHOTS["$o"]}"
+	done
+}
+
+main() {
+	# get the choice of which screenshot option
+	choice="$( (gen_opts) | rofi -dmenu -no-custom -theme-str 'listview {columns: 1;}' -p "Screenshot " | awk -F ' => ' '{ print $1 }')"
+
+	# lookup the respective command
+	command=${SCREENSHOTS["$choice"]}
+
+	# run the screenshot command
+	$command
+}
+
+main

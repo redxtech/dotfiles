@@ -1,10 +1,16 @@
 configuration {
-	modes: [drun,run,window,ssh];
-	location: 2;
-  scroll-method:			0;
-	normalize-match: true;
-	markup: true;
-	terminal: "kitty";
+    modi: "drun,run";
+    font: "DankMono Nerd Font 14";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    matching: "fuzzy";
+    disable-history: false;
+    hide-scrollbar: true;
+    steal-focus: true;
+    window-format: "{c} - {t}";
 }
 
 @theme "dracula"

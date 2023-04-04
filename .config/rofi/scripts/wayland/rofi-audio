@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+#
+# script name: rofi-audio-wp
+# description: choose from available audio sinks and switch to whichever is chosen
+# usage: rofi-audio
+# dependencies: pactl (libpulse), rofi, awk, grep, sed
+
+# exit on first error
+set -e
+
+# list devices
+list_devices() {
+	printf "SteelSeries Arctis 7 - 74\nSpeakers - 80\n"
+}
+
+main() {
+	# pipe list of sinks into rofi, and run the wpctl command to change the sink
+	selected="$(
+		list_devices |
+			rofi -theme dracula-orange -dmenu -i -p "Audio Output " |
+			awk -F ' - ' '{ print $2 }'
+	)"
+
+	wpctl set-default "$selected"
+}
+
+main

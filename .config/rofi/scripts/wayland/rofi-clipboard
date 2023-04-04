@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+#
+# script name: rofi-clipboard
+# description: choose from clipboard history
+# usage: rofi-clipboard
+# dependencies: rofi, cliphist, wl-clipboard
+
+main() {
+	cliphist list |
+		rofi -dmenu -no-custom -theme dracula-cyan -theme-str 'listview {columns: 1;}' |
+		cliphist decode |
+		wl-copy
+}
+
+main

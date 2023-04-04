@@ -1,0 +1,42 @@
+@import "config"
+
+configuration {
+    show-icons: true;
+}
+
+window {
+    width: 20%;
+}
+
+inputbar {
+    background-color: @bg1;
+    padding: 0;
+}
+
+button {
+    str: "Choose Wallpaper:";
+    text-color: @fg1;
+    background-color: @bg1;
+}
+
+entry {
+    enabled: false;
+}
+
+listview {
+    columns: 1;
+}
+
+element {
+    padding: 10px 10px 10px 13px;
+}
+
+element-text {
+}
+
+element-icon {
+    size: 100;
+    margin: 0 10 0 0;
+    border-radius: 7px;
+    padding: -24px 0px;
+}

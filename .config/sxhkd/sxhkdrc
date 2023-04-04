@@ -20,7 +20,7 @@ super + {r,d,ctrl + d,shift + d,space}
 
 # open power-menu 
 super + shift + e
-	~/.config/rofi/scripts/rofi-powermenu
+	~/.config/rofi/scripts/x11/rofi-powermenu
 
 # reload sxhkd configuration
 super + Escape
@@ -178,7 +178,7 @@ XF86MonBrightness{Up,Down}
 
 # screenshot selection
 super + Print
-	~/.config/rofi/scripts/rofi-screenshot
+	~/.config/rofi/scripts/x11/rofi-screenshot
 
 #################
 # Shortcut Keys #
@@ -231,7 +231,7 @@ hyper + {_,shift + }y
 
 # copy & paste from clipboard history
 hyper + c
-	~/.config/rofi/scripts/rofi-clipboard
+	~/.config/rofi/scripts/x11/rofi-clipboard
 
 # make a {web,searx} search
 hyper + {_,shift + }b
@@ -243,11 +243,11 @@ hyper + e
 
 # pull up display configuration selection
 hyper + shift + d
-	~/.config/rofi/scripts/rofi-displays
+	~/.config/rofi/scripts/x11/rofi-displays
 
 # show icon picker
 hyper + i
-	~/.config/rofi/scripts/rofi-nerd-icons
+	~/.config/rofi/scripts/x11/rofi-nerd-icons
 
 # show webcam
 hyper + shift + i

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # script name: rofi-web
-# description: choose from a list of search engines and search it
+# description: choose from a list of search engines and search with it
 # usage: rofi-web [default]
 # dependencies: rofi, xdg-open
 # source: https://github.com/miroslavvidovic/rofi-scripts/blob/master/web-search.sh
@@ -36,31 +36,29 @@ ENGINES=(
 # make list for rofi
 gen_list() {
 	# choose from snaller selection of search engines (in proper order...)
-		echo "searx"
-		echo "duckduckgo"
-		echo "google"
-		echo "youtube"
-		echo "github"
-		echo "stackoverflow"
+	echo "searx"
+	echo "duckduckgo"
+	echo "google"
+	echo "youtube"
+	echo "github"
+	echo "stackoverflow"
 
-		# for i in "${!ENGINES[@]}"
-    # do
-    #   echo "$i"
-    # done
+	# for i in "${!ENGINES[@]}"
+	# do
+	#   echo "$i"
+	# done
 }
 
-gen_list
-
-main () {
+main() {
 	# pass the list to rofi
 	if test "$1" = "default"; then
 		platform="searx"
 	else
-		platform=$( (gen_list) | rofi -dmenu -matching fuzzy -no-custom -p "Search Engine " )
+		platform=$( (gen_list) | rofi -dmenu -matching fuzzy -p "Search Engine ")
 	fi
 
 	if [[ -n "$platform" ]]; then
-		query=$( (echo ) | rofi  -dmenu -no-sort -matching fuzzy -p "Query " )
+		query=$( (echo) | rofi -dmenu -no-sort -matching fuzzy -l 0 -p "Query ")
 
 		if [[ -n "$query" ]]; then
 			url=${ENGINES[$platform]}$query
@@ -75,4 +73,3 @@ main () {
 }
 
 main "$@"
-

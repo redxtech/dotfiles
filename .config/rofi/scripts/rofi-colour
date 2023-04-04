@@ -8,32 +8,35 @@
 # list of colours
 declare -A COLOURS
 COLOURS=(
-  ["blue"]="#6272a4"
+	["blue"]="#6272a4"
 	["cyan"]="#8be9fd"
 	["green"]="#50fa7b"
 	["orange"]="#ffb86c"
 	["pink"]="#ff79c6"
-  ["purple"]="#bd93f9"
+	["purple"]="#bd93f9"
 	["red"]="#ff5555"
 	["yellow"]="#f1fa8c"
 	["black"]="#000000"
 	["white"]="#ffffff"
 	["bg"]="#282a36"
-  ["fg"]="#f8f8f2"
+	["fg"]="#f8f8f2"
 )
 
 # output a list of the colours next to their hex values
-get_colours () {
+get_colours() {
 	for c in "${!COLOURS[@]}"; do
 		printf "$c => %s\n" "${COLOURS[$c]}"
 	done
 }
 
-main () {
+main() {
 	selection="$(get_colours | rofi -theme pink-dracula -dmenu -p "Colour " | awk '{ print $1 }')"
 
-	echo "${COLOURS["$selection"]}" | tr -d '\n' | xclip -selection clip
+	if test "$XDG_SESSION_TYPE" = "wayland"; then
+		echo "${COLOURS["$selection"]}" | tr -d '\n' | wl-copy
+	else
+		echo "${COLOURS["$selection"]}" | tr -d '\n' | xclip -selection clip
+	fi
 }
 
 main
-

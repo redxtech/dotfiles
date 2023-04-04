@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
-# 
+#
 # script name: rofi-archive
 # description: archives files or unpacks archives
 # usage: rofi-archive <pack|unpack> <files|archive>
-# dependencies: rofi, atool, dunst, thunar (optional), at least one zip program
+# dependencies: rofi, atool, dunst, nemo (optional), at least one zip program
 # todo: filter formats based on installed compressors
 
 # exit on first error
 set -e
 
 # create an archive with the files passed as arguments
-create_archive () {
+create_archive() {
 	# if only one file is passed, that will be used as the filename
 	if test -z "$2"; then
 		name="$1"
@@ -46,9 +46,9 @@ create_archive () {
 			"$output has been successfully archived.")"
 
 		# if the user clicks the notification (runs the action)
-		# open the output file in thunar
+		# open the output file in nemo
 		if test "$should_view" = "yes"; then
-			thunar "$output"
+			nemo "$output"
 		fi
 	else
 		# send a failure notification if it doesn't work
@@ -62,7 +62,7 @@ create_archive () {
 }
 
 # unpack an archive
-unpack_archive () {
+unpack_archive() {
 	# unpack the archive
 	aunpack "$@"
 
@@ -83,9 +83,9 @@ unpack_archive () {
 			"The selected files have been successfully unpacked.")"
 
 		# if the user clicks the notification (runs the action)
-		# open the first selected file in thunar
+		# open the first selected file in nemo
 		if test "$should_view" = "yes"; then
-			thunar "$1"
+			nemo "$1"
 		fi
 	else
 		# send a failure notification if it doesn't work
@@ -98,7 +98,7 @@ unpack_archive () {
 	fi
 }
 
-main () {
+main() {
 	# make sure you've specified the args
 	if test -z "$1"; then
 		echo "you need to specify an action"
@@ -110,30 +110,29 @@ main () {
 
 	# choose the proper action to take
 	case $1 in
-		pack) # create an archive file
-			echo "creating archive..."
+	pack) # create an archive file
+		echo "creating archive..."
 
-			# shift $1 out of $@
-			shift 1
+		# shift $1 out of $@
+		shift 1
 
-			# create the archive
-			create_archive "$@"
-			;;
-		unpack) # unpack an archive file
-			echo "unpacking archive"
+		# create the archive
+		create_archive "$@"
+		;;
+	unpack) # unpack an archive file
+		echo "unpacking archive"
 
-			# shift $1 out of $@
-			shift 1
+		# shift $1 out of $@
+		shift 1
 
-			# unpack the archive
-			unpack_archive "$@"
-			;;
-		*)
-			echo "unknown option"
-			return 1
-			;;
+		# unpack the archive
+		unpack_archive "$@"
+		;;
+	*)
+		echo "unknown option"
+		return 1
+		;;
 	esac
 }
 
 main "$@"
-

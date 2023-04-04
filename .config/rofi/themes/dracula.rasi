@@ -1,105 +1,149 @@
-/*
- * ROFI color theme
- *
- * Based on Something Found in the Internet
- *
- * User: Contributors
- * Copyright: *!
- */
+* {
+  bg0:              #282a36;
+  bg1:              #bd93f9;
+  bg2:              #44475a;
+  bg3:              #6272a4;
+  /* bg3:              #45403d; */
+  /* bg4:              #504945; */
 
-configuration {
-  font: "DankMono Nerd Font Medium 14";
-  show-icons:				true;
-  icon-theme:				"Papirus";
-
-  drun {
-    display-name: "";
-  }
-
-  run {
-    display-name: "";
-  }
-
-	ssh {
-		display-name: "";
-	}
-
-	emoji {
-		display-name: "";
-	}
-
-  window {
-    display-name: "";
-  }
+  fg0:              #f8f8f2;
+  fg1:              #282a36;
+  red:              #ff5555;
+  orange:           #ffb86c;
+  yellow:           #f1fa8c;
+  green:            #50fa7b;
+  cyan:             #8be9fd;
+  blue:             #6272a4;
+  purple:           #bd93f9;
 }
 
-* {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  spacing: 0;
-
-  bg: #282a36;
-  fg: #f8f8f2;
-  blue: #6272a4;
-	cyan: #8be9fd;
-	green: #50fa7b;
-	orange: #ffb86c;
-	pink: #ff79c6;
-  purple: #bd93f9;
-	red: #ff5555;
-	yellow: #f1fa8c;
-
-	black: #000000;
-	white: #ffffff;
-
-  background-color: @bg;
-  text-color: @fg;
+configuration {
+    modi: "drun,run";
+    font: "DankMono Nerd Font 14";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    matching: "fuzzy";
+    disable-history: false;
+    hide-scrollbar: true;
+    steal-focus: true;
+    window-format: "{c} - {t}";
 }
 
 window {
-  transparency: "real";
-}
-
-mainbox {
-  children: [inputbar, listview];
-	border: 2;
-	border-color: @purple;
-}
-
-inputbar {
-  background-color: @purple;
-  children: [prompt, entry];
-}
-
-entry {
-  background-color: inherit;
-  padding: 12px 3px;
+    transparency: "real";
+    background-color: transparent;
+    text-color: @fg0;
+    /* height: 30%; */
+    width: 35%;
+    orientation: vertical;
 }
 
 prompt {
-  background-color: inherit;
-  padding: 12px;
+    enabled: false;
+    background-color: @bg0;
+}
+
+button {
+    action: "ok";
+    str: " ";
+    expand: false;
+    text-color: @bg3;
+    background-color: transparent;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg0;
+    expand: true;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    placeholder-markup: true;
+    placeholder: "<i>Search...</i>";
+    placeholder-color: @bg3;
+}
+
+entry-wrapper {
+    orientation: horizontal;
+    margin: 0px 0px 0px 10px;
+    spacing: 16px;
+    vertical-align: 0.5;
+    background-color: transparent;
+    children: [ button, entry ];
+}
+
+inputbar {
+    padding: 14px;
+    margin: 10px 10px 0px 10px;
+    background-color: @bg0;
+    //border-color: @blue;
+    //border: 2px;
+    expand: false;
+    border-radius: 5px;
+    position: north;
+    children: [ entry-wrapper ];
 }
 
 listview {
-  lines: 8;
+    background-color: @bg0;
+    border-radius: 5px;
+    cycle: true;
+    dynamic: true;
+    columns: 2;
+    lines: 5;
+    spacing: 0;
+    margin: 10px 10px 10px 10px;
+}
+
+mainbox {
+    width: 200px;
+    expand: true;
+    spacing: 12px;
+    border-radius: 10px;
+    border-color: none;
+    border: 2px;
+    padding: 14px;
+    background-color: @bg1;
+    children: [ inputbar, listview ];
+    hightlight: italic;
 }
 
 element {
-  children: [element-icon, element-text];
-  text-color: @blue;
-}
-
-element-icon {
-  padding: 10px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    orientation: horizontal;
+    padding: 10px 0px 10px 12px;
 }
 
 element-text {
-  padding: 10px 0;
-  text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
 }
 
-element-text selected {
-  text-color: @purple;
+element-icon {
+    size: 1.8em;
+    background-color: transparent;
+    text-color: transparent;
+    vertical-align: 0.5;
 }
+
+element normal, element alternate {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element selected {
+    background-color: @bg2;
+    text-color: @green;
+    border: 0 0 0 3px;
+    border-color: @green;
+    border-radius: 2px 5px 5px 2px;
+}
+

@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
 # option to toggle the output between two available sinks
-toggle () {
+toggle() {
 	# specify two options to toggle through
-	option_main="Arctis" # headset
+	option_main="Arctis"              # headset
 	option_secondary="pci-0000_2e_00" # optical out
 
 	# get currently enabled output
 	current="$(pactl get-default-sink)"
-	
+
 	# check if main output is selected, if so, select secondary
 	# otherwise, select main
 	if echo "$current" | grep -q "$option_main"; then
@@ -25,23 +25,22 @@ toggle () {
 }
 
 # option to choose which sink will be selected
-choose () {
-  # use rofi script to choose which sink is selected
-	~/.config/rofi/scripts/rofi-audio
+choose() {
+	# use rofi script to choose which sink is selected
+	~/.config/rofi/scripts/xorg/rofi-audio
 }
 
 # main function to choose between toggle or choose functionality
-main () {
-  if test -z "$1"; then
-    toggle
-  elif test "$1" = "speakers"; then
-  	pactl set-default-sink "alsa_output.pci-0000_2e_00.4.iec958-stereo"
-  elif test "$1" = "headset"; then
-  	pactl set-default-sink "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game"
+main() {
+	if test -z "$1"; then
+		toggle
+	elif test "$1" = "speakers"; then
+		pactl set-default-sink "alsa_output.pci-0000_2e_00.4.iec958-stereo"
+	elif test "$1" = "headset"; then
+		pactl set-default-sink "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game"
 	elif test "$1" = "choose"; then
-    choose
-  fi
+		choose
+	fi
 }
 
 main "$1"
-
