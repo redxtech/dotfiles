@@ -1,0 +1,8 @@
+#!/bin/bash
+
+FIREFOX_PROFILE="eu5vbgdn.dev-edition-default"
+
+# Go to twitch.tv and enter:
+cp ~/.mozilla/firefox/$FIREFOX_PROFILE/cookies.sqlite /tmp/cookies.sqlite
+sqlite3 /tmp/cookies.sqlite "SELECT value from moz_cookies where host='.twitch.tv' and name='auth-token';"
+rm /tmp/cookies.sqlite

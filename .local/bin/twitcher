@@ -1,0 +1,45 @@
+#!/bin/bash
+
+ACCESS_TOKEN="$(~/.local/bin/get-twitch-token)"
+STREAMER="$1"
+DESKTOP="4"
+WAIT_FOR_MPV="2"
+SPLIT_RATIO="0.7"
+
+if ! test -z "$2"; then
+	DESKTOP="$2"
+fi
+
+if test "$XDG_SESSION_TYPE" = "wayland"; then
+	# hyprland
+	hyprctl dispatch workspace "$DESKTOP" >/dev/null
+	hyprctl keyword dwindle:force_split 1 >/dev/null
+
+	echo "opening $STREAMER in desktop $DESKTOP" >>~/.twitcher.log
+
+	hyprctl dispatch closewindow "title:^(.*)(mpv-twitch)(.*)$" >/dev/null
+	hyprctl dispatch exec "[workspace $DESKTOP] streamlink --title mpv-twitch --twitch-disable-hosting --twitch-low-latency --twitch-api-header \"Authorization=OAuth $ACCESS_TOKEN\" https://www.twitch.tv/$STREAMER best --player \"mpv --profile=low-latency --demuxer-max-bytes=100000000 --af=compand=.3|.3:1|1:-90/-60|-60/-40|-40/-30|-20/-20:6:0:-90:0.2\" & "
+	# hyprctl dispatch exec "[workspace $DESKTOP] streamlink --title mpv-twitch --twitch-disable-hosting --twitch-low-latency --twitch-api-header \"Authorization=OAuth $ACCESS_TOKEN\" https://www.twitch.tv/$STREAMER best --player \"mpv --profile=low-latency --demuxer-max-bytes=100000000 & "
+
+	killall chatterino 2>/dev/null || true >/dev/null
+	hyprctl dispatch exec "[workspace $DESKTOP] I3SOCK=1 chatterino -c $STREAMER &" >/dev/null
+
+	# wait until mpv starts before changing split ratio
+	sleep "$WAIT_FOR_MPV"
+	hyprctl dispatch splitratio "$SPLIT_RATIO" >/dev/null
+	hyprctl keyword dwindle:force_split 2 >/dev/null
+else
+	# bspwm
+	DESKTOP="^$DESKTOP"
+	bspc desktop -f "$DESKTOP"
+	bspc rule -a mpv -o desktop="$DESKTOP" split_ratio="$SPLIT_RATIO" state=tiled split_dir=west
+	wmctrl -c mpv-twitch
+	streamlink --title mpv-twitch --twitch-disable-hosting --twitch-low-latency --twitch-api-heade "Authorization=OAuth $ACCESS_TOKEN" https://www.twitch.tv/"$STREAMER" best --player "mpv --profile=low-latency --demuxer-max-bytes=100000000 --af=compand=.3|.3:1|1:-90/-60|-60/-40|-40/-30|-20/-20:6:0:-90:0.2" &
+
+	killall chatterino || true
+	bspc rule -a chatterino -o desktop="$DESKTOP" split_ratio=0.17 state=tiled split_dir=east
+	chatterino -c "$STREAMER" &
+	# I'm sorry if u have other mpv rules
+	sleep 60
+	bspc rule -r mpv
+fi
