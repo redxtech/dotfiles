@@ -1,0 +1,211 @@
+{
+  "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  "spacing": 7,
+  "modules-left": [
+    "wlr/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    /* "custom/media" */
+    "mpris"
+  ],
+  "modules-right": [
+    "custom/pacman",
+    /* "custom/kde_connect", */
+    "custom/weather",
+    "wireplumber",
+    "memory",
+    "cpu",
+    "temperature",
+    "network",
+    "clock",
+    "idle_inhibitor",
+    "custom/powermenu",
+    "tray"
+  ],
+  // Modules configuration
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace m-1",
+    "on-scroll-down": "hyprctl dispatch workspace m+1",
+    "sort-by-number": true,
+    "format-icons": {
+      // "3": "",
+      "1": "",
+      "2": "",
+      "3": "ﭮ",
+      "4": "",
+      "7": "",
+      "8": "",
+      "9": "﮸",
+      "urgent": "",
+      "default": "ﱣ"
+    }
+    // "persistent_workspaces": {
+    //   "1": ["DP-1"],
+    //   "2": ["DP-1"],
+    //   "3": ["DP-1"],
+    //   "4": ["DP-1"],
+    //   "5": ["DP-1"],
+    //   "6": ["DP-1"],
+    //   "7": ["DP-2"],
+    //   "8": ["DP-2"],
+    //   "9": ["DP-2"],
+    //   "10": ["DP-2"]
+    // }
+  },
+  "hyprland/window": {
+    "format": "<span color='#50fa7b'></span> {}",
+    "separate-outputs": true
+  },
+  "mpris": {
+    "format": "{status_icon} {dynamic} {player_icon}",
+    /* "format": "{status_icon} {artist} - {title} {player_icon}", */
+    "on-click-middle": "~/.local/bin/copy-spotify-share",
+    "player-icons": {
+      "default": "契",
+      "spotify": "",
+      "chromium": "",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": "契"
+    }
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}",
+    "format-muted": "婢 {volume}",
+    "format-icons": ["", "", ""],
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-click-middle": "helvum"
+  },
+  "memory": {
+    /* "format": "<span bgcolor='#ff79c6'>﬙</span> {used:0.1f} GiB", */
+    "format": "﬙ {used:0.1f} GiB",
+    "interval": 3,
+    "on-click": "hyprctl dispatch exec '[floating] kitty -e btop'"
+  },
+  "cpu": {
+    /* "format": "<span bgcolor='#bd93f9'></span> {usage}%", */
+    "format": " {usage}%",
+    "interval": 3,
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exec '[floating] kitty -e btop'"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    /* "format": "<span bgcolor='#8be9fd'>{icon}</span> {temperatureC}°C", */
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": " {ifname}: {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
+    "interval": 5
+    /* "on-click-right": "" */
+  },
+  "clock": {
+    "format-alt": " {:%H:%M}",
+    "format-alt": " {:%A, %B %d, %Y - %R}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "﯈"
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  /* "custom/media": { */
+  /*   "format": "{icon} {}", */
+  /*   "return-type": "json", */
+  /*   "format-icons": { */
+  /*     "Playing": "", */
+  /*     "Paused": "" */
+  /*   }, */
+  /*   "max-length":70, */
+  /*   "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F", */
+  /*   "on-click": "playerctl play-pause", */
+  /*   "on-click-middle": "~/.local/bin/copy-spotify-share" */
+  /* }, */
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.py",
+    "format": "{icon} {}",
+    "format-icons": {
+      "playing": "",
+      "paused": "契"
+    },
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "~/.local/bin/copy-spotify-share"
+  },
+  "custom/pacman": {
+    "exec": "~/.config/waybar/scripts/pacman_updates.sh",
+    "exec-if": "~/.config/waybar/scripts/pacman_updates.sh >/dev/null",
+    "format": " {}",
+    "interval": 60,
+    "on-click": "hyprctl dispatch exec \"[floating] kitty -e zsh -c 'sudo pacman -Syu && pacaur -Sua; echo Done - Press any key to exit; read -r -n 1'\" &"
+  },
+  "custom/weather": {
+    "exec": "~/.config/polybar/scripts/weather/weather.sh",
+    "format": "滛 {}",
+    "interval": 60
+  },
+  "custom/kde_connect": {
+    "exec": "~/.config/waybar/scripts/kde_connect.sh -d",
+    "format": " {}",
+    "on-click-right": "kdeconnect-app &"
+  },
+  "custom/do_not_disturb": {
+    "format": "{icon}",
+    /* "on-click": "~/.config/rofi/scripts/rofi-powermenu-wl", */
+    "format-icons": {
+      "enabled": "",
+      "disabled": ""
+    }
+  },
+  "custom/powermenu": {
+    "format": "⏻",
+    "on-click": "~/.config/rofi/scripts/rofi-powermenu-wl &"
+  }
+}

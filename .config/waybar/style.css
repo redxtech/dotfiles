@@ -1,0 +1,167 @@
+@import './dracula.css';
+
+* {
+  font-family: 'DankMono Nerd Font Mono';
+  font-size: 18px;
+  font-weight: 700;
+}
+
+window#waybar {
+  background-color: alpha(@bg, 0.8);
+  border-bottom: 3px solid alpha(@bg-alt, 0.8);
+  color: @fg-light;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces {
+  font-size: 20px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: @purple;
+}
+
+#workspaces button:hover {
+  background-color: shade(alpha(@bg, 0.2), 0.1);
+}
+
+#workspaces button.active {
+  background-color: alpha(@bg-alt, 0.8);
+  box-shadow: inset 0 -3px @fg-light;
+  color: @green;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+.modules-center > widget > label,
+.modules-center > widget > box,
+.modules-right > widget > label,
+.modules-right > widget > box {
+  background-color: alpha(@bg-alt, 0.8);
+  padding: 0 10px;
+  border-bottom-width: 3px;
+  border-style: solid;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces {
+  font-size: 34px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#mpris,
+#custom-media {
+  border-color: @green;
+}
+
+label:focus {
+  background-color: black;
+}
+
+#cpu {
+  border-color: @purple;
+}
+
+#memory {
+  border-color: @pink;
+}
+
+#network {
+  border-color: @green;
+}
+
+#network.disconnected {
+  border-color: @red;
+}
+
+#pulseaudio,
+#wireplumber {
+  border-color: @orange;
+}
+
+#pulseaudio.muted,
+#wireplumber.muted {
+  border-color: @red;
+}
+
+#temperature {
+  border-color: @cyan;
+}
+
+#temperature.critical {
+  background-color: @red;
+}
+
+#clock {
+  border-color: @yellow;
+}
+
+#idle_inhibitor {
+  border-color: @orange;
+}
+
+#tray {
+  border-color: @blue;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+#custom-pacman {
+  border-color: @purple;
+}
+
+#custom-kde_connect {
+  background-color: @cyan;
+}
+
+#custom-weather {
+  border-color: @yellow;
+}
+
+#custom-powermenu {
+  border-color: @red;
+}
+

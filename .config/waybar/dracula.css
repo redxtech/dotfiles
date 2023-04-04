@@ -1,0 +1,23 @@
+/*
+* Dracula colours
+*/
+
+@define-color bg        #282a36;
+@define-color bg-alt    #44475a;
+@define-color fg        #2d3436;
+@define-color fg-light  #f8f8f2;
+
+@define-color pink      #ff79c6;
+@define-color purple    #bd93f9;
+@define-color blue      #6272a4;
+@define-color cyan      #8be9fd;
+@define-color green     #50fa7b;
+@define-color yellow    #f1fa8c;
+@define-color orange    #ffb86c;
+@define-color red       #ff5555;
+
+@define-color black     #000;
+@define-color white     #FFF;
+
+/* @define-color other-red #eb4d4b; */
+
