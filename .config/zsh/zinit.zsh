@@ -40,6 +40,7 @@ zinit wait lucid for \
 	OMZP::docker \
 	OMZP::docker-compose \
   OMZP::github \
+  OMZP::kubectl \
   OMZP::man \
   OMZP::transfer \
   wait"2" atload="__kitty_complete" \
