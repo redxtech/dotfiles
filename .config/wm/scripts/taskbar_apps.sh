@@ -36,10 +36,10 @@ srun() {
 # run blueman-applet
 
 # app background daemons
-run thunar --daemon
+# run thunar --daemon
 
 # user apps
-drun bitwarden
+# drun bitwarden
 drun discord
 drun spotify
 # drun megasync
