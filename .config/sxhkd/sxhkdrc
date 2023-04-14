@@ -186,7 +186,7 @@ super + Print
 
 # launch browser
 super + w 
-  vivaldi-stable --force-dark-mode
+  vivaldi-snapshot --force-dark-mode
 
 # secondary apps
 # launch {discord,spotify,authy,thunar,plex,pulseaudio}
