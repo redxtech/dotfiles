@@ -12,10 +12,10 @@ API_KEY = os.environ.get("OPENWEATHER_API_KEY", OPENWEATHER_API_KEY)
 
 def get_city() -> str:
     try:
-        r = requests.get("https://ipapi.co/json", headers={"User-agent": "Mozilla/5.0"})
-        return r.json()["city"]
+        r = requests.get("http://ip-api.com/json", headers={"User-agent": "Mozilla/5.0"})
+        return r.json()["city"] + ', ' + r.json()["countryCode"]
     except Exception:
-        return "london"
+        return "Victoria, CA"
 
 
 def unit_suffix(unit: str) -> str:

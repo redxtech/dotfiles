@@ -65,6 +65,7 @@
   "mpris": {
     "format": "{status_icon} {dynamic} {player_icon}",
     /* "format": "{status_icon} {artist} - {title} {player_icon}", */
+    "album-len": 0,
     "on-click-middle": "~/.local/bin/copy-spotify-share",
     "player-icons": {
       "default": "契",
@@ -75,7 +76,8 @@
     "status-icons": {
       "playing": "",
       "paused": "契"
-    }
+    },
+    "interval": 1
   },
   "wireplumber": {
     "format": "{icon} {volume}",
@@ -117,12 +119,13 @@
     "format-linked": " {ifname} (No IP)",
     "format-disconnected": "⚠ Disconnected",
     "format-alt": " {ifname}: {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
-    "interval": 5
+    "interval": 5,
+    "on-click-middle": "nm-connection-editor"
     /* "on-click-right": "" */
   },
   "clock": {
     "format-alt": " {:%H:%M}",
-    "format-alt": " {:%A, %B %d, %Y - %R}",
+    "format-alt": " {:%A, %B %d, %Y - %R:%S}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode"          : "month",
@@ -136,7 +139,8 @@
         "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
         "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+      },
+      "interval": 1
     },
     "actions":  {
       "on-click-right": "mode",
@@ -183,11 +187,11 @@
     "exec": "~/.config/waybar/scripts/pacman_updates.sh",
     "exec-if": "~/.config/waybar/scripts/pacman_updates.sh >/dev/null",
     "format": " {}",
-    "interval": 60,
+    "interval": 300,
     "on-click": "hyprctl dispatch exec \"[floating] kitty -e zsh -c 'sudo pacman -Syu && pacaur -Sua; echo Done - Press any key to exit; read -r -n 1'\" &"
   },
   "custom/weather": {
-    "exec": "~/.config/polybar/scripts/weather/weather.sh",
+    "exec": "~/.config/waybar/scripts/weather/weather.sh",
     "format": "滛 {}",
     "interval": 60
   },
