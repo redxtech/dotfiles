@@ -102,6 +102,8 @@ zinit wait lucid from'gh-r' as"command" for \
 zinit as"command" wait lucid for \
   sbin \
     dylanaraps/neofetch \
+  sbin"bin/switchup" \
+    redxtech/switchup \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
   patch"yadm.patch" \
     TheLocehiliosan/yadm.git
