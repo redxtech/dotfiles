@@ -1,5 +1,4 @@
 return {
-	{ 'andrewradev/tagalong.vim', event = 'VeryLazy' },
 	{ 'amadeus/vim-convert-color-to', event = 'VeryLazy' },
 	{ 'ellisonleao/glow.nvim', opts = {}, cmd = 'Glow' },
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
@@ -9,6 +8,7 @@ return {
 	{ 'theRealCarneiro/hyprland-vim-syntax', event = 'VeryLazy' },
 	{ 'nacro90/numb.nvim', opts = {}, event = 'VeryLazy' },
 	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
+	{ 'windwp/nvim-ts-autotag', opts = {}, event = 'VeryLazy' },
 	{
 		'rmagatti/goto-preview',
 		event = 'VeryLazy',
@@ -29,6 +29,7 @@ return {
 			},
 		},
 	},
+	-- { 'andrewradev/tagalong.vim', event = 'VeryLazy' },
 	-- { 'edluffy/hologram.nvim', opts = { auto_display = true }, event = 'VeryLazy' },
 	-- { 'itspriddle/vim-shellcheck', event = 'VeryLazy', },
 	-- { 'jparise/vim-graphql', event = 'VeryLazy', },
