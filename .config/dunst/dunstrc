@@ -45,7 +45,9 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 6x36
+    # removed 30px for waybar size when on wayland
+    # offset = 6x36 
+    offset = 6x6
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
