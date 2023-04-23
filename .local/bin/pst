@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Change the url accordingly
+URL="https://paste.super.fish"
+
+FILEPATH="$1"
+FILENAME=$(basename -- "$FILEPATH")
+EXTENSION="${FILENAME##*.}"
+
+RESPONSE=$(curl -s --data-binary @${FILEPATH:-/dev/stdin} --url $URL)
+PASTELINK="$URL/p$RESPONSE"
+
+copy_cmd="xclip -selection clipboard"
+
+if test "$XDG_SESSION_TYPE" = "wayland"; then
+	copy_cmd="wl-copy"
+fi
+
+[ -z "$EXTENSION" ] &&
+	(echo "$PASTELINK" | $copy_cmd) ||
+	(echo "$PASTELINK.$EXTENSION" | $copy_cmd)

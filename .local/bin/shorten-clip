@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+main() {
+	shortener="https://shawt.af"
+	shortenpath="/shorten"
+
+	copy_cmd="xclip -selection clipboard"
+	paste_cmd="xclip -o -selection clipboard"
+
+	if test "$XDG_SESSION_TYPE" = "wayland"; then
+		copy_cmd="wl-copy"
+		paste_cmd="wl-paste"
+	fi
+
+	clip="$($paste_cmd)"
+
+	response="$(
+		curl -s -X POST \
+			-H "Content-Type: application/json" \
+			--data "{\"to\":\"$clip\"}" \
+			"$shortener$shortenpath"
+	)"
+
+	result=$?
+
+	if test $result -eq 0; then
+		shortcode="$(
+			echo "$response" |
+				jq '.from' |
+				tr -d '"'
+		)"
+
+		printf "%s/%s" "$shortener" "$shortcode" | $copy_cmd
+	fi
+
+}
+
+main
