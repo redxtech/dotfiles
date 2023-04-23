@@ -2,6 +2,7 @@
 
 configuration {
     show-icons: false;
+    matching: "normal";
 }
 
 listview {

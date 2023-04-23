@@ -18,7 +18,7 @@ confirm() {
 	fi
 }
 
-answer="$(echo -e "$options" | rofi -dmenu -theme "$rofi_dir/scripts/wayland/powermenu.rasi")"
+answer="$(echo -e "$options" | rofi -dmenu -i -theme "$rofi_dir/scripts/wayland/powermenu.rasi")"
 
 case $answer in
 $lock)
