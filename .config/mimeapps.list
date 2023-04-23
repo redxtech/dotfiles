@@ -14,14 +14,15 @@ application/toml=nvim.desktop;sublime_text.desktop;
 application/x-shellscript=nvim.desktop;sublime_text.desktop;
 
 [Default Applications]
-x-scheme-handler/http=vivaldi-snapshot.desktop
-x-scheme-handler/https=vivaldi-snapshot.desktop
-text/html=vivaldi-snapshot.desktop
-application/pdf=vivaldi-snapshot.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+text/html=vivaldi-stable.desktop
+application/pdf=vivaldi-stable.desktop
 inode/directory=nemo.desktop
 image/jpeg=swayimg.desktop;
 image/png=swayimg.desktop;
 text/plain=nvim.desktop
 application/x-gnome-saved-search=nemo.desktop
-x-scheme-handler/about=vivaldi-snapshot.desktop
-x-scheme-handler/unknown=vivaldi-snapshot.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/webcal=vivaldi-stable.desktop
