@@ -113,6 +113,13 @@ fi
 # alias docker-compose="sudo docker-compose"
 # alias docker-nuke="docker rm (docker ps -q -a) && docker rmi (docker images -q -a)"
 
+# kubernetes aliases
+alias kak="kubectl apply -k"
+alias krr="kubectl rollout restart"
+alias krd="kubectl rollout restart deployment"
+alias kl="kubectl logs"
+alias kns="kubens"
+
 # lazygit for dotfiles
 alias ly="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"
 
