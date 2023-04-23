@@ -30,6 +30,7 @@ map('v', '<leader>fS', '<cmd>SudoWrite<cr>', { desc = 'Write file with sudo' })
 -- clipboard
 map('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 map('v', '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
+map('n', '<leader>P', '<cmd>!pst %<CR>', { desc = 'Upload buffer to paste bin' })
 
 map('n', '<leader>nn', '<cmd>Neoconf local<cr>', { desc = 'Open project local config' })
 map('n', '<leader>ng', '<cmd>Neoconf global<cr>', { desc = 'Open Neoconf global config' })
