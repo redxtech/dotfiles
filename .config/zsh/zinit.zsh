@@ -31,6 +31,8 @@ zinit light olets/zsh-abbr
 zinit wait lucid for \
   ael-code/zsh-colored-man-pages \
   Aloxaf/fzf-tab \
+  atload"ZSH_FNM_ENV_EXTRA_ARGS='--use-on-cd'" \
+    dominik-schwabe/zsh-fnm \
   hlissner/zsh-autopair \
   le0me55i/zsh-systemd \
   wait"1" \
