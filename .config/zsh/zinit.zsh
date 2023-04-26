@@ -81,6 +81,8 @@ fi
 # binaries from github releases
 # TODO add atclone command to move completions for all entries?
 zinit wait lucid from'gh-r' as"command" for \
+  atload'eval "$(mcfly init zsh)"' bpick"*x86_64-unknown-linux*" \
+    cantino/mcfly \
   mv'fd* fd' sbin'**/fd(.exe|) -> fd' \
     @sharkdp/fd \
   mv'bat* bat' sbin'**/bat(.exe|) -> bat' \
