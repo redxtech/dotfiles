@@ -1,3 +1,4 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-setxkbmap -option "caps:hyper,shift:both_capslock_cancel"
+# setxkbmap -option "caps:hyper,shift:both_capslock_cancel"
+xkbcomp -w 0 $HOME/.config/xkb/hyper-caps-mod3.xkb
