@@ -32,3 +32,8 @@ fi
 # kubectl
 export KUBECONFIG="$HOME/.config/kube/config"
 # [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# run fnm
+if command -v fnm>/dev/null; then
+    eval "$(fnm env --use-on-cd)"
+fi

@@ -84,9 +84,14 @@ fi
 
 # some command aliaseviations
 alias e='$EDITOR'
-alias v='$EDITOR'
 alias svim="sudo -e"
 alias ps_mem="sudo ps_mem"
+
+# fasd aliases
+alias v='f -e "$EDITOR"'
+alias o='a -e xdg-open'
+alias j='zz'
+alias cfg='f -d -e "$EDITOR"'
 
 # systemctl commands
 alias ss="sudo systemctl"
