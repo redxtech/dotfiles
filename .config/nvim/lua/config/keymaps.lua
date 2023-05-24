@@ -21,6 +21,12 @@ map('n', '<C-w>', 'daw', { desc = 'Delete word' })
 map('n', '<leader>h', '<cmd>noh<cr>', { desc = 'Remove highlight' })
 map('n', '<leader>qQ', '<cmd>qa!<cr>', { desc = 'Force quit all' })
 
+-- re-implement window navigation binds
+map('n', '<C-h>', '<C-w>h', { desc = 'Go to left window', remap = false })
+map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window', remap = false })
+map('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window', remap = false })
+map('n', '<C-l>', '<C-w>l', { desc = 'Go to right window', remap = false })
+
 -- save file
 map('n', '<leader>fs', '<cmd>w<cr>', { desc = 'Write file' })
 map('n', '<leader>fS', '<cmd>SudoWrite<cr>', { desc = 'Write file with sudo' })
