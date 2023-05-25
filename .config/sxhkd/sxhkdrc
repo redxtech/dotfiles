@@ -10,9 +10,13 @@ super + {_,shift +,ctrl + }Return
 hyper + Return
   kitty
 
+# floating terminal launch key
+hyper + shift + Return
+  bspc rule -a kitty -o state=floating; kitty
+
 # alternative app & command launcher
-{hyper,ctrl} + space
-  rofi -show {drun,run}
+hyper + space
+  rofi -show drun
 
 # open {run prompt,app launcher,window chooser,ssh hosts}
 super + {r,d,ctrl + d,shift + d,space}
@@ -20,6 +24,8 @@ super + {r,d,ctrl + d,shift + d,space}
 
 # open power-menu 
 super + shift + e
+	~/.config/rofi/scripts/x11/rofi-powermenu
+hyper + BackSpace
 	~/.config/rofi/scripts/x11/rofi-powermenu
 
 # reload sxhkd configuration
@@ -38,17 +44,21 @@ super + alt + {q,r}
 super + {_,shift+ }q
 	bspc node -{c,k}
 
+# close current window
+hyper + q
+	bspc node -c
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# super + y
+# 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+# super + g
+# 	bspc node -s biggest.window
 
 #
 # state/flags
@@ -58,9 +68,13 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# toggle the node flag {marked,locked,sticky,private,hidden}
-super + ctrl + {m,x,y,z,v}
-	bspc node -g {marked,locked,sticky,private,hidden}
+# toggle the node flag {locked,sticky,private,hidden}
+super + {x,y,z,v}
+	bspc node -g {locked,sticky,private,hidden}
+
+# toggle marked flag
+super + ctrl + m
+	bspc node -g marked
 
 # unhide a window
 super + ctrl + shift + v
@@ -145,7 +159,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # snap current window to an aspect ratio
-hyper + r
+hyper + shift + r
 	jgmenu --simple --at-pointer --csv-file=~/.config/bspwm/scripts/aspect-menu.csv
 
 ###################
@@ -186,7 +200,7 @@ super + Print
 
 # launch browser
 super + w 
-  vivaldi-snapshot --force-dark-mode
+  vivaldi-stable --force-dark-mode
 
 # secondary apps
 # launch {discord,spotify,authy,thunar,plex,pulseaudio}
@@ -207,7 +221,7 @@ hyper + alt + {w,d,s,a,f,p}
 
 # terminal exec {btop,ranger,neofetch}
 hyper + {m,r,n}
-  kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
+	bspc rule -a kitty -o state=floating; kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
 
 ######################
 # Various Miscellany #
@@ -215,7 +229,7 @@ hyper + {m,r,n}
 
 # upgrade packages
 hyper + u
-	kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
+	bspc rule -a kitty -o state=floating; kitty -e zsh -c "pacaur -Syu && echo Done - Press enter to exit; read"
 
 # {toggle,choose} audio output device
 hyper + {_,shift + }o
