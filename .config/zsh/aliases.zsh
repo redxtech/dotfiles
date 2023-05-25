@@ -87,6 +87,9 @@ alias e='$EDITOR'
 alias svim="sudo -e"
 alias ps_mem="sudo ps_mem"
 
+# npm run
+alias npr="npm run"
+
 # fasd aliases
 alias v='f -e "$EDITOR"'
 alias o='a -e xdg-open'
