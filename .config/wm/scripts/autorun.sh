@@ -24,6 +24,9 @@ srun() {
 # apply env variables
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# change key repeat rate
+xset r rate 240 40
+
 # bar
 srun ~/.config/polybar/launch.sh
 
@@ -33,7 +36,7 @@ run dunst
 # start polkit
 srun /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# restore allpaper
+# restore wallpaper
 srun ~/.fehbg
 
 # autostart desktop files
@@ -47,7 +50,7 @@ run nm-applet --indicator
 # run blueman-applet
 
 # user apps
-run discord
+run discord-ptb
 run gpaste-client start
 run flameshot
 run thunar --daemon
@@ -60,17 +63,21 @@ fi
 # host specific apps
 if test "$(hostname)" = "desktop"; then
 	run spotify
-	run megasync
+	# run megasync
 	# run hexchat
 	# run qbittorrent
 	# run virt-manager
+
+	# open resource monitor
+	bspc rule -a kitty -o state=floating desktop='^7'
+	kitty -e btop
 fi
 
 # cursor
 xsetroot -cursor_name left_ptr &
 
 # power manager
-run xfce4-power-manager
+# run xfce4-power-manager
 
 # autolock screen
 srun ~/.config/wm/scripts/autolock.sh
