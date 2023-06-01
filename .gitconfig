@@ -3,6 +3,8 @@
 	email = gabe@sent.at
 [include]
 	path = ~/.config/git/gitconfig.local
+[includeIf "gitdir:~/Work/Speechify/"]
+  path = ~/Work/Speechify/.gitconfig
 [commit]
 	gpgsign = true
 [tag]
@@ -16,7 +18,7 @@
 [core]
   autocrlf = input
   trustctime = false
-  editor = vim
+  editor = nvim
   filemode = false
 [color]
   ui = true
