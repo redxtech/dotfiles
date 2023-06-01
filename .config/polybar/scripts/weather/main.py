@@ -15,7 +15,8 @@ def get_city() -> str:
         r = requests.get("https://ipapi.co/json", headers={"User-agent": "Mozilla/5.0"})
         return r.json()["city"]
     except Exception:
-        return "london"
+        # really cold city in antarctica, should notice if it deefaults to this
+        return "McMurdo Station"
 
 
 def unit_suffix(unit: str) -> str:
