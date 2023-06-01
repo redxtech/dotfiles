@@ -4,7 +4,6 @@ return {
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
 	{ 'tpope/vim-endwise', event = 'VeryLazy' },
 	{ 'kovetskiy/sxhkd-vim', event = 'VeryLazy' },
-	{ 'waycrate/swhkd-vim', event = 'VeryLazy' },
 	{ 'theRealCarneiro/hyprland-vim-syntax', event = 'VeryLazy' },
 	{ 'nacro90/numb.nvim', opts = {}, event = 'VeryLazy' },
 	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
