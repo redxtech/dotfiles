@@ -1,10 +1,10 @@
 [Added Associations]
-image/jpeg=swayimg.desktop,feh.desktop;org.gnome.gThumb.desktop;
-image/png=feh.desktop;swayimg.desktop,feh.desktop;org.gnome.gThumb.desktop;
-image/gif=swayimg.desktop,feh.desktop;
-image/svg+xml=swayimg.desktop,feh.desktop;nvim.desktop;sublime_text.desktop;vivaldi-stable.desktop;
+image/jpeg=feh.desktop;org.gnome.gThumb.desktop;
+image/png=feh.desktop;org.gnome.gThumb.desktop;
+image/gif=feh.desktop;
+image/svg+xml=feh.desktop;nvim.desktop;sublime_text.desktop;vivaldi-stable.desktop;
 application/xml=nvim.desktop;sublime_text.desktop;
-text/plain=sublime_text.desktop;nvim.desktop;
+text/plain=nvim.desktop;sublime_text.desktop;
 text/html=vivaldi-stable.desktop;nvim.desktop;sublime_text.desktop;
 application/javascript=nvim.desktop;sublime_text.desktop;
 application/json=nvim.desktop;sublime_text.desktop;
@@ -12,6 +12,7 @@ application/x-raw-disk-image=7zFM.desktop;
 application/octet-stream=nvim.desktop;sublime_text.desktop;
 application/toml=nvim.desktop;sublime_text.desktop;
 application/x-shellscript=nvim.desktop;sublime_text.desktop;
+audio/ogg=vlc.desktop;
 
 [Default Applications]
 x-scheme-handler/http=vivaldi-stable.desktop
@@ -26,3 +27,4 @@ application/x-gnome-saved-search=thunar.desktop
 x-scheme-handler/about=vivaldi-stable.desktop
 x-scheme-handler/unknown=vivaldi-stable.desktop
 x-scheme-handler/webcal=vivaldi-stable.desktop
+x-scheme-handler/postman=Postman.desktop
