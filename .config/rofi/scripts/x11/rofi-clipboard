@@ -24,7 +24,7 @@ Kb_LaunchGUI='F1'
 _rofi() {
 	# Increase window width by adding:
 	#     -theme-str 'window {width: 60%;}'
-	rofi -theme cyan-dracula -format 'i:s' -dmenu -i -l 10 "$@"
+	rofi -theme dracula-cyan -theme-str 'listview {columns: 1;} window {width: 50%;}' -format 'i:s' -dmenu -i -l 10 "$@"
 }
 
 Script=${0##*/}
@@ -90,14 +90,14 @@ print_item() {
 		sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}'
 }
 
-select_item() { gpaste-client --use-index select "$1" ;}
-delete_item() { gpaste-client --use-index delete "$1" ;}
+select_item() { gpaste-client --use-index select "$1"; }
+delete_item() { gpaste-client --use-index delete "$1"; }
 
 edit_item() {
 	[ "$1" -eq -1 ] && exit 1
 
 	TmpFile=$(mktemp "/tmp/$Script.XXXX")
-	print_item "$1" > "$TmpFile"
+	print_item "$1" >"$TmpFile"
 
 	gpaste-client stop # Stop tracking to prevent index from shifting
 
@@ -146,10 +146,12 @@ paste_clip() {
 	AW=$(xprop -id "$AW" | awk -F\" '/WM_CLASS/{print tolower($4)}')
 	sleep .5
 	case $AW in
-		alacritty|kitty|st*|gnome-terminal|konsole|xfce4-terminal|terminator)
-			xdotool key --delay 0 --clearmodifiers Ctrl+Shift+v ;;
-		*)
-			xdotool key --delay 0 --clearmodifiers Ctrl+v ;;
+	alacritty | kitty | st* | gnome-terminal | konsole | xfce4-terminal | terminator)
+		xdotool key --delay 0 --clearmodifiers Ctrl+Shift+v
+		;;
+	*)
+		xdotool key --delay 0 --clearmodifiers Ctrl+v
+		;;
 	esac
 }
 
@@ -171,7 +173,10 @@ clear_history() {
 	[ "$HistName" = archive ] &&
 		Confirm=$(printf 'Yes\nNo' | _rofi -p "Clear $HistName?")
 
-	[ ${Confirm:-0:Yes} = 0:Yes ] && { gpaste-client empty; xsel -c ;}
+	[ ${Confirm:-0:Yes} = 0:Yes ] && {
+		gpaste-client empty
+		xsel -c
+	}
 }
 
 backup_history() {
@@ -191,10 +196,16 @@ menu_histories() {
 	HistSelected=${HistSelected#*:}
 
 	case $Ret in
-		10) gpaste-client delete-history "$HistSelected"; HistIndex=$Index exec "$0" -H ;;
-		11) exec "$0" ;;
-		0)  [ -n "$HistSelected" ] && gpaste-client switch-history "$HistSelected"; exec "$0" ;;
-		*)  exit $Ret
+	10)
+		gpaste-client delete-history "$HistSelected"
+		HistIndex=$Index exec "$0" -H
+		;;
+	11) exec "$0" ;;
+	0)
+		[ -n "$HistSelected" ] && gpaste-client switch-history "$HistSelected"
+		exec "$0"
+		;;
+	*) exit $Ret ;;
 	esac
 }
 
@@ -223,44 +234,78 @@ menu() {
 	[ -z "$Index" ] && exit
 
 	case $Ret in
-		10) clear_history ;;
-		11) toggle_track ;;
-		12) delete_item "$Index"; Index=$Index exec "$0" ;;
-		13) edit_item "$Index"; Index=$Index exec "$0" ;;
-		14) archive_item "$Index"; Index=$Index exec "$0" ;;
-		15) backup_history; Index=$Index exec "$0" ;;
-		16) menu_histories ;;
-		17) select_item "$Index"; paste_clip ;;
-		18) qr_code "$Index" ;;
-		19) gpaste-client switch-history history; exec "$0" ;;
-		20) gpaste-client switch-history archive; exec "$0" ;;
-		21) gpaste-client ui ;;
-		0)  { [ "$Index" -lt 0 ] && printf '%s' "${Clip#*:}" | gpaste-client ;} || select_item "$Index" ;;
-		*)  exit $Ret
+	10) clear_history ;;
+	11) toggle_track ;;
+	12)
+		delete_item "$Index"
+		Index=$Index exec "$0"
+		;;
+	13)
+		edit_item "$Index"
+		Index=$Index exec "$0"
+		;;
+	14)
+		archive_item "$Index"
+		Index=$Index exec "$0"
+		;;
+	15)
+		backup_history
+		Index=$Index exec "$0"
+		;;
+	16) menu_histories ;;
+	17)
+		select_item "$Index"
+		paste_clip
+		;;
+	18) qr_code "$Index" ;;
+	19)
+		gpaste-client switch-history history
+		exec "$0"
+		;;
+	20)
+		gpaste-client switch-history archive
+		exec "$0"
+		;;
+	21) gpaste-client ui ;;
+	0) { [ "$Index" -lt 0 ] && printf '%s' "${Clip#*:}" | gpaste-client; } || select_item "$Index" ;;
+	*) exit $Ret ;;
 	esac
 }
 
 case $1 in
-	-c|--clear)
-		clear_history ;;
-	-H|--histories)
-		menu_histories ;;
-	-p|--paste)
-		[ -z "$2" ] && { printf '%s\n' "Please provide an index [1-9]"; exit 1 ;}
-		print_item $(($2-1)) | xsel; paste_selection ;;
-	-s|--selpaste)
-		paste_selection ;;
-	-S|--seltoclip)
-		xsel -o | gpaste-client ;;
-	-t|--toggle)
-		toggle_track ;;
-	-i|--input)
-		gpaste-client ;;
-	-h|--help)
-		usage ;;
-	"")
-		menu ;;
-	*)
-		gpaste-client "$@"
+-c | --clear)
+	clear_history
+	;;
+-H | --histories)
+	menu_histories
+	;;
+-p | --paste)
+	[ -z "$2" ] && {
+		printf '%s\n' "Please provide an index [1-9]"
+		exit 1
+	}
+	print_item $(($2 - 1)) | xsel
+	paste_selection
+	;;
+-s | --selpaste)
+	paste_selection
+	;;
+-S | --seltoclip)
+	xsel -o | gpaste-client
+	;;
+-t | --toggle)
+	toggle_track
+	;;
+-i | --input)
+	gpaste-client
+	;;
+-h | --help)
+	usage
+	;;
+"")
+	menu
+	;;
+*)
+	gpaste-client "$@"
+	;;
 esac
-
