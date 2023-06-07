@@ -191,8 +191,8 @@ XF86MonBrightness{Up,Down}
   flameshot {gui,screen -c}
 
 # screenshot selection
-super + Print
-	~/.config/rofi/scripts/x11/rofi-screenshot
+# super + Print
+# 	~/.config/rofi/scripts/x11/rofi-screenshot
 
 #################
 # Shortcut Keys #
@@ -212,7 +212,7 @@ hyper + s
   rofi -show ssh
 
 # open notes app
-super + n
+{super,hyper} + n
 	obsidian
 
 # focus {vivaldi,discord,spotify,authy,thunar,plex,pulseaudio}
@@ -220,8 +220,8 @@ hyper + alt + {w,d,s,a,f,p}
   wmctrl -a {vivaldi,discord,spotify,authy,thunar,plex}
 
 # terminal exec {btop,ranger,neofetch}
-hyper + {m,r,n}
-	bspc rule -a kitty -o state=floating; kitty -e {btop,ranger,zsh -c "neofetch && exec zsh"}
+hyper + {m,r}
+	bspc rule -a kitty -o state=floating; kitty -e {btop,ranger}
 
 ######################
 # Various Miscellany #
