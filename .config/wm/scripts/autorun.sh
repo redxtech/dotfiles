@@ -82,13 +82,7 @@ xsetroot -cursor_name left_ptr &
 # autolock screen
 srun ~/.config/wm/scripts/autolock.sh
 
-# autolock disabler
-# srun ~/.config/wm/scripts/beans
-
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
 	srun ~/.config/wm/scripts/natural-scrolling.sh
 fi
-
-# move spotify to proper workspace
-sleep 6 && wmctrl -r spotify -t 7
