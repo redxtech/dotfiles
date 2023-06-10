@@ -211,9 +211,9 @@ hyper + {d,a,f,p,v,t}
 hyper + s
   rofi -show ssh
 
-# open notes app
-{super,hyper} + n
-	obsidian
+# toggle obsidian
+hyper + n
+	bspc node $(xdo id -N obsidian) -g hidden -f
 
 # focus {vivaldi,discord,spotify,authy,thunar,plex,pulseaudio}
 hyper + alt + {w,d,s,a,f,p}
