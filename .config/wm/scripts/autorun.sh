@@ -54,6 +54,7 @@ run discord-ptb
 run gpaste-client start
 run flameshot
 run thunar --daemon
+run obsidian
 
 # variety won't work with the run command
 if ! pgrep variety; then
@@ -78,9 +79,6 @@ xsetroot -cursor_name left_ptr &
 
 # power manager
 # run xfce4-power-manager
-
-# autolock screen
-srun ~/.config/wm/scripts/autolock.sh
 
 # run natural scrolling script if on laptop
 if test "$(hostname)" = "laptop"; then
