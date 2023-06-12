@@ -15,7 +15,7 @@ max_windows = 10
 
 enforce_case = 'lower' # 'upper', 'lower', or 'none'
 show="window_class" # options: window_title, window_class, window_classname
-forbidden_classes = ["Polybar", "Conky", "Gmrun"]
+forbidden_classes = ["Polybar", "Conky", "Gmrun", "obsidian"]
 
 if (len(sys.argv) != 2):
     print("Please include the monitor name as the first argument")
@@ -83,7 +83,9 @@ def output_windows():
 
     nodes = parse_node(focused_desktop_tree['root'])
 
-    print(separator.join([add_actions_to_node(node) for node in nodes]), flush=True)
+    filtered_nodes = [node for node in nodes if node['className'] not in forbidden_classes]
+
+    print(separator.join([add_actions_to_node(node) for node in filtered_nodes]), flush=True)
 
 # Start the subprocess and redirect stdout to a pipe
 process = subprocess.Popen(['bspc', 'subscribe'], stdout=subprocess.PIPE, universal_newlines=True)
