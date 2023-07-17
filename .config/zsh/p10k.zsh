@@ -195,9 +195,9 @@
   # Red prompt symbol if the last command failed.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=3
   # Default prompt symbol.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION=''
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='󰄾'
   # Prompt symbol in command vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION=''
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='󰄽'
   # Prompt symbol in visual vi mode.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='V'
   # Prompt symbol in overwrite vi mode.
@@ -1573,8 +1573,7 @@
 
   # custom leading icon
   function prompt_leading_icon() {
-    # p10k segment -e -t "$fg_bold[red]ﬦ"
-    p10k segment -f 1 -t "%Bﬦ"
+    p10k segment -f 1 -t "%B󰘧"
   }
   function instant_prompt_leading_icon() {
     prompt_leading_icon
