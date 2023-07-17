@@ -5,9 +5,9 @@ function capslock() {
   caps=$(xset -q | grep Caps | awk '{ print $4 }')
 
   if [ $caps == 'off' ]; then
-    echo "%{T7}%{T-}"
+    echo "%{T7}󰌎%{T-}"
   else
-    echo "%{T7}בּ%{T-}"
+    echo "%{T7}󰘲%{T-}"
   fi
 
 }
@@ -17,9 +17,9 @@ function numlock {
   num=$(xset -q | grep Num | awk '{ print $8 }')
 
   if [ $num == 'off' ]; then
-    echo "%{T7}%{T-}"
+    echo "%{T7}󰎥%{T-}"
   else
-    echo "%{T7}%{T-}"
+    echo "%{T7}󰎤%{T-}"
   fi
 
 }
@@ -29,9 +29,9 @@ function scroll() {
   scroll=$(xset -q | grep Scroll | awk '{ print $12 }')
 
   if [ $scroll == 'off' ]; then
-    echo "%{T7}%{T-}"
+    echo "%{T7}󰍾%{T-}"
   else
-    echo "%{T7}%{T-}"
+    echo "%{T7}󰍽%{T-}"
 fi
 
 }
