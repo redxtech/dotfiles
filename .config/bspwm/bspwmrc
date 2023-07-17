@@ -40,7 +40,8 @@ bspc rule -a Element desktop='^3' follow=off
 bspc rule -a Slack state=floating
 bspc rule -a Plexamp state=floating
 bspc rule -a Subl desktop="*"
-bspc rula -a flameshot floating=true
+bspc rule -a flameshot state=floating
+bspc rule -a "Blueman-manager" state=floating
 bspc rule -a "mpv:*:Webcam" state=floating
 bspc rule -a "*:*:Picture in picture" state=floating
 bspc rule -a "*:*:Open Files" desktop="*" state=floating
