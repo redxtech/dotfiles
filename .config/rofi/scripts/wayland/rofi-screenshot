@@ -34,7 +34,7 @@ gen_opts() {
 
 main() {
 	# get the choice of which screenshot option
-	choice="$( (gen_opts) | rofi -theme dracula-orange -dmenu -no-custom -theme-str 'listview {columns: 1;}' -p "Screenshot " | awk -F ' => ' '{ print $1 }')"
+	choice="$( (gen_opts) | rofi -theme dracula-orange -dmenu -no-custom -theme-str 'listview {columns: 1;}' -p "Screenshot 󰄾" | awk -F ' => ' '{ print $1 }')"
 
 	# lookup the respective command
 	command=${SCREENSHOTS["$choice"]}

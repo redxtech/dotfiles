@@ -54,11 +54,11 @@ main() {
 	if test "$1" = "default"; then
 		platform="searx"
 	else
-		platform=$( (gen_list) | rofi -dmenu -matching fuzzy -p "Search Engine ")
+		platform=$( (gen_list) | rofi -dmenu -matching fuzzy -p "Search Engine 󰄾")
 	fi
 
 	if [[ -n "$platform" ]]; then
-		query=$( (echo) | rofi -dmenu -no-sort -matching fuzzy -l 0 -p "Query ")
+		query=$( (echo) | rofi -dmenu -no-sort -matching fuzzy -l 0 -p "Query 󰄾")
 
 		if [[ -n "$query" ]]; then
 			url=${ENGINES[$platform]}$query

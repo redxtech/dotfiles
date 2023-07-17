@@ -84,7 +84,7 @@ gen_confs () {
 main () {
 	if test -z "$1"; then
 		# get the choice of which config file
-		choice="$( (gen_confs) | rofi -dmenu -no-custom -p "Config" | awk -F ' => ' '{ print $1 }')"
+		choice="$( (gen_confs) | rofi -dmenu -no-custom -p "Config󰄾" | awk -F ' => ' '{ print $1 }')"
 	else
 		choice="$1"
 	fi

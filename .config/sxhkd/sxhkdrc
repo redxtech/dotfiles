@@ -253,9 +253,9 @@ hyper + {_,shift + }b
 
 # pull up emoji selector
 hyper + e
-	rofi -modi emoji -show emoji -display-emoji -matching glob "Emoji "
+	rofi -modi emoji -show emoji -display-emoji -matching glob "Emoji 󰄾"
 hyper + shift + e
-	rofi -modi emoji -show emoji -display-emoji -matching fuzzy "Emoji "
+	rofi -modi emoji -show emoji -display-emoji -matching fuzzy "Emoji 󰄾"
 
 # pull up display configuration selection
 hyper + shift + d

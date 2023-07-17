@@ -24,7 +24,7 @@ main() {
 	# rofi -show drun
 	script="$(get_launchers "$XDG_SESSION_TYPE" |
 		grep -v -e 'rofi-rofi' -e 'rofi-archive' -e 'rofi-encode' |
-		rofi -dmenu -no-custom -theme dracula-red -p "Rofi Scripts ")"
+		rofi -dmenu -no-custom -theme dracula-red -p "Rofi Scripts 󰄾")"
 
 	if test -f "$HOME/.config/rofi/scripts/$script"; then
 		~/.config/rofi/scripts/"$script"

@@ -37,13 +37,13 @@
       // "3": "",
       "1": "",
       "2": "",
-      "3": "ﭮ",
-      "4": "",
+      "3": "󰙯",
+      "4": "󰉋",
       "7": "",
       "8": "",
-      "9": "﮸",
+      "9": "󰚺",
       "urgent": "",
-      "default": "ﱣ"
+      "default": ""
     }
     // "persistent_workspaces": {
     //   "1": ["DP-1"],
@@ -59,7 +59,7 @@
     // }
   },
   "hyprland/window": {
-    "format": "<span color='#50fa7b'></span> {}",
+    "format": "<span color='#50fa7b'>󰁔</span> {}",
     "separate-outputs": true
   },
   "mpris": {
@@ -68,20 +68,20 @@
     "album-len": 0,
     "on-click-middle": "~/.local/bin/copy-spotify-share",
     "player-icons": {
-      "default": "契",
+      "default": "󰐊",
       "spotify": "",
       "chromium": "",
       "mpv": "🎵"
     },
     "status-icons": {
-      "playing": "",
-      "paused": "契"
+      "playing": "󰏤",
+      "paused": "󰐊"
     },
     "interval": 1
   },
   "wireplumber": {
     "format": "{icon} {volume}",
-    "format-muted": "婢 {volume}",
+    "format-muted": "󰖁 {volume}",
     "format-icons": ["", "", ""],
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
@@ -90,8 +90,8 @@
     "on-click-middle": "helvum"
   },
   "memory": {
-    /* "format": "<span bgcolor='#ff79c6'>﬙</span> {used:0.1f} GiB", */
-    "format": "﬙ {used:0.1f} GiB",
+    /* "format": "<span bgcolor='#ff79c6'>󰘚</span> {used:0.1f} GiB", */
+    "format": "󰘚 {used:0.1f} GiB",
     "interval": 3,
     "on-click": "hyprctl dispatch exec '[floating] kitty -e btop'"
   },
@@ -107,16 +107,16 @@
     /* "format": "<span bgcolor='#8be9fd'>{icon}</span> {temperatureC}°C", */
     "format": "{icon} {temperatureC}°C",
     "format-icons": [
-      "",
+      "󰉬",
       "",
-      ""
+      "󰉪"
     ]
   },
   "network": {
     "format-wifi": " {essid}",
-    "format-ethernet": " {ipaddr}/{cidr}",
-    "tooltip-format": " {ifname} via {gwaddr}",
-    "format-linked": " {ifname} (No IP)",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "tooltip-format": "󰊗 {ifname} via {gwaddr}",
+    "format-linked": "󰊗 {ifname} (No IP)",
     "format-disconnected": "⚠ Disconnected",
     "format-alt": " {ifname}: {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
     "interval": 5,
@@ -124,8 +124,8 @@
     /* "on-click-right": "" */
   },
   "clock": {
-    "format-alt": " {:%H:%M}",
-    "format-alt": " {:%A, %B %d, %Y - %R:%S}",
+    "format-alt": "󰅐 {:%H:%M}",
+    "format-alt": "󰃭 {:%A, %B %d, %Y - %R:%S}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode"          : "month",
@@ -153,8 +153,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": "﯈"
+      "activated": "󰅶",
+      "deactivated": "󰛊"
     }
   },
   "tray": {
@@ -176,8 +176,8 @@
     "exec": "~/.config/waybar/scripts/mediaplayer.py",
     "format": "{icon} {}",
     "format-icons": {
-      "playing": "",
-      "paused": "契"
+      "playing": "󰏤",
+      "paused": "󰐊"
     },
     "return-type": "json",
     "on-click": "playerctl play-pause",
@@ -186,26 +186,26 @@
   "custom/pacman": {
     "exec": "~/.config/waybar/scripts/pacman_updates.sh",
     "exec-if": "~/.config/waybar/scripts/pacman_updates.sh >/dev/null",
-    "format": " {}",
+    "format": "󰏔 {}",
     "interval": 300,
     "on-click": "hyprctl dispatch exec \"[floating] kitty -e zsh -c 'sudo pacman -Syu && pacaur -Sua; echo Done - Press any key to exit; read -r -n 1'\" &"
   },
   "custom/weather": {
     "exec": "~/.config/waybar/scripts/weather/weather.sh",
-    "format": "滛 {}",
+    "format": "󰖙 {}",
     "interval": 60
   },
   "custom/kde_connect": {
     "exec": "~/.config/waybar/scripts/kde_connect.sh -d",
-    "format": " {}",
+    "format": "󰄡 {}",
     "on-click-right": "kdeconnect-app &"
   },
   "custom/do_not_disturb": {
     "format": "{icon}",
     /* "on-click": "~/.config/rofi/scripts/rofi-powermenu-wl", */
     "format-icons": {
-      "enabled": "",
-      "disabled": ""
+      "enabled": "󰂛",
+      "disabled": "󰂚"
     }
   },
   "custom/powermenu": {

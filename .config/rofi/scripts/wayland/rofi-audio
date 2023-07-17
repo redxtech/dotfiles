@@ -17,7 +17,7 @@ main() {
 	# pipe list of sinks into rofi, and run the wpctl command to change the sink
 	selected="$(
 		list_devices |
-			rofi -theme dracula-orange -dmenu -i -p "Audio Output " |
+			rofi -theme dracula-orange -dmenu -i -p "Audio Output 󰄾" |
 			awk -F ' - ' '{ print $2 }'
 	)"
 

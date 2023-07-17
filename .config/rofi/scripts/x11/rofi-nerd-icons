@@ -7,7 +7,7 @@
 # TODO: auto-paste the selection
 
 main() {
-	rofi -dmenu -p "Icon " <~/.config/rofi/scripts/nerd-icons |
+	rofi -dmenu -p "Icon 󰄾" <~/.config/rofi/scripts/nerd-icons |
 		awk '{ print $1 }' |
 		tr -d '\n' |
 		xclip -selection clip

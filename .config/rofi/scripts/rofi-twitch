@@ -12,6 +12,6 @@ moistcr1tikal
 FirewallFox100
 shroud
 n0ted
-VALORANT" | rofi -dmenu -i -p "Twitch Channel ")
+VALORANT" | rofi -dmenu -i -p "Twitch Channel 󰄾")
 
 ~/.local/bin/twitcher "$selected_option"

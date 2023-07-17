@@ -30,7 +30,7 @@ gen_opts () {
 
 main () {
 	# get the choice of which display configuration
-	choice="$( (gen_opts) | rofi -dmenu -no-custom -p "Display Configuration " | awk -F ' => ' '{ print $1 }')"
+	choice="$( (gen_opts) | rofi -dmenu -no-custom -p "Display Configuration 󰄾" | awk -F ' => ' '{ print $1 }')"
 	
 	# lookup the respective command
 	command=${DISPLAYS["$choice"]}
