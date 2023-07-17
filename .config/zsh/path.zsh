@@ -12,13 +12,14 @@ contains () {
 
 # list of directories to add to path
 local paths_to_add=(
+  "$HOME/.local/bin"
+  "$HOME/.nix-profile/bin"
 	"$HOME/.config/yarn/global/node_modules/.bin"
+  "$HOME/.deno/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.config/rofi/scripts"
+  "$HOME/.local/share/pnpm"
 	"$HOME/.local/share/gem/ruby/3.0.0/bin"
-	"$HOME/.deno/bin"
-	"$HOME/.cargo/bin"
-	"$HOME/.local/share/pnpm"
-	"$HOME/.local/bin"
-	"$HOME/.config/rofi/scripts"
 	"/snap/bin"
 )
 
