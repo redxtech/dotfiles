@@ -22,7 +22,7 @@ require('lazy').setup({
 		{ import = 'lazyvim.plugins.extras.linting.eslint' },
 		{ import = 'lazyvim.plugins.extras.formatting.prettier' },
 		{ import = 'lazyvim.plugins.extras.coding.copilot' },
-		-- { import = 'lazyvim.plugins.extras.coding.yanky' },
+		{ import = 'lazyvim.plugins.extras.coding.yanky' },
 		{ import = 'lazyvim.plugins.extras.dap.core' },
 		{ import = 'lazyvim.plugins.extras.test.core' },
 		{ import = 'lazyvim.plugins.extras.util.mini-hipatterns' },
