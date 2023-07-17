@@ -127,6 +127,7 @@ alias krr="kubectl rollout restart"
 alias krd="kubectl rollout restart deployment"
 alias kl="kubectl logs"
 alias kns="kubens"
+alias ktx="kubectx"
 
 # lazygit for dotfiles
 alias ly="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"

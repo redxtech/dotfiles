@@ -41,11 +41,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}'
 # zstyle :omz:plugins:ssh-agent agent-forwarding on
 export AUTO_NOTIFY_EXPIRE_TIME=10000
 
-# load colour scheme if enabled
-if grep -q 'enabled=true' ~/.config/wal/pywal.conf; then
-  [[ -f ~/.cache/wal/sequences ]] && (/usr/bin/cat ~/.cache/wal/sequences &)
-fi
-
 # all zinit config here
 source "$ZSH_CUSTOM/zinit.zsh" 
 
