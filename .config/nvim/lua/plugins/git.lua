@@ -8,6 +8,9 @@ return {
 			'nvim-tree/nvim-web-devicons',
 		},
 		opts = {},
+		keys = {
+			{ '<leader>gr', '<cmd>Octo repo view<cr>', desc = 'Open repo' },
+		},
 	},
 	{
 		'f-person/git-blame.nvim',
