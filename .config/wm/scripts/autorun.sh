@@ -47,7 +47,7 @@ run picom -b
 
 # connectivity applets
 run nm-applet --indicator
-# run blueman-applet
+run blueman-applet
 
 # user apps
 run discord-ptb
