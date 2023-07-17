@@ -10,6 +10,6 @@
 [submodule ".themes/Dracula"]
 	path = .themes/Dracula
 	url = git@github.com:dracula/gtk.git
-[submodule "/home/gabe/.config/qt5ct/colors/Dracula"]
-	path = /home/gabe/.config/qt5ct/colors/Dracula
+[submodule ".config/qt5ct/colors/Dracula"]
+	path = .config/qt5ct/colors/Dracula
 	url = https://github.com/dracula/qt5.git
