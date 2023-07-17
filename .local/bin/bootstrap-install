@@ -1,0 +1,111 @@
+#!/usr/bin/env sh
+
+install_dank_mono() {
+	# check if font is in downloads
+	if ! test -f "$HOME/Downloads/Dank Mono 15 Oct 2020.zip"; then
+		echo "Dank Mono not found in downloads!"
+		return 1
+	fi
+
+	# check if unzip is installed
+	if ! command -v unzip >/dev/null; then
+		echo "unzip is not installed!"
+		return 1
+	fi
+
+	echo "unzipping dank mono..."
+	unzip "$HOME/Downloads/Dank Mono 15 Oct 2020.zip" -d "$HOME/Downloads/dank-mono-tmp"
+	mkdir -pv "$HOME/.local/share/fonts/dank-mono"
+	mv "$HOME/Downloads/dank-mono-tmp/DankMono/OpenType-PS/"*.otf "$HOME/.local/share/fonts/dank-mono"
+
+	# clear font cache
+	echo "clearing font cache..."
+	fc-cache -f -v
+
+	# cleaning up
+	echo "cleaning up..."
+	rm -rf "$HOME/Downloads/dank-mono-tmp"
+
+	echo "done!"
+}
+
+patch_and_install_dank_mono() {
+	# check if font is in downloads
+	if ! test -f "$HOME/Downloads/Dank Mono 15 Oct 2020.zip"; then
+		echo "Dank Mono not found in downloads!"
+		return 1
+	fi
+
+	# check if unzip is installed
+	if ! command -v unzip >/dev/null; then
+		echo "unzip is not installed!"
+		return 1
+	fi
+
+	# check if docker is installed
+	if ! command -v docker >/dev/null; then
+		echo "docker is not installed!"
+		return 1
+	fi
+
+	echo "unzipping dank mono..."
+	unzip "$HOME/Downloads/Dank Mono 15 Oct 2020.zip" -d "$HOME/Downloads/dank-mono-tmp"
+	mkdir -pv "$HOME/Downloads/dank-mono"
+	mv "$HOME/Downloads/dank-mono-tmp/DankMono/OpenType-PS/"*.otf "$HOME/Downloads/dank-mono"
+	rm -rf "$HOME/Downloads/dank-mono-tmp"
+
+	echo "patching dank mono..."
+	mkdir -pv "$HOME/.local/share/fonts/dank-mono-nerd-font"
+
+	# run once for monospaced
+	docker run --rm \
+		-v "$HOME/Downloads/dank-mono":/in \
+		-v "$HOME/.local/share/fonts/dank-mono-nerd-font":/out \
+		nerdfonts/patcher \
+		--mono \
+		--complete
+
+	# a second time for double-width
+	docker run --rm \
+		-v "$HOME/Downloads/dank-mono":/in \
+		-v "$HOME/.local/share/fonts/dank-mono-nerd-font":/out \
+		nerdfonts/patcher \
+		--complete
+
+	# clear font cache
+	echo "clearing font cache..."
+	fc-cache -f -v
+
+	# cleaning up
+	echo "cleaning up..."
+	rm -rf "$HOME/Downloads/dank-mono"
+
+	echo "done!"
+}
+
+gen_ssh_key() {
+	# check if github cli is installed
+	echo "yippee"
+}
+
+main() {
+	case $1 in
+	dank | dank-mono)
+		echo "installing dank mono..."
+		install_dank_mono
+		;;
+	patch | nerd | nerdfont)
+		echo "patching and installing dank mono..."
+		patch_and_install_dank_mono || return 1
+		;;
+	ssh | key | keygen | ssh-key | ssh-keygen)
+		echo "generating ssh key..."
+		gen_ssh_key
+		;;
+	*)
+		echo "usage: bootstrap-install <dank|patch|ssh>"
+		;;
+	esac
+}
+
+main "$@"
