@@ -10,7 +10,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # choose which bar
 if test "$(hostname)" = "desktop"; then
 	barname="main"
-elif test "$(hostname)" = "laptop"; then
+elif test "$(hostname)" = "laptop" -o "$(hostname)" = "nixos"; then
 	barname="laptop"
 fi
 
@@ -24,4 +24,3 @@ fi
 
 # alternate method of above, doesn't work as well
 # m=$(bspc query -M -m 'primary#next' --names) && { MONITOR=$m polybar top_second -c "$HOME/.config/polybar/themes/$theme/config.ini" & }
-
