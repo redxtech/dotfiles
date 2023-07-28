@@ -37,7 +37,7 @@ alias src="exec zsh"
 alias shit='sudo $(fc -ln -1)'
 
 # clipboard alias
-alias xclip="xclip -selection c"
+command -v alias >/dev/null && alias xclip="xclip -selection c"
 
 # unarchive with atool
 alias expand-dong="aunpack"
@@ -128,6 +128,12 @@ alias krd="kubectl rollout restart deployment"
 alias kl="kubectl logs"
 alias kns="kubens"
 alias ktx="kubectx"
+
+# nixos commands
+if command -v nixos-rebuild >/dev/null; then
+  alias update="sudo nixos-rebuild switch"
+  alias upgrade="sudo nixos-rebuild switch --upgrade"
+fi
 
 # lazygit for dotfiles
 alias ly="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"
