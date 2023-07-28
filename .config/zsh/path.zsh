@@ -29,10 +29,5 @@ for bin_path in $paths_to_add; do
 	if test -d "$bin_path" && ! contains "$bin_path" "$PATH"; then
 		export PATH="$PATH:$bin_path"
 	fi
-
-	# handle subdirectories of the .local/bin path
-	if test "$bin_path" = "$HOME/.local/bin"; then
-		export PATH="$PATH:$(du "$bin_path" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-	fi
 done
 

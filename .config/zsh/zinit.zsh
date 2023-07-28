@@ -37,7 +37,6 @@ zinit wait lucid for \
   le0me55i/zsh-systemd \
   wait"1" \
     laggardkernel/zsh-thefuck \
-  LucasLarson/gunstage \
   OMZP::command-not-found \
   OMZP::github \
   OMZP::kubectl \
@@ -48,13 +47,13 @@ zinit wait lucid for \
   redxtech/zsh-containers \
   redxtech/zsh-load-module \
   redxtech/zsh-not-vim \
+  redxtech/zsh-show-path \
   redxtech/zsh-unix-simple \
   voronkovich/gitignore.plugin.zsh \
   wookayin/fzf-fasd \
   zpm-zsh/ssh
 
 # currently unused plugins
-#   redxtech/zsh-show-path \
 #   redxtech/zsh-tre \
 #   redxtech/zsh-yup \
 
