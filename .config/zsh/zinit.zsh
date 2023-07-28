@@ -39,14 +39,13 @@ zinit wait lucid for \
     laggardkernel/zsh-thefuck \
   LucasLarson/gunstage \
   OMZP::command-not-found \
-	OMZP::docker \
-	OMZP::docker-compose \
   OMZP::github \
   OMZP::kubectl \
   OMZP::man \
   OMZP::transfer \
   wait"2" atload="__kitty_complete" \
     redxtech/zsh-kitty \
+  redxtech/zsh-containers \
   redxtech/zsh-load-module \
   redxtech/zsh-not-vim \
   redxtech/zsh-unix-simple \
