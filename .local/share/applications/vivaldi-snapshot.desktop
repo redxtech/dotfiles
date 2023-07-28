@@ -3,6 +3,7 @@ Version=1.0
 Name=Vivaldi (snapshot)
 GenericName=Web Browser
 Comment=Access the Internet
+TryExec=/usr/bin/vivaldi-snapshot
 Exec=/usr/bin/vivaldi-snapshot --force-dark-mode %U
 StartupNotify=true
 Terminal=false

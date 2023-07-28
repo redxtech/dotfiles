@@ -3,6 +3,7 @@ Version=1.0
 Name=Vivaldi
 GenericName=Web Browser
 Comment=Access the Internet
+TryExec=/usr/bin/vivaldi-stable
 Exec=/usr/bin/vivaldi-stable --force-dark-mode %U
 StartupNotify=true
 Terminal=false
