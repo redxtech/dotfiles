@@ -50,7 +50,6 @@ zinit wait lucid for \
   redxtech/zsh-show-path \
   redxtech/zsh-unix-simple \
   voronkovich/gitignore.plugin.zsh \
-  wookayin/fzf-fasd \
   zpm-zsh/ssh
 
 # currently unused plugins
@@ -102,8 +101,6 @@ zinit wait lucid from'gh-r' as"command" for \
 
 # binaries from github repos
 zinit as"command" wait lucid for \
-  sbin atload'eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-wcomp)"' \
-    clvv/fasd \
   sbin \
     dylanaraps/neofetch \
   sbin"bin/switchup" \
