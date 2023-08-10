@@ -27,7 +27,6 @@ answer="$(echo -e "$options" | rofi -dmenu -i -theme "$rofi_dir/scripts/wayland/
 
 case $answer in
 $lock)
-	confirm
 	# playerctl pause
 	betterlockscreen -l dimblur
 	;;
