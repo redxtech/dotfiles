@@ -7,6 +7,9 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
+# souce zprofile
+test -f "$HOME/.zprofile" && source "$HOME/.zprofile"
+
 # custom zsh config location
 ZSH_CUSTOM="$HOME/.config/zsh"
 
