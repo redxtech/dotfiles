@@ -6,6 +6,11 @@ if command -v zoxide>/dev/null; then
 fi
 
 # run fnm
-# if command -v fnm>/dev/null; then
-#     eval "$(fnm env --use-on-cd)"
-# fi
+if command -v fnm>/dev/null; then
+    eval "$(fnm env --use-on-cd)"
+fi
+
+# run mcfly
+if command -v mcfly>/dev/null; then
+    eval "$(mcfly init zsh)"
+fi

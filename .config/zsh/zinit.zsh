@@ -80,18 +80,8 @@ fi
 # binaries from github releases
 # TODO add atclone command to move completions for all entries?
 zinit wait lucid from'gh-r' as"command" for \
-  atload'eval "$(mcfly init zsh)"' bpick"*x86_64-unknown-linux*" \
+  bpick"*x86_64-unknown-linux*" \
     cantino/mcfly \
-  mv'fd* fd' sbin'**/fd(.exe|) -> fd' \
-    @sharkdp/fd \
-  mv'bat* bat' sbin'**/bat(.exe|) -> bat' \
-    @sharkdp/bat \
-  sbin'**/exa -> exa' atclone'cp -vf completions/exa.zsh _exa' \
-    ogham/exa \
-  mv'rip* ripgrep' sbin'**/rg(.exe|) -> rg' \
-    BurntSushi/ripgrep \
-  sbin"**/bin/nvim -> nvim" ver"nightly" \
-    neovim/neovim \
   mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
     mikefarah/yq
   
