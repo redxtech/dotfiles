@@ -61,6 +61,10 @@ local CURRENT_DISTRO="$(lsb_release -is)"
 if test "$CURRENT_DISTRO" = "Arch" -o "$CURRENT_DISTRO" = "EndeavourOS" -o "$CURRENT_DISTRO" = "Garuda"; then
   zinit wait lucid for \
     OMZP::archlinux
+elif test "$CURRENT_DISTRO" = '"NixOS"'; then
+  zinit wait lucid for \
+    nix-community/nix-zsh-completions \
+    chisui/zsh-nix-shell
 elif test "$CURRENT_DISTRO" = "Rocky"; then
 	zinit wait lucid for \
 		OMZP::dnf
