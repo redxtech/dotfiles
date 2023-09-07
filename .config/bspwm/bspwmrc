@@ -78,5 +78,8 @@ elif test "$(hostname)" = "laptop"; then
 	fi
 fi
 
+# cursor
+xsetroot -cursor_name left_ptr &
+
 # run the autostart script
 sh ~/.config/wm/scripts/autorun.sh
