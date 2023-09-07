@@ -81,22 +81,10 @@ if (( $+commands[notify-send] )); then
       MichaelAquilina/zsh-auto-notify
 fi
 
-# binaries from github releases
-# TODO add atclone command to move completions for all entries?
-zinit wait lucid from'gh-r' as"command" for \
-  bpick"*x86_64-unknown-linux*" \
-    cantino/mcfly \
-  mv"yq* yq" sbin'**/yq(.exe|) -> yq' \
-    mikefarah/yq
   
-  # unused entries
-  # sbin"rclone-*/rclone" bpick"*amd64.zip*" \
-  #   rclone/rclone
 
 # binaries from github repos
 zinit as"command" wait lucid for \
-  sbin \
-    dylanaraps/neofetch \
   sbin"bin/switchup" \
     redxtech/switchup \
   sbin"yadm" dl"https://gist.githubusercontent.com/redxtech/b17b1dd382d648aaba758df911cd9d54/raw/ff066be0340e7f73d7affa28bcd4da8f39538747/yadm.patch" \
