@@ -13,7 +13,7 @@ API_KEY = os.environ.get("OPENWEATHER_API_KEY", OPENWEATHER_API_KEY)
 def get_city() -> str:
     try:
         r = requests.get("https://ipapi.co/json", headers={"User-agent": "Mozilla/5.0"})
-        return r.json()["city"]
+        return f"{r.json()['city']}, {r.json()['country_code']}"
     except Exception:
         # really cold city in antarctica, should notice if it deefaults to this
         return "McMurdo Station"
