@@ -111,8 +111,8 @@ command -v nvim >/dev/null && alias alias vim="nvim"
 command -v goneovim >/dev/null && alias gvim="goneovim"
 command -v goneovim >/dev/null && alias gnvim="goneovim"
 
-# ls -> exa
-command -v exa >/dev/null && alias ls="exa --group-directories-first"
+# ls -> eza
+command -v eza >/dev/null && alias ls="eza --group-directories-first"
 
 # cat -> bat
 command -v bat >/dev/null && alias cat="bat"

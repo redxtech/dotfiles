@@ -1,12 +1,10 @@
-#!/usr/bin/env sh
-
 #
 # sourced by ~/.profile and ~/.zprofile
 #
 
 # source path
 # shellcheck source=./path.sh
-. ~/.config/shell/path.sh
+source ~/.config/shell/path.sh
 
 # source environment
 # shellcheck source=./env.sh
