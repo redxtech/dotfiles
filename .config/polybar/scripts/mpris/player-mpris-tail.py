@@ -81,6 +81,8 @@ class PlayerManager:
     def busNameIsAPlayer(self, bus_name):
         if bus_name.startswith('org.mpris.MediaPlayer2') is False:
             return False
+        if bus_name.startswith('org.mpris.MediaPlayer2.kdeconnect') is True:
+            return False
         name = bus_name.split('.')[3]
         if self.block_mode is True:
             return name not in self.filter_list
