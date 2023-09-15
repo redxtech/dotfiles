@@ -1,5 +1,5 @@
 return {
-	-- correctly setup lspconfig
+	-- setup lspconfig
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = { 'sigmasd/deno-nvim' },
@@ -16,6 +16,7 @@ return {
 			},
 		},
 	},
+
 	-- ensure deno command is available
 	-- {
 	-- 	'williamboman/mason.nvim',

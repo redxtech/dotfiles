@@ -10,14 +10,11 @@ return {
 					'.git',
 					'.github',
 					'node_modules',
+					'dist',
 				},
 				never_show = {
 					'node_modules',
 				},
-			},
-			bind_to_cwd = false,
-			follow_current_file = {
-				enabled = true,
 			},
 		},
 	},
