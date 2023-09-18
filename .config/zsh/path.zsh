@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # function to test if one variables contains another
 contains() {
@@ -31,3 +31,4 @@ for bin_path in "$@"; do
 done
 
 export PATH
+

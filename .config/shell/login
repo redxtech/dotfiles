@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-# login script for zsh
-
-# set some important variables
-export EDITOR="nvim"
-export TERMINAL="kitty"
-export BROWSER="vivaldi"
-
