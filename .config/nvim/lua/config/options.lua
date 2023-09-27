@@ -6,3 +6,6 @@ local opt = vim.opt
 
 opt.completeopt = 'menu,menuone,preview'
 opt.clipboard = 'unnamed'
+opt.breakindent = true
+opt.smartindent = false
+opt.cindent = true
