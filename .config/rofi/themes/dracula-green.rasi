@@ -1,6 +1,0 @@
-@theme "dracula"
-
-* {
-  bg1: @green;
-}
-

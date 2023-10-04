@@ -1,4 +1,0 @@
-16x9,~/.config/bspwm/scripts/resize-aspect.sh 16 9
-4x3,~/.config/bspwm/scripts/resize-aspect.sh 4 3
-21x9,~/.config/bspwm/scripts/resize-aspect.sh 12 5
-Balance,bspc node @parent -r .5
