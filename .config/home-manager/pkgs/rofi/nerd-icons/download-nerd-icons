@@ -1,0 +1,37 @@
+#!/usr/bin/env -S deno run --allow-net --allow-read --allow-env --allow-write --allow-run
+
+// vim: set syntax=javascript:
+
+import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts"
+
+async function main() {
+  // use puppeteer to scrape the nerd font website
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://www.nerdfonts.com/cheat-sheet')
+
+  // get the glyphs from the page
+  const glyphs = await page.evaluate(() => glyphs)
+  // close the browser
+  await browser.close()
+
+  // convert the glyphs to a list of codes
+  const codes = Object.entries(glyphs)
+    .map(g => {
+      return {
+        // convert the hex code to a symbol
+        symbol: String.fromCharCode(parseInt(g[1], 16)),
+        name: g[0],
+      }
+    })
+    // filter out the old glyphs (nfold-*)
+    .filter(g => !g.name.startsWith('nfold'))
+
+  // format the list of codes
+  const list = codes.map(c => `${c.symbol} ${c.name}`).join('\n')
+
+  // write the list to stdout
+  console.log(list)
+}
+
+main()
