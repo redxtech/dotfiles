@@ -41,14 +41,17 @@ in {
       flameshot = { state = "floating"; };
       "Blueman-manager" = { state = "floating"; };
       "mpv:*:Webcam" = { state = "floating"; };
-      "*:*:Picture in picture" = { state = "floating"; };
-      "*:*:Picture-in-picture" = { state = "floating"; };
-      "*:*:Open Files" = { desktop = "*"; state = "floating"; };
       "Kupfer.py" = { focus = true; };
       mplayer2 = { state = "floating"; };
       Screenkey = { manage = false; };
       Yad = { state = "floating"; };
     };
+
+    extraConfig = ''
+      bspc rule -a '*:*:Open Files' 'desktop=*' 'state=floating'
+      bspc rule -a '*:*:Picture in picture' 'state=floating'
+      bspc rule -a '*:*:Picture-in-picture' 'state=floating'
+    '';
 
     startupPrograms = with pkgs;
     [
