@@ -53,7 +53,6 @@
       playerctl
       prettyping
       ps_mem
-      pyenv
       rage
       ranger
       rclone

@@ -162,6 +162,7 @@
       };
     };
 
+    pyenv.enable = true;
 
     ripgrep.enable = true;
 

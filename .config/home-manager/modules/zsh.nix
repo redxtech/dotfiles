@@ -301,5 +301,3 @@ in
     export BW_SESSION="$(${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/zsh/env/bw.txt)"
     '';
 }
-
-
