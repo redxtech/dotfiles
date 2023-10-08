@@ -21,5 +21,34 @@ in
     # netowrk options
     networkType = "wired";
     networkInterface = "enp39s0";
+
+    # bar options
+    barRightModules = [
+      "updates-ipc-interval"
+      "updates-ipc"
+      "margin"
+      "weather"
+      "margin"
+      "backlight"
+      "margin"
+      # "kdeconnect"
+      # "margin"
+      "pipewire"
+      "margin"
+      "memory"
+      "margin"
+      "temperature"
+      "margin"
+      "cpu"
+      "margin"
+      "network"
+      "margin"
+      "battery"
+      "margin"
+      "date"
+      "margin"
+      "dnd"
+    ];
+    hwmonPath = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input";
   };
 }

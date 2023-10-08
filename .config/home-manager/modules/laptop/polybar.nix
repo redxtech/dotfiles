@@ -13,28 +13,10 @@ in
 {
   services.polybar = {
     script = ''
-      polybar laptop &
+      polybar main &
     '';
 
     settings = {
-      "bar/main" = {
-        modules = with lib.strings; {
-          # left = config.services.polybar.settings."bar/main".modules.left;
-          # center = config.services.polybar.settings."bar/main".modules.center;
-          right = concatStringsSep " " 
-            (insertAt 14 # TODO: revert to 16 when kdeconnect module is fixed
-              [ "battery" "margin" ]
-              (insertAt 3
-                [ "backlight" "margin" ] 
-                (splitString 
-                  " "
-                  config.services.polybar.settings."bar/main".modules.right
-                )
-              )
-            ) ++ [ "powermenu" ];
-        };
-      };
-      "module/temperature".hwmon-path = ""; # TODO: get path on laptop
       "module/backlight" = {
         type = "internal/backlight";
 

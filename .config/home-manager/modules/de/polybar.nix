@@ -99,28 +99,7 @@
           center = concatStringsSep " " [
             "player-mpris-tail"
           ];
-          right = concatStringsSep " " [
-            "updates-ipc-interval"
-            "updates-ipc"
-            "margin"
-            "weather"
-            "margin"
-            # "kdeconnect"
-            # "margin"
-            "pipewire"
-            "margin"
-            "memory"
-            "margin"
-            "temperature"
-            "margin"
-            "cpu"
-            "margin"
-            "network"
-            "margin"
-            "date"
-            "margin"
-            "dnd"
-          ];
+          right = concatStringsSep " " config.device-vars.barRightModules;
         };
       };
       "settings" = {
@@ -471,11 +450,8 @@
       "module/temperature" = {
         type = "internal/temperature";
 
-        # device specific: hwmon-path
-
         interval = 5;
-        # thermal-zone = 0;
-        # hwmon-path = "";
+        hwmon-path = config.device-vars.hwmonPath;
         warn-temperature = 80;
 
         format = {

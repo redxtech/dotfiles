@@ -21,5 +21,30 @@ in
     # netowrk options
     networkType = "wireless";
     networkInterface = "lo";
+
+    # bar options
+    barRightModules = [
+      "updates-ipc-interval"
+      "updates-ipc"
+      "margin"
+      "weather"
+      "margin"
+      # "kdeconnect"
+      # "margin"
+      "pipewire"
+      "margin"
+      "memory"
+      "margin"
+      "temperature"
+      "margin"
+      "cpu"
+      "margin"
+      "network"
+      "margin"
+      "date"
+      "margin"
+      "dnd"
+    ];
+    hwmonPath = "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input";
   };
 }
