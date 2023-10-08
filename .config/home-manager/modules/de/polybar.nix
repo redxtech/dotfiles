@@ -392,7 +392,7 @@
         };
         label = {
           connected = {
-            text = if config.device-vars.networkType == "wired" then "%ifname% %netspeed:07%" else "%essid% %netspeed:07%";
+            text = if isWired then "%ifname% %netspeed:07%" else "%essid% %netspeed:07%";
             background = "\${colours.bg-alt}";
             foreground = "\${colours.fg}";
             padding = 1;

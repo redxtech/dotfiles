@@ -6,7 +6,6 @@
     ./desktop-apps.nix
     ./dunst.nix
     ./kitty.nix
-    ./mopidy.nix
     ./picom.nix
     ./polybar.nix
     ./rio.nix

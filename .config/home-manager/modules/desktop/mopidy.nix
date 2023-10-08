@@ -9,10 +9,8 @@
       mopidy-local
       mopidy-mpd
       mopidy-mpris
-      # mopidy-notify
       mopidy-scrobbler
       mopidy-spotify
-      # mopidy-tidal
     ];
 
     settings = {
@@ -36,5 +34,10 @@
     };
 
     extraConfigFiles = [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
+  };
+
+  homeage.file."mopidy" = {
+    source = ./secrets/mopidy-secrets.conf.age;
+    symlinks = [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
   };
 }

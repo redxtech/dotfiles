@@ -40,6 +40,7 @@
       glxinfo
       hub
       kubecolor
+      kubectl
       kubectx
       lsb-release
       mediainfo

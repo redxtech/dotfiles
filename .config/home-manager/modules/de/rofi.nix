@@ -172,7 +172,7 @@ in {
     }
 
     window {
-      width: 11%;
+      width: 15%;
     }
 
     listview {

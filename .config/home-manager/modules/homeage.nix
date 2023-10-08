@@ -12,11 +12,6 @@
         symlinks = [ "${config.xdg.configHome}/zsh/env/bw.txt" ];
       };
 
-      "mopidy" = {
-        source = ./secrets/mopidy-secrets.conf.age;
-        symlinks = [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
-      };
-
       "openweathermap-api" = {
         source = ./secrets/openweathermap.txt.age;
         symlinks = [ "${config.xdg.configHome}/polybar/openweathermap.txt" ];
