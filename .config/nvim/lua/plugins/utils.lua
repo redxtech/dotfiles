@@ -1,5 +1,6 @@
 return {
 	{ 'amadeus/vim-convert-color-to', event = 'VeryLazy' },
+	{ 'direnv/direnv.vim', event = 'VeryLazy' },
 	{ 'ellisonleao/glow.nvim', opts = {}, cmd = 'Glow' },
 	{ 'tpope/vim-eunuch', event = 'VeryLazy' },
 	{ 'tpope/vim-endwise', event = 'VeryLazy' },

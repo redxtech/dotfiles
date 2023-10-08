@@ -1,3 +1,7 @@
+if true then
+	return {}
+end
+
 return {
 	'andweeb/presence.nvim',
 	event = 'VeryLazy',
