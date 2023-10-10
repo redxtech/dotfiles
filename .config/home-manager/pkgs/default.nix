@@ -2,7 +2,7 @@ self: super:
 
 {
   copy-spotify-url = super.callPackage ./scripts/copy-spotify-url {};
-  # mercury-browser = super.callPackage ./mercury-browser {};
+  mercury-browser = super.callPackage ./mercury-browser {};
   pipewire-control = super.callPackage ./scripts/pipewire-control {};
   pipewire-output-tail = super.callPackage ./scripts/pipewire-output-tail {};
   player-mpris-tail = super.callPackage ./scripts/player-mpris-tail {};

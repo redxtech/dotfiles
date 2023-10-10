@@ -5,7 +5,7 @@
     # audacity
     discord
     # firefox
-    # mercury-browser
+    mercury-browser
     neovide
     pavucontrol
     slack
