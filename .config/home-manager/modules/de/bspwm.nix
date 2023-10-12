@@ -68,6 +68,7 @@ in {
       "${spotifywm}/bin/spotifywm"
       "${xfce.thunar}/bin/thunar --daemon"
       "${obsidian}/bin/obsidian"
+      "${slack}/bin/slack"
     ]
     ++
     map runOnceF [
