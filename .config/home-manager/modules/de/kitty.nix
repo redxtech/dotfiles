@@ -17,14 +17,15 @@
       cursor_shape = "beam";
 
       scrollback_lines = 10000;
-      scrollback_pager = "${config.xdg.configHome}/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'";
+      scrollback_pager =
+        "${config.xdg.configHome}/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'";
       scrollback_pager_history_size = 100;
 
       url_color = "#0087bd";
       url_style = "single";
-      
+
       repaint_delay = 7;
-      
+
       enable_audio_bell = false;
 
       remember_window_size = false;
@@ -55,25 +56,25 @@
   };
 
   xdg.configFile."kitty/pager.sh".text = ''
-  #!${pkgs.bash}/bin/bash
-  set -eu
+    #!${pkgs.bash}/bin/bash
+    set -eu
 
-  if [ "$#" -eq 3 ]; then
-    INPUT_LINE_NUMBER=''${1:-0}
-    CURSOR_LINE=''${2:-1}
-    CURSOR_COLUMN=''${3:-1}
-    AUTOCMD_TERMCLOSE_CMD="call cursor(max([0,''${INPUT_LINE_NUMBER}-1])+''${CURSOR_LINE}, ''${CURSOR_COLUMN})"
-  else
-    AUTOCMD_TERMCLOSE_CMD="normal G"
-  fi
+    if [ "$#" -eq 3 ]; then
+      INPUT_LINE_NUMBER=''${1:-0}
+      CURSOR_LINE=''${2:-1}
+      CURSOR_COLUMN=''${3:-1}
+      AUTOCMD_TERMCLOSE_CMD="call cursor(max([0,''${INPUT_LINE_NUMBER}-1])+''${CURSOR_LINE}, ''${CURSOR_COLUMN})"
+    else
+      AUTOCMD_TERMCLOSE_CMD="normal G"
+    fi
 
-  exec nvim 63<&0 0</dev/null \
-    -u NONE \
-    -c "map <silent> q :qa!<CR>" \
-    -c "set shell=bash scrollback=100000 termguicolors laststatus=0 clipboard+=unnamedplus" \
-    -c "autocmd TermEnter * stopinsert" \
-    -c "autocmd TermClose * ''${AUTOCMD_TERMCLOSE_CMD}" \
-    -c 'terminal sed </dev/fd/63 -e "s/'$'\x1b''']8;;file:[^\]*[\]//g" && sleep 0.01 && printf "'$'\x1b''']2;"'
+    exec nvim 63<&0 0</dev/null \
+      -u NONE \
+      -c "map <silent> q :qa!<CR>" \
+      -c "set shell=bash scrollback=100000 termguicolors laststatus=0 clipboard+=unnamedplus" \
+      -c "autocmd TermEnter * stopinsert" \
+      -c "autocmd TermClose * ''${AUTOCMD_TERMCLOSE_CMD}" \
+      -c 'terminal sed </dev/fd/63 -e "s/'$'\x1b''']8;;file:[^\]*[\]//g" && sleep 0.01 && printf "'$'\x1b''']2;"'
   '';
 }
 

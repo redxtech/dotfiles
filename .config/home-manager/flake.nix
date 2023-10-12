@@ -17,55 +17,55 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      localSystem = system;
-      overlays = [
-        inputs.nixgl.overlay
-        inputs.neovim-nightly-overlay.overlay
-        # inputs.nur.overlay
-        (import ./pkgs)
-      ];
-    };
-  in {
-    homeConfigurations = {
-      "gabe@desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          localSystem = system;
-          overlays = pkgs.overlays ++ [(import ./modules/desktop/nixgl-overlays.nix)];
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        localSystem = system;
+        overlays = [
+          inputs.nixgl.overlay
+          inputs.neovim-nightly-overlay.overlay
+          # inputs.nur.overlay
+          (import ./pkgs)
+        ];
+      };
+    in {
+      homeConfigurations = {
+        "gabe@desktop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            localSystem = system;
+            overlays = pkgs.overlays
+              ++ [ (import ./modules/desktop/nixgl-overlays.nix) ];
+          };
+
+          modules = [
+            {
+              home = {
+                homeDirectory = "/home/gabe";
+                username = "gabe";
+                stateVersion = "23.05";
+              };
+            }
+            ./modules/common.nix
+            ./modules/desktop
+            inputs.homeage.homeManagerModules.homeage
+          ];
         };
+        "gabe@laptop" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-
-        modules = [ 
-          {
-            home = {
-              homeDirectory = "/home/gabe";
-              username = "gabe";
-              stateVersion = "23.05";
-            };
-          }
-          ./modules/common.nix
-          ./modules/desktop
-          inputs.homeage.homeManagerModules.homeage
-        ];
-      }; 
-      "gabe@laptop" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [ 
-          {
-            home = {
-              homeDirectory = "/home/gabe";
-              username = "gabe";
-              stateVersion = "23.05";
-            };
-          }
-          ./modules/common.nix
-          ./modules/laptop
-          inputs.homeage.homeManagerModules.homeage
-        ];
-      }; 
+          modules = [
+            {
+              home = {
+                homeDirectory = "/home/gabe";
+                username = "gabe";
+                stateVersion = "23.05";
+              };
+            }
+            ./modules/common.nix
+            ./modules/laptop
+            inputs.homeage.homeManagerModules.homeage
+          ];
+        };
+      };
     };
-  };
 }

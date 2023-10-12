@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
   services.mopidy = {
@@ -33,7 +33,8 @@
       };
     };
 
-    extraConfigFiles = [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
+    extraConfigFiles =
+      [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
   };
 
   homeage.file."mopidy" = {

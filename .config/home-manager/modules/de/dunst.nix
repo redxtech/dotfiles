@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -52,7 +52,8 @@
           max_icon_size = 64;
           sticky_history = true;
           history_length = 200;
-          dmenu = "${pkgs.rofi} -dmenu -modi drun -p 'Dunst Actions:' -theme dracula";
+          dmenu =
+            "${pkgs.rofi} -dmenu -modi drun -p 'Dunst Actions:' -theme dracula";
           browser = "${pkgs.xdg-utils}/bin/xdg-open";
           always_run_script = true;
           title = "Dunst";
@@ -63,29 +64,30 @@
           mouse_middle_click = "close_all";
           mouse_right_click = "close_current";
         };
-        experimental = {
-          per_monitor_dpi = false;
-        };
+        experimental = { per_monitor_dpi = false; };
         urgency_low = {
           background = bg;
           foreground = fg-alt;
           frame_color = fg-alt;
           timeout = 5;
-          icon = "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-information-symbolic.svg";
+          icon =
+            "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-information-symbolic.svg";
         };
         urgency_normal = {
           background = bg;
           foreground = purple;
           frame_color = purple;
           timeout = 5;
-          icon = "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-question-symbolic.svg";
+          icon =
+            "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-question-symbolic.svg";
         };
         urgency_critical = {
           background = red;
           foreground = fg;
           frame_color = red;
           timeout = 5;
-          icon = "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-error-symbolic.svg";
+          icon =
+            "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/symbolic/status/dialog-error-symbolic.svg";
         };
       };
     };

@@ -1,9 +1,8 @@
-{ pkgs ? import <nixpkgs> {}
-, lib ? pkgs.lib
-, writeShellApplication ? pkgs.writeShellApplication
-}:
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib
+, writeShellApplication ? pkgs.writeShellApplication }:
 
-with pkgs; writeShellApplication {
+with pkgs;
+writeShellApplication {
   name = "pipewire-control";
   runtimeInputs = [ choose coreutils ripgrep sd wireplumber ];
 

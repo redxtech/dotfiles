@@ -1,12 +1,10 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   programs = {
     bat = {
       enable = true;
-      config = {
-        theme = "Dracula";
-      };
+      config = { theme = "Dracula"; };
     };
 
     btop = {
@@ -14,7 +12,8 @@
       settings = {
         color_theme = "dracula";
         theme_background = false;
-        presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
+        presets =
+          "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
         vim_keys = true;
         graph_symbol = "braille";
         shown_boxes = "cpu net proc mem";
@@ -29,7 +28,7 @@
 
     # carapace.enable = true;
 
-    direnv = { 
+    direnv = {
       enable = true;
 
       enableZshIntegration = true;
@@ -40,10 +39,7 @@
       enable = true;
       git = true;
       icons = true;
-      extraOptions = [
-        "--group-directories-first"
-        "--header"
-      ];
+      extraOptions = [ "--group-directories-first" "--header" ];
     };
 
     fzf = {
@@ -102,7 +98,8 @@
         br = "branch";
         unstage = "reset HEAD --";
         dc = "diff --cached";
-        lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all";
+        lg =
+          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all";
         pop = "stash pop";
         s = "status";
         d = "diff";
@@ -122,8 +119,8 @@
 
         options = {
           features = "side-by-side line-numbers decorations";
-          plus_style = "syntax \"#003800\"";
-          minus_style = "syntax \"#3f0001\"";
+          plus_style = ''syntax "#003800"'';
+          minus_style = ''syntax "#3f0001"'';
           navigate = true;
           decorations = {
             commit-decoration-style = "bold yellow box ul";
@@ -141,9 +138,7 @@
       };
     };
 
-    git-cliff = {
-      enable = true;
-    };
+    git-cliff = { enable = true; };
 
     gpg = { enable = false; };
 
@@ -155,9 +150,7 @@
     lazygit = {
       enable = true;
       settings = {
-        gui = {
-          nerdFontsVersion = "3";
-        };
+        gui = { nerdFontsVersion = "3"; };
         disableStartupPopups = true;
       };
     };
@@ -172,9 +165,7 @@
       enable = true;
 
       settings = {
-        display = {
-          compact = false;
-        };
+        display = { compact = false; };
         updates = {
           auto_update = true;
           auto_update_interval_hours = 168;
@@ -198,24 +189,24 @@
         {
           plugin = dracula;
           extraConfig = ''
-          set -g @dracula-refresh-rate 5
-          set -g @dracula-show-flags true
-          set -g @dracula-show-powerline true
-          set -g @dracula-show-battery false
-          set -g @dracula-show-left-icon session
-          set -g @dracula-border-contrast true
-          set -g @dracula-show-empty-plugins false
+            set -g @dracula-refresh-rate 5
+            set -g @dracula-show-flags true
+            set -g @dracula-show-powerline true
+            set -g @dracula-show-battery false
+            set -g @dracula-show-left-icon session
+            set -g @dracula-border-contrast true
+            set -g @dracula-show-empty-plugins false
 
-          set -g @dracula-military-time true
-          set -g @dracula-show-timezone false
+            set -g @dracula-military-time true
+            set -g @dracula-show-timezone false
 
-          set -g @dracula-show-fahrenheit false
-          set -g @dracula-cpu-display-load false
+            set -g @dracula-show-fahrenheit false
+            set -g @dracula-cpu-display-load false
 
-          set -g @dracula-ram-usage-colors "green dark_gray"
-          set -g @dracula-cpu-usage-colors "pink dark_gray"
+            set -g @dracula-ram-usage-colors "green dark_gray"
+            set -g @dracula-cpu-usage-colors "pink dark_gray"
 
-          set -g @dracula-plugins "cpu-usage ram-usage time"
+            set -g @dracula-plugins "cpu-usage ram-usage time"
           '';
         }
         {
@@ -225,64 +216,64 @@
         {
           plugin = continuum;
           extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60' # minutes
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '60' # minutes
           '';
         }
       ];
 
       extraConfig = ''
-      # set window split keybind
-      bind - split-window -v -c '#{pane_current_path}'
-      bind \\ split-window -h -c '#{pane_current_path}'
+        # set window split keybind
+        bind - split-window -v -c '#{pane_current_path}'
+        bind \\ split-window -h -c '#{pane_current_path}'
 
-      # bind resizing panes
-      bind -r C-Up resize-pane -U 2
-      bind -r C-Down resize-pane -D 2
-      bind -r C-Right resize-pane -R 2
-      bind -r C-Left resize-pane -L 2
+        # bind resizing panes
+        bind -r C-Up resize-pane -U 2
+        bind -r C-Down resize-pane -D 2
+        bind -r C-Right resize-pane -R 2
+        bind -r C-Left resize-pane -L 2
 
-      bind -n S-Up resize-pane -U 5
-      bind -n S-Down resize-pane -D 5
-      bind -n S-Right resize-pane -R 10
-      bind -n S-Left resize-pane -L 10
+        bind -n S-Up resize-pane -U 5
+        bind -n S-Down resize-pane -D 5
+        bind -n S-Right resize-pane -R 10
+        bind -n S-Left resize-pane -L 10
 
-      # window binds
-      bind c new-window
-      bind b break-pane -d
+        # window binds
+        bind c new-window
+        bind b break-pane -d
 
 
-      # sessions binds
-      bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^\"(tmux display-message -p '#S')\"\" | fzf --reverse | xargs tmux switch-client -t"
+        # sessions binds
+        bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^\"(tmux display-message -p '#S')\"\" | fzf --reverse | xargs tmux switch-client -t"
 
-      # bind re-sourcing
-      bind r source-file $HOME/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
+        # bind re-sourcing
+        bind r source-file $HOME/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
 
-      # quick keybinds
-      bind h split-window -h "htop"
-      bind t split-window -h "vim ~/.tmux.conf"
-      bind v split-window -h "vim ~/.config/nvim/init.vim"
+        # quick keybinds
+        bind h split-window -h "htop"
+        bind t split-window -h "vim ~/.tmux.conf"
+        bind v split-window -h "vim ~/.config/nvim/init.vim"
 
-      # prompted join-pane
-      bind j command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
+        # prompted join-pane
+        bind j command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
 
-      # easily swap a pane (targeted by pane number) with the current pane
-      bind s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
+        # easily swap a pane (targeted by pane number) with the current pane
+        bind s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
 
-      bind C-b send-keys 'tat && exit' 'C-m'
-      bind K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-message -p "#S")" || tmux kill-session'
+        bind C-b send-keys 'tat && exit' 'C-m'
+        bind K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-message -p "#S")" || tmux kill-session'
 
-      # some options
-      set -ga terminal-overrides ",xterm-kitty:RGB"
-      set -g renumber-windows on
-      set -g mode-style "fg=black,bg=brightgreen"
-      set -g set-titles on
-      set -g set-titles-string "#T"
-      set -g display-time 2500
-      set -g status-interval 3
-      
-      set -g pane-active-border-style bg=default,fg=red
-      set -g pane-border-style fg=white
+        # some options
+        set -ga terminal-overrides ",xterm-kitty:RGB"
+        set -g renumber-windows on
+        set -g mode-style "fg=black,bg=brightgreen"
+        set -g set-titles on
+        set -g set-titles-string "#T"
+        set -g display-time 2500
+        set -g status-interval 3
+
+        set -g pane-active-border-style bg=default,fg=red
+        set -g pane-border-style fg=white
 
       '';
     };

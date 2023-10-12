@@ -1,7 +1,4 @@
-{ stdenvNoCC
-, fetchFromGitHub
-, lib
-}:
+{ stdenvNoCC, fetchFromGitHub, lib }:
 
 stdenvNoCC.mkDerivation rec {
   pname = "vimix-cursor-theme";
@@ -24,7 +21,8 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "An x-cursor theme inspired by Materia design and based on capitaine-cursors";
+    description =
+      "An x-cursor theme inspired by Materia design and based on capitaine-cursors";
     homepage = "https://github.com/vinceliuice/Vimix-cursors";
     license = licenses.gpl3Only;
     platforms = platforms.all;
@@ -35,10 +33,7 @@ stdenvNoCC.mkDerivation rec {
         githubId = 18155001;
         name = "Gabe Dunn";
       };
-    in 
-    [
-      redxtech
-    ];
+    in [ redxtech ];
   };
 }
 

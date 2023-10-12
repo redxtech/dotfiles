@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [ copy-spotify-url ];
@@ -6,12 +6,13 @@
   services.polybar = with config.user-theme; {
     enable = true;
 
-    settings = 
-    let
-      runFloat = window: "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
+    settings = let
+      runFloat = window:
+        "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
       kittyRun = "${runFloat "kitty"} ${pkgs.kitty}/bin/kitty";
       runBtop = "${kittyRun} ${pkgs.btop}/bin/btop";
-      runSlurm = "${kittyRun} -o initial_window_width=79c -o initial_window_height=22c ${pkgs.slurm}/bin/slurm -i ${config.device-vars.networkInterface}";
+      runSlurm =
+        "${kittyRun} -o initial_window_width=79c -o initial_window_height=22c ${pkgs.slurm}/bin/slurm -i ${config.device-vars.networkInterface}";
 
       isWired = (config.device-vars.networkType == "wired");
     in {
@@ -96,21 +97,18 @@
             "margin"
             "polywins"
           ];
-          center = concatStringsSep " " [
-            "player-mpris-tail"
-          ];
+          center = concatStringsSep " " [ "player-mpris-tail" ];
           right = concatStringsSep " " config.device-vars.barRightModules;
         };
       };
-      "settings" = {
-        screenchange-reload = true;
-      };
+      "settings" = { screenchange-reload = true; };
       # modules
       "module/icon-menu" = {
         type = "custom/text";
         click = {
           left = "${pkgs.rofi}/bin/rofi -show drun";
-          right = "${pkgs.jgmenu}/bin/jgmenu --simple --at-pointer --csv-file=${config.xdg.configHome}/bspwm/resize-aspect.csv";
+          right =
+            "${pkgs.jgmenu}/bin/jgmenu --simple --at-pointer --csv-file=${config.xdg.configHome}/bspwm/resize-aspect.csv";
         };
         content = {
           text = lib.mkDefault "";
@@ -230,8 +228,10 @@
         initial = 1;
 
         hook = [
-          "echo \"%{A1:${pkgs.dunst}/bin/dunstctl set-paused true && ${pkgs.polybar}/bin/polybar-msg hook dnd 2:}󰂚%{A}\" &"
-          "echo \"%{A1:${pkgs.dunst}/bin/dunstctl set-paused false && ${pkgs.polybar}/bin/polybar-msg hook dnd 1:}󰂛%{A}\" &"
+          ''
+            echo "%{A1:${pkgs.dunst}/bin/dunstctl set-paused true && ${pkgs.polybar}/bin/polybar-msg hook dnd 2:}󰂚%{A}" &''
+          ''
+            echo "%{A1:${pkgs.dunst}/bin/dunstctl set-paused false && ${pkgs.polybar}/bin/polybar-msg hook dnd 1:}󰂛%{A}" &''
         ];
 
         format = {
@@ -244,7 +244,8 @@
       "module/kdeconnect" = {
         type = "custom/script";
 
-        exec = "${config.xdg.configHome}/polybar/scripts/kdeconnect/polybar-kdeconnect.sh -d";
+        exec =
+          "${config.xdg.configHome}/polybar/scripts/kdeconnect/polybar-kdeconnect.sh -d";
         tail = true;
 
         click.right = "${pkgs.libsForQt5.kdeconnect-kde}/bin/kdeconnect-app&";
@@ -296,7 +297,8 @@
       "module/player-mpris-tail" = {
         type = "custom/script";
 
-        exec = "${pkgs.player-mpris-tail}/bin/player-mpris --icon-playing \"%{T6}󰏤%{T-}\" --icon-paused \"%{T6}󰐊%{T-}\" --icon-stopped \"%{T6}󰓛%{T-}\" -f '{artist} - {title} {icon}'";
+        exec =
+          "${pkgs.player-mpris-tail}/bin/player-mpris --icon-playing \"%{T6}󰏤%{T-}\" --icon-paused \"%{T6}󰐊%{T-}\" --icon-stopped \"%{T6}󰓛%{T-}\" -f '{artist} - {title} {icon}'";
         tail = true;
 
         click = {
@@ -337,9 +339,13 @@
         };
         ramp-signal = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
 
-        format = let icon = if isWired then "󰈀" else "󰖩"; in { 
+        format = let icon = if isWired then "󰈀" else "󰖩";
+        in {
           connected = {
-            text = if isWired then "<label-connected>%{A}" else "<label-connected><ramp-signal>%{A}";
+            text = if isWired then
+              "<label-connected>%{A}"
+            else
+              "<label-connected><ramp-signal>%{A}";
             underline = "\${colours.network}";
             prefix = {
               text = "%{A1:${runSlurm}:}${icon}";
@@ -371,7 +377,10 @@
         };
         label = {
           connected = {
-            text = if isWired then "%ifname% %netspeed:07%" else "%essid% %netspeed:07%";
+            text = if isWired then
+              "%ifname% %netspeed:07%"
+            else
+              "%essid% %netspeed:07%";
             background = "\${colours.bg-alt}";
             foreground = "\${colours.fg}";
             padding = 1;
@@ -398,7 +407,9 @@
 
         click = {
           left = "${pkgs.pipewire-control}/bin/pipewire-control toggle-mute";
-          right = "${runFloat "Pavucontrol"} exec ${pkgs.pavucontrol}/bin/pavucontrol &";
+          right = "${
+              runFloat "Pavucontrol"
+            } exec ${pkgs.pavucontrol}/bin/pavucontrol &";
           middle = "${pkgs.pipewire-control}/bin/pipewire-control next";
         };
 
@@ -491,7 +502,8 @@
         type = "custom/script";
 
         interval = 600;
-        exec = "OPENWEATHER_API_KEY=\"$(${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/polybar/openweathermap.txt)\" ${pkgs.weather-bar}/bin/weather-bar -u metric";
+        exec = ''
+          OPENWEATHER_API_KEY="$(${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/polybar/openweathermap.txt)" ${pkgs.weather-bar}/bin/weather-bar -u metric'';
 
         format = {
           underline = "\${colours.weather}";
@@ -554,7 +566,8 @@
       };
       "module/updates-ipc-interval" = {
         type = "custom/script";
-        exec = "${pkgs.polybar}/bin/polybar-msg action '#updates-ipc.hook.0' 2>&1 1>/dev/null &";
+        exec =
+          "${pkgs.polybar}/bin/polybar-msg action '#updates-ipc.hook.0' 2>&1 1>/dev/null &";
         interval = 300;
       };
     };

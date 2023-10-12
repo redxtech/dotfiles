@@ -1,13 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./homeage.nix
-    ./programs.nix
-    ./services.nix
-    ./user-theme.nix
-    ./zsh.nix
-  ];
+  imports =
+    [ ./homeage.nix ./programs.nix ./services.nix ./user-theme.nix ./zsh.nix ];
 
   home = {
     language.base = "en_CA.UTF-8";
@@ -70,22 +65,18 @@
       xdg-utils
 
       # python
-      (python3.withPackages (ps: with ps; [
-        requests
-      ]))
+      (python3.withPackages (ps: with ps; [ requests ]))
 
       # nixgl, opegl & vulkan fix for non-nixOS devices
       nixgl.nixGLIntel
       nixgl.nixVulkanIntel
-      ];
-    };
+    ];
+  };
 
   xdg = {
     enable = true;
 
-    userDirs = {
-      videos = "${config.home.homeDirectory}/Videos";
-    };
+    userDirs = { videos = "${config.home.homeDirectory}/Videos"; };
   };
 
   nix = {
@@ -119,7 +110,7 @@
   };
 
   # set up later
-  accounts = {};
+  accounts = { };
 
   # let home manager install and manage itself.
   programs.home-manager.enable = true;

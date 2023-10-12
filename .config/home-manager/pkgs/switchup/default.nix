@@ -1,8 +1,5 @@
-{ pkgs ? import <nixpkgs> {}
-, stdenv ? pkgs.stdenv
-, fetchFromGitHub ? pkgs.fetchFromGitHub
-, lib ? pkgs.lib
-}:
+{ pkgs ? import <nixpkgs> { }, stdenv ? pkgs.stdenv
+, fetchFromGitHub ? pkgs.fetchFromGitHub, lib ? pkgs.lib }:
 
 stdenv.mkDerivation rec {
   pname = "switchup";

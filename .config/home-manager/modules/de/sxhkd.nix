@@ -1,9 +1,11 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
-with pkgs; with lib;
+with pkgs;
+with lib;
 let
   bin = getExe;
-  runFloat = window: "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
+  runFloat = window:
+    "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
   kittyRun = "${pkgs.kitty}/bin/kitty ";
   cfgDir = config.xdg.configHome;
 
@@ -11,18 +13,12 @@ let
     {
       description = "open terminal";
       command = "${kittyRun}";
-      binds = [
-        "hyper + Return"
-        "super + Return"
-      ];
+      binds = [ "hyper + Return" "super + Return" ];
     }
     {
       description = "open floating terminal";
       command = "${runFloat "kitty"} ${kittyRun}";
-      binds = [
-        "hyper + shift + Return"
-        "super + shift + Return"
-      ];
+      binds = [ "hyper + shift + Return" "super + shift + Return" ];
     }
     {
       description = "open other terminals";
@@ -32,10 +28,7 @@ let
     {
       description = "open rofi app launcher";
       command = "${bin rofi} -show drun";
-      binds = [
-        "hyper + space"
-        "super + space"
-      ];
+      binds = [ "hyper + space" "super + space" ];
     }
     {
       description = "open rofi launchers";
@@ -50,10 +43,7 @@ let
     {
       description = "rofi powermenu";
       command = "${rofi-powermenu}/bin/rofi-powermenu";
-      binds = [ 
-        "hyper + BackSpace"
-        "super + shift + e"
-      ];
+      binds = [ "hyper + BackSpace" "super + shift + e" ];
     }
     {
       description = "restart sxhkd";
@@ -93,18 +83,23 @@ let
     # }
     # state flags
     {
-      description = "set the window mode to {tiled,pseudo_tiled,floating,fullscreen}";
-      command = "${bspwm}/bin/bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
+      description =
+        "set the window mode to {tiled,pseudo_tiled,floating,fullscreen}";
+      command =
+        "${bspwm}/bin/bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
       binds = [ "super + {t,shift + t,s,f}" ];
     }
     {
-      description = "toggle the node flag {locked,sticky,private,hidden,marked}";
-      command = "${bspwm}/bin/bspc node -g {locked,sticky,private,hidden,marked}";
+      description =
+        "toggle the node flag {locked,sticky,private,hidden,marked}";
+      command =
+        "${bspwm}/bin/bspc node -g {locked,sticky,private,hidden,marked}";
       binds = [ "super + {x,y,z,v,ctrl + m}" ];
     }
     {
       description = "unhide a window";
-      command = "${bspwm}/bin/bspc node $(${bspwm}/bin/bspc query -N -n .hidden.local | ${coreutils}/bin/tail -n1) -g hidden=off";
+      command =
+        "${bspwm}/bin/bspc node $(${bspwm}/bin/bspc query -N -n .hidden.local | ${coreutils}/bin/tail -n1) -g hidden=off";
       binds = [ "super + ctrl + shift + v" ];
     }
     # focus/swap
@@ -114,7 +109,8 @@ let
       binds = [ "alt + Tab" ];
     }
     {
-      description = "{focus,move} the node in the {west,south,north,east} direction";
+      description =
+        "{focus,move} the node in the {west,south,north,east} direction";
       command = "${bspwm}/bin/bspc node -{f,s} {west,south,north,east}";
       binds = [ "super + {_,shift + }{h,j,k,l}" ];
     }
@@ -171,18 +167,23 @@ let
     }
     {
       description = "cancel the preselection for the focused desktop";
-      command = "${bspwm}/bin/bspc query -N -d | ${coreutils}/bin/xargs -I id -n 1 ${bspwm}/bin/bspc node id -p cancel";
+      command =
+        "${bspwm}/bin/bspc query -N -d | ${coreutils}/bin/xargs -I id -n 1 ${bspwm}/bin/bspc node id -p cancel";
       binds = [ "super + ctrl + shift + space" ];
     }
     # move/resize
     {
-      description = "expand a window by moving one its {left,bottom,top,right} side outward";
-      command = "${bspwm}/bin/bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
+      description =
+        "expand a window by moving one its {left,bottom,top,right} side outward";
+      command =
+        "${bspwm}/bin/bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
       binds = [ "super + alt + {h,j,k,l}" ];
     }
     {
-      description = "contract a window by moving its {left,bottom,top,right} side inward";
-      command = "${bspwm}/bin/bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
+      description =
+        "contract a window by moving its {left,bottom,top,right} side inward";
+      command =
+        "${bspwm}/bin/bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
       binds = [ "super + alt + shift + {h,j,k,l}" ];
     }
     {
@@ -192,13 +193,19 @@ let
     }
     {
       description = "snap current window to an aspect ratio";
-      command = "${jgmenu}/bin/jgmenu --simple --at-pointer --csv-file=${cfgDir}/bspwm/resize-aspect.csv";
+      command =
+        "${jgmenu}/bin/jgmenu --simple --at-pointer --csv-file=${cfgDir}/bspwm/resize-aspect.csv";
       binds = [ "hyper + shift + r" ];
     }
     # multimedia keys
     {
-      description = "${bin playerctl} {play/pause,skip,skip back} {spotify,chromium,mpv,general}";
-      command = "${bin playerctl} --player={spotify,chromium,mpv,Plexamp,\"\"} {play-pause,next,previous}";
+      description = "${
+          bin playerctl
+        } {play/pause,skip,skip back} {spotify,chromium,mpv,general}";
+      command = ''
+        ${
+          bin playerctl
+        } --player={spotify,chromium,mpv,Plexamp,""} {play-pause,next,previous}'';
       binds = [ "{_,shift,ctrl,alt,hyper} + XF86Audio{Play,Next,Prev}" ];
     }
     {
@@ -242,7 +249,8 @@ let
     }
     {
       description = "toggle obsidian";
-      command = "${bspwm}/bin/bspc node $(${xdo}/bin/xdo id -N obsidian) -g hidden -f";
+      command =
+        "${bspwm}/bin/bspc node $(${xdo}/bin/xdo id -N obsidian) -g hidden -f";
       binds = [ "hyper + n" ];
     }
     {
@@ -252,13 +260,16 @@ let
     }
     {
       description = "terminal exec {btop,ranger}";
-      command = "${runFloat "kitty"} ${kittyRun} {${btop}/bin/btop,${bin ranger}}";
+      command =
+        "${runFloat "kitty"} ${kittyRun} {${btop}/bin/btop,${bin ranger}}";
       binds = [ "hyper + {m,r}" ];
     }
     # various miscellany
     {
       description = "upgrade packages";
-      command = "${runFloat "kitty"} ${kittyRun} ${pkgs.updates-install-arch}/bin/updates-install-arch";
+      command = "${
+          runFloat "kitty"
+        } ${kittyRun} ${pkgs.updates-install-arch}/bin/updates-install-arch";
       binds = [ "hyper + u" ];
     }
     {
@@ -283,7 +294,10 @@ let
     }
     {
       description = "pull up emoji selector";
-      command = "${bin rofi} -modi emoji -show emoji -display-emoji -matching {glob,fuzzy} \"Emoji 󰄾\"";
+      command = ''
+        ${
+          bin rofi
+        } -modi emoji -show emoji -display-emoji -matching {glob,fuzzy} "Emoji 󰄾"'';
       binds = [ "hyper + {_,shift +} e" ];
     }
     {
@@ -303,36 +317,30 @@ let
     # }
     {
       description = "show keybind cheatsheet";
-      command = "${rofi}/bin/rofi  -dmenu -i -p 'Hotkeys 󰄾' < ${config.xdg.dataHome}/sxhkd/cheatsheet | ${choose}/bin/choose -f ' => ' 2 | ${bash}/bin/bash";
+      command =
+        "${rofi}/bin/rofi  -dmenu -i -p 'Hotkeys 󰄾' < ${config.xdg.dataHome}/sxhkd/cheatsheet | ${choose}/bin/choose -f ' => ' 2 | ${bash}/bin/bash";
       # command = "${bin sxhkhmenu} --opt-args=\"-dmenu -i -p Keybinds:\"";
       binds = [ "super + F1" ];
     }
   ];
 
-  entryToBind = { description, command, binds }: (
-    ''
+  entryToBind = { description, command, binds }: (''
     # ${description}
-    ${
-      strings.concatMapStringsSep "\n"
-      (bind: "${bind}\n\t${command}")
-      binds
-    }
-    '');
+    ${strings.concatMapStringsSep "\n" (bind: ''
+      ${bind}
+      	${command}'') binds}
+  '');
 
-  entryToCheatSheet = { description, command, binds }: (
-    ''
-    ${
-      strings.concatMapStringsSep "\n"
-      (bind: "${bind} => ${description} => ${command}")
-      binds
-    }
-    '');
+  entryToCheatSheet = { description, command, binds }: (''
+    ${strings.concatMapStringsSep "\n"
+    (bind: "${bind} => ${description} => ${command}") binds}
+  '');
 
-
-    keybindingsStr = strings.concatStringsSep "\n" (lists.map entryToBind entries);
-    cheatsheetStr = strings.concatStringsSep "\n" (lists.map entryToCheatSheet entries);
-in 
-{
+  keybindingsStr =
+    strings.concatStringsSep "\n" (lists.map entryToBind entries);
+  cheatsheetStr =
+    strings.concatStringsSep "\n" (lists.map entryToCheatSheet entries);
+in {
 
   home.packages = [ sxhkd ];
 

@@ -1,51 +1,52 @@
-# A theme format for use in desktop applications and editors  
+# A theme format for use in desktop applications and editors
 { lib, config, pkgs, ... }:
 let
   colour = lib.mkOptionType {
     name = "colour";
     description = "hex colour";
-    check = s: lib.types.str.check s && builtins.match "#[0-9a-fA-F]{6}" s != null;
+    check = s:
+      lib.types.str.check s && builtins.match "#[0-9a-fA-F]{6}" s != null;
   };
 
-  mkColourOption = name: default: (lib.mkOption {
-    type = colour;
-    description = "The colour value for the name '${name}'.";
-    inherit default;
-  });
-in
-{
+  mkColourOption = name: default:
+    (lib.mkOption {
+      type = colour;
+      description = "The colour value for the name '${name}'.";
+      inherit default;
+    });
+in {
   # dracula theme
   options.user-theme = builtins.mapAttrs mkColourOption rec {
     # standard colours
-    bg =      "#282a36";
-    bg-alt =  "#44475a";
-    fg =      "#f8f8f2";
-    fg-alt =  "#6272a4";
-    blue =    "#6272a4";
-    cyan =    "#8be9fd";
-    green =   "#50fa7b";
-    orange =  "#ffb86c";
-    pink =    "#ff79c6";
-    purple =  "#bd93f9";
-    red =     "#ff5555";
-    yellow =  "#f1fa8c";
+    bg = "#282a36";
+    bg-alt = "#44475a";
+    fg = "#f8f8f2";
+    fg-alt = "#6272a4";
+    blue = "#6272a4";
+    cyan = "#8be9fd";
+    green = "#50fa7b";
+    orange = "#ffb86c";
+    pink = "#ff79c6";
+    purple = "#bd93f9";
+    red = "#ff5555";
+    yellow = "#f1fa8c";
 
     # xresources colours
-    color0  = "#000000";
-    color8  = "#4d4d4d";
-    color1  = "#ff5555";
-    color9  = "#ff6e67";
-    color2  = "#50fa7b";
+    color0 = "#000000";
+    color8 = "#4d4d4d";
+    color1 = "#ff5555";
+    color9 = "#ff6e67";
+    color2 = "#50fa7b";
     color10 = "#5af78e";
-    color3  = "#f1fa8c";
+    color3 = "#f1fa8c";
     color11 = "#f4f99d";
-    color4  = "#bd93f9";
+    color4 = "#bd93f9";
     color12 = "#caa9fa";
-    color5  = "#ff79c6";
+    color5 = "#ff79c6";
     color13 = "#ff92d0";
-    color6  = "#8be9fd";
+    color6 = "#8be9fd";
     color14 = "#9aedfe";
-    color7  = "#bfbfbf";
+    color7 = "#bfbfbf";
     color15 = "#e6e6e6";
 
     # one-dark theme

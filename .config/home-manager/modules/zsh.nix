@@ -1,19 +1,18 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 let
   tags = rec {
-    early = [ defer:1 ];
-    late = [ defer:2 ];
-    end = [ defer:3 ];
-    ghr = [ from:gh-r ];
-    omz = [ from:oh-my-zsh ];
-    archOnly = [ "if:\"command -v pacman >/dev/null\"" ];
-    nixOnly = [ "if:\"command -v nixos-rebuild >/dev/null\"" ];
-    dnfOnly = [ "if:\"command -v dnf >/dev/null\"" ];
-    aptOnly = [ "if:\"command -v apt >/dev/null\"" ];
+    early = [ "defer:1" ];
+    late = [ "defer:2" ];
+    end = [ "defer:3" ];
+    ghr = [ "from:gh-r" ];
+    omz = [ "from:oh-my-zsh" ];
+    archOnly = [ ''if:"command -v pacman >/dev/null"'' ];
+    nixOnly = [ ''if:"command -v nixos-rebuild >/dev/null"'' ];
+    dnfOnly = [ ''if:"command -v dnf >/dev/null"'' ];
+    aptOnly = [ ''if:"command -v apt >/dev/null"'' ];
   };
-in 
-{
+in {
   home.shellAliases = {
     ls = "eza";
     la = "ls -al";
@@ -48,7 +47,8 @@ in
     xclip = "xclip -selection c";
     ps_mem = "sudo ps_mem";
     neofetchk = "neofetch --backend kitty --source $HOME/.config/wall.png";
-    "inodes-where" = "sudo du --inodes --separate-dirs --one-file-system / | sort -rh | head";
+    "inodes-where" =
+      "sudo du --inodes --separate-dirs --one-file-system / | sort -rh | head";
     dirties = "watch -d grep -e Dirty: -e Writeback: /proc/meminfo";
     expand-dong = "aunpack";
 
@@ -82,12 +82,12 @@ in
       };
 
       dirHashes = {
-        code    = "$HOME/Code";
-        dl      = "$HOME/Downloads";
-        docs    = "$HOME/Documents";
-        drawer  = "$HOME/Drawer";
-        pics    = "$HOME/Pictures";
-        vids    = "$HOME/Videos";
+        code = "$HOME/Code";
+        dl = "$HOME/Downloads";
+        docs = "$HOME/Documents";
+        drawer = "$HOME/Drawer";
+        pics = "$HOME/Pictures";
+        vids = "$HOME/Videos";
       };
 
       zsh-abbr = {
@@ -108,9 +108,9 @@ in
       };
 
       initExtraFirst = ''
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
       '';
 
       initExtra = ''
@@ -148,7 +148,8 @@ in
         ZSH_CUSTOM = "${config.xdg.configHome}/zsh";
         ZSH_FNM_ENV_EXTRA_ARGS = "--use-on-cd";
         AUTO_NOTIFY_EXPIRE_TIME = 10000;
-        AUTO_NOTIFY_IGNORE = "(btm btop conf docker kitty micro ranger spotifyd spt tmux yadm zsh)";
+        AUTO_NOTIFY_IGNORE =
+          "(btm btop conf docker kitty micro ranger spotifyd spt tmux yadm zsh)";
         KUBECONFIG = "${config.xdg.configHome}/kube/config";
         PNPM_HOME = "${config.xdg.dataHome}/pnpm";
         RANGER_LOAD_DEFAULT_RC = "FALSE";
@@ -159,132 +160,136 @@ in
         zplugHome = "${config.xdg.dataHome}/zplug";
 
         plugins = [
-        {
-          name = "romkatv/powerlevel10k";
-          tags = [ as:theme ];
-        }
-        {
-          name = "Aloxaf/fzf-tab";
-          tags = [];
-        }
-        {
-          name = "ael-code/zsh-colored-man-pages";
-          tags = tags.early;
-        }
-        {
-          name = "chisui/zsh-nix-shell";
-          tags = [];
-        }
-        {
-          name = "dominik-schwabe/zsh-fnm";
-          tags = tags.early;
-        }
-        {
-          name = "g-plane/zsh-yarn-autocompletions";
-          tags = tags.early;
-        }
-        {
-          name = "greymd/docker-zsh-completion";
-          tags = tags.early;
-        }
-        {
-          name = "hlissner/zsh-autopair";
-          tags = [];
-        }
-        {
-          name = "MichaelAquilina/zsh-auto-notify";
-          tags = tags.early ++ [ "if:\"[ test command -v notify-send >/dev/null ]\"" ];
-        }
-        {
-          name = "nix-community/nix-zsh-completions";
-          tags = [];
-        }
-        {
-          name = "plugins/archlinux";
-          tags = tags.archOnly ++ tags.omz;
-        }
-        {
-          name = "plugins/dnf";
-          tags = tags.dnfOnly ++ tags.omz;
-        }
-        {
-          name = "plugins/ubuntu";
-          tags = tags.aptOnly ++ tags.omz;
-        }
-        {
-          name = "plugins/command-not-found";
-          tags = tags.omz;
-        }
-        {
-          name = "plugins/github";
-          tags = tags.omz;
-        }
-        {
-          name = "plugins/man";
-          tags = tags.omz;
-        }
-        {
-          name = "plugins/transfer";
-          tags = tags.early ++ tags.omz;
-        }
-        {
-          name = "redxtech/zsh-containers";
-          tags = tags.early;
-        }
-        {
-          name = "redxtech/zsh-kitty";
-          tags = tags.late;
-        }
-        {
-          name = "redxtech/zsh-not-vim";
-          tags = tags.early;
-        }
-        {
-          name = "redxtech/zsh-show-path";
-          tags = tags.early;
-        }
-        {
-          name = "redxtech/zsh-systemd";
-          tags = tags.early;
-        }
-        {
-          name = "redxtech/zsh-unix-simple";
-          tags = tags.early;
-        }
-        {
-          name = "ryutok/rust-zsh-completions";
-          tags = tags.early;
-        }
-        {
-          name = "voronkovich/gitignore.plugin.zsh";
-          tags = tags.early;
-        }
-        {
-          name = "zdharma-continuum/fast-syntax-highlighting";
-          tags = [];
-        }
-        {
-          name = "zpm-zsh/ssh";
-          tags = tags.early;
-        }
-        {
-          name = "zsh-users/zsh-completions";
-          tags = tags.late;
-        }
+          {
+            name = "romkatv/powerlevel10k";
+            tags = [ "as:theme" ];
+          }
+          {
+            name = "Aloxaf/fzf-tab";
+            tags = [ ];
+          }
+          {
+            name = "ael-code/zsh-colored-man-pages";
+            tags = tags.early;
+          }
+          {
+            name = "chisui/zsh-nix-shell";
+            tags = [ ];
+          }
+          {
+            name = "dominik-schwabe/zsh-fnm";
+            tags = tags.early;
+          }
+          {
+            name = "g-plane/zsh-yarn-autocompletions";
+            tags = tags.early;
+          }
+          {
+            name = "greymd/docker-zsh-completion";
+            tags = tags.early;
+          }
+          {
+            name = "hlissner/zsh-autopair";
+            tags = [ ];
+          }
+          {
+            name = "MichaelAquilina/zsh-auto-notify";
+            tags = tags.early
+              ++ [ ''if:"[ test command -v notify-send >/dev/null ]"'' ];
+          }
+          {
+            name = "nix-community/nix-zsh-completions";
+            tags = [ ];
+          }
+          {
+            name = "plugins/archlinux";
+            tags = tags.archOnly ++ tags.omz;
+          }
+          {
+            name = "plugins/dnf";
+            tags = tags.dnfOnly ++ tags.omz;
+          }
+          {
+            name = "plugins/ubuntu";
+            tags = tags.aptOnly ++ tags.omz;
+          }
+          {
+            name = "plugins/command-not-found";
+            tags = tags.omz;
+          }
+          {
+            name = "plugins/github";
+            tags = tags.omz;
+          }
+          {
+            name = "plugins/man";
+            tags = tags.omz;
+          }
+          {
+            name = "plugins/transfer";
+            tags = tags.early ++ tags.omz;
+          }
+          {
+            name = "redxtech/zsh-containers";
+            tags = tags.early;
+          }
+          {
+            name = "redxtech/zsh-kitty";
+            tags = tags.late;
+          }
+          {
+            name = "redxtech/zsh-not-vim";
+            tags = tags.early;
+          }
+          {
+            name = "redxtech/zsh-show-path";
+            tags = tags.early;
+          }
+          {
+            name = "redxtech/zsh-systemd";
+            tags = tags.early;
+          }
+          {
+            name = "redxtech/zsh-unix-simple";
+            tags = tags.early;
+          }
+          {
+            name = "ryutok/rust-zsh-completions";
+            tags = tags.early;
+          }
+          {
+            name = "voronkovich/gitignore.plugin.zsh";
+            tags = tags.early;
+          }
+          {
+            name = "zdharma-continuum/fast-syntax-highlighting";
+            tags = [ ];
+          }
+          {
+            name = "zpm-zsh/ssh";
+            tags = tags.early;
+          }
+          {
+            name = "zsh-users/zsh-completions";
+            tags = tags.late;
+          }
         ];
       };
     };
 
     # other, related programs
 
-    direnv = { 
+    direnv = {
       enable = true;
 
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 
-    thefuck.enable = true;
+    thefuck = {
+      enable = true;
+      # instantMode = true;
+    };
 
     mcfly = {
       enable = true;
@@ -294,11 +299,10 @@ in
 
     zoxide.enable = true;
 
-    
   };
-    # file writing
-    xdg.configFile."zsh/env.secrets.zsh".text = ''
+  # file writing
+  xdg.configFile."zsh/env.secrets.zsh".text = ''
     export YOUTUBE_API_KEY="$(${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/rofi/youtube.txt)"
     export BW_SESSION="$(${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/zsh/env/bw.txt)"
-    '';
+  '';
 }

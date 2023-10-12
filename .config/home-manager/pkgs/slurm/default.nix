@@ -1,8 +1,5 @@
-{ pkgs ? import <nixpkgs> {}
-, stdenv ? pkgs.stdenv
-, fetchFromGitHub ? pkgs.fetchFromGitHub
-, lib ? pkgs.lib
-}:
+{ pkgs ? import <nixpkgs> { }, stdenv ? pkgs.stdenv
+, fetchFromGitHub ? pkgs.fetchFromGitHub, lib ? pkgs.lib }:
 
 stdenv.mkDerivation rec {
   pname = "slurm";
@@ -14,7 +11,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-w77SIXFctMwwNw9cQm0HQaEaMs/5NXQjn1LpvkpCCB8=";
   };
 
-  buildInputs = with pkgs; [meson ncurses6 ninja];
+  buildInputs = with pkgs; [ meson ncurses6 ninja ];
 
   buildPhase = ''
     meson setup

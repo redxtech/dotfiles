@@ -1,12 +1,9 @@
-{ pkgs ? import <nixpkgs> {}
-, lib ? pkgs.lib
-, writeScriptBin ? pkgs.writeScriptBin
-}:
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib
+, writeScriptBin ? pkgs.writeScriptBin }:
 
-writeScriptBin "pipewire-output-tail" 
-  ''
+writeScriptBin "pipewire-output-tail" ''
   #!${pkgs.wireplumber}/bin/wpexec
-  
+
   -- Live update of current sink's volume level, muteness in polybar friendly format.
 
   node_om = ObjectManager({
@@ -96,4 +93,4 @@ writeScriptBin "pipewire-output-tail"
 
   metadata_om:activate()
   node_om:activate()
-  ''
+''

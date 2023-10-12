@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -31,7 +31,8 @@
       settings = {
         global = {
           username = "redxtech";
-          password_cmd = "${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/spotify-tui/spotify.txt";
+          password_cmd =
+            "${pkgs.coreutils}/bin/cat ${config.xdg.configHome}/spotify-tui/spotify.txt";
 
           use_mpris = true;
           backend = "pulseaudio";
@@ -79,7 +80,8 @@
       Service = {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStart = "${pkgs.xorg.xmodmap}/bin/xmodmap ${config.home.homeDirectory}/.Xmodmap";
+        ExecStart =
+          "${pkgs.xorg.xmodmap}/bin/xmodmap ${config.home.homeDirectory}/.Xmodmap";
       };
     };
 

@@ -1,7 +1,5 @@
-{ pkgs ? import <nixpkgs> {}
-, lib ? pkgs.lib
-, writeShellApplication ? pkgs.writeShellApplication
-}:
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib
+, writeShellApplication ? pkgs.writeShellApplication }:
 
 writeShellApplication {
   name = "updates-install-arch";
@@ -9,11 +7,11 @@ writeShellApplication {
   # runtimeInputs = with pkgs; [ coreutils polybar ];
 
   text = ''
-  # add /usr/bin to PATH to make sure pacaur is found
-  PATH="$PATH:/usr/bin"
+    # add /usr/bin to PATH to make sure pacaur is found
+    PATH="$PATH:/usr/bin"
 
-  # shellcheck disable=SC2162
-  pacaur -Syu && echo "Done - Press any key to exit." && read -n 1
+    # shellcheck disable=SC2162
+    pacaur -Syu && echo "Done - Press any key to exit." && read -n 1
   '';
 
   meta = with lib; {

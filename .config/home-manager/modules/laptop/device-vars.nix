@@ -7,13 +7,13 @@ let
     description = "variable that represents a per-device variable";
   };
 
-  mkDeviceVarOption = name: default: (lib.mkOption {
-    type = deviceVar;
-    description = "The device-specific variable for '${name}'.";
-    inherit default;
-  });
-in
-{
+  mkDeviceVarOption = name: default:
+    (lib.mkOption {
+      type = deviceVar;
+      description = "The device-specific variable for '${name}'.";
+      inherit default;
+    });
+in {
   options.device-vars = builtins.mapAttrs mkDeviceVarOption rec {
     # primary monitor
     monitor = "eDP-1";

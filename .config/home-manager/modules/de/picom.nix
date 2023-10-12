@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -45,7 +45,7 @@
         detect-transient = true;
         detect-client-leader = true;
         use-damage = false;
-      
+
         # experimental-backends = true;
         glx-no-stencil = true;
         glx-copy-from-front = false;
@@ -91,7 +91,7 @@
       fade = true;
       fadeDelta = 4;
       fadeExclude = [ "class_g = 'Conky'" "class_g = 'slop'" ];
-      fadeSteps = [ 0.03 0.03 ];
+      fadeSteps = [ 3.0e-2 3.0e-2 ];
 
       shadow = false;
       shadowOffsets = [ (-5) (-5) ];
@@ -124,8 +124,17 @@
       ];
 
       wintypes = {
-        normal = { fade = false; shadow = false; };
-        tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = false; };
+        normal = {
+          fade = false;
+          shadow = false;
+        };
+        tooltip = {
+          fade = true;
+          shadow = true;
+          opacity = 0.75;
+          focus = true;
+          full-shadow = false;
+        };
         dock = { shadow = false; };
         dnd = { shadow = false; };
         popup_menu = { opacity = 0.95; };

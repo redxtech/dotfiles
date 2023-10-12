@@ -1,16 +1,16 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 let
-  colours = [ "blue" "cyan" "green" "orange" "red" "yellow"];
-  colourMods = builtins.listToAttrs ( map(colour: {
+  colours = [ "blue" "cyan" "green" "orange" "red" "yellow" ];
+  colourMods = builtins.listToAttrs (map (colour: {
     name = "rofi/themes/${colour}.rasi";
     value = {
       text = ''
-      @theme "custom"
+        @theme "custom"
 
-      * {
-        bg1: @${colour};
-      }
+        * {
+          bg1: @${colour};
+        }
       '';
     };
   }) colours);
@@ -88,7 +88,7 @@ in {
         vertical-align = mkLiteral "0.5";
         horizontal-align = mkLiteral "0";
         placeholder-markup = true;
-        placeholder =  "Search...";
+        placeholder = "Search...";
         placeholder-color = mkLiteral "@bg3";
       };
       entry-wrapper = {
@@ -114,7 +114,7 @@ in {
         cycle = true;
         dynamic = true;
         columns = mkLiteral "2";
-        lines =  mkLiteral "5";
+        lines = mkLiteral "5";
         spacing = mkLiteral "0";
         margin = mkLiteral "10px 10px 10px 10px";
       };
@@ -165,107 +165,107 @@ in {
 
   xdg.dataFile = colourMods // {
     "rofi/themes/powermenu.rasi".text = ''
-    @import "custom"
+      @import "custom"
 
-    configuration {
-      show-icons: false;
-    }
+      configuration {
+        show-icons: false;
+      }
 
-    window {
-      width: 15%;
-    }
+      window {
+        width: 15%;
+      }
 
-    listview {
-      columns: 1;
-      lines: 6;
-    }
+      listview {
+        columns: 1;
+        lines: 6;
+      }
 
-    inputbar {
-      enabled: false;
-    }
+      inputbar {
+        enabled: false;
+      }
 
-    element-text {
-      font: "DankMono Nerd Font 22";
-    }
+      element-text {
+        font: "DankMono Nerd Font 22";
+      }
     '';
 
     "rofi/themes/confirm-menu.rasi".text = ''
-    @import "custom"
+      @import "custom"
 
-    configuration {
-      show-icons: false;
-    }
+      configuration {
+        show-icons: false;
+      }
 
-    window {
-      width: 11%;
-    }
+      window {
+        width: 11%;
+      }
 
-    listview {
-      columns: 1;
-      lines: 2;
-    }
+      listview {
+        columns: 1;
+        lines: 2;
+      }
 
-    inputbar {
-      background-color: @bg1;
-      enabled: false;
-    }
+      inputbar {
+        background-color: @bg1;
+        enabled: false;
+      }
 
-    button {
-      str: "Are you sure?";
-      text-color: @fg0;
-      background-color: @bg1;
-    }
+      button {
+        str: "Are you sure?";
+        text-color: @fg0;
+        background-color: @bg1;
+      }
 
-    entry {
-      enabled: false;
-    }
+      entry {
+        enabled: false;
+      }
     '';
 
     "rofi/themes/emoji.rasi".text = ''
-    @import "custom"
+      @import "custom"
 
-    configuration {
-      show-icons: false;
-      matching: "normal";
-    }
+      configuration {
+        show-icons: false;
+        matching: "normal";
+      }
 
-    listview {
-      columns: 3;
-    }
+      listview {
+        columns: 3;
+      }
     '';
 
     "rofi/themes/rofi.rasi".text = ''
-    @import "custom"
+      @import "custom"
 
-    configuration {
-      kb-element-next: "Tab,Super+Tab";
-      kb-element-prev: "ISO_Left_Tab,Super+ISO_Left_Tab";
-      window {
-        format: " {c}";
+      configuration {
+        kb-element-next: "Tab,Super+Tab";
+        kb-element-prev: "ISO_Left_Tab,Super+ISO_Left_Tab";
+        window {
+          format: " {c}";
+        }
       }
-    }
 
-    listview {
-      columns: 1;
-    }
+      listview {
+        columns: 1;
+      }
 
-    element-text {
-      padding: 0px 0px 0px 9px;
-    }
+      element-text {
+        padding: 0px 0px 0px 9px;
+      }
 
-    inputbar {
-      enabled: false;
-    }
-  '';
+      inputbar {
+        enabled: false;
+      }
+    '';
 
     "rofi/themes/sxhkd-cheatsheet.rasi".text = ''
-    @theme "custom"
+      @theme "custom"
 
-    listview {
-      border: 0;
-      columns: 1;
-      scrollbar: false;
-    }
+      listview {
+        border: 0;
+        columns: 1;
+        scrollbar: false;
+      }
     '';
   };
 }

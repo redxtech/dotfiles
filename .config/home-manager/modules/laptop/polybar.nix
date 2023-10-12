@@ -1,16 +1,16 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
-let 
-  insertAt = with pkgs.lib.lists; index: value: list:
+let
+  insertAt = with pkgs.lib.lists;
+    index: value: list:
     let
       before = take index list;
       after = drop index list;
-    in
-      before ++ values ++ after;
+    in before ++ values ++ after;
 
-      kittyRun = "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty";
-in
-{
+  kittyRun =
+    "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty";
+in {
   services.polybar = {
     script = ''
       polybar main &
@@ -23,7 +23,7 @@ in
         card = "intel_backlight";
         enable-scroll = true;
 
-        format ={
+        format = {
           underline = "\${colours.backlight";
           prefix = {
             text = "󰖨";
@@ -54,7 +54,7 @@ in
         };
 
         animation-charging = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-        animation.charging= {
+        animation.charging = {
           foreground = "\${colours.fg}";
           background = "\${colours.bg-alt}";
           padding = 1;

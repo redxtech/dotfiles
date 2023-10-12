@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    # libreoffice
-    # steam
-  ];
+  home.packages = with pkgs;
+    [
+      # libreoffice
+      # steam
+    ];
 }
 
