@@ -90,6 +90,23 @@ in
         vids    = "$HOME/Videos";
       };
 
+      zsh-abbr = {
+        enable = true;
+
+        abbreviations = {
+          yamd = "yadm";
+          yand = "yadm";
+
+          ecoh = "echo";
+          pacuar = "pacaur";
+          sudp = "sudo";
+          yarm = "yarn";
+          clera = "clear";
+          claer = "clear";
+          dc = "cd";
+        };
+      };
+
       initExtraFirst = ''
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -117,20 +134,6 @@ in
 
         # source the theme
         [[ ! -f "$ZSH_CUSTOM/p10k.zsh" ]] || source "$ZSH_CUSTOM/p10k.zsh"
-
-        alias abbr="abbr -S --quiet"
-        # i often spell yadm as yamd
-        abbr yamd="yadm"
-        abbr yand="yadm"
-
-        # my common misspellings
-        abbr ecoh="echo"
-        abbr pacuar="pacaur"
-        abbr sudp="sudo"
-        abbr yarm="yarn"
-        abbr clera="clear"
-        abbr claer="clear"
-        abbr dc="cd"
 
         if test -f ${config.xdg.configHome}/zsh/env.local.zsh; then
           source ${config.xdg.configHome}/zsh/env.local.zsh
@@ -194,10 +197,6 @@ in
         }
         {
           name = "nix-community/nix-zsh-completions";
-          tags = [];
-        }
-        {
-          name = "olets/zsh-abbr";
           tags = [];
         }
         {
@@ -284,6 +283,8 @@ in
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
+
+    thefuck.enable = true;
 
     mcfly = {
       enable = true;
