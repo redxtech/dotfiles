@@ -37,7 +37,7 @@
   };
 
   homeage.file."mopidy" = {
-    source = ./secrets/mopidy-secrets.conf.age;
+    source = ../secrets/mopidy-secrets.conf.age;
     symlinks = [ "${config.xdg.configHome}/mopidy/mopidy-secrets.conf" ];
   };
 }
