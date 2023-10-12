@@ -34,7 +34,7 @@ in {
       obsidian = { desktop = "^4"; state = "floating"; sticky = true; hidden = true; };
       Plex = { desktop = "video"; };
       plexmediaplayer = { desktop = "video"; };
-      Slack = { desktop = "chat"; state = "floating"; };
+      Slack = { state = "floating"; };
       Element = { desktop = "chat"; follow = false; };
       Plexamp = { state = "floating"; };
       Subl = { desktop = "*"; };
