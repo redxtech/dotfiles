@@ -9,7 +9,7 @@ let
     in before ++ values ++ after;
 
   kittyRun =
-    "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty";
+    "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty --single-instance";
 in {
   services.polybar = {
     script = ''

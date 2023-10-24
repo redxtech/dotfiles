@@ -6,7 +6,7 @@ let
   bin = getExe;
   runFloat = window:
     "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
-  kittyRun = "${pkgs.kitty}/bin/kitty ";
+  kittyRun = "${pkgs.kitty}/bin/kitty --single-instance ";
   cfgDir = config.xdg.configHome;
 
   entries = [

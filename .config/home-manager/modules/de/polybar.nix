@@ -9,7 +9,7 @@
     settings = let
       runFloat = window:
         "${pkgs.bspwm}/bin/bspc rule -a ${window} -o state=floating; ";
-      kittyRun = "${runFloat "kitty"} ${pkgs.kitty}/bin/kitty";
+      kittyRun = "${runFloat "kitty"} ${pkgs.kitty}/bin/kitty --single-instance";
       runBtop = "${kittyRun} ${pkgs.btop}/bin/btop";
       runSlurm =
         "${kittyRun} -o initial_window_width=79c -o initial_window_height=22c ${pkgs.slurm}/bin/slurm -i ${config.device-vars.networkInterface}";
