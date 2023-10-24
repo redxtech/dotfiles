@@ -38,7 +38,6 @@ in {
     dua = "dua interactive";
     ping = "prettyping";
     pipes = "pipes-rs";
-    vim = "nvim";
 
     jcu = "journalctl --user -xeu";
     npr = "npm run";

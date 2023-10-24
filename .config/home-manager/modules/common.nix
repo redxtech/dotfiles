@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./homeage.nix ./programs.nix ./services.nix ./user-theme.nix ./zsh.nix ];
+    [ ./homeage.nix ./neovim.nix ./programs.nix ./services.nix ./user-theme.nix ./zsh.nix ];
 
   home = {
     language.base = "en_CA.UTF-8";
@@ -14,7 +14,6 @@
 
     sessionVariables = {
       BROWSER = "vivaldi-stable";
-      EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "kitty";
     };
@@ -40,7 +39,6 @@
       lsb-release
       mediainfo
       neofetch
-      neovim-nightly
       nixd
       nix-du
       nodejs
