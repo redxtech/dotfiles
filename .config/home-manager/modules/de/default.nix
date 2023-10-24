@@ -46,7 +46,7 @@
       "application/x-shellscript" =
         [ "nvim.desktop" "kitty-open.desktop" "sublime_text.desktop" ];
       "audio/ogg" = [ "mpv.desktop" "vlc.desktop" ];
-      "video/mp4" = [ "vlc.desktop" ];
+      "video/mp4" = [ "mpv.desktop" "vlc.desktop" ];
     };
     defaultApplications = {
       "x-scheme-handler/http" = [ "vivaldi-stable.desktop" ];
@@ -59,6 +59,7 @@
       "text/plain" = [ "nvim.desktop" ];
       "application/json" = [ "nvim.desktop" ];
       "application/x-gnome-saved-search" = [ "thunar.desktop" ];
+      "video/mp4" = [ "mpv.desktop" ];
       "x-scheme-handler/about" = [ "vivaldi-stable.desktop" ];
       "x-scheme-handler/unknown" = [ "vivaldi-stable.desktop" ];
       "x-scheme-handler/webcal" = [ "vivaldi-stable.desktop" ];

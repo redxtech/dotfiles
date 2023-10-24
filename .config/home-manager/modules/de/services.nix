@@ -14,7 +14,7 @@
 
     kdeconnect = {
       enable = true;
-      indicator = true;
+      indicator = false;
     };
 
     keybase = { enable = false; };

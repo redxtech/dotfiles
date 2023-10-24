@@ -61,8 +61,13 @@
     })
 
     table.insert(alsa_monitor.rules, {
-      matches = { { { "node.name", "equals", "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game" } } },
-      apply_properties = { ["node.description"] = "Arctis 7" },
+      matches = { { { "node.name", "matches", "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00*stereo-game*" } } },
+      apply_properties = { ["node.description"] = "Arctis 7 Game" },
+    })
+
+    table.insert(alsa_monitor.rules, {
+      matches = { { { "node.name", "matches", "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00*mono-chat*" } } },
+      apply_properties = { ["node.description"] = "Arctis 7 Chat" },
     })
   '';
 }
