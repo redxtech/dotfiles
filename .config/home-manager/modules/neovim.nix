@@ -20,7 +20,7 @@
     require('config.lazy')
     '';
 
-    extraPackages = with pkgs; [ gcc shellcheck ];
+    extraPackages = with pkgs; [ gcc nixfmt shellcheck ];
 
   };
 }

@@ -40,6 +40,7 @@
       mediainfo
       neofetch
       nixd
+      nixfmt
       nix-du
       nodejs
       pamixer

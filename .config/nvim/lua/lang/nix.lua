@@ -1,3 +1,4 @@
+local formatters = require('noice.text.format.formatters')
 return {
 	-- add nix to treesitter
 	{
@@ -16,6 +17,23 @@ return {
 			-- make sure mason installs the server
 			servers = {
 				nixd = {},
+			},
+		},
+	},
+
+	-- formatter support
+	{
+		'stevearc/conform.nvim',
+		opts = {
+			formatters_by_ft = {
+				nix = { 'nixfmt' },
+			},
+			formatters = {
+				nixfmt = {
+					command = 'nixfmt',
+					stdin = true,
+					-- args = { '$FILENAME' },
+				},
 			},
 		},
 	},
