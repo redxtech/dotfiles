@@ -6,6 +6,7 @@
     discord
     # firefox
     mercury-browser
+    multiviewer-for-f1
     neovide
     pavucontrol
     slack
