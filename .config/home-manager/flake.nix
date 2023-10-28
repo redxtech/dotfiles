@@ -50,7 +50,7 @@
             inputs.homeage.homeManagerModules.homeage
           ];
         };
-        "gabe@laptop" = home-manager.lib.homeManagerConfiguration {
+        "gabe@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
           modules = [
