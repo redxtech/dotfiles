@@ -7,6 +7,8 @@ let
     "! pgrep -f ${cmd} && dex ${config.xdg.dataHome}/applications/${cmd}.desktop";
   runWithRule = { cmd, window, rule }:
     "${pkgs.bspwm}/bin/bspc rule -a ${window} -o ${rule} && ${cmd}";
+  runOnceWeekend = cmd:
+    "test $(${pkgs.coreutils}/bin/date +%u) -lt 5 && " + runOnce cmd;
 in {
   xsession.windowManager.bspwm = with builtins; {
     enable = true;
@@ -79,8 +81,8 @@ in {
         "${spotifywm}/bin/spotifywm"
         "${xfce.thunar}/bin/thunar --daemon"
         "${obsidian}/bin/obsidian"
-        "${slack}/bin/slack"
-      ] ++ map runOnceF [ "${variety}/bin/variety" ] ++ map runWithRule [{
+      ] ++ map runOnceF [ "${variety}/bin/variety" ]
+      ++ map runOnceWeekend [ "${slack}/bin/slack" ] ++ map runWithRule [{
         cmd = "${kitty}/bin/kitty ${btop}/bin/btop";
         window = "kitty";
         rule = "state=floating desktop='^7'";
