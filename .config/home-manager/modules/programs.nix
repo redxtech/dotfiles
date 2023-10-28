@@ -159,7 +159,45 @@
 
     ripgrep.enable = true;
 
-    # ssh = { enable = false; };
+    ssh = let
+      user = "gabe";
+      identityFile = "~/.ssh/id_ed25519";
+    in {
+      enable = true;
+
+      matchBlocks = {
+        "desktop" = {
+          user = user;
+          identityFile = identityFile;
+          hostname = "10.0.0.59";
+        };
+        "desktop-remote" = {
+          user = user;
+          identityFile = identityFile;
+          hostname = "desktop.gabedunn.dev";
+        };
+        "laptop" = {
+          user = user;
+          identityFile = identityFile;
+          hostname = "10.0.0.161";
+        };
+        "rock-hard" = {
+          user = user;
+          identityFile = identityFile;
+          hostname = "10.0.0.191";
+        };
+        "sb" = {
+          user = "redxtech";
+          identityFile = identityFile;
+          hostname = "titan.usbx.me";
+        };
+        "aur" = {
+          user = "aur";
+          identityFile = "~/.ssh/aur";
+          hostname = "titan.usbx.me";
+        };
+      };
+    };
 
     tealdeer = {
       enable = true;
