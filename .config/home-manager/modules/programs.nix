@@ -81,97 +81,12 @@
       tmux.enableShellIntegration = true;
     };
 
-    gh = {
-      enable = true;
-
-      extensions = with pkgs; [ gh-cal gh-eco gh-markdown-preview ];
-
-      settings = {
-        git_protocol = "ssh";
-
-        prompt = "enabled";
-
-        aliases = {
-          co = "pr checkout";
-          pv = "pr view";
-        };
-      };
-    };
-
-    gh-dash.enable = true;
-
-    # TODO: enable, finish and figure out local config
-    git = {
-      enable = false;
-
-      package = pkgs.hub;
-
-      aliases = {
-        last = "log -1 --stat";
-        cp = "cherry-pick";
-        co = "checkout";
-        cl = "clone";
-        ci = "commit";
-        st = "status -sb";
-        br = "branch";
-        unstage = "reset HEAD --";
-        dc = "diff --cached";
-        lg =
-          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all";
-        pop = "stash pop";
-        s = "status";
-        d = "diff";
-        c = "commit";
-        p = "push";
-      };
-
-      difftastic = {
-        enable = true;
-
-        background = "dark";
-        # display = "inline";
-      };
-
-      delta = {
-        enable = false;
-
-        options = {
-          features = "side-by-side line-numbers decorations";
-          plus_style = ''syntax "#003800"'';
-          minus_style = ''syntax "#3f0001"'';
-          navigate = true;
-          decorations = {
-            commit-decoration-style = "bold yellow box ul";
-            file-style = "bold yellow ul";
-            file-decoration-style = "none";
-            hunk-header-decoration-style = "cyan box ul";
-          };
-          line-numbers = {
-            line-numbers-left-style = "cyan";
-            line-numbers-right-style = "cyan";
-            line-numbers-minus-style = 124;
-            line-numbers-plus-style = 28;
-          };
-        };
-      };
-    };
-
-    git-cliff = { enable = true; };
-
     gpg = { enable = false; };
 
     htop.enable = true;
     jq.enable = true;
 
     keychain = { enable = false; };
-
-    lazygit = {
-      enable = true;
-      settings = {
-        gui = { nerdFontsVersion = "3"; };
-        disableStartupPopups = true;
-      };
-    };
 
     pyenv.enable = true;
 

@@ -3,6 +3,7 @@
 {
   imports = [
     ./homeage.nix
+    ./git.nix
     ./neovim.nix
     ./programs.nix
     ./services.nix
