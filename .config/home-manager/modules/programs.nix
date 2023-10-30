@@ -28,6 +28,24 @@
 
     # carapace.enable = true;
 
+    cava = {
+      enable = true;
+      settings = {
+        general = {
+          autosens = 1;
+          bar_width = 3;
+          framerate = 144;
+          # overshoot = 20;
+          # sensitivity = 100;
+        };
+        input = { source = "auto"; };
+        color = { foreground = "blue"; };
+        smoothing = {
+          monstercat = 1; # TODO: test this
+        };
+      };
+    };
+
     direnv = {
       enable = true;
 
