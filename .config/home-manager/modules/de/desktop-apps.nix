@@ -11,7 +11,9 @@
     pavucontrol
     slack
     spotifywm
+    xfce.exo
     xfce.thunar
+    xfce.thunar-archive-plugin
     xfce.thunar-volman
     vlc
   ];

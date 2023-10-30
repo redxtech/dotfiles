@@ -10,7 +10,7 @@
       mopidy-mpd
       mopidy-mpris
       mopidy-scrobbler
-      mopidy-spotify
+      # mopidy-spotify
     ];
 
     settings = {

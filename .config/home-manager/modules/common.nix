@@ -1,8 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ ./homeage.nix ./neovim.nix ./programs.nix ./services.nix ./user-theme.nix ./zsh.nix ];
+  imports = [
+    ./homeage.nix
+    ./neovim.nix
+    ./programs.nix
+    ./services.nix
+    ./user-theme.nix
+    ./zsh.nix
+  ];
 
   home = {
     language.base = "en_CA.UTF-8";
@@ -32,6 +38,7 @@
       fnm
       fx
       glxinfo
+      gvfs
       hub
       kubecolor
       kubectl
