@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./autorandr.nix
     ./bspwm.nix
     ./desktop-apps.nix
     ./dunst.nix

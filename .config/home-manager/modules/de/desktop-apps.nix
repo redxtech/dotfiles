@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    arandr
     # audacity
     discord
     firefox
