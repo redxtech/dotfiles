@@ -16,11 +16,11 @@
     vimdiffAlias = true;
 
     extraLuaConfig = ''
-    -- bootstrap lazy.nvim, lazyvim and my plugins
-    require('config.lazy')
+      -- bootstrap lazy.nvim, lazyvim and my plugins
+      require('config.lazy')
     '';
 
-    extraPackages = with pkgs; [ gcc nixfmt shellcheck ];
+    extraPackages = with pkgs; [ buf-language-server gcc go nixfmt shellcheck ];
 
   };
 }
