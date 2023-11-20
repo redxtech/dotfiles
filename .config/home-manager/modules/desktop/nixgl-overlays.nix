@@ -15,5 +15,6 @@ let
     '';
 in {
   kitty = nixGLWrap prev.nixgl.nixGLIntel prev.kitty;
+  mpv = nixGLWrap prev.nixgl.nixGLIntel prev.mpv;
   rio = nixGLWrap prev.nixgl.nixGLIntel prev.rio;
 }

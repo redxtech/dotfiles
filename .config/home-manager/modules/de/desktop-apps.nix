@@ -55,7 +55,7 @@
       };
 
       scripts = with pkgs.mpvScripts; [
-        autocrop
+        # autocrop
         autoload
         mpris
         quality-menu
