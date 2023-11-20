@@ -23,7 +23,7 @@ in {
 
     # netowrk options
     networkType = "wireless";
-    networkInterface = "lo";
+    networkInterface = "wlp59s0";
 
     # bar options
     barRightModules = [
