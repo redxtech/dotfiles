@@ -18,23 +18,23 @@
 
   xsession = { enable = true; };
 
-  xdg.mimeApps = {
+  xdg.mimeApps = let
+    vivaldiDesktop = if config.device-vars.isNixOS then
+      "vivaldi.desktop"
+    else
+      "vivaldi-stable.desktop";
+  in {
     enable = true;
 
     associations.added = {
       "image/jpeg" = [ "feh.desktop" "org.gnome.gThumb.desktop" ];
       "image/png" = [ "feh.desktop" "org.gnome.gThumb.desktop" ];
       "image/gif" = [ "feh.desktop" ];
-      "image/svg+xml" = [
-        "feh.desktop"
-        "nvim.desktop"
-        "sublime_text.desktop"
-        "vivaldi-stable.desktop"
-      ];
+      "image/svg+xml" =
+        [ "feh.desktop" "nvim.desktop" "sublime_text.desktop" vivaldiDesktop ];
       "application/xml" = [ "nvim.desktop" "sublime_text.desktop" ];
       "text/plain" = [ "nvim.desktop" "sublime_text.desktop" ];
-      "text/html" =
-        [ "vivaldi-stable.desktop" "nvim.desktop" "sublime_text.desktop" ];
+      "text/html" = [ vivaldiDesktop "nvim.desktop" "sublime_text.desktop" ];
       "application/javascript" = [ "nvim.desktop" "sublime_text.desktop" ];
       "application/json" = [
         "org.gnome.TextEditor.desktop"
@@ -50,10 +50,10 @@
       "video/mp4" = [ "mpv.desktop" "vlc.desktop" ];
     };
     defaultApplications = {
-      "x-scheme-handler/http" = [ "vivaldi-stable.desktop" ];
-      "x-scheme-handler/https" = [ "vivaldi-stable.desktop" ];
-      "text/html" = [ "vivaldi-stable.desktop" ];
-      "application/pdf" = [ "vivaldi-stable.desktop" ];
+      "x-scheme-handler/http" = [ vivaldiDesktop ];
+      "x-scheme-handler/https" = [ vivaldiDesktop ];
+      "text/html" = [ vivaldiDesktop ];
+      "application/pdf" = [ vivaldiDesktop ];
       "inode/directory" = [ "thunar.desktop" ];
       "image/jpeg" = [ "feh.desktop" ];
       "image/png" = [ "feh.desktop" ];
@@ -61,9 +61,9 @@
       "application/json" = [ "nvim.desktop" ];
       "application/x-gnome-saved-search" = [ "thunar.desktop" ];
       "video/mp4" = [ "mpv.desktop" ];
-      "x-scheme-handler/about" = [ "vivaldi-stable.desktop" ];
-      "x-scheme-handler/unknown" = [ "vivaldi-stable.desktop" ];
-      "x-scheme-handler/webcal" = [ "vivaldi-stable.desktop" ];
+      "x-scheme-handler/about" = [ vivaldiDesktop ];
+      "x-scheme-handler/unknown" = [ vivaldiDesktop ];
+      "x-scheme-handler/webcal" = [ vivaldiDesktop ];
       "x-scheme-handler/postman" = [ "Postman.desktop" ];
       "x-scheme-handler/anytype" = [ "anytype.desktop" ];
     };
