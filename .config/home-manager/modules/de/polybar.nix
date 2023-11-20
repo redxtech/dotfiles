@@ -320,7 +320,7 @@
           };
         };
         label = {
-          text = "%output%";
+          text = "%output:0:40:...%";
           background = "\${colours.bg-alt}";
           foreground = "\${colours.fg}";
           padding = 1;

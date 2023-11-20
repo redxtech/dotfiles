@@ -108,7 +108,7 @@ in {
               };
             };
             full = {
-              text = "<label-full><ramp-capacity>";
+              text = "<label-full>";
               underline = "\${colours.green}";
               prefix = {
                 text = "󰁹";
