@@ -25,6 +25,7 @@
           inputs.nixgl.overlay
           inputs.neovim-nightly-overlay.overlay
           # inputs.nur.overlay
+          (import ./modules/package-overlays.nix)
           (import ./pkgs)
         ];
       };
