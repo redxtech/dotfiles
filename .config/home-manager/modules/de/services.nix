@@ -46,23 +46,26 @@
     };
 
     xidlehook = {
-      enable = false;
+      enable = true;
 
       detect-sleep = true;
       not-when-audio = true;
       not-when-fullscreen = true;
 
-      # TODO: figure out betterlockscreen PAM stuff
       timers = [
-        # {
-        #   # delay = 300;
-        #   delay = 30;
-        #   command = "${pkgs.betterlockscreen}/bin/betterlockscreen --lock dimblur -- --debug";
-        # }
-        # {
-        #   delay = 300;
-        #   command = "xset dpms force off";
-        # }
+        {
+          delay = 300;
+          command = "${
+              if config.device-vars.isNixOS then
+                "${pkgs.betterlockscreen}/bin"
+              else
+                ''PATH="$PATH:/usr/bin" /usr/bin''
+            }/betterlockscreen --lock dimblur";
+        }
+        {
+          delay = 300;
+          command = "${pkgs.xorg.xset}/bin/xset dpms force off";
+        }
       ];
     };
   };
