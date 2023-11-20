@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }:
 
-{
-  services.polybar = let
-    kittyRun =
-      "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty";
-  in {
+let
+  kittyRun =
+    "${pkgs.bspwm}/bin/bspc rule -a kitty -o state=floating; ${pkgs.kitty}/bin/kitty";
+in {
+  services.polybar = {
     script = ''
       polybar main &
       polybar secondary &
