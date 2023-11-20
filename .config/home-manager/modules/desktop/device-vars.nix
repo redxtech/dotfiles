@@ -15,6 +15,9 @@ let
     });
 in {
   options.device-vars = builtins.mapAttrs mkDeviceVarOption rec {
+    # device os
+    isNixOS = false;
+
     # primary monitor
     monitor = "DisplayPort-0";
 

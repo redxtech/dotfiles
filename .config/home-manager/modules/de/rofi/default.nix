@@ -14,6 +14,7 @@ let
       '';
     };
   }) colours);
+
   inherit (config.lib.formats.rasi) mkLiteral;
 in {
   programs.rofi = {
@@ -269,3 +270,4 @@ in {
     '';
   };
 }
+

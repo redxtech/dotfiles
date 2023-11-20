@@ -10,7 +10,7 @@
     ./picom.nix
     ./polybar.nix
     ./rio.nix
-    ./rofi.nix
+    ./rofi
     ./services.nix
     ./sxhkd.nix
     ./theme.nix

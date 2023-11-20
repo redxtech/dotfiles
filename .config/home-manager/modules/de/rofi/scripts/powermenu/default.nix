@@ -1,5 +1,5 @@
-{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib, writeShellApplication ?
-  pkgs.writeShellApplication
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib
+, writeShellApplication ? pkgs.writeShellApplication, useHostLocker ? false
   # , useWayland ? false
 }:
 
@@ -7,7 +7,9 @@ with pkgs;
 with lib;
 writeShellApplication {
   name = "rofi-powermenu";
-  runtimeInputs = [ bspwm coreutils rofi systemd xorg.xset ];
+
+  runtimeInputs = [ bspwm coreutils rofi systemd xorg.xset ]
+    ++ (if useHostLocker then [ ] else [ betterlockscreen ]);
 
   text = ''
     lock=" Lock"
@@ -32,9 +34,13 @@ writeShellApplication {
     case $answer in
     "$lock")
       # playerctl pause
-      # betterlockscreen -l dimblur
-      export PATH="$PATH:/usr/bin"
-      /usr/bin/betterlockscreen -l dimblur # TODO: figure out a way to make this work without using system
+      ${
+        if useHostLocker then ''
+          export PATH="$PATH:/usr/bin"
+          /usr/bin/betterlockscreen
+        '' else
+          "betterlockscreen"
+      } --lock dimblur
     ;;
     "$sleep")
       confirm

@@ -8,11 +8,6 @@ self: super:
   player-mpris-tail = super.callPackage ./scripts/player-mpris-tail { };
   polywins = super.callPackage ./scripts/polywins { };
   resize-aspect = super.callPackage ./scripts/resize-aspect { };
-  rofi-clipboard = super.callPackage ./rofi/clipboard { };
-  rofi-powermenu = super.callPackage ./rofi/powermenu { };
-  rofi-screenshot = super.callPackage ./rofi/screenshot { };
-  rofi-web = super.callPackage ./rofi/web { };
-  rofi-youtube = super.callPackage ./rofi/youtube { };
   slurm = super.callPackage ./slurm { };
   switchup = super.callPackage ./switchup { };
   updates-available-arch =

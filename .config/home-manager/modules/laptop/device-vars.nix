@@ -15,6 +15,9 @@ let
     });
 in {
   options.device-vars = builtins.mapAttrs mkDeviceVarOption rec {
+    # device os
+    isNixOS = true;
+
     # primary monitor
     monitor = "eDP-1";
 

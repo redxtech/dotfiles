@@ -9,6 +9,8 @@ let
   kittyRun = "${pkgs.kitty}/bin/kitty --single-instance ";
   cfgDir = config.xdg.configHome;
 
+  scripts = (import ./rofi/scripts) { inherit pkgs lib config; };
+
   entries = [
     {
       description = "open terminal";
@@ -42,7 +44,7 @@ let
     }
     {
       description = "rofi powermenu";
-      command = "${rofi-powermenu}/bin/rofi-powermenu";
+      command = "${scripts.rofi-powermenu}/bin/rofi-powermenu";
       binds = [ "hyper + BackSpace" "super + shift + e" ];
     }
     {
@@ -231,7 +233,7 @@ let
     }
     {
       description = "screenshot selection";
-      command = "${rofi-screenshot}/bin/rofi-screenshot";
+      command = "${scripts.rofi-screenshot}/bin/rofi-screenshot";
       binds = [ "super + Print" ];
     }
     # shortcut keys
@@ -279,17 +281,17 @@ let
     }
     {
       description = "{stream,download} from youtube";
-      command = "${rofi-youtube}/bin/rofi-youtube {stream,download}";
+      command = "${scripts.rofi-youtube}/bin/rofi-youtube {stream,download}";
       binds = [ "hyper + {_,shift + }y" ];
     }
     {
       description = "copy & paste from clipboard history";
-      command = "${rofi-clipboard}/bin/rofi-clipboard";
+      command = "${scripts.rofi-clipboard}/bin/rofi-clipboard";
       binds = [ "hyper + c" ];
     }
     {
       description = "make a {web,kagi} search";
-      command = "${rofi-web}/bin/rofi-web {_,default}";
+      command = "${scripts.rofi-web}/bin/rofi-web {_,default}";
       binds = [ "hyper + {_,shift + }b" ];
     }
     {

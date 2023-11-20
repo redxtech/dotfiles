@@ -15,6 +15,8 @@
         "${kittyRun} -o initial_window_width=79c -o initial_window_height=22c ${pkgs.slurm}/bin/slurm -i ${config.device-vars.networkInterface}";
 
       isWired = (config.device-vars.networkType == "wired");
+
+      scripts = (import ./rofi/scripts) { inherit pkgs lib config; };
     in {
       "colours" = {
         # named colours
@@ -449,7 +451,7 @@
       "module/powermenu" = {
         type = "custom/text";
 
-        click.left = "${pkgs.rofi-powermenu}/bin/rofi-powermenu";
+        click.left = "${scripts.rofi-powermenu}/bin/rofi-powermenu";
 
         content = {
           text = "⏻";
