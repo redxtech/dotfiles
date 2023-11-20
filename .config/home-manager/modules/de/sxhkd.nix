@@ -9,6 +9,11 @@ let
   kittyRun = "${pkgs.kitty}/bin/kitty --single-instance ";
   cfgDir = config.xdg.configHome;
 
+  vivaldiCmd = if config.device-vars.isNixOS then
+    "${vivaldi}/bin/vivaldi"
+  else
+    "/usr/bin/vivaldi-stable --force-dark-mode";
+
   scripts = (import ./rofi/scripts) { inherit pkgs lib config; };
 
   entries = [
@@ -239,8 +244,7 @@ let
     # shortcut keys
     {
       description = "launch browser";
-      # command = "${bin vivaldi} --force-dark-mode";
-      command = "vivaldi-stable --force-dark-mode";
+      command = vivaldiCmd;
       binds = [ "super + w" ];
     }
     {
