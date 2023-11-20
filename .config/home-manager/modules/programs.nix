@@ -254,7 +254,7 @@
 
       settings = {
         output = "'%(creator)s - %(title)s.%(ext)s'";
-        format = "best";
+        # format = "best";
         concurrent-fragments = 5;
         write-thumbnail = true;
         audio-multistreams = true;

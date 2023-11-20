@@ -39,6 +39,7 @@
       fnm
       fx
       glxinfo
+      google-cloud-sdk
       gvfs
       hub
       kubecolor
