@@ -6,11 +6,14 @@
     # audacity
     discord
     firefox
+    libreoffice
     mercury-browser
     multiviewer-for-f1
     neovide
     pavucontrol
+    plexamp
     slack
+    # steam
     spotifywm
     xfce.exo
     xfce.thunar

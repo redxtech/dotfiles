@@ -4,7 +4,6 @@
   imports = [
     ../de
     ./bspwm.nix
-    # ./desktop-apps.nix
     ./device-vars.nix
     ./mopidy.nix
     ./picom.nix
