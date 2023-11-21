@@ -178,7 +178,7 @@ in {
           }
           {
             name = "dominik-schwabe/zsh-fnm";
-            tags = tags.early;
+            tags = tags.early ++ tags.archOnly;
           }
           {
             name = "g-plane/zsh-yarn-autocompletions";
