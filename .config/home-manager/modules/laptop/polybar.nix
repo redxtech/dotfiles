@@ -120,7 +120,7 @@ in {
           };
           label = {
             charging = {
-              text = "<animation-charging>";
+              text = "%percentage%%";
               background = "\${colours.bg-alt}";
               padding = 1;
             };
