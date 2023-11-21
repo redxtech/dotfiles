@@ -24,6 +24,7 @@ in {
     rm = "rm -i";
 
     n = "nix-shell -p";
+    nd = "nix develop -c $SHELL";
     hms = "home-manager switch";
 
     e = "$EDITOR";
