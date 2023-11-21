@@ -302,8 +302,8 @@ let
       description = "pull up emoji selector";
       command = ''
         ${
-          bin rofi
-        } -modi emoji -show emoji -display-emoji -matching {glob,fuzzy} "Emoji 󰄾"'';
+          rofi.override (old: { plugins = [ rofi-emoji ]; })
+        }/bin/rofi -modi emoji -show emoji -display-emoji -matching {glob,fuzzy} "Emoji 󰄾"'';
       binds = [ "hyper + {_,shift +} e" ];
     }
     {
