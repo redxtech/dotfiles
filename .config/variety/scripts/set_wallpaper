@@ -293,12 +293,7 @@ ln -sfT "$3" "$HOME/.config/wall.png"
 
 # generate lockscreen image
 if command -v betterlockscreen >/dev/null; then
-    betterlockscreen -u "$WP" &
+    betterlockscreen --update "$WP" &
 fi
-
-# run pywal if enabled
-# if grep -q 'enabled=true' ~/.config/wal/pywal.conf; then
-#     sh ~/.local/bin/pywal
-# fi
 
 exit 0
