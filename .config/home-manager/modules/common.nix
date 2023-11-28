@@ -30,6 +30,7 @@
         age
         atool
         bitwarden-cli
+        bluetuith
         cachix
         cava
         delta
