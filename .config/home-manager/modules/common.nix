@@ -76,14 +76,15 @@
         # python
         (python3.withPackages (ps: with ps; [ requests ]))
 
-      ] ++ lib.optional (!config.device-vars.isNixOS) [
+      ] ++ (if !config.device-vars.isNixOS then [
         # fnm doesn't work on nixOS
         fnm
 
         # nixgl, opegl & vulkan fix for non-nixOS devices
         nixgl.nixGLIntel
         nixgl.nixVulkanIntel
-      ];
+      ] else
+        [ ]);
   };
 
   xdg = {

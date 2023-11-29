@@ -36,10 +36,9 @@ writeShellApplication {
       # playerctl pause
       ${
         if useHostLocker then ''
-          export PATH="$PATH:/usr/bin"
-          /usr/bin/betterlockscreen
+          PATH="$PATH:/usr/bin" /usr/bin/betterlockscreen \
         '' else
-          "betterlockscreen"
+          "betterlockscreen \\"
       } --lock dimblur
     ;;
     "$sleep")

@@ -59,7 +59,7 @@
               if config.device-vars.isNixOS then
                 "${pkgs.betterlockscreen}/bin"
               else
-                ''PATH="$PATH:/usr/bin" /usr/bin''
+                ''PATH="/usr/bin" /usr/bin''
             }/betterlockscreen --lock dimblur";
         }
         {

@@ -113,6 +113,7 @@
           user = user;
           identityFile = identityFile;
           hostname = "10.0.0.161";
+          port = 5022;
         };
         "rock-hard" = {
           user = user;
