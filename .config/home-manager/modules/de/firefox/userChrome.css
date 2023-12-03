@@ -105,6 +105,8 @@
   --tab-line-color: transparent !important;
 
   --toolbar-field-focus-background-color: var(--sag-bg-700) !important;
+
+  --gd-head-width: 380px;
 }
 
 /* Expand browser to top */
@@ -115,7 +117,7 @@
 /* or make the top bar position absolute */
 #navigator-toolbox {
   position: absolute;
-  width: 320px;
+  width: var(--gd-head-width);
   margin-top: 0 !important;
 }
 
@@ -131,7 +133,7 @@
 
 /* Fixed Sideberry size */
 #sidebar-box {
-  width: 420px !important;
+  width: var(--gd-head-width) !important;
 }
 #sidebar-splitter {
   display: none;
