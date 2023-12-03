@@ -48,6 +48,7 @@
         kubectx
         lsb-release
         mediainfo
+        mozillavpn
         neofetch
         nixd
         nixfmt

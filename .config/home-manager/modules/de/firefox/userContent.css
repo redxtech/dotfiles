@@ -1,0 +1,154 @@
+:root {
+  --sag-bg-200: #15121c;
+  --sag-bg-300: #1b1923;
+  --sag-bg-400: #1c1a24;
+  --sag-bg-500: #1e1e28;
+  --sag-bg-600: #20202b;
+  --sag-bg-700: #232330;
+  --sag-bg-800: #2d2939;
+  --sag-bg-900: #332e41;
+
+  --sag-bg-200-rgb: 15, 16, 20;
+  --sag-bg-300-rgb: 19, 21, 26;
+  --sag-bg-400-rgb: 23, 25, 31;
+  --sag-bg-500-rgb: 27, 29, 36;
+  --sag-bg-600-rgb: 29, 30, 36;
+  --sag-bg-700-rgb: 35, 37, 44;
+  --sag-bg-800-rgb: 42, 44, 51;
+  --sag-bg-900-rgb: 46, 48, 56;
+
+  --sag-border: #3d3f49;
+
+  --sag-accent-primary: #3498db;
+  --sag-accent-primary-rgb: 52, 152, 219;
+  --sag-accent-secondary: #67cbff;
+  --sag-accent-secondary-rgb: 103, 203, 255;
+
+  --sag-red: #e38c8f;
+  --sag-red-dark: #8c4349;
+  --sag-red-rgb: 224, 108, 117;
+  --sag-red-dark-rgb: 140, 67, 73;
+
+  --sag-green: #b1e1a6;
+  --sag-green-dark: #5f7a4c;
+  --sag-green-rgb: 152, 195, 121;
+  --sag-green-dark-rgb: 95, 122, 76;
+
+  --sag-yellow: #ecddaa;
+  --sag-yellow-dark: #8c764c;
+  --sag-yellow-rgb: 229, 192, 123;
+
+  --sag-blue: #a3b9ef;
+  --sag-blue-dark: #3498db;
+  --sag-blue-rgb: 97, 175, 239;
+
+  --sag-purple: #c678dd;
+  --sag-purple-dark: #9f60b3;
+  --sag-purple-rgb: 198, 120, 221;
+  --sag-purple-dark-rgb: 159, 96, 179;
+
+  --sag-cyan: #b7e5e6;
+  --sag-cyan-rgb: 86, 182, 194;
+
+  --sag-orange: #f7be95;
+  --sag-orange-rgb: 224, 141, 108;
+
+  --sag-lime: #a9c379;
+  --sag-lime-rgb: 169, 195, 121;
+
+  /* Minimal Functional Fox variables*/
+  --mff-bg: var(--sag-bg-500);
+  --mff-icon-color: #ccc;
+  --mff-nav-toolbar-padding: 8px;
+  --mff-sidebar-bg: var(--mff-bg);
+  --mff-sidebar-color: #e0fbfc;
+  --mff-tab-border-radius: 0px;
+  --mff-tab-color: #fefefa;
+  --mff-tab-font-family: "Noto Sans", sans;
+  --mff-tab-font-size: 11pt;
+  --mff-tab-font-weight: 400;
+  --mff-tab-height: 32px;
+  --mff-tab-pinned-bg: #70c1b3;
+  --mff-tab-selected-bg: var(--sag-bg-800);
+  --mff-tab-soundplaying-bg: transparent;
+  --mff-urlbar-color: #98c1d9;
+  --mff-urlbar-focused-color: #e0fbfc;
+  --mff-urlbar-font-family: "Cantarell", serif;
+  --mff-urlbar-font-size: 12pt;
+  --mff-urlbar-font-weight: 700;
+  --mff-urlbar-results-color: #e0fbfc;
+  --mff-urlbar-results-font-family: "Cantarell", serif;
+  --mff-urlbar-results-font-size: 12pt;
+  --mff-urlbar-results-font-weight: 700;
+  --mff-urlbar-results-url-color: #98c1d9;
+  --mff-primary: var(--sag-accent-primary);
+  --mff-scrollbar-primary: var(--sag-border);
+
+  /* Overriden Firefox variables*/
+  --button-bgcolor: var(--sag-bg-500) !important;
+  --input-bgcolor: var(--sag-bg-700) !important;
+  --autocomplete-popup-separator-color: transparent !important;
+  --lwt-accent-color: var(--sag-bg-500) !important;
+  --arrowpanel-background: var(--sag-bg-900) !important;
+  --arrowpanel-border-color: transparent !important;
+  --lwt-toolbar-field-background-color: var(--sag-bg-500) !important;
+  --lwt-toolbar-field-focus: var(--sag-bg-500) !important;
+  --toolbar-bgcolor: var(--sag-bg-500) !important;
+  --lwt-selected-tab-background-color: var(--sag-bg-800) !important;
+
+  --focus-outline-color: transparent !important;
+  --autocomplete-popup-highlight-background: var(
+    --sag-accent-primary
+  ) !important;
+
+  --chrome-content-separator-color: transparent !important;
+  --tab-line-color: transparent !important;
+
+  --toolbar-field-focus-background-color: var(--sag-bg-700) !important;
+}
+
+/* Removes white loading page */
+@-moz-document url(about:blank), url(about:newtab), url(about:home) {
+  html:not(#ublock0-epicker),
+  html:not(#ublock0-epicker) body,
+  #newtab-customize-overlay {
+    background: var(--sag-bg-500) !important;
+  }
+}
+
+/* Hide scrollbar */
+
+:root {
+  /*scrollbar-width: none !important;*/
+  scrollbar-color: var(--mff-scrollbar-primary) var(--mff-bg);
+}
+
+@-moz-document url(about:privatebrowsing) {
+  :root {
+    /*scrollbar-width: none !important;*/
+    scrollbar-color: var(--mff-scrollbar-primary) var(--mff-primary);
+  }
+}
+
+:root {
+  --in-content-page-background: var(--sag-bg-500) !important;
+  --in-content-box-background: var(--sag-bg-700) !important;
+  --in-content-box-border-color: var(--sag-border) !important;
+  --in-content-table-background: var(--sag-bg-700) !important;
+
+  --checkbox-unchecked-bgcolor: var(--sag-bg-900) !important;
+  --checkbox-checked-bgcolor: var(--sag-accent-secondary) !important;
+  --checkbox-checked-hover-bgcolor: var(--sag-accent-secondary) !important;
+  --checkbox-checked-active-bgcolor: var(--sag-accent-secondary) !important;
+
+  --in-content-button-background: var(--sag-bg-800) !important;
+  --in-content-button-background-hover: var(--sag-bg-900) !important;
+  --in-content-button-background-active: var(--sag-bg-900) !important;
+  --in-content-primary-button-background: var(--sag-accent-primary) !important;
+  --in-content-primary-button-background-hover: var(
+    --sag-accent-secondary
+  ) !important;
+  --in-content-primary-button-background-active: var(
+    --sag-accent-secondary
+  ) !important;
+}

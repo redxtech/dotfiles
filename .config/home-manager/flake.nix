@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    # nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/NUR";
     nixgl.url = "github:guibou/nixGL";
   };
 
@@ -24,7 +24,7 @@
         overlays = [
           inputs.nixgl.overlay
           inputs.neovim-nightly-overlay.overlay
-          # inputs.nur.overlay
+          inputs.nur.overlay
           (import ./modules/package-overlays.nix)
           (import ./pkgs)
         ];

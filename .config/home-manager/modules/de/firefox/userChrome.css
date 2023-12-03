@@ -1,0 +1,399 @@
+:root {
+  --sag-bg-200: #15121c;
+  --sag-bg-300: #1b1923;
+  --sag-bg-400: #1c1a24;
+  --sag-bg-500: #1e1e28;
+  --sag-bg-600: #20202b;
+  --sag-bg-700: #232330;
+  --sag-bg-800: #2d2939;
+  --sag-bg-900: #332e41;
+
+  --sag-bg-200-rgb: 15, 16, 20;
+  --sag-bg-300-rgb: 19, 21, 26;
+  --sag-bg-400-rgb: 23, 25, 31;
+  --sag-bg-500-rgb: 27, 29, 36;
+  --sag-bg-600-rgb: 29, 30, 36;
+  --sag-bg-700-rgb: 35, 37, 44;
+  --sag-bg-800-rgb: 42, 44, 51;
+  --sag-bg-900-rgb: 46, 48, 56;
+
+  --sag-border: #3d3f49;
+
+  --sag-accent-primary: #3498db;
+  --sag-accent-primary-rgb: 52, 152, 219;
+  --sag-accent-secondary: #67cbff;
+  --sag-accent-secondary-rgb: 103, 203, 255;
+
+  --sag-red: #e38c8f;
+  --sag-red-dark: #8c4349;
+  --sag-red-rgb: 224, 108, 117;
+  --sag-red-dark-rgb: 140, 67, 73;
+
+  --sag-green: #b1e1a6;
+  --sag-green-dark: #5f7a4c;
+  --sag-green-rgb: 152, 195, 121;
+  --sag-green-dark-rgb: 95, 122, 76;
+
+  --sag-yellow: #ecddaa;
+  --sag-yellow-dark: #8c764c;
+  --sag-yellow-rgb: 229, 192, 123;
+
+  --sag-blue: #a3b9ef;
+  --sag-blue-dark: #3498db;
+  --sag-blue-rgb: 97, 175, 239;
+
+  --sag-purple: #c678dd;
+  --sag-purple-dark: #9f60b3;
+  --sag-purple-rgb: 198, 120, 221;
+  --sag-purple-dark-rgb: 159, 96, 179;
+
+  --sag-cyan: #b7e5e6;
+  --sag-cyan-rgb: 86, 182, 194;
+
+  --sag-orange: #f7be95;
+  --sag-orange-rgb: 224, 141, 108;
+
+  --sag-lime: #a9c379;
+  --sag-lime-rgb: 169, 195, 121;
+
+  /* Minimal Functional Fox variables*/
+  --mff-bg: var(--sag-bg-500);
+  --mff-icon-color: #ccc;
+  --mff-nav-toolbar-padding: 8px;
+  --mff-sidebar-bg: var(--mff-bg);
+  --mff-sidebar-color: #e0fbfc;
+  --mff-tab-border-radius: 0px;
+  --mff-tab-color: #fefefa;
+  --mff-tab-font-family: "Noto Sans", sans;
+  --mff-tab-font-size: 11pt;
+  --mff-tab-font-weight: 400;
+  --mff-tab-height: 32px;
+  --mff-tab-pinned-bg: #70c1b3;
+  --mff-tab-selected-bg: var(--sag-bg-800);
+  --mff-tab-soundplaying-bg: transparent;
+  --mff-urlbar-color: #98c1d9;
+  --mff-urlbar-focused-color: #e0fbfc;
+  --mff-urlbar-font-family: "Cantarell", serif;
+  --mff-urlbar-font-size: 12pt;
+  --mff-urlbar-font-weight: 700;
+  --mff-urlbar-results-color: #e0fbfc;
+  --mff-urlbar-results-font-family: "Cantarell", serif;
+  --mff-urlbar-results-font-size: 12pt;
+  --mff-urlbar-results-font-weight: 700;
+  --mff-urlbar-results-url-color: #98c1d9;
+  --mff-primary: var(--sag-accent-primary);
+  --mff-scrollbar-primary: var(--sag-border);
+
+  /* Overriden Firefox variables*/
+  --button-bgcolor: var(--sag-bg-500) !important;
+  --input-bgcolor: var(--sag-bg-700) !important;
+  --autocomplete-popup-separator-color: transparent !important;
+  --lwt-accent-color: var(--sag-bg-500) !important;
+  --arrowpanel-background: var(--sag-bg-900) !important;
+  --arrowpanel-border-color: transparent !important;
+  --lwt-toolbar-field-background-color: var(--sag-bg-500) !important;
+  --lwt-toolbar-field-focus: var(--sag-bg-500) !important;
+  --toolbar-bgcolor: var(--sag-bg-500) !important;
+  --lwt-selected-tab-background-color: var(--sag-bg-800) !important;
+
+  --focus-outline-color: transparent !important;
+  --autocomplete-popup-highlight-background: var(
+    --sag-accent-primary
+  ) !important;
+
+  --chrome-content-separator-color: transparent !important;
+  --tab-line-color: transparent !important;
+
+  --toolbar-field-focus-background-color: var(--sag-bg-700) !important;
+}
+
+/* Expand browser to top */
+#appcontent {
+  /* margin-top: -42px; */
+}
+
+/* or make the top bar position absolute */
+#navigator-toolbox {
+  position: absolute;
+  width: 320px;
+  margin-top: 0 !important;
+}
+
+#sidebar-box {
+  --sidebar-background-color: var(--sag-bg-500) !important;
+  margin-top: 40px;
+}
+
+/* Hide sideberry header */
+#sidebar-box #sidebar-header {
+  display: none !important;
+}
+
+/* Fixed Sideberry size */
+#sidebar-box {
+  width: 420px !important;
+}
+#sidebar-splitter {
+  display: none;
+}
+
+/* Comment out to show window control */
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+
+#urlbar-background,
+#navigator-toolbox,
+#searchbar,
+.toolbar-items,
+.browser-toolbar:not(.titlebar-color),
+#nav-bar-customization-target,
+#nav-bar-overflow-button,
+#PanelUI-button {
+  background-color: var(--sag-bg-500) !important;
+}
+
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+.tab-background:is([selected], [multiselected]) {
+  background-color: var(--sag-bg-900) !important;
+  background-image: none !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+  box-shadow: none !important;
+}
+
+#urlbar {
+  max-width: 70% !important;
+  margin: 0 15% !important;
+}
+
+#urlbar-input:focus {
+  color: var(--mff-urlbar-focused-color) !important;
+}
+
+#urlbar-input {
+  font-size: var(--mff-urlbar-font-size) !important;
+  color: var(--mff-urlbar-color) !important;
+  font-family: var(--mff-urlbar-font-family) !important;
+  font-weight: var(--mff-urlbar-font-weight) !important;
+  text-align: center !important;
+}
+
+#urlbar-results {
+  font-family: var(--mff-urlbar-results-font-family);
+  font-weight: var(--mff-urlbar-results-font-weight);
+  font-size: var(--mff-urlbar-results-font-size) !important;
+  color: var(--mff-urlbar-results-color) !important;
+}
+
+#urlbar-search-button,
+#tracking-protection-icon-container,
+#page-action-buttons,
+#sync-button,
+#tabs-newtab-button {
+  display: none !important;
+}
+
+/* Flip tabs and top bar */
+#titlebar {
+  display: none;
+  -moz-box-ordinal-group: 3 !important;
+}
+
+.tab-close-button {
+  display: none !important;
+}
+
+.tab-text {
+  font-family: var(--mff-tab-font-family);
+  font-weight: var(--mff-tab-font-weight);
+  font-size: var(--mff-tab-font-size) !important;
+  color: var(--mff-tab-color);
+}
+
+.search-one-offs {
+  display: none !important;
+}
+
+.tabbrowser-tab {
+  --tab-min-width: 32px;
+}
+
+#tabbrowser-tabs {
+  display: none;
+}
+
+#tabbrowser-tabs:not([noshadowfortests])
+  .tab-background:is([selected], [multiselected]) {
+  box-shadow: none !important;
+}
+
+#nav-bar:not([tabs-hidden="true"]) {
+  box-shadow: none !important;
+}
+
+/* Floating Search Bar */
+
+/* Uncomment this to fix the arrows showing up for a frame when the a tab opens/closes  */
+/*.tabbrowser-tab:not([pinned], [fadein]) {
+  display: none !important;
+}*/
+
+.titlebar-spacer {
+  display: none !important;
+}
+
+#navigator-toolbox {
+  padding: 4px;
+}
+
+#navigator-toolbox-background {
+  max-width: 320px;
+}
+
+#titlebar {
+  margin-left: 190px;
+  margin-top: -24px;
+  margin-right: 50px;
+  transform: translateY(29px);
+
+  --tab-min-height: 32px;
+}
+
+.tabbrowser-tab {
+  height: var(--tab-min-height) !important;
+}
+
+.tabbrowser-tab .tab-background {
+  margin-block: 0 !important;
+}
+
+.tabbrowser-tab:is([image], [pinned])
+  > .tab-stack
+  > .tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab
+  > .tab-stack
+  > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  background-position: center bottom calc(2px + var(--tabs-navbar-shadow-size)) !important;
+}
+
+#new-tab-button,
+#alltabs-button {
+  display: none !important;
+}
+
+#tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
+  height: var(--tab-min-height) !important;
+}
+
+#TabsToolbar {
+  --toolbarbutton-inner-padding: calc(
+    (var(--tab-min-height) - 24px) / 2
+  ) !important;
+}
+
+#nav-bar {
+  position: unset !important;
+}
+
+#nav-bar[urlbar-exceeds-toolbar-bounds] #nav-bar-customization-target::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #0003;
+  z-index: 99999999999;
+  pointer-events: none;
+}
+
+#nav-bar:not([urlbar-exceeds-toolbar-bounds]) #urlbar-container {
+  pointer-events: none;
+  opacity: 0;
+}
+
+#urlbar-container {
+  --urlbar-container-width: 700px;
+  --urlbar-container-height: 50px;
+
+  z-index: 99999999999;
+  display: flex;
+  padding: 0;
+  margin: 0 !important;
+  box-shadow: 0 0 16px #0004;
+
+  width: var(--urlbar-container-width) !important;
+  max-width: var(--urlbar-container-width);
+  height: var(--urlbar-container-height);
+  max-height: var(--urlbar-container-height);
+
+  position: absolute !important;
+  left: 50vw;
+  top: 30vh;
+  transform: translate(-50%, -50%);
+
+  /* Reset their values */
+  padding-block: 0 !important;
+  margin-inline: 0 !important;
+}
+
+#urlbar-container #urlbar {
+  width: var(--urlbar-container-width) !important;
+  max-width: var(--urlbar-container-width) !important;
+  height: var(--urlbar-container-height) !important;
+
+  padding: 0;
+  margin: 0 !important;
+
+  position: unset !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+#urlbar-background,
+#searchbar {
+  background-color: var(--sag-bg-700) !important;
+}
+
+#urlbar-go-button {
+  display: none;
+}
+
+#urlbar-container #urlbar .urlbarView {
+  background: var(--sag-bg-700);
+
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  top: calc(100% - var(--toolbarbutton-border-radius) * 2);
+  padding-top: calc(var(--toolbarbutton-border-radius) * 2);
+  border-radius: var(--toolbarbutton-border-radius);
+
+  /* Reset their values */
+  width: unset !important;
+  padding-block: 0 !important;
+  margin-inline: 0 !important;
+}
+
+#urlbar > #urlbar-input-container {
+  height: 100% !important;
+  width: 100%;
+  padding-block: 0 !important;
+  padding-inline: 0 !important;
+}
+
+#urlbar[open] > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner {
+  border: none !important;
+}
+
+.urlbarView .urlbarView-row {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Suppress Link Destination Overlay */
+#statuspanel[type="overLink"] {
+  display: none !important;
+}

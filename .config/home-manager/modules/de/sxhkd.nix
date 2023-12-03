@@ -9,10 +9,7 @@ let
   kittyRun = "${pkgs.kitty}/bin/kitty --single-instance ";
   cfgDir = config.xdg.configHome;
 
-  vivaldiCmd = if config.device-vars.isNixOS then
-    "${vivaldi}/bin/vivaldi"
-  else
-    "/usr/bin/vivaldi-stable --force-dark-mode";
+  ff = "${firefox-devedition-bin}/bin/firefox-developer-edition -p gabe";
 
   scripts = (import ./rofi/scripts) { inherit pkgs lib config; };
 
@@ -244,7 +241,7 @@ let
     # shortcut keys
     {
       description = "launch browser";
-      command = vivaldiCmd;
+      command = ff;
       binds = [ "super + w" ];
     }
     {
@@ -260,8 +257,9 @@ let
       binds = [ "hyper + n" ];
     }
     {
-      description = "focus {vivaldi,discord,spotify,thunar,plex}";
-      command = "${wmctrl}/bin/wmctrl -a {vivaldi,discord,spotify,thunar,plex}";
+      description = "focus {firefox,discord,spotify,thunar,plex}";
+      command = ''
+        ${wmctrl}/bin/wmctrl -a {"Firefox Develop Edition",discord,spotify,thunar,plex}'';
       binds = [ "hyper + alt + {w,d,s,f,p}" ];
     }
     {

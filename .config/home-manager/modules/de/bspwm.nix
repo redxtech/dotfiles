@@ -33,6 +33,8 @@ in {
       Vivaldi-stable = { desktop = "www"; };
       firefox = { desktop = "www"; };
       firefoxdeveloperedition = { desktop = "www"; };
+      "firefox-aurora" = { desktop = "www"; };
+      "firefox-aurora:*:Library" = { state = "floating"; };
       discord = {
         desktop = "chat";
         follow = false;
@@ -66,6 +68,7 @@ in {
       bspc rule -a '*:*:Open Files' 'desktop=*' 'state=floating'
       bspc rule -a '*:*:Picture in picture' 'state=floating'
       bspc rule -a '*:*:Picture-in-picture' 'state=floating'
+      bspc rule -a '*:*:Picture-in-Picture' 'state=floating'
     '';
 
     startupPrograms = with pkgs;

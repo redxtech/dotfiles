@@ -5,9 +5,7 @@
     arandr
     # audacity
     discord
-    firefox
     libreoffice
-    mercury-browser
     multiviewer-for-f1
     neovide
     pavucontrol

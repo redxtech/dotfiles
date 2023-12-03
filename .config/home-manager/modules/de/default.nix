@@ -6,6 +6,7 @@
     ./bspwm.nix
     ./desktop-apps.nix
     ./dunst.nix
+    ./firefox
     ./kitty.nix
     ./picom.nix
     ./polybar.nix
@@ -23,6 +24,7 @@
       "vivaldi.desktop"
     else
       "vivaldi-stable.desktop";
+    firefox = "firefox-developer-edition.desktop";
   in {
     enable = true;
 
@@ -30,11 +32,17 @@
       "image/jpeg" = [ "feh.desktop" "org.gnome.gThumb.desktop" ];
       "image/png" = [ "feh.desktop" "org.gnome.gThumb.desktop" ];
       "image/gif" = [ "feh.desktop" ];
-      "image/svg+xml" =
-        [ "feh.desktop" "nvim.desktop" "sublime_text.desktop" vivaldiDesktop ];
+      "image/svg+xml" = [
+        "feh.desktop"
+        "nvim.desktop"
+        "sublime_text.desktop"
+        firefox
+        vivaldiDesktop
+      ];
       "application/xml" = [ "nvim.desktop" "sublime_text.desktop" ];
       "text/plain" = [ "nvim.desktop" "sublime_text.desktop" ];
-      "text/html" = [ vivaldiDesktop "nvim.desktop" "sublime_text.desktop" ];
+      "text/html" =
+        [ firefox vivaldiDesktop "nvim.desktop" "sublime_text.desktop" ];
       "application/javascript" = [ "nvim.desktop" "sublime_text.desktop" ];
       "application/json" = [
         "org.gnome.TextEditor.desktop"
@@ -50,10 +58,10 @@
       "video/mp4" = [ "mpv.desktop" "vlc.desktop" ];
     };
     defaultApplications = {
-      "x-scheme-handler/http" = [ vivaldiDesktop ];
-      "x-scheme-handler/https" = [ vivaldiDesktop ];
-      "text/html" = [ vivaldiDesktop ];
-      "application/pdf" = [ vivaldiDesktop ];
+      "x-scheme-handler/http" = [ firefox ];
+      "x-scheme-handler/https" = [ firefox ];
+      "text/html" = [ firefox ];
+      "application/pdf" = [ firefox ];
       "inode/directory" = [ "thunar.desktop" ];
       "image/jpeg" = [ "feh.desktop" ];
       "image/png" = [ "feh.desktop" ];
@@ -61,9 +69,9 @@
       "application/json" = [ "nvim.desktop" ];
       "application/x-gnome-saved-search" = [ "thunar.desktop" ];
       "video/mp4" = [ "mpv.desktop" ];
-      "x-scheme-handler/about" = [ vivaldiDesktop ];
-      "x-scheme-handler/unknown" = [ vivaldiDesktop ];
-      "x-scheme-handler/webcal" = [ vivaldiDesktop ];
+      "x-scheme-handler/about" = [ firefox ];
+      "x-scheme-handler/unknown" = [ firefox ];
+      "x-scheme-handler/webcal" = [ firefox ];
       "x-scheme-handler/postman" = [ "Postman.desktop" ];
       "x-scheme-handler/anytype" = [ "anytype.desktop" ];
     };
