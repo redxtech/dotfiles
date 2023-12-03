@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# default arguments
+output="${1:-output.mkv}"
+# dl_format="${2:-bestvideo+bestaudio}"
+# output_bitrate="${3:-4800k}"
+dl_format="${2:-bestvideo[height=360]+worstaudio}"
+output_bitrate="${3:-100k}"
+
+# youtube video url
+read -r video_url <video.txt
+
+# filenames
+spec="video.txt"
+input="download.mkv"
+
+# download the video
+yt-dlp \
+	--no-write-thumbnail \
+	--no-embed-thumbnail \
+	--no-embed-metadata \
+	--no-embed-chapters \
+	--no-embed-subs \
+	--no-embed-info-json \
+	-f "$dl_format" \
+	--merge-output-format mkv \
+	-o "$input" \
+	"$video_url"
+
+if [ ! -f "$input" ]; then
+	echo "Video downlaod failed."
+	exit 1
+fi
+
+# temporary file to store the list of video segments
+filelist="temp_filelist.txt"
+
+# clear the file list
+true >"$filelist"
+
+# loop through each line in the timestamps file
+tail -n +2 "$spec" | while IFS=, read -r start stop; do
+	# format output file name
+	outfile="$(echo "segment-$start-$stop.mkv" | sed 's/:/-/g')"
+
+	# convert timestamps to seconds
+	start_seconds=$(echo "$start" | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+	stop_seconds=$(echo "$stop" | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+
+	# calculate the duration of the segment
+	duration=$((stop_seconds - start_seconds))
+
+	# run ffmpeg to extract the segment
+	ffmpeg -nostdin -i "$input" -ss "$start_seconds" -t "$duration" -c copy "$outfile"
+
+	# add the output file to the file list
+	echo "file '$outfile'" >>"$filelist"
+
+done
+
+# merge all segments into a single file
+ffmpeg -f concat -safe 0 -i "$filelist" -c copy "$output"
+
+# encode the output file
+ffmpeg -i "$output" -c:v libx264 -b:v "$output_bitrate" -preset veryslow -c:a aac -b:a 192k -movflags +faststart "${output%.mkv}.mp4"
+
+# remove the temporary file list and individual segment files
+rm "$filelist"
+rm segment-*.mkv
+
+echo "Done!"
