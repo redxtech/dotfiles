@@ -288,7 +288,7 @@ in {
 
     thefuck = {
       enable = true;
-      # instantMode = true;
+      # enableInstantMode = true;
     };
 
     mcfly = {

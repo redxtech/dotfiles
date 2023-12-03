@@ -82,6 +82,7 @@
     };
 
     gpg = { enable = false; };
+    granted = { enable = false; };
 
     htop.enable = true;
     jq.enable = true;
@@ -91,6 +92,8 @@
     pyenv.enable = true;
 
     ripgrep.enable = true;
+
+    ruff.enable = false;
 
     ssh = let
       user = "gabe";

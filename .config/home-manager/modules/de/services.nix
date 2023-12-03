@@ -25,6 +25,11 @@
     playerctld = { enable = true; };
     redshift = { enable = false; };
 
+    signaturepdf = {
+      enable = true;
+      port = 8008;
+    };
+
     spotifyd = {
       enable = true;
 
