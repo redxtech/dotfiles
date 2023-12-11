@@ -5,13 +5,80 @@
     enable = true;
 
     package = pkgs.firefox-devedition-bin;
+    # package = nixGLWrap pkgs.firefox-devedition-bin;
 
     profiles = {
       gabe = {
 
-        settings = { "general.smoothScroll" = true; };
+        settings = {
+          "general.smoothScroll" = true;
+          "browser.aboutConfig.showWarning" = false;
+          "browser.bookmarks.restore_default_bookmarks" = false;
+          "browser.contentblocking.category" = "standard";
+          "browser.startup.page" = 3;
+          "browser.warnOnQuitShortcut" = false;
+          "browser.newtabpage.activity-stream.feeds.section.highlights" = true;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" =
+            false;
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "browser.toolbars.bookmarks.visibility" = "never";
+          "browser.urlbar.update2.engineAliasRefresh" = true;
+          "devtools.inspector.activeSidebar" = "computedview";
+          "devtools.inspector.selectedSidebar" = "computedview";
+          "services.sync.prefs.sync-seen.browser.newtabpage.pinned" = true;
+          "dom.forms.autocomplete.formautofill" = true;
+          "full-screen-api.ignore-widgets" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
+          "media.rdd-vpx.enabled" = true;
+          "network.dns.disablePrefetch" = false;
+          "network.predictor.enabled" = true;
+          "network.prefetch-next" = true;
+          "svg.context-properties.content.enabled" = true;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-        extraConfig = builtins.readFile ./user.js;
+          "browser.newtabpage.pinned" = [
+
+            {
+              url = "https://betaapp.fastmail.com/mail/Inbox";
+              label = "fastmail";
+            }
+            {
+              url = "https://www.youtube.com/";
+              label = "yt";
+            }
+            {
+              url = "https://github.com/redxtech";
+              label = "github";
+            }
+            {
+              url = "https://raindrop.io/";
+              label = "raindrop";
+            }
+            {
+              url = "https://dd.reddit.com/";
+              label = "reddit";
+            }
+            {
+              url = "https://news.ycombinator.com/news";
+              label = "hn";
+            }
+            {
+              url = "https://chat.openai.com/?model=gpt-4";
+              label = "chatgpt";
+            }
+            {
+              url = "https://photos.google.com/";
+              label = "photos";
+            }
+            { url = "https://hoppscotch.io/"; }
+            { url = "https://gabedunn.dev/"; }
+            {
+              url = "https://monkeytype.com/";
+              label = "monkeytype";
+            }
+          ];
+        };
 
         userChrome = builtins.readFile ./userChrome.css;
         userContent = builtins.readFile ./userContent.css;
