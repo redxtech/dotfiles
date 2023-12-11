@@ -9,7 +9,25 @@ let
   kittyRun = "${pkgs.kitty}/bin/kitty --single-instance ";
   cfgDir = config.xdg.configHome;
 
-  ff = "${firefox-devedition-bin}/bin/firefox-developer-edition -p gabe";
+  nixGLWrap = wrapper: pkg:
+    runCommand "${pkg.name}-nixgl-wrapper" { } ''
+      mkdir $out
+      ln -s ${pkg}/* $out
+      rm $out/bin
+      mkdir $out/bin
+      for bin in ${pkg}/bin/*; do
+       wrapped_bin=$out/bin/$(basename $bin)
+       echo "exec ${pkgs.lib.getExe wrapper} $bin \$@" > $wrapped_bin
+       chmod +x $wrapped_bin
+      done
+    '';
+
+  ff = "${
+      if config.device-vars.isNixOS then
+        firefox-devedition-bin
+      else
+        nixGLWrap nixgl.nixGLIntel firefox-devedition-bin
+    }/bin/firefox-developer-edition -p gabe";
 
   scripts = (import ./rofi/scripts) { inherit pkgs lib config; };
 
