@@ -68,6 +68,7 @@
         slurm
         spotify-tui
         switchup
+        telepresence2
         tokei
         yadm
         yq-go

@@ -30,7 +30,6 @@ in {
 
     rules = {
       Chromium = { desktop = "www"; };
-      Vivaldi-stable = { desktop = "www"; };
       firefox = { desktop = "www"; };
       firefoxdeveloperedition = { desktop = "www"; };
       "firefox-aurora" = { desktop = "www"; };
