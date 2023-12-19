@@ -11,24 +11,27 @@
       gabe = {
 
         settings = {
-          "general.smoothScroll" = true;
           "browser.aboutConfig.showWarning" = false;
           "browser.bookmarks.restore_default_bookmarks" = false;
           "browser.contentblocking.category" = "standard";
-          "browser.startup.page" = 3;
-          "browser.warnOnQuitShortcut" = false;
+          "browser.link.open_newwindow" = 3;
+          "browser.link.open_newwindow.restriction" = 2;
+          "browser.link.open_newwindow.override.external" = -1;
           "browser.newtabpage.activity-stream.feeds.section.highlights" = true;
           "browser.newtabpage.activity-stream.section.highlights.includePocket" =
             false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "general.smoothScroll" = true;
+          "browser.startup.page" = 3;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.urlbar.update2.engineAliasRefresh" = true;
+          "browser.warnOnQuitShortcut" = false;
           "devtools.inspector.activeSidebar" = "computedview";
           "devtools.inspector.selectedSidebar" = "computedview";
           "services.sync.prefs.sync-seen.browser.newtabpage.pinned" = true;
           "dom.forms.autocomplete.formautofill" = true;
-          "full-screen-api.ignore-widgets" = true;
+          "full-screen-api.ignore-widgets" = false;
           "media.ffmpeg.vaapi.enabled" = true;
           "media.rdd-vpx.enabled" = true;
           "network.dns.disablePrefetch" = false;
@@ -200,7 +203,7 @@
             };
             "Arch Packages" = {
               urls = [{
-                template = "https://nixos.wiki/index.php?search={searchTerms}";
+                template = "https://archlinux.org/packages/?q={searchTerms}";
               }];
               iconUpdateURL = "https://archlinux.org/static/favicon.ico";
               updateInterval = updateInterval;
