@@ -1,4 +1,11 @@
 return {
+	{ 'dracula/vim', name = 'dracula', lazy = false, priority = 1000 },
+	{
+		'LazyVim/LazyVim',
+		opts = {
+			colorscheme = 'dracula',
+		},
+	},
 	{
 		'echasnovski/mini.comment',
 		opts = {
@@ -7,6 +14,33 @@ return {
 			},
 		},
 	},
+	{
+		'HiPhish/rainbow-delimiters.nvim',
+		opts = {
+			highlight = {
+				'DraculaPink',
+				'DraculaGreen',
+				'DraculaOrange',
+				'DraculaBlue',
+				-- 'DraculaRed',
+				'DraculaViolet',
+				'DraculaCyan',
+				'DraculaYellow',
+
+				-- 'RainbowDelimiterRed',
+				-- 'RainbowDelimiterYellow',
+				-- 'RainbowDelimiterBlue',
+				-- 'RainbowDelimiterOrange',
+				-- 'RainbowDelimiterGreen',
+				-- 'RainbowDelimiterViolet',
+				-- 'RainbowDelimiterCyan',
+			},
+		},
+		config = function(_, opts)
+			require('rainbow-delimiters.setup').setup(opts)
+		end,
+	},
+
 	-- {
 	-- 	'echasnovski/mini.surround',
 	-- 	opts = {
