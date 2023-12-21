@@ -15,13 +15,15 @@
           "browser.contentblocking.category" = "standard";
           "browser.link.open_newwindow" = 3;
           "browser.link.open_newwindow.restriction" = 2;
-          "browser.link.open_newwindow.override.external" = -1;
+          "browser.link.open_newwindow.override.external" = 2;
           "browser.newtabpage.activity-stream.feeds.section.highlights" = true;
           "browser.newtabpage.activity-stream.section.highlights.includePocket" =
             false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          # "browser.newtab.url" = "http://localhost:9009";
           "general.smoothScroll" = true;
+          "browser.startup.homepage" = "http://localhost:9009";
           "browser.startup.page" = 3;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.urlbar.update2.engineAliasRefresh" = true;

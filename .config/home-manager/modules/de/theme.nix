@@ -6,6 +6,7 @@
     vimix-cursor-theme
 
     # fonts
+    cantarell-fonts
     jetbrains-mono
     noto-fonts
     noto-fonts-cjk
