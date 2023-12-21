@@ -107,8 +107,9 @@
           right =
             "${pkgs.jgmenu}/bin/jgmenu --simple --at-pointer --csv-file=${config.xdg.configHome}/bspwm/resize-aspect.csv";
         };
-        content = {
-          text = lib.mkDefault "";
+        label = lib.mkDefault "";
+        format = {
+          text = "<label>";
           background = "\${colours.icon-menu}";
           foreground = "\${colours.fg}";
           padding = 1;
@@ -265,7 +266,7 @@
       "module/margin" = {
         type = "custom/text";
 
-        content = {
+        format = {
           text = "%{T1} %{T-}";
           foreground = "\${colours.trans}";
         };
@@ -450,8 +451,9 @@
 
         click.left = "${scripts.rofi-powermenu}/bin/rofi-powermenu";
 
-        content = {
-          text = "⏻";
+        label = "⏻";
+        format = {
+          text = "<label>";
           background = "\${colours.powermenu}";
           foreground = "\${colours.fg}";
           padding = 1;
