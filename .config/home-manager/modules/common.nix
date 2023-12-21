@@ -20,7 +20,7 @@
     ];
 
     sessionVariables = {
-      BROWSER = "vivaldi-stable";
+      BROWSER = "firefox-developer-edition";
       VISUAL = "nvim";
       TERMINAL = "kitty";
     };

@@ -125,6 +125,7 @@
           co = "pr checkout";
           pv = "pr view";
         };
+        version = 1;
       };
     };
 
