@@ -31,7 +31,7 @@
       };
     in {
       homeConfigurations = {
-        "gabe@desktop" = home-manager.lib.homeManagerConfiguration {
+        "gabe@bastion" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             localSystem = system;
             overlays = pkgs.overlays

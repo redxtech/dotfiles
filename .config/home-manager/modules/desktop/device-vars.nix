@@ -16,10 +16,10 @@ let
 in {
   options.device-vars = builtins.mapAttrs mkDeviceVarOption rec {
     # device os
-    isNixOS = false;
+    isNixOS = true;
 
     # primary monitor
-    monitor = "DisplayPort-0";
+    monitor = "DP-1";
 
     # netowrk options
     networkType = "wired";
@@ -48,6 +48,6 @@ in {
       "margin"
       "dnd"
     ];
-    hwmonPath = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input";
+    hwmonPath = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp3_input";
   };
 }
