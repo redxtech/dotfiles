@@ -20,10 +20,7 @@
   xsession = { enable = true; };
 
   xdg.mimeApps = let
-    vivaldiDesktop = if config.device-vars.isNixOS then
-      "vivaldi.desktop"
-    else
-      "vivaldi-stable.desktop";
+    vivaldiDesktop = "vivaldi.desktop";
     firefox = "firefox-developer-edition.desktop";
   in {
     enable = true;

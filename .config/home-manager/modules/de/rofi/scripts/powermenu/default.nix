@@ -34,12 +34,7 @@ writeShellApplication {
     case $answer in
     "$lock")
       # playerctl pause
-      ${
-        if useHostLocker then ''
-          PATH="$PATH:/usr/bin" /usr/bin/betterlockscreen \
-        '' else
-          "betterlockscreen \\"
-      } --lock dimblur
+      betterlockscreen --lock dimblur
     ;;
     "$sleep")
       confirm

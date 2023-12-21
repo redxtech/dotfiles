@@ -5,7 +5,6 @@
     enable = true;
 
     package = pkgs.firefox-devedition-bin;
-    # package = nixGLWrap pkgs.firefox-devedition-bin;
 
     profiles = {
       gabe = {

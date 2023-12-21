@@ -60,12 +60,8 @@
       timers = [
         {
           delay = 300;
-          command = "${
-              if config.device-vars.isNixOS then
-                "${pkgs.betterlockscreen}/bin"
-              else
-                ''PATH="/usr/bin" /usr/bin''
-            }/betterlockscreen --lock dimblur";
+          command =
+            "${pkgs.betterlockscreen}/bin/betterlockscreen --lock dimblur";
         }
         {
           delay = 300;

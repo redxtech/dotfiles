@@ -13,7 +13,6 @@
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nur.url = "github:nix-community/NUR";
-    nixgl.url = "github:guibou/nixGL";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -22,7 +21,6 @@
       pkgs = import nixpkgs {
         localSystem = system;
         overlays = [
-          inputs.nixgl.overlay
           inputs.neovim-nightly-overlay.overlay
           inputs.nur.overlay
           (import ./modules/package-overlays.nix)
@@ -34,8 +32,7 @@
         "gabe@bastion" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             localSystem = system;
-            overlays = pkgs.overlays
-              ++ [ (import ./modules/desktop/nixgl-overlays.nix) ];
+            overlays = pkgs.overlays ++ [ ];
           };
 
           modules = [

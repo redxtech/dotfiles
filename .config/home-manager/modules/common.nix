@@ -25,68 +25,60 @@
       TERMINAL = "kitty";
     };
 
-    packages = with pkgs;
-      [
-        age
-        atool
-        bitwarden-cli
-        bluetuith
-        cachix
-        cava
-        delta
-        dex
-        du-dust
-        dua
-        fd
-        fx
-        glxinfo
-        google-cloud-sdk
-        gvfs
-        hub
-        kubecolor
-        kubectl
-        kubectx
-        lsb-release
-        mediainfo
-        mozillavpn
-        neofetch
-        nixd
-        nixfmt
-        nix-du
-        nodejs
-        pamixer
-        pipes-rs
-        playerctl
-        prettyping
-        ps_mem
-        rage
-        ranger
-        rclone
-        rsync
-        sd
-        shell_gpt
-        slurm
-        spotify-tui
-        switchup
-        telepresence2
-        tokei
-        yadm
-        yq-go
-        xclip
-        xdg-utils
+    packages = with pkgs; [
+      age
+      atool
+      bitwarden-cli
+      bluetuith
+      cachix
+      cava
+      delta
+      dex
+      du-dust
+      dua
+      fd
+      fx
+      glxinfo
+      google-cloud-sdk
+      gvfs
+      hub
+      kubecolor
+      kubectl
+      kubectx
+      lsb-release
+      mediainfo
+      mozillavpn
+      neofetch
+      nixd
+      nixfmt
+      nix-du
+      nodejs
+      pamixer
+      pipes-rs
+      playerctl
+      prettyping
+      ps_mem
+      rage
+      ranger
+      rclone
+      rsync
+      sd
+      shell_gpt
+      slurm
+      spotify-tui
+      sqlite
+      switchup
+      telepresence2
+      tokei
+      yadm
+      yq-go
+      xclip
+      xdg-utils
 
-        # python
-        (python3.withPackages (ps: with ps; [ requests ]))
+      # python
+      (python3.withPackages (ps: with ps; [ requests ]))
 
-      ] ++ (if !config.device-vars.isNixOS then [
-        # fnm doesn't work on nixOS
-        fnm
-
-        # nixgl, opegl & vulkan fix for non-nixOS devices
-        nixgl.nixGLIntel
-        nixgl.nixVulkanIntel
-      ] else
-        [ ]);
+    ];
   };
 
   xdg = {

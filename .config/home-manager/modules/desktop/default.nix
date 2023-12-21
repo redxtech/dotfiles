@@ -1,14 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ../de
-    ./bspwm.nix
-    ./device-vars.nix
-    ./mopidy.nix
-    ./picom.nix
-    ./polybar.nix
-  ];
+  imports = [ ../de ./bspwm.nix ./device-vars.nix ./mopidy.nix ./polybar.nix ];
 
   # set home-manager to add home-manager paths to the user's profile
   targets.genericLinux.enable = true;

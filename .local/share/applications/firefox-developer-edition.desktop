@@ -1,8 +1,8 @@
 [Desktop Entry]
 Actions=new-private-window;new-window;profile-manager-window
 Categories=Network;WebBrowser
-TryExec=nixGLIntel
-Exec=nixGLIntel firefox-developer-edition --name firefox-aurora -p gabe %U
+TryExec=firefox-developer-edition
+Exec=firefox-developer-edition --name firefox-aurora -p gabe %U
 GenericName=Web Browser
 Icon=firefox-developer-edition
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https
