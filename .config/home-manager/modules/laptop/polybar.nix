@@ -24,24 +24,19 @@ in {
 
           monitor = "DP-1";
 
-          tray.position = "none";
-
           modules = {
             left =
               concatStringsSep " " [ "bspwm" "margin" "polywins-secondary" ];
             center = config.services.polybar.settings."bar/main".modules.center;
-            right = concatStringsSep " " [
-              config.services.polybar.settings."bar/main".modules.right
-              "margin"
-              "powermenu"
-            ];
+            right = concatStringsSep " " (config.device-vars.barRightModules
+              ++ [ "margin" "tray" "margin" "powermenu" ]);
           };
         };
         "module/polywins-secondary" = {
           inherit (config.services.polybar.settings."module/polywins")
             format label tail type;
 
-          exec = "${pkgs.polywins}/bin/polywins DP-1";
+          exec = "${pkgs.polywins}/bin/polywins DP-2";
         };
         "module/backlight" = {
           type = "internal/backlight";

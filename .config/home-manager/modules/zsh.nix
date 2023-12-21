@@ -26,6 +26,8 @@ in {
     n = "nix-shell -p";
     nd = "nix develop -c $SHELL";
     hms = "home-manager switch";
+    hmsb = "home-manager switch -b backup";
+    nrs = "sudo nixos-rebuild switch --flake .";
 
     e = "$EDITOR";
     svim = "sudo -e";

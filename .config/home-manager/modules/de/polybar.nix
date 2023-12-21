@@ -73,13 +73,6 @@
           scroll = "ns-resize";
         };
 
-        tray = {
-          background = "\${colours.bg}";
-          position = "right";
-          maxsize = 20;
-          padding.left = 1;
-        };
-
         font = [
           # standard text fonts
           "DankMono:style=Regular:size=10;2"
@@ -101,7 +94,8 @@
             "polywins"
           ];
           center = concatStringsSep " " [ "player-mpris-tail" ];
-          right = concatStringsSep " " config.device-vars.barRightModules;
+          right = concatStringsSep " " (config.device-vars.barRightModules
+            ++ [ "margin" "tray" "margin" ]);
         };
       };
       "settings" = { screenchange-reload = true; };
@@ -501,6 +495,15 @@
             foreground = "\${colours.fg}";
             padding = 1;
           };
+        };
+      };
+      "module/tray" = {
+        type = "internal/tray";
+
+        tray = {
+          size = 22;
+          padding = 2;
+          background = "\${colours.bg}";
         };
       };
       "module/weather" = {

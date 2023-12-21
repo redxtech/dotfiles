@@ -27,9 +27,6 @@ in {
 
     # bar options
     barRightModules = [
-      "updates-ipc-interval"
-      "updates-ipc"
-      "margin"
       "weather"
       "margin"
       # "kdeconnect"
