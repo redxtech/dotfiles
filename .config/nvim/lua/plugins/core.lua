@@ -1,9 +1,21 @@
 return {
-	{ 'dracula/vim', name = 'dracula', lazy = false, priority = 1000 },
+	{
+		'Mofiqul/dracula.nvim',
+		lazy = false,
+		priority = 1000,
+	},
 	{
 		'LazyVim/LazyVim',
 		opts = {
 			colorscheme = 'dracula',
+		},
+	},
+	{
+		'nvim-lualine/lualine.nvim',
+		opts = {
+			options = {
+				theme = 'dracula-nvim',
+			},
 		},
 	},
 	{
