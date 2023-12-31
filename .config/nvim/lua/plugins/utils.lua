@@ -29,6 +29,30 @@ return {
 			},
 		},
 	},
+	{
+		'Wansmer/treesj',
+		keys = {
+			{ 'gm', '<cmd>TSJToggle<cr>', desc = 'Toggle Block' },
+			{ 'gj', '<cmd>TSJJoin<cr>', desc = 'Join Block' },
+			{ 'gp', '<cmd>TSJSplit<cr>', desc = 'Split Block' },
+		},
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		opts = { use_default_keymap = false, max_join_length = 1000 },
+	},
+	{
+		'smjonas/inc-rename.nvim',
+		keys = {
+			{
+				'<leader>cr',
+				function()
+					return ':IncRename ' .. vim.fn.expand('<cword>')
+				end,
+				expr = true,
+				desc = 'Rename',
+			},
+		},
+		config = true,
+	},
 	-- { 'andrewradev/tagalong.vim', event = 'VeryLazy' },
 	-- { 'edluffy/hologram.nvim', opts = { auto_display = true }, event = 'VeryLazy' },
 	-- { 'itspriddle/vim-shellcheck', event = 'VeryLazy', },
