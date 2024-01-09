@@ -3,6 +3,18 @@ return {
 		'Mofiqul/dracula.nvim',
 		lazy = false,
 		priority = 1000,
+		opts = {
+			show_end_of_buffer = true,
+			transparent_bg = true,
+			italic_comment = true,
+			lualine_bg_color = '#44475a',
+			overrides = function(colors)
+				return {
+					Normal = { bg = colors.bg }, -- set NonText fg to white of theme
+					NotifyBackground = { bg = colors.bg }, -- set NonText fg to white of theme
+				}
+			end,
+		},
 	},
 	{
 		'LazyVim/LazyVim',

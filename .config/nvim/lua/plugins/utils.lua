@@ -9,6 +9,7 @@ return {
 	{ 'nacro90/numb.nvim', opts = {}, event = 'VeryLazy' },
 	{ 'max397574/better-escape.nvim', opts = {}, event = 'VeryLazy' },
 	{ 'windwp/nvim-ts-autotag', opts = {}, event = 'VeryLazy' },
+	{ 'zdharma-continuum/zinit-vim-syntax', event = 'VeryLazy' },
 	{
 		'rmagatti/goto-preview',
 		event = 'VeryLazy',
