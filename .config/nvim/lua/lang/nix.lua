@@ -10,16 +10,17 @@ return {
 		end,
 	},
 
-	-- setup lspconfig
-	{
-		'neovim/nvim-lspconfig',
-		opts = {
-			-- make sure mason installs the server
-			servers = {
-				nixd = {},
-			},
-		},
-	},
+  -- setup lspconfig
+  {
+    'neovim/nvim-lspconfig',
+    opts = {
+      -- make sure mason installs the server
+      servers = {
+        -- nixd = {},
+        rnix = {}
+      },
+    },
+  },
 
 	-- formatter support
 	{
