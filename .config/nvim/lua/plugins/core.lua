@@ -10,8 +10,11 @@ return {
 			lualine_bg_color = '#44475a',
 			overrides = function(colors)
 				return {
-					Normal = { bg = colors.bg }, -- set NonText fg to white of theme
-					NotifyBackground = { bg = colors.bg }, -- set NonText fg to white of theme
+					Normal = { bg = colors.bg },
+					NotifyBackground = { bg = colors.bg },
+					NeogitDiffAdd = { fg = colors.green, bg = '#003A00' },
+					NeogitDiffAddHighlight = { fg = colors.bright_green, bg = '#003A00' },
+					DiffviewDiffAdd = { fg = colors.green, bg = '#003A00' },
 				}
 			end,
 		},
@@ -37,6 +40,11 @@ return {
 				ignore_blank_line = true,
 			},
 		},
+	},
+	{
+		'folke/flash.nvim',
+		-- 'ggandor/flit.nvim',
+		enabled = false,
 	},
 	{
 		'HiPhish/rainbow-delimiters.nvim',

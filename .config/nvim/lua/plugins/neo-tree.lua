@@ -9,6 +9,9 @@ return {
 				hide_by_name = {
 					'.git',
 					'.github',
+          '.direnv',
+          '.devenv',
+          'devenv.lock',
 					'node_modules',
 					'dist',
 				},

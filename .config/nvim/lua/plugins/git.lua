@@ -13,6 +13,26 @@ return {
 		},
 	},
 	{
+		'NeogitOrg/neogit',
+		dependencies = {
+			'nvim-lua/plenary.nvim', -- required
+			'sindrets/diffview.nvim', -- optional - Diff integration
+			'nvim-telescope/telescope.nvim', -- optional
+		},
+		keys = {
+			{ '<leader>gg', '<cmd>Neogit kind=auto<cr>', desc = 'Open repo' },
+			{ '<leader>gc', '<cmd>Neogit commit kind=auto<cr>', desc = 'Open commit popup' },
+		},
+		config = true,
+	},
+	{
+		'sindrets/diffview.nvim',
+		keys = {
+			{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'View diff' },
+		},
+		config = true,
+	},
+	{
 		'f-person/git-blame.nvim',
 		event = 'VeryLazy',
 		init = function()

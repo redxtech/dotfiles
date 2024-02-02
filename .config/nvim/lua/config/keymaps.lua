@@ -21,6 +21,7 @@ map('n', '<C-w>', 'daw', { desc = 'Delete word' })
 map('n', '<leader>h', '<cmd>noh<cr>', { desc = 'Remove highlight' })
 map('n', '<leader>qQ', '<cmd>qa!<cr>', { desc = 'Force quit all' })
 map('n', '<leader>nr', '<cmd>set rnu!<cr>', { desc = 'Toggle relative line numbers' })
+map('n', '<leader><cr>', '<cmd>Telescope resume<cr>', { desc = 'Toggle relative line numbers' })
 
 -- save file
 map('n', '<leader>fs', '<cmd>w<cr>', { desc = 'Write file' })
