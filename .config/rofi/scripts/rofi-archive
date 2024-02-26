@@ -15,11 +15,54 @@ create_archive() {
 	if test -z "$2"; then
 		name="$1"
 		# includes formats that only work with one file
-		archive_formats=".xz\n.txz\n.gz\n.tgz\n.bz\n.tbz\n.bz2\n.tbz2\n.Z\n.tZ\n.lzo\n.tzo\n.lz\n.tlz\n.7z\n.t7z\n.tar\n.zip\n.jar\n.war\n.rar\n.a\n.arj\n.lzma\n.rz\n.lrz\n.cpio"
+		archive_formats=".xz
+.txz
+.gz
+.tgz
+.bz
+.tbz
+.bz2
+.tbz2
+.Z
+.tZ
+.lzo
+.tzo
+.lz
+.tlz
+.7z
+.t7z
+.tar
+.zip
+.jar
+.war
+.rar
+.a
+.arj
+.lzma
+.rz
+.lrz
+.cpio"
 	else
 		name="$(rofi -dmenu -l 0 -p 'Archive Name 󰄾')"
 		# only formats that can handle multiple files
-		archive_formats=".txz\n.tgz\n.tbz\n.tbz2\n.tZ\n.tzo\n.tlz\n.7z\n.t7z\n.tar\n.zip\n.jar\n.war\n.rar\n.lhz\n.a\n.arj\n.cpio"
+		archive_formats=".txz
+    .tgz
+    .tbz
+    .tbz2
+    .tZ
+    .tzo
+    .tlz
+    .7z
+    .t7z
+    .tar
+    .zip
+    .jar
+    .war
+    .rar
+    .lhz
+    .a
+    .arj
+    .cpio"
 	fi
 
 	# select from any of the filetypes atool can work with
