@@ -54,6 +54,16 @@ return {
 		},
 		config = true,
 	},
+	{
+		'mikesmithgh/kitty-scrollback.nvim',
+		enabled = true,
+		lazy = true,
+		cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+		event = { 'User KittyScrollbackLaunch' },
+		config = function()
+			require('kitty-scrollback').setup()
+		end,
+	},
 	-- { 'andrewradev/tagalong.vim', event = 'VeryLazy' },
 	-- { 'edluffy/hologram.nvim', opts = { auto_display = true }, event = 'VeryLazy' },
 	-- { 'itspriddle/vim-shellcheck', event = 'VeryLazy', },
