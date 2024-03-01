@@ -12,7 +12,7 @@ opt.smartindent = false
 opt.cindent = true
 
 -- neovide options
-vim.o.guifont = 'Dank Mono,Symbols Nerd Font:h11'
+vim.o.guifont = 'Dank Mono,Symbols Nerd Font:h14'
 g.neovide_transparency = 0.9
 
 if vim.g.neovide then
